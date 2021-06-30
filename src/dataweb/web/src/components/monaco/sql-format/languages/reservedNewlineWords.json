@@ -1,0 +1,17 @@
+[
+    "AND",
+    "CROSS APPLY",
+    "CROSS JOIN",
+    "ELSE",
+    "INNER JOIN",
+    "JOIN",
+    "LEFT JOIN",
+    "LEFT OUTER JOIN",
+    "OR",
+    "OUTER APPLY",
+    "OUTER JOIN",
+    "RIGHT JOIN",
+    "RIGHT OUTER JOIN",
+    "WHEN",
+    "XOR"
+]

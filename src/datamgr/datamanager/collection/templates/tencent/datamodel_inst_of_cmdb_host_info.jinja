@@ -1,0 +1,25 @@
+{
+    "model_id": {{ model_id }},
+    "project_id": {{ project_id }},
+    "bk_biz_id": {{ bk_biz_id }},
+    "input": {
+        "main_table": "{{ input_result_table_id }}",
+        "dimension_tables": []
+    },
+    "main_table": {
+        "table_name": "{{ table_name }}",
+        "storages": [
+            {
+                "cluster_type": "ignite",
+                "cluster_name": "{{ cluster_name }}",
+                "expires": 360,
+                "specific_params": {
+                    "indexed_fields": ["bk_host_id"],
+                    "max_records": 2000000,
+                    "storage_keys": ["bk_host_id"],
+                    "storage_type": "join"
+                }
+            }
+        ]
+    }
+}

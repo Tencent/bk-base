@@ -1,0 +1,42 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+*/target
+*/*/target
+**/target/*
+### application ###
+**/*.log
+support-files/dependJarLists/
+.pre-commit-config.yaml
+### exclued extend ###
+**/flink/streaming/extend
+.DS_Store
+.python-version
+.env
+env
+appenv
+htmlcov
+reports
+logs
+__pycache__
+.coverage
+extend
+dist
+*.egg-info

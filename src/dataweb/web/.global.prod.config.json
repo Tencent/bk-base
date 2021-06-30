@@ -1,0 +1,25 @@
+{
+    "BKBASE_Global": {
+        "webTitle": "{{WEB_TITLE}}",
+        "siteUrl": "{{SITE_URL}}",
+        "ccUrl": "{{BK_CC_HOST}}",
+        "supersetUrl": "{{SUPERSET_URL}}",
+        "grafanaUrl": "{{GRAFANA_URL}}",
+        "dataGraphUrl": "{{DATA_GRAPH_URL}}",
+        "dataAdminUrl": "{{DATA_ADMIN_URL}}",
+        "staticUrl": "{{STATIC_URL}}",
+        "dataVersion": "{{DATA_VERSION}}",
+        "runVersion": "{{RUN_VER}}",
+        "helpDocUrl": "{{HELP_DOC_URL}}",
+        "ceUrl": "{{CE_URL}}",
+        "loginUrl": "{{LOGIN_OA_URL}}",
+        "langServerProdWS": "{{LANG_SERVER_PROD_WS}}",
+        "langServerDevWS": "{{LANG_SERVER_DEV_WS}}",
+        "CESiteUrl": "{{CE_SITE_URL}}",
+        "modelFlowUrl": "{{MODELFLOW_URL}}",
+        "modelUrl": "{{MODEL_URL}}",
+        "tdwAccountUrl": "{{TDW_ACCOUNT_URL}}",
+        "TDWSiteUrl": "{{TDW_SITE_URL}}",
+        "TDBankSiteUrl": "{{TDBANK_SITE_URL}}"
+    }
+}

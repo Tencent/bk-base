@@ -1,0 +1,90 @@
+plans:
+  - task_code: datamanage_create_lifecycle
+    task_name: 生命周期写元数据
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.create_lifecycle
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '0 17 * * *'
+
+  - task_code: datamanage_create_heat_related_metric
+    task_name: 数据日查询量写kafka
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.create_heat_related_metric
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '30 18 * * *'
+
+  - task_code: datamanage_create_heat
+    task_name: 热度写元数据
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.create_heat
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '30 17 * * *'
+
+  - task_code: datamanage_create_range
+    task_name: 广度写元数据
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.create_range
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '0 16 * * *'
+
+  - task_code: datamanage_create_cost
+    task_name: 成本写元数据
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.create_cost
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '30 12 * * *'
+
+  - task_code: datamanage_create_asset_value
+    task_name: 价值写元数据
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.create_asset_value
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '30 15 * * *'
+
+  - task_code: datamanage_create_importance
+    task_name: 重要度写元数据
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.create_importance
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '8 12 * * *'
+
+  - task_code: datamanage_delete_extra_lifecycle_entity
+    task_name: 删除数据集不存在的生命周期实体
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.delete_extra_lifecycle_entity
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '0 10 * * *'
+
+  - task_code: datamanage_delete_extra_range_entity
+    task_name: 删除数据集不存在的广度实体
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.delete_extra_range_entity
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '3 11 * * *'
+
+  - task_code: datamanage_delete_extra_heat_entity
+    task_name: 删除数据集不存在的热度实体
+    task_category: lifecycle
+    task_loader: import
+    task_entry: lifecycle.tasks.delete_extra_heat_entity
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '50 10 * * *'

@@ -1,0 +1,188 @@
+#!/bin/bash
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+source $CTRL_DIR/utils.fc
+source $CTRL_DIR/control.rc
+source /root/.bkrc
+
+# storekit相关
+# cerely beat使用
+mkdir -p ${BK_HOME}/public/bkdata/datahubapi
+
+# 表初始化json文件路径
+common_path=$INSTALL_PATH/bkdata/datahubapi/init_tables
+init_clusters_file=$common_path/init_clusters.json
+init_scenarios_file=$common_path/init_scenarios.json
+
+# 表初始化请求storekit url
+domain=$BKDATA_DATAHUBAPI_HOST:$BKDATA_DATAHUBAPI_PORT
+common_url=http://$domain/v3/storekit
+init_cluster_config_api=$common_url/init/init_clusters/?file_name=$init_clusters_file
+init_scenario_config_api=$common_url/init/init_scenarios/?file_name=$init_scenarios_file
+
+export LOG_FILE=/tmp/storekit_init_tables.$(date +%Y%m%d%H%M%S).log
+cd $INSTALL_PATH/bkdata/datahubapi
+
+
+# 1 初始化表storage_cluster_config
+log "[storage_cluster_config] add cluster_config begin"
+
+tmp_file=$(mktemp /tmp/add_cluster_config.XXXX.$(date +%Y%m%d%H%M%S))
+curl -s -o $tmp_file --connect-timeout 60 \
+    -H 'Content-Type: application/json; charset=utf-8' \
+    -X GET $init_cluster_config_api
+if grep '"result": false' $tmp_file; then
+    log "$(< $tmp_file)"
+    fail "$(< $tmp_file)"
+else
+    ok "done"
+    rm -f $tmpfile
+fi
+
+log "[storage_cluster_config] add cluster_config end"
+
+
+# 2 初始化表storage_scenario_config
+log "[storage_cluster_scenario_config] add cluster_scenario_config begin"
+
+tmp_file=$(mktemp /tmp/add_cluster_scenario_config.XXXX.$(date +%Y%m%d%H%M%S))
+curl -s -o $tmp_file --connect-timeout 60 \
+    -H 'Content-Type: application/json; charset=utf-8' \
+    -X GET $init_scenario_config_api
+if grep '"result": false' $tmp_file; then
+    log "$(< $tmp_file)"
+    fail "$(< $tmp_file)"
+else
+    ok "done"
+    rm -f $tmpfile
+fi
+
+log "[storage_cluster_scenario_config] add cluster_scenario_config end"
+
+# access相关的
+old_path=$(cd ${BASH_SOURCE%/*} 2>/dev/null; pwd)
+. $CTRL_DIR/utils.fc
+cd $old_path
+
+export LOG_FILE=/tmp/bkdata.access.migrate.log
+
+#========= functions ========================
+function insert_access_raw_data() {
+  sql="insert into access_raw_data(id, bk_biz_id, raw_data_name, raw_data_alias, sensitivity, data_source, data_encoding, data_category, data_scenario, bk_app_code, storage_channel_id, created_by, updated_by, description, maintainer, storage_partitions, active)  values(2000, 2, 'blueking', '蓝鲸初始化', 'private', 'file', 'UTF-8', 'performance', 'file', 'dataweb', '-1', 'admin', 'admin', '蓝鲸初始化', 'admin', 1, 0);"
+  #echo ${sql}
+  mysql -h "${MYSQL_DATAHUB_IP0}" -P "${MYSQL_DATAHUB_PORT}" -u "${MYSQL_DATAHUB_USER}" --password="${MYSQL_DATAHUB_PASS}" -D bkdata_basic -e "$sql"
+  if [[ $? -ne 0 ]]; then
+    fail "init access raw data failed"
+  fi
+}
+
+
+# $1=ip $2=data_scenario $3=action $4=desc
+function insert_access_host() {
+  sql="insert into access_host_config(ip, source, operator, data_scenario, action, description, ext) values('$1', 0, 'admin', '$2', '$3', '$4', '$GEOG_AREA_CODE');"
+  #echo ${sql}
+  mysql -h "${MYSQL_DATAHUB_IP0}" -P "${MYSQL_DATAHUB_PORT}" -u "${MYSQL_DATAHUB_USER}" --password="${MYSQL_DATAHUB_PASS}" -D bkdata_basic -e "$sql"
+  if [[ $? -ne 0 ]]; then
+    fail "init access host failed"
+  fi
+}
+
+function update_access_host() {
+  sql="update access_host_config set source = 0 where data_scenario = '$1' ;"
+  #echo ${sql}
+  mysql -h "${MYSQL_DATAHUB_IP0}" -P "${MYSQL_DATAHUB_PORT}" -u "${MYSQL_DATAHUB_USER}" --password="${MYSQL_DATAHUB_PASS}" -D bkdata_basic -e "$sql"
+  if [[ $? -ne 0 ]]; then
+    fail "update access host failed"
+  fi
+}
+
+#===========================================
+
+log "init access db host"
+sql="select data_scenario from access_host_config where data_scenario='db';"
+n=`mysql -h "${MYSQL_DATAHUB_IP0}" -P "${MYSQL_DATAHUB_PORT}" -u "${MYSQL_DATAHUB_USER}" --password="${MYSQL_DATAHUB_PASS}" -D bkdata_basic -e "$sql" | grep -w "db" | wc -l`
+if (( n >= 1 )); then
+  # update
+  update_access_host 'db'
+  log "db host has already been initiated"
+else
+  # insert
+  for host in ${BKDATA_IP[0],}; do
+    insert_access_host $host 'db' 'deploy' 'db access host info'
+  done
+fi
+
+log "init access http host"
+sql="select data_scenario from access_host_config where data_scenario='http';"
+n=`mysql -h "${MYSQL_DATAHUB_IP0}" -P "${MYSQL_DATAHUB_PORT}" -u "${MYSQL_DATAHUB_USER}" --password="${MYSQL_DATAHUB_PASS}" -D bkdata_basic -e "$sql" | grep -w "http" | wc -l`
+if (( n >= 1 )); then
+  # ignore
+  update_access_host 'http'
+  log "http host has already been initiated"
+else
+  # insert
+  for host in ${BKDATA_IP[0],}; do
+    insert_access_host $host 'http' 'deploy' 'http access host info'
+  done
+fi
+
+log "init access log package host"
+sql="select data_scenario from access_host_config where data_scenario='log' and action='package';"
+n=`mysql -h "${MYSQL_DATAHUB_IP0}" -P "${MYSQL_DATAHUB_PORT}" -u "${MYSQL_DATAHUB_USER}" --password="${MYSQL_DATAHUB_PASS}" -D bkdata_basic -e "$sql" | grep -w "log" | wc -l`
+if (( n >= 1 )); then
+  # ignore
+  update_access_host 'log'
+  log "log host has already been initiated"
+else
+  # insert
+  for host in ${BKDATA_IP[0],}; do
+    insert_access_host $host 'log' 'package' 'log package host info'
+  done
+fi
+
+log "init access raw data"
+sql="select raw_data_name from access_raw_data where id = 2000;"
+n=`mysql -h "${MYSQL_DATAHUB_IP0}" -P "${MYSQL_DATAHUB_PORT}" -u "${MYSQL_DATAHUB_USER}" --password="${MYSQL_DATAHUB_PASS}" -D bkdata_basic -e "$sql" | grep -w "blueking" | wc -l`
+if (( n >= 1 )); then
+  # ignore
+  log "log raw data has already been initiated"
+else
+  # insert
+  insert_access_raw_data
+fi
+
+log "init done"
+
+log "init celery beat dir"
+# celery beat dir
+mkdir -p ${BK_HOME}/public/bkdata/accessapi
+
+# databus相关的
+
+chenv bkdata datahubapi || fail "active virtualenv (databusapi) failed."
+
+log "resume shipper transferr"
+python manage.py shell -c 'from datahub.databus.script.restore.relation import resume_shipper_transferr;resume_shipper_transferr()'
+
+log "resume datanode status"
+python manage.py shell -c 'from datahub.databus.script.restore.relation import resume_datanode_status;resume_datanode_status()'

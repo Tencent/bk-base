@@ -1,0 +1,27 @@
+plans:
+  - task_code: audit_update_token_status_batch
+    task_name: 批量更新授权码状态
+    task_category: audit
+    task_loader: import
+    task_entry: audit.tasks.update_token_status_batch
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '10 */1 * * *'
+
+  - task_code: audit_check_data_token
+    task_name: 检查授权码并发邮件
+    task_category: audit
+    task_loader: import
+    task_entry: audit.tasks.check_data_token
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '0 8 * * *'
+
+  - task_code: audit_manage_roles
+    task_name: 审计管理角色
+    task_category: audit
+    task_loader: import
+    task_entry: entry.audit_manage_role
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '32 10 * * 1,3,5'

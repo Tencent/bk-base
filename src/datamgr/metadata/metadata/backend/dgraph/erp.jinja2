@@ -1,0 +1,22 @@
+
+{%macro extra_retrieve(retrieve_args) %}
+    {% for key,value in retrieve_args.items() recursive %}
+    {%if loop.first  %}
+        {
+    {% endif%}
+        {{ key }}
+        {% if is_dict(value)  %}
+            {{ loop(value.items()) }}
+        {%  endif  %}
+    {%if loop.last  %}
+        }
+    {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% for (md_type,identifier,identifier_values_str),value in retrieve_args_lst.items() %}
+{
+    {{ md_type }}(func: eq({{ md_type }}.{{ identifier }},{{ identifier_values_str }}))
+    {{ extra_retrieve(value) }}
+}
+{% endfor %}

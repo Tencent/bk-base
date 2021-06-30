@@ -1,0 +1,19 @@
+umask 022
+export HASTTY=1
+export LC_ALL=en_US.UTF-8
+export BK_HOME=/data/bkee
+export CONF_HOME=/data/bkee/etc
+export CERT_PATH=/data/bkee/cert
+export DATA_HOME=/data/bkee/public
+export JAVA_HOME=/data/bkee/service/java
+export PKG_SRC_PATH=/data/src
+export INSTALL_PATH=/data/bkee
+export CTRL_DIR=/data/install
+export OBJC_INCLUDE_PATH=/opt/py27/include:$INSTALL_PATH/service/mysql/include:$OBJC_INCLUDE_PATH
+export LD_LIBRARY_PATH=/opt/py27/lib:$INSTALL_PATH/service/mysql/lib:$LD_LIBRARY_PATH
+export PATH=$PKG_SRC_PATH/service/mysql/bin:/data/bkee/paas_agent/paas_agent/bin:$JAVA_HOME/bin:/usr/local/bin:/usr/local/sbin:/opt/py27/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export WORKON_HOME=/data/bkee/.envs
+source $CTRL_DIR/utils.fc
+ulimit -n 102400
+read CTRL_IP ignore <$CTRL_DIR/.controller_ip
+export CTRL_IP

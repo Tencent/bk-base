@@ -1,0 +1,196 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+spring:
+  #aop配置
+  aop:
+    auto: true
+    proxy-target-class: true
+  #国际化配置
+  messages:
+    basename: i18n/message
+  #配置库信息
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://__MYSQL_DATALAB_IP0__:__MYSQL_DATALAB_PORT__/bkdata_lab?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: __MYSQL_DATALAB_USER__
+    password: __MYSQL_DATALAB_PASS__
+    # Hikari 连接池配置
+    # 最小空闲连接数量
+    hikari:
+      minimum-idle: 20
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      # 连接池最大连接数，默认是10
+      maximum-pool-size: 100
+      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      # 连接池名称
+      pool-name: MyHikariCP
+      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 5000
+      connection-test-query: SELECT 1
+  mvc:
+    async:
+      request-timeout: -1
+
+#mybatis配置
+mybatis:
+  #实体类所在包
+  type-aliases-package: com.tencent.bk.base.datalab.queryengine.server.model
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+#日志配置
+logging:
+  config: classpath:logback.xml
+  level:
+    com:
+      tencent:
+        bk:
+          base:
+            datalab:
+              queryengine:
+                server:
+                  mapper: INFO
+
+#第三方接口URL
+#meta获取rt关联的fields接口
+#auth获取权限校验相关接口
+third-api:
+  dataflow:
+    batch:
+      createOneTimeSqlUrl: http://__BKDATA_DATAFLOWAPI_HOST__:__BKDATA_DATAFLOWAPI_PORT__/v3/dataflow/batch/custom_jobs/
+      getOneTimeQueryStateUrl: http://__BKDATA_DATAFLOWAPI_HOST__:__BKDATA_DATAFLOWAPI_PORT__/v3/dataflow/batch/custom_jobs/{0}/
+      deleteJobConfigUrl: http://__BKDATA_DATAFLOWAPI_HOST__:__BKDATA_DATAFLOWAPI_PORT__/v3/dataflow/batch/custom_jobs/{0}/
+  pizza:
+    meta:
+      tagsUrlPattern: http://__BKDATA_METAAPI_HOST__:__BKDATA_METAAPI_PORT__/v3/meta/result_tables/{0}/geog_area/
+      filedsUrlPattern: 'http://__BKDATA_METAAPI_HOST__:__BKDATA_METAAPI_PORT__/v3/meta/result_tables/{0}/?erp={"~ResultTableField.result_table":{"field_name":"true","field_alias":"true","field_type":"true","field_index":"true","?:paging":{"limit":1500}},"result_table_name": "true","bk_biz_id": "true","project_id": "true","processing_type": "true"}&result_format=classic'
+      storagesUrlPattern: 'http://__BKDATA_METAAPI_HOST__:__BKDATA_METAAPI_PORT__/v3/meta/result_tables/{0}/?erp={"~StorageResultTable.result_table":{"data_type":"true","previous_cluster_name":"true","physical_table_name":"true","active":"true","storage_cluster_config_id": "true","storage_cluster":{"cluster_name":"true","cluster_type": "true","connection_info":"true","expires":"true","version":"true"},"storage_channel":{"cluster_type":"true"}}}&result_format=classic'
+      storageUrlPattern: http://__BKDATA_DATAHUBAPI_HOST__:__BKDATA_DATAHUBAPI_PORT__/v3/storekit/clusters/{0}/{1}/
+      tdwTableMetaUrl: http://__BKDATA_METAAPI_HOST__:__BKDATA_METAAPI_PORT__/v3/meta/result_tables/{0}/?extra=True
+    auth:
+      tokenCheckUrl: http://__BKDATA_AUTHAPI_HOST__:__BKDATA_AUTHAPI_PORT__/v3/auth/tokens/check/
+      userCheckUrl: http://__BKDATA_AUTHAPI_HOST__:__BKDATA_AUTHAPI_PORT__/v3/auth/users/{0}/check/
+      exchangeDefaultTokenUrl: http://__BKDATA_AUTHAPI_HOST__:__BKDATA_AUTHAPI_PORT__/v3/auth/tokens/exchange_default_data_token/
+      tdwAuthUrl: http://__BKDATA_AUTHAPI_HOST__:__BKDATA_AUTHAPI_PORT__/v3/auth/tdw/user/?bk_username={0}&bkdata_authentication_method=inner
+    datalab:
+      addResultTableUrl: http://__BKDATA_DATALABAPI_HOST__:__BKDATA_DATALABAPI_PORT__/v3/datalab/notebooks/{0}/cells/{1}/result_tables/
+      dataExproreUrl: __BKDATA_DATAWEB_SAAS_FQDN__/#/datalab?type=personal
+      showOutputsUrl: http://__BKDATA_DATALABAPI_HOST__:__BKDATA_DATALABAPI_PORT__/v3/datalab/notebooks/{0}/outputs/
+      showOutputDetailUrl: http://__BKDATA_DATALABAPI_HOST__:__BKDATA_DATALABAPI_PORT__/v3/datalab/notebooks/{0}/outputs/{1}/?output_type=result_table
+      defaultNoteBookId: __BKDATA_QUERYENGINE_DEFAULT_NOTEBOOKID__
+      defaultCellId: __BKDATA_QUERYENGINE_DEFAULT_CELLID__
+    storekit:
+      storageUrlPattern: http://__BKDATA_DATAHUBAPI_HOST__:__BKDATA_DATAHUBAPI_PORT__/v3/storekit/clusters/{0}/{1}/
+      fetchPhysicalTableNameUrl: http://__BKDATA_DATAHUBAPI_HOST__:__BKDATA_DATAHUBAPI_PORT__/v3/storekit/result_tables/{0}/generate_physical_table_name/?processing_type=queryset
+      esClusterInfoUrl: http://__BKDATA_DATAHUBAPI_HOST__:__BKDATA_DATAHUBAPI_PORT__/v3/storekit/clusters/es/{0}/
+      fetchTableStatUrl: http://__BKDATA_DATAHUBAPI_HOST__:__BKDATA_DATAHUBAPI_PORT__/v3/storekit/stat/result_tables/{0}/?limit=1&start_date={1}
+      fetchOnMigrateResultTablesUrl: http://__BKDATA_DATAHUBAPI_HOST__:__BKDATA_DATAHUBAPI_PORT__/v3/databus/admin/json_conf_value/?conf_key=iceberg.transform.rts
+      fetchHdfsConfUrl: http://__BKDATA_DATAHUBAPI_HOST__:__BKDATA_DATAHUBAPI_PORT__/v3/storekit/hdfs/{0}/hdfs_conf/
+  idex:
+    getClustersUrl: __BKDATA_QUERYENGINE_IDEX_GET_CLUSTERS_URL__
+    submitTaskUrl: __BKDATA_QUERYENGINE_IDEX_SUBMIT_TASK_URL__
+
+presto-config:
+  clusterMap:
+    INLAND:
+      default:
+        host: __BKDATA_PRESTO_INLAND_HOST__
+        port: __BKDATA_PRESTO_INLAND_PORT__
+        username: root
+        password:
+        ssl: false
+
+server:
+  port: __BKDATA_QUERYENGINE_PORT__
+  servlet:
+    context-path: /v3
+  tomcat:
+    basedir: ${QUERYENGINE_HOME}
+    accesslog:
+      enabled: true
+      prefix: access_log
+      suffix: .log
+      file-date-format: .yyyy-MM-dd
+      pattern: "%t [%I] %{X-Forwarded-For}i %l %u %r %s %b %D"
+      directory: logs/
+
+resilience4j.ratelimiter:
+  instances:
+    global:
+      limitForPeriod: 1000
+      limitRefreshPeriod: 1s
+      timeoutDuration: 5s
+      registerHealthIndicator: true
+      eventConsumerBufferSize: 100
+
+querytask-pool-config:
+  corePoolSize: 48
+  maxPoolSize: 96
+  keepAliveTime: 5
+  taskQueueSize: 1000
+  receiveQueueSize: 1000
+  offerTimeOut: 500
+  pullTimeOut: 500
+
+batchjob-pool-config:
+  corePoolSize: 48
+  maxPoolSize: 96
+  keepAliveTime: 5
+  taskQueueSize: 1000
+  receiveQueueSize: 1000
+  offerTimeOut: 500
+  pullTimeOut: 500
+
+idexjob-pool-config:
+  corePoolSize: 48
+  maxPoolSize: 96
+  keepAliveTime: 5
+  taskQueueSize: 1000
+  receiveQueueSize: 1000
+  offerTimeOut: 500
+  pullTimeOut: 500
+
+tdw-auth-config:
+  securityUrl: __BKDATA_QUERYENGINE_TDWAUTH_URL__
+  proxyUser: __BKDATA_QUERYENGINE_TDWAUTH_PROXY_USER__
+  proxyCmk: __BKDATA_QUERYENGINE_TDWAUTH_PROXY_CMK__
+
+application-config:
+  #最大返回结果集大小(单位MB)
+  maxQuerySize: 500
+  checkBatchSize: 100_000
+  mppMaxRowSize: 100_000_000
+  bkDataInstanceKey: __CRYPT_INSTANCE_KEY__
+  bkDataRootKey: __BKDATA_ROOT_KEY__
+  bkDataRootIv: __BKDATA_ROOT_IV__
+  bkDataInnerAppCode: __APP_CODE__
+  bkDataInnerAppSecret: __APP_TOKEN__
+
+
+download-blacklist-config:
+  #数据下载禁用的业务列表
+  bkBizIdListStr: __BKDATA_QUERYENGINE_DOWNLOAD_BIZID_BLACKLIST__

@@ -1,0 +1,179 @@
+# vim:ft=sh
+
+source ./utils.fc
+source ./deliver.rc
+source ./render.rc
+source ./initdata.rc
+source ./crontab.rc
+source ./install.rc
+
+load_functions upgrade third
+load_functions upgrade extra
+
+common_upgrade_steps () {
+    local module=$1
+    local project=$2
+
+    local module_home=$INSTALL_PATH/$module/$project
+    [ ! -d $module_home ] && return 0
+
+    _rsync -a ${rsync_opt:---delete} \
+        --exclude support-files \
+        --exclude media $PKG_SRC_PATH/$module/$project $INSTALL_PATH/$module
+
+    _rsync -a $PKG_SRC_PATH/$module/VERSION $INSTALL_PATH/$module/
+
+    source <(/opt/py27/bin/python $CTRL_DIR/qq.py $PKG_SRC_PATH/$module/projects.yaml)
+    project_dir=${_project_dir["$module,$project"]}
+    interpreter=${_language["$module,$project"]}
+
+    light "$module $project $interpreter $project_dir"
+    if [ "${interpreter//python}" != "$interpreter" ]; then
+        workon $(get_venv_name $module $project)
+        _install_pypkgs $module $project
+    fi
+
+    export APP_CODE=bk_$module
+    export APP_TOKEN=$(_app_token $APP_CODE)
+
+    render_$module $project
+
+    loadcron $module $project
+}
+
+pre_upgrade () {
+    local module=$1
+    local proj=$2
+
+    if type pre_upgrade_$module >/dev/null 2>&1; then
+        pre_upgrade_$module
+    fi
+}
+
+post_upgrade () {
+    local module=$1
+    local proj=$2
+
+    if type post_upgrade_$module >/dev/null 2>&1; then
+        post_upgrade_$module
+    fi
+}
+
+pre_upgrade_paas () {
+    # 先备份原有的用户自定义目录下的代码.
+
+    if rcmd root@$PAAS_IP0 "ls -ld $INSTALL_PATH/open_paas/esb/components/generic/apis >/dev/null 2>&1"; then
+        _rsync -a root@$PAAS_IP0:$INSTALL_PATH/open_paas/esb/components/generic/apis/ \
+            $PKG_SRC_PATH/open_paas/esb/components/generic/apis/
+    fi
+
+    if rcmd root@$PAAS_IP0 "ls -ld $INSTALL_PATH/open_paas/login/ee_login >/dev/null 2>&1"; then
+        _rsync -a root@$PAAS_IP0:$INSTALL_PATH/open_paas/login/ee_login/ \
+            $PKG_SRC_PATH/open_paas/login/ee_login/
+    fi
+}
+
+post_upgrade_paas () {
+    for ip in ${PAAS_IP[@]}; do
+        rsync -a $PKG_SRC_PATH/open_paas/paas/media/ $ip:$INSTALL_PATH/open_paas/paas/media/
+    done
+}
+
+post_upgrade_gse () { upload_gse_package_to_miniweb; }
+
+upgrade () {
+    local module=$1
+    local project=$2
+
+    check_name upgrade $module
+    pre_upgrade $module
+
+    local WORKDIR=$(pwd)
+    deliver $module $project
+    
+    TARGET_IPS=( $(map_name2ip $module $project) )
+
+    for ip in ${TARGET_IPS[@]}; do
+        rcmd root@$ip "source $CTRL_DIR/upgrade.rc; upgrade_${module} $project"
+    done
+
+    post_upgrade $module 
+
+    [ "$module" != "gse_agent" ] && initdata $module $project
+    update_common_info
+}
+
+update_common_info () {
+    step "upgrade version info"
+    source $CTRL_DIR/create_ops.rc
+    log "create database bksuite_common if not exists"
+    create_db
+    log "update version info to db"
+    init_version_data
+}
+
+upgrade_paas () {
+    _upgrade_open_paas $@
+}
+
+_upgrade_open_paas () {
+    local module=open_paas
+
+    # 先备份原有的用户自定义目录下的代码.
+    #_rsync -a $INSTALL_PATH/$module/esb/components/generic/apis/ \
+    #    $PKG_SRC_PATH/$module/esb/components/generic/apis/
+
+    local p
+    for p in $(get_all_projects $module); do
+        common_upgrade_steps $module $p
+    done
+}
+
+
+
+upgrade_appt () {
+    _rsync -a $INSTALL_PATH/etc/paas_agent_config.yaml /tmp/
+    _upgrade_paas_agent
+}
+
+upgrade_appo () {
+    _rsync -a $INSTALL_PATH/etc/paas_agent_config.yaml /tmp/
+    _upgrade_paas_agent
+}
+
+_upgrade_paas_agent () {
+    rsync_opt="-r"
+
+    export SID="$(grep -oP '(?<=sid": ")[^"]+' /tmp/paas_agent_config.yaml)"
+    export TOKEN="$(grep -oP '(?<=token": ")[^"]+' /tmp/paas_agent_config.yaml)"
+
+    common_upgrade_steps paas_agent
+}
+
+
+
+upgrade_bkdata () {
+    local module=bkdata
+    local project=$1
+    local projects_yaml=$PKG_SRC_PATH/bkdata/projects.yaml
+    local projects proj
+
+    projects=( $(selected_projects $module $project) )
+    for proj in ${projects[@]}; do
+        common_upgrade_steps $module $proj
+    done
+}
+
+upgrade_paas_plugins () {
+    :
+}
+
+upgrade_license () {
+    install_license
+}
+
+
+
+upgrade_usermgr () {
+    common_upgrade_steps usermgr api
+}

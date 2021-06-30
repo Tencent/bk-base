@@ -1,0 +1,617 @@
+{
+    "@timestamp": "2017-10-22T23:09:49.302Z",
+    "beat": {
+        "address": [
+            "xx.xx.xx.xx.xxx"
+        ],
+        "hostname": "host_name",
+        "name": "host_name",
+        "version": "Vxx.xx.xx.xx"
+    },
+    "bizid": 0,
+    "cloudid": 0,
+    "dataid": 3004,
+    "gseindex": 40557,
+    "ip": "xx.xx.xx.xx.xxx",
+    "metricset": {
+        "module": "tomcat",
+        "name": "jmx",
+        "rtt": 11586
+    },
+    "tomcat": {
+        "jmx": {
+            "urls": [
+                {
+                    "beans": {
+                        "Catalina:j2eeType=Servlet,*": [
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/manager",
+                                    "name": "Status"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "stock"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/",
+                                    "name": "default"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "simpleimagepush"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "RequestHeaderExample"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "SessionExample"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "RequestParamExample"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "CompressionFilterTestServlet"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "ServletToJsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 7,
+                                    "requestCount": 5
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/manager",
+                                    "name": "JMXProxy"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/manager",
+                                    "name": "HTMLManager"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "jsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "async3"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "CookieExample"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "async2"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "async1"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/host-manager",
+                                    "name": "default"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "async0"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/docs",
+                                    "name": "jsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "default"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/host-manager",
+                                    "name": "HTMLHostManager"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/host-manager",
+                                    "name": "HostManager"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "bytecounter"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "numberwriter"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/manager",
+                                    "name": "jsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/docs",
+                                    "name": "default"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "RequestInfoExample"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/",
+                                    "name": "jsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "HelloWorldExample"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/host-manager",
+                                    "name": "jsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/manager",
+                                    "name": "Manager"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "errorCount": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:j2eeType": "Servlet",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/manager",
+                                    "name": "default"
+                                }
+                            }
+                        ],
+                        "Catalina:type=GlobalRequestProcessor,*": [
+                            {
+                                "attrs": {
+                                    "bytesReceived": 0,
+                                    "bytesSent": 0,
+                                    "errorCount": 0,
+                                    "maxTime": 0,
+                                    "processingTime": 0,
+                                    "requestCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "GlobalRequestProcessor",
+                                    "name": "\"ajp-nio-8009\""
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "bytesReceived": 0,
+                                    "bytesSent": 23888,
+                                    "errorCount": 0,
+                                    "maxTime": 731,
+                                    "processingTime": 9,
+                                    "requestCount": 5
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "GlobalRequestProcessor",
+                                    "name": "\"http-nio-xx.xx.xx.xx-8080\""
+                                }
+                            }
+                        ],
+                        "Catalina:type=JspMonitor,*": [
+                            {
+                                "attrs": {
+                                    "jspCount": 0,
+                                    "jspReloadCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "JspMonitor",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/manager",
+                                    "name": "jsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "jspCount": 0,
+                                    "jspReloadCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "JspMonitor",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/docs",
+                                    "name": "jsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "jspCount": 0,
+                                    "jspReloadCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "JspMonitor",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/examples",
+                                    "name": "jsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "jspCount": 0,
+                                    "jspReloadCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "JspMonitor",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/",
+                                    "name": "jsp"
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "jspCount": 0,
+                                    "jspReloadCount": 0
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "JspMonitor",
+                                    "J2EEApplication": "none",
+                                    "J2EEServer": "none",
+                                    "WebModule": "//localhost/host-manager",
+                                    "name": "jsp"
+                                }
+                            }
+                        ],
+                        "Catalina:type=StringCache": [
+                            {
+                                "attrs": {
+                                    "accessCount": 25,
+                                    "hitCount": 25
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "StringCache"
+                                }
+                            }
+                        ],
+                        "Catalina:type=ThreadPool,*": [
+                            {
+                                "attrs": {
+                                    "currentThreadCount": 10,
+                                    "currentThreadsBusy": 1,
+                                    "keepAliveCount": 1,
+                                    "maxThreads": 200
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "ThreadPool",
+                                    "name": "\"http-nio-xx.xx.xx.xx-8080\""
+                                }
+                            },
+                            {
+                                "attrs": {
+                                    "currentThreadCount": 10,
+                                    "currentThreadsBusy": 0,
+                                    "keepAliveCount": 0,
+                                    "maxThreads": 200
+                                },
+                                "nameattrs": {
+                                    "Catalina:type": "ThreadPool",
+                                    "name": "\"ajp-nio-8009\""
+                                }
+                            }
+                        ]
+                    },
+                    "url": "http://tomcat:tomcat@xx.xx.xx.xx:8080/manager/jmxproxy/?qry=Catalina%3Aj2eeType%3DServlet%2C%2A"
+                }
+            ]
+        }
+    },
+    "type": "metricsets"
+}

@@ -1,0 +1,114 @@
+# vim:ft=sh sts=4 ts=4
+source $CTRL_DIR/utils.fc
+
+update () {
+    local m=$1
+
+    check_name update $m
+    update_$m
+}
+
+update_cert () {
+    local module=${1:-ALL}
+    local ip
+
+    step "check if password of certificates is correct"
+    source $PKG_SRC_PATH/$(< $PKG_SRC_PATH/ENTERPRISE).env
+
+    local gse_pass2=$(awk '$1 == "gse_job_api_client.p12"{print $NF}' $PKG_SRC_PATH/cert/passwd.txt)
+    local job_pass2=$(awk '$1 == "job_server.p12"{print $NF}' $PKG_SRC_PATH/cert/passwd.txt)
+
+    [ "$gse_pass2" != "$GSE_KEYTOOL_PASS" ] && fail "GSE_KEYTOOL_PASS not match passwd.txt"
+    [ "$job_pass2" != "$JOB_KEYTOOL_PASS" ] && fail "JOB_KEYTOOL_PASS not match passwd.txt"
+
+    step "rsynchronize certificate files."
+    for ip in ${ALL_IP[@]}; do
+        _rsync -a $PKG_SRC_PATH/cert/ root@$ip:$PKG_SRC_PATH/cert/
+        _rsync -a $PKG_SRC_PATH/cert/ root@$ip:$INSTALL_PATH/cert/
+    done
+
+    step "re-generate key files for Job"
+    for ip in ${JOB_IP[@]}; do
+        rcmd root@$ip "source $CTRL_DIR/install.rc; gen_job_cert"
+    done
+
+    step "restart license"
+    $CTRL_DIR/bkeec stop license
+    $CTRL_DIR/bkeec start license
+
+    step "restart job"
+    $CTRL_DIR/bkeec stop job
+    $CTRL_DIR/bkeec start job
+}
+
+update_consul () {
+    local ip
+
+    cd $CTRL_DIR
+    step "update consul configurations"
+    for ip in ${ALL_IP[@]}; do
+        rcmd root@$ip "export ENCRYPT_KEY=$(_app_token consul);
+        rm -f $INSTALL_PATH/etc/consul.d/*.json;
+        ./pxs -c install.config -o -e -s -p $INSTALL_PATH -a $ip;
+        source ./control.rc; reload_consul"
+    done
+}
+
+update_rcfile () {
+    local ip
+
+    cd $CTRL_DIR
+    step "update \$HOME/.bkrc file"
+    for ip in ${ALL_IP[@]}; do
+        rcmd root@$ip "gen_module_env"
+    done
+}
+
+update_hosts () {
+    local ip
+
+    step "update /etc/hosts"
+    for ip in ${ALL_IP[@]}; do
+        rcmd root@$ip "add_hosts"
+    done
+}
+
+update_hosts_bcs () {
+    step "update /etc/hosts for bcs"
+    for ip in ${ALL_IP[@]}; do
+        rcmd root@$ip "source $CTRL_DIR/utils.fc; add_hosts_bcs"
+    done
+}
+
+update_hosts_paas () {
+    local ip
+
+    step "update /etc/hosts for bkce"
+    for ip in ${ALL_IP[@]}; do
+        rcmd root@$ip "add_hosts_paas"
+    done
+}
+
+update_hosts_ci () {
+    local ip
+
+    step "update /etc/hosts for ci"
+    for ip in ${ALL_IP[@]}; do
+        rcmd root@$ip "add_hosts_ci"
+    done
+}
+
+update_hostname () {
+    local ip
+
+    step "set hostname for all hosts"
+    for ip in ${ALL_IP[@]}; do
+        rcmd root@$ip "set_hostname"
+    done
+}
+
+update_appo_script () {
+    for ip in ${APPO_IP[@]} ${APPT_IP[@]}; do
+        _rsync appmgr/ root@$ip:$INSTALL_PATH/paas_agent/paas_agent/etc/build/
+    done
+}

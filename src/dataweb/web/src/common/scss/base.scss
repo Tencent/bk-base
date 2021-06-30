@@ -1,0 +1,521 @@
+/*!
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+ */
+
+@import './conf.scss';
+
+/**
+ * 公共标签样式
+ */
+.label-success {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: $successColor;
+  color: #fff;
+}
+
+.label-info {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: $infoColor;
+  color: #fff;
+}
+
+.label-primary {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: $primaryColor;
+  color: #fff;
+}
+
+.label-warning {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: $warningColor;
+  color: #fff;
+}
+
+.label-danger {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: $dangerColor;
+  color: #fff;
+}
+
+.label-bright {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: #fff;
+}
+
+/**
+ * 公共表格样式
+ */
+.bkdata-table-bordered {
+  width: 100%;
+  border-top: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    text-align: center;
+  }
+}
+
+// .bk-form-input,
+// .bk-form-password,
+// .bk-form-select,
+// .bk-form-textarea {
+//   height: 30px!important;
+// }
+
+.bk-message {
+  z-index: 9999;
+}
+
+.icon-button {
+  text-align: center;
+}
+
+/*$fontPath: './magicbox/bk-magicbox-ui/fonts' !default;
+$imagePath: './magicbox/bk-magicbox-ui/images' !default;*/
+/*===================================================*\
+ * bk-mark
+\*===================================================*/
+.bk-mark-show {
+  width: 160px;
+  height: 75px;
+  border: 1px solid #c3cdd7;
+  border-radius: 2px;
+  position: relative;
+  margin-right: 20px;
+  display: inline-block;
+}
+.bk-mark {
+  font-size: 12px;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  left: -1px;
+  padding: 4px 8px;
+  background: #c3cdd7;
+  border-radius: 0 2px 2px 0;
+  -o-border-radius: 0 2px 2px 0;
+  -ms-border-radius: 0 2px 2px 0;
+  -webkit-border-radius: 0 2px 2px 0;
+  -moz-border-radius: 0 2px 2px 0;
+}
+.bk-mark.bk-success {
+  background: #30d878;
+}
+.bk-mark.bk-warning {
+  background: #ffb400;
+}
+.bk-mark.bk-danger {
+  background: #ff5656;
+}
+.bk-mark.bk-primary {
+  background: #666bb4;
+}
+.bk-mark-corner {
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  border-radius: 0px 2px 0 0;
+  -o-border-radius: 0px 2px 0 0;
+  -ms-border-radius: 0px 2px 0 0;
+  -webkit-border-radius: 0px 2px 0 0;
+  -moz-border-radius: 0px 2px 0 0;
+  font-size: 12px;
+  color: #fff;
+}
+.bk-mark-corner:before {
+  content: '';
+  width: 0px;
+  height: 0;
+  border: 23px solid;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-color: #c3cdd7 #c3cdd7 transparent transparent;
+}
+.bk-mark-corner p {
+  margin: 0;
+  transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  position: absolute;
+  right: -6px;
+  top: 7px;
+  width: 40px;
+  text-align: center;
+  height: 16px;
+  overflow: hidden;
+}
+.bk-mark-corner.bk-mark-left {
+  left: -2px;
+  border-radius: 2px 0 0 0;
+  -o-border-radius: 2px 0 0 0;
+  -ms-border-radius: 2px 0 0 0;
+  -webkit-border-radius: 2px 0 0 0;
+  -moz-border-radius: 2px 0 0 0;
+}
+.bk-mark-corner.bk-mark-left:before {
+  border-color: #c3cdd7 transparent transparent #c3cdd7;
+}
+.bk-mark-corner.bk-mark-left p {
+  left: -6px;
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+}
+.bk-mark-corner.bk-mark-left.bk-success:before {
+  border-color: #30d878 transparent transparent #30d878;
+}
+.bk-mark-corner.bk-mark-left.bk-warning:before {
+  border-color: #ffb400 transparent transparent #ffb400;
+}
+.bk-mark-corner.bk-mark-left.bk-danger:before {
+  border-color: #ff5656 transparent transparent #ff5656;
+}
+.bk-mark-corner.bk-mark-left.bk-primary:before {
+  border-color: #666bb4 transparent transparent #666bb4;
+}
+.bk-mark-corner.bk-success:before {
+  border-color: #30d878 #30d878 transparent transparent;
+}
+.bk-mark-corner.bk-warning:before {
+  border-color: #ffb400 #ffb400 transparent transparent;
+}
+.bk-mark-corner.bk-danger:before {
+  border-color: #ff5656 #ff5656 transparent transparent;
+}
+.bk-mark-corner.bk-primary:before {
+  border-color: #666bb4 #666bb4 transparent transparent;
+}
+
+.bkdata-combobox-input {
+  height: 32px;
+}
+
+.bk-form-checkbox,
+.bk-form-radio {
+  margin-right: 30px;
+}
+
+.bk-form-content {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+}
+.bk-dialog-wrapper {
+  &.zIndex2501 {
+    z-index: 2501;
+  }
+  .bk-info-box {
+    .bk-dialog-type-sub-header {
+      .header {
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+        font-size: 14px;
+        color: #313238;
+        line-height: 1.5;
+        margin: 0;
+        white-space: inherit !important;
+      }
+    }
+  }
+}
+// 数据查询里错误详情的tooltips样式
+.error-tooltips-detail {
+  min-width: 100px;
+  max-width: 900px;
+  max-height: 300px;
+  font-size: 14px !important;
+}
+
+/*===================================================*\
+ * bk-tag
+\*===================================================*/
+.bk-tag {
+  display: inline-block;
+  background-color: #fafafa;
+  color: #c3cdd7;
+  font-size: 12px;
+  border: 1px solid #c3cdd7;
+  vertical-align: middle;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 2px;
+  white-space: nowrap;
+  padding: 0 9px;
+  height: 21px;
+  line-height: 19px;
+}
+.bk-tag.is-round {
+  border-radius: 21px;
+  padding: 0 14px;
+}
+.bk-tag.is-text {
+  border-color: #fff;
+  background-color: #fff;
+}
+.bk-tag.is-fill {
+  background-color: #c3cdd7;
+  color: #fff;
+}
+.bk-tag.bk-gray {
+  background-color: #fafbfd;
+  border-color: #ebf0f5;
+  color: #c3cdd7;
+}
+.bk-tag.bk-gray.is-fill {
+  background-color: #ebf0f5;
+  color: #c3cdd7;
+}
+.bk-tag.bk-gray.is-text {
+  border-color: #fff;
+  background-color: #fff;
+  color: #c3cdd7;
+}
+.bk-tag.bk-light-gray {
+  background-color: #e7edf2;
+  border-color: #737987;
+  color: #c3cdd7;
+}
+.bk-tag.bk-light-gray.is-fill {
+  background-color: #737987;
+  color: #fff;
+}
+.bk-tag.bk-light-gray.is-text {
+  border-color: #fff;
+  background-color: #fff;
+  color: #c3cdd7;
+}
+.bk-tag.bk-info {
+  background-color: #6eb5fe;
+  border-color: #88c3ff;
+  color: #88c3ff;
+}
+.bk-tag.bk-info.is-fill {
+  background-color: #88c3ff;
+  color: #fff;
+}
+.bk-tag.bk-info.is-text {
+  border-color: #fff;
+  background-color: #fff;
+  color: #88c3ff;
+}
+.bk-tag.bk-danger {
+  background-color: #ffe0e0;
+  border-color: #ff5656;
+  color: #ff5656;
+}
+.bk-tag.bk-danger.is-fill {
+  background-color: #ff5656;
+  color: #fff;
+}
+.bk-tag.bk-danger.is-text {
+  border-color: #fff;
+  background-color: #fff;
+  color: #ff5656;
+}
+.bk-tag.bk-warning {
+  background-color: #fff3da;
+  border-color: #ffb400;
+  color: #ffb400;
+}
+.bk-tag.bk-warning.is-fill {
+  background-color: #ffb400;
+  color: #fff;
+}
+.bk-tag.bk-warning.is-text {
+  border-color: #fff;
+  background-color: #fff;
+  color: #ffb400;
+}
+.bk-tag.bk-success {
+  background-color: #d5fde5;
+  border-color: #30d878;
+  color: #30d878;
+}
+.bk-tag.bk-success.is-fill {
+  background-color: #30d878;
+  color: #fff;
+}
+.bk-tag.bk-success.is-text {
+  border-color: #fff;
+  background-color: #fff;
+  color: #30d878;
+}
+.bk-tag.bk-primary {
+  background-color: #e1f3ff;
+  border-color: #666bb4;
+  color: #666bb4;
+}
+.bk-tag.bk-primary.is-fill {
+  background-color: #666bb4;
+  color: #fff;
+}
+.bk-tag.bk-primary.is-text {
+  border-color: #fff;
+  background-color: #fff;
+  color: #666bb4;
+}
+
+.bk-table-inlineblock {
+  width: 100%;
+  display: inline-block;
+}
+
+.bkSelector-bottom-options {
+  display: flex;
+  margin: 0 -16px;
+
+  .bkSelector-bottom-option {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-style: normal;
+    background-color: #fafbfd;
+
+    &:hover {
+      background-color: #ccc;
+    }
+    i {
+      font-style: normal;
+    }
+  }
+}
+
+.bk-form-item {
+  &.input-number,
+  &.flex {
+    display: flex;
+  }
+  label {
+    &.bk-label {
+      height: 32px;
+      padding-top: 0px !important;
+      padding-bottom: 0px !important;
+      align-items: center;
+      justify-content: flex-end;
+
+      span {
+        &.required {
+          top: 2px !important;
+        }
+      }
+    }
+  }
+}
+
+.bk-table-transparent {
+  tr {
+    background: transparent !important;
+    td {
+      background: transparent !important;
+    }
+    &.bk-table-row-striped {
+      td {
+        background: rgba(240, 241, 245, 0.4) !important;
+      }
+    }
+
+    &:hover {
+      background: rgba(240, 241, 245, 0.4) !important;
+    }
+  }
+}
+
+.bkdata-table-small {
+  .bk-table {
+    .bk-table-header-wrapper {
+      .bk-table-header {
+        th {
+          height: 30px;
+          .cell {
+            height: 30px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+
+    .bk-table-body-wrapper {
+      .bk-table-row {
+        td {
+          height: 27px;
+        }
+      }
+    }
+  }
+}
+
+.bk-icon-new {
+  font-size: 16px;
+}
+
+.bk-click-style {
+  color: $primaryColor !important;
+  cursor: pointer;
+}
+.bk-link-text,
+.bk-link {
+  cursor: pointer;
+}
+
+.bk-notify-container {
+  width: 300px;
+}
+
+// Collapse组件的bk-collapse-item样式
+.collapse-background-style {
+  box-shadow: 2px 3px 5px 0 rgba(33, 34, 50, 0.15);
+  border-radius: 2px;
+  border: 1px solid rgba(195, 205, 215, 0.6);
+  border-top: none;
+  ::v-deep .bk-collapse-item-header {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top: 1px solid #d9dfe5;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    word-break: break-word;
+    background-color: rgb(249, 248, 248);
+    display: flex;
+  }
+}

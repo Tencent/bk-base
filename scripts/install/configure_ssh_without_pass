@@ -1,0 +1,29 @@
+#!/bin/bash
+
+cd ${BASH_SOURCE%/*} 2>/dev/null
+
+. ./functions 
+if [ -f ./.controller_ip ]; then
+    read ip ignore <./.controller_ip
+    if [ $ip != "$LAN_IP" ]; then
+        err "本机不是中控机"
+    fi
+fi
+
+[ ! -f $HOME/.ssh/id_rsa ] && ssh-keygen -t rsa -b 2048 -N "" -f $HOME/.ssh/id_rsa
+
+cat $HOME/.ssh/id_rsa.pub >>$HOME/.ssh/authorized_keys
+chmod 600 $HOME/.ssh/authorized_keys
+
+for ip in $(awk '/^[0-9]/{print $1}' install.config); do
+    # ssh-copy-id -o StrictHostKeyChecking=no -o CheckHostIP=no root@$ip
+    rsync -a $HOME/.ssh/id_rsa* $HOME/.ssh/authorized_keys -e 'ssh -o StrictHostKeyChecking=no -o CheckHostIP=no' root@$ip:/root/.ssh/
+    let ret+=$?
+done
+
+if [ $ret -ne 0 ]; then
+   if [ ! -f ./.controller_ip ]; then
+       [ -z "$LAN_IP" ] && fail "get controller IP failed. please check if the ip address is a standard private ip"
+       echo $LAN_IP >./.controller_ip
+   fi
+fi

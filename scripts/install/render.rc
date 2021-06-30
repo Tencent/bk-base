@@ -1,0 +1,569 @@
+# vim:ft=sh sts=4 ts=4 sw=4 expandtab nu ai
+
+source $CTRL_DIR/utils.fc
+
+load_functions render third
+load_functions render extra
+load_module bcs
+load_module ci
+
+render () {
+    local module=$1
+    local proj=$2
+
+    local TARGET_IPS=( $(map_name2ip $module $proj) )
+
+    case $module in
+        consul) TARGET_IPS=( ${ALL_IP[@]} ) ;;
+    esac
+
+    for ip in ${TARGET_IPS[@]}; do
+        rcmd root@$ip "
+            source ./render.rc
+            export _module=${module}
+            export _project=${proj}
+            export SERVICE_ID=${module//${module%%0*}}
+            render_${module%0*} $proj"
+    done
+}
+
+common_kp () {
+    local module=$1
+
+    export APP_CODE=bk_$module
+    export APP_TOKEN=$(_app_token $APP_CODE)
+}
+
+# 适配特殊场景下mq的密码和app_code不一样的情况
+rabbitmq_kp () {
+    local user=$1
+
+    export RABBITMQ_USER=$user
+    export RABBITMQ_PASS=$(_app_token $user)
+}
+
+check_required_wanip () {
+    if [ "$AUTO_GET_WANIP" == 1 ]; then
+        export WAN_IP=$(get_wan_ip | head -1)
+    else
+        export WAN_IP='0.0.0.0'
+    fi
+}
+
+render_bcs           () { common_kp bcs; _render_module bcs $1; }
+render_devops        () { common_kp devops; _render_module devops $1; }
+render_thanos        () { common_kp thanos; _render_module thanos $1; }
+render_harbor        () { common_kp harbor; _render_module harbor $1; }
+
+render_consul        () { auto_generate_consul_config; consul reload; }
+render_ntp           () { mod_ntp_conf; }
+
+render_nginx         () { _render_on_detect service "*nginx*"; }
+render_confd         () { _render_on_detect service "*confd*"; }
+
+#render_bkdata () { common_kp bkdata; _render_module bkdata $1;  }
+render_bkdata () { _render_module bkdata $1;  }
+render_bkmonitor () { common_kp bkmonitor; _render_module bkmonitor $1;  }
+render_bknodeman () { common_kp nodeman; rabbitmq_kp bk_bknodeman; _render_module bknodeman $1;  }
+render_paas () { common_kp paas; _render_module open_paas $1; }
+render_open_paas () { common_kp paas; _render_module open_paas $1; }
+_render_module () {
+    local module=$1
+    local project=$2
+    local proj projects
+
+    projects=( $(selected_projects $module $project) )
+
+    for proj in ${projects[@]}; do
+        log " >> render configuration for $(blue_echo $module-$proj)"
+        if [[ $module == "bkdata" ]] ; then source $CTRL_DIR/bkbase.env ; fi
+        _render_on_detect $module "*$proj*"
+
+        local x=( $(shopt -s nullglob; echo $INSTALL_PATH/etc/supervisor-${module}-${proj}-*.conf) )
+        if [ ${#x[@]} -ne 0 ]; then
+            cat $INSTALL_PATH/etc/supervisor-${module}-${proj}-*.conf >>$INSTALL_PATH/etc/supervisor-${module}-${proj}.conf
+        fi
+    done
+}
+
+special_case () {
+    local conf=$INSTALL_PATH/etc/paas_agent_config.yaml
+
+    if [ "$varname" == "UID" ]; then
+        value="$(id -u apps 2>/dev/null)"
+    fi
+
+    if [ "$varname" == "GID" ]; then
+        value="$(id -g apps 2>/dev/null)"
+    fi
+
+    if [ "$varname" == "SID" ]; then
+        if [ -f "$conf" ]; then
+            value="$(grep -oP '(?<=sid: \047)[a-z0-9-]+' $conf)"
+        fi
+    fi
+
+    if [ "$varname" == "TOKEN" ]; then
+        if [ -f "$conf" ]; then
+            value="$(grep -oP '(?<=token: \047)[a-z0-9-]+' $conf)"
+        fi
+    fi
+
+    : ${MAX_ES_MEM:=1}
+    : ${MIN_ES_MEM:=1}
+}
+
+find_place_holders () {
+    [ $# -eq 0 ] && return 0
+
+    grep -rPo \
+        "${PLHDSIGN:-__}[A-Z][A-Z0-9]+(_[A-Z0-9]+){0,9}${PLHDSIGN:-__}" \
+        $@ | sed 's/.*://' | sort -u
+}
+
+_render_service_12many () {
+    local svc_def=$CTRL_DIR/service_group.conf
+    local _final_file one2may k v
+
+    local _ONE2MANY_PLACE_HOLDERS=( $(export PLHDSIGN="@@"; find_place_holders <(echo $target_file)) )
+
+    if [ ${#_ONE2MANY_PLACE_HOLDERS[@]} -eq 0 ]; then
+        _make_render
+    else
+        # 当前仅支持单文件名及内容中仅有相同的一套占位符的替换关系
+        for one2may_plhd in ${_ONE2MANY_PLACE_HOLDERS[@]}; do
+
+            local exam_value=($(value_of "${one2may_plhd//@@}S"))
+
+            if [ -z "$exam_value" ]; then
+                light " @@ render one to many: $one2may_plhd"
+                # 同时生成多份配置文件
+                while read NAME v s ignore; do
+                    # sed 脚本名称中有占位符对应取值，用于与实际的脚本做对应
+                    local tmp_sed_script_pre=$(mktemp /tmp/sed.12many.$(date +%Y%m%d_%H%M%S).XXXXXX.${v})
+
+                    cat $tmp_sed_script >$tmp_sed_script_pre
+                    _final_file=$(echo $target_file | sed "s|${one2may_plhd}|${v}|g")
+
+
+                    echo -e "s|$one2may_plhd|${v}|" >>$tmp_sed_script_pre
+                    [ -z "$v" ] && warn "PLACE HOLDER $one2may_plhd is replaced into empty " 
+                    echo -e "s|${one2may_plhd//_%}_NAME@@|${v}|" >>$tmp_sed_script_pre
+                    echo -e "s|${one2may_plhd//_%}_GROUP@@|${s}|" >>$tmp_sed_script_pre
+                    #echo -e "s|${one2may_plhd//_%}_NAMES__|${s}|" >>$tmp_sed_script_pre
+                    _make_render $tmp_sed_script_pre $_final_file
+                done < <(grep "^${one2may_plhd//@@} " $svc_def)
+            else
+                # 生成一份配置
+                echo -e "s|$one2may_plhd|$exam_value|" >>$tmp_sed_script
+                target_file="$(echo $target_file | sed "s|${one2may_plhd}|${exam_value}|g")"
+	            warn "echo $target_file | sed 's|${one2may_plhd}|${exam_value}|g'"
+                warn " => $_final_file"
+                _make_render $tmp
+            fi
+
+        done
+    fi
+}
+
+_make_render () {
+    local sed_script=$1
+    local final_file=${2:-$target_file}
+
+    mkdir -p ${final_file%/*}
+    sed -f ${sed_script:-$tmp_sed_script} $file >${final_file}
+    nassert "render: ${file##*templates//} -> ${final_file}"
+
+    [ "${final_file%.sh}" != "$final_file" ] && chmod +x "$final_file";
+    generate_zkid $final_file
+}
+
+_render_paired_service () {
+    local module=$_module
+    local service_map=$CTRL_DIR/service_map.conf
+    local SERVICE_ID=${module//${module%%0*}}
+
+    local MAPPING_NAME MAPPING_VALUE \
+          suffix tag mapping_service m\
+          RAW_MAPPING_NAME \
+          RAW_MAPPING_SERVICE_NAME \
+          MAPPING_SERVICE_PLACE_HOLDER \
+          MAPPING_PLACE_HOLDER
+
+    local _MAP_PLACE_HOLDERS=( $(export PLHDSIGN="%%"; find_place_holders $file) )
+
+    [ ${#_MAP_PLACE_HOLDERS[@]} -eq 0 ] && return 0
+
+    if grep -q "^${module%%0*}" $service_map; then
+        read m mapping_service suffixs < <(grep "^${module%%0*}" $service_map | sort -u)
+
+        for suffix in ${suffixs//,/ }; do
+
+            if ! echo ${_MAP_PLACE_HOLDERS[@]} | grep -Pq "${mapping_service^^}_${suffix^^}\b"; then
+                continue
+            fi
+
+            MAPPING_SERVICE_PLACE_HOLDER=${mapping_service^^}_${suffix^^}
+            RAW_MAPPING_SERVICE_NAME=${mapping_service^^}$SERVICE_ID
+
+            TAG_NAME=$(grep -Po "(?<=${RAW_MAPPING_SERVICE_NAME,,}\()[^#:,)]+" $CTRL_DIR/install.config | sort -u)
+            MAPPING_SERVICE_VALUE=$(value_of "${RAW_MAPPING_SERVICE_NAME}_${TAG_NAME^^}_${suffix^^}")
+
+            light "%%$MAPPING_SERVICE_PLACE_HOLDER%% => ${MAPPING_SERVICE_VALUE}"
+            echo -e "s,%%$MAPPING_SERVICE_PLACE_HOLDER%%,${MAPPING_SERVICE_VALUE},g" >>$tmp_sed_script
+        done
+    fi
+}
+
+_render_on_detect () {
+    local module=$1
+    local pattern="${2:-*#*}"
+    local TPLDIR=$PKG_SRC_PATH/$module/support-files/templates/
+
+    local file place_holder varname value
+
+    load_enterprise_env
+    load_mixed_variable
+
+    shopt -s nullglob
+    for file in $TPLDIR/$pattern; do
+        local tmp_sed_script=$(mktemp /tmp/render.$module.$(date +%Y%m%d%H%M%S).XXXXXXX)
+        local target_file=$(vine_to_target_file $file)
+
+        _render_paired_service
+
+        _PLACE_HOLDERS=( $(find_place_holders $file) )
+
+        for place_holder in ${_PLACE_HOLDERS[@]}; do
+
+            varname=${place_holder//__}
+
+            case $varname in
+                *_SEP_LIST_*)
+                    # 1. 处理带格式的占位符
+                    value=$(set_structured_plshd $varname)
+                    ;;
+                *)
+                    value=$(value_of $varname)
+
+                    # 特例处理
+                    special_case
+
+                    # 根据占位符的不同情况, 对取值进行处理
+                    # 1. IP0, IP1, IP2 等先直接对应的变量名的值, 为空时, 再取${XXX_IP[index]}
+                    # 2. IP1, IP2 取值为空时, 直接取值IP0
+                    set_default_on_null
+
+                    # 3. 对于 mysql,redis 等可以有多个实例的服务, 当模板为MYSQL01, REDIS01,
+                    #      REDIS_CLUSTER01时, 但实际用户未配置这些信息时, 直接取默认实例的值.   
+                    set_default_instance_on_null
+
+                    # 4. ESB_SECRET_KEY 从环境变量获取, 其他 XXX_KEY 使用 uuid 生成.
+                    generate_secret_key $varname
+                    ;;
+            esac
+
+
+            if [ ${varname%_PASS} == "$varname" ]; then
+                [ -z "$value" ] && warn "PLACE HOLDER $place_holder is replaced into empty " 
+                echo "s|$place_holder|$value|g" >> $tmp_sed_script
+            else
+                # 5. 对密码类字符进行特殊处理
+                #ENCRYPT_MONGODB_PASS=$(encrypt -e "$MONGODB_PASS")
+                if [ ${varname#ENCRYPT_} != "$varname" ] ;then
+                    local _value=$(value_of "${varname#ENCRYPT_}")
+                    value=$($INSTALL_PATH/$module/server/bin/encrypt -e "${_value}")
+                fi
+
+                [ -z "$value" ] && warn "PLACE HOLDER $place_holder is replaced into empty " 
+                echo "s|$place_holder|${value//&/\&}|g" >> $tmp_sed_script
+            fi
+        done
+
+        _render_service_12many
+    done
+}
+
+set_structured_plshd () {
+    local var=$1
+    local var_service_name
+    local var_service_port
+    local service_name
+    local service_port
+    local SEP
+
+    case $var in 
+        COMMA_*) SEP="," ;;
+        SEMI_*)  SEP=";" ;;
+        COLON_*) SEP=":" ;;
+        PLUS_*)  SEP="+" ;;
+        MINUS_*) SEP="-" ;;
+        SPACE_*) SEP=" " ;;
+        POUND_*)     SEP="#" ;;
+        PYLIST_*)    SEP='","' ;;
+        ASTERISK_*)  SEP="*" ;;
+        UNDERLINE_*) SEP="_" ;;
+        UDFSTRING_*) SEP="$UDFSEP" ;;
+    esac
+
+    var_service_name=${var#*SEP_LIST_}
+
+    case $var in
+        *_SERVER)
+            service_name="${var_service_name%_SERVER}_IP[@]"
+
+            var_service_port="${var_service_name%%_*}_PORT"
+            service_port=$(value_of $var_service_port)
+
+            local x=( $(value_of "$service_name") )
+            echo "${x[@]}:$service_port" | sed "s/ /:${service_port}$SEP/g"
+            ;;
+        *)
+            service_name="${var_service_name}[@]"
+            local x=( $(value_of "$service_name" ) )
+            echo "${x[@]}" | sed "s/ /$SEP/g"
+            ;;
+    esac
+
+}
+
+vine_to_target_file () {
+    local tpl_file=${1##*/}
+    local _target_file _FILE_PLACE_HOLDERS FILE_PLACE_HOLDER
+
+    if [ "${tpl_file:0:1}" != "#" ]; then
+        _target_file=$INSTALL_PATH/$module/${tpl_file//#//}
+    else
+        _target_file=$INSTALL_PATH/${tpl_file//#//}
+    fi
+
+    echo ${_target_file%.tpl}
+}
+
+generate_secret_key () {
+    local key_name=$1
+
+    case $key_name in
+        *_KEY)
+            [ ! -z "$(value_of $key_name)" ] && return 0
+            export value=$(uuid -v4)
+            ;;
+    esac
+}
+
+value_of () {
+    [ $# -eq 0 ] && return
+
+    shopt -u nullglob
+    eval echo \${${1}}
+    shopt -s nullglob
+}
+
+set_default_on_null () {
+    local id=${varname: -1}
+    local var
+
+    if [[ "$varname" =~ _IP[0-9]$ ]]; then
+        if [ -z "$value" ]; then
+            var="${varname:0:${#varname}-1}[$id]"
+            if [ -z "$( value_of ${var} )" ]; then
+                value=$( value_of "${varname:0:${#varname}-1}[0]" )
+            else
+                value=$( value_of ${var} )
+            fi
+        fi
+    fi
+}
+
+set_default_instance_on_null () {
+    local inst_id inst_type
+
+    case $varname in
+        ZK*_IP | KAFKA*_IP | MONGODB*_IP* | MONGODB*_HOST | *REDIS*_IP* | MYSQL*_IP* | REDIS_CLUSTER*_HOST )
+            inst_id=$( echo ${varname} | grep -Po '0\d(?=_(IP|HOST)\d+)' )
+            inst_type=$( echo ${varname} | grep -Po '.+?(?=0\d_(IP|HOST)\d+)' )
+            res_type=$( echo ${varname##*_} | sed 's/[0-9]//g')
+
+            [ -z "$inst_id" ] && return
+
+            if [ -z "$value" ]; then
+                if [ "${varname//HOST}" == "$varname" ]; then
+                    value=$(value_of ${inst_type}_IP0)
+                else
+                    value=$(value_of ${inst_type}_$res_type)
+                fi
+            fi
+            ;;
+    esac
+}
+
+load_mixed_variable () {
+    rdc=$(grep -P "$LAN_IP[ \t]" $CTRL_DIR/install.config | grep -oP '(?<=[ \t,])redis_cluster\d*')
+    REDIS_MASTER_IP=$(value_of "${rdc^^}_IP0")
+
+    name_mysql=$(grep -P "$LAN_IP[ \t]" $CTRL_DIR/install.config | grep -oP 'mysql\d*')
+    MYSQL_SERVER_ID=$(_lookup_id ${name_mysql^^})
+
+    if [ "$LAN_IP" == "$REDIS_MASTER_IP" ]; then
+        export REDIS_SLAVE="#"
+    else
+        export REDIS_SLAVE=""
+    fi
+
+    LOGS_HOME=$BK_HOME/logs/$module;
+    MODULE_NAME=$module;
+    MODULE_HOME=$BK_HOME/$module;
+    JAVA_HOME=$BK_HOME/service/java;
+    DATA_HOME=$BK_HOME/public;
+    CONF_HOME=$BK_HOME/etc;
+    CERT_PATH=$BK_HOME/cert;
+    case ${_module} in
+        kafka*) export KAFKA_SVRID=$(_lookup_id ${_module^^}) ;;
+        es* | etcd* | *rabbitmq* | influxdb* )
+            my_var_name=${_module%0*}
+            export ${my_var_name^^}_NODEID=$(_lookup_id ${_module})
+            ;;
+    esac
+    #KAFKA_SVRID=$(_lookup_id KAFKA)
+    #ES_NODEID=$(_lookup_id ES)
+    #ETCD_NODEID=$(_lookup_id ETCD)
+    #RABBITMQ_NODEID=$(_lookup_id RABBITMQ)
+    #INFLUXDB_NODEID=$(_lookup_id INFLUXDB)
+    REDIS_CLUSTER_MEM=$(( $(total_mem) /2 ))
+    NGINX_WORKER=auto
+    ESB_SUPER_USER=admin
+}
+
+generate_zkid () {
+    local config_file=$1
+    local x="ZK${SERVICE_ID}"
+
+    if [ "${config_file##*/}" == "zoo.cfg" ]; then
+        log "set zookeeper's myid"
+        local zk_data_dir=$(awk -F'=' '/dataDir/ {print $2}' $config_file)
+
+        mkdir -p $zk_data_dir
+        grep -Po "(?<=server.)\d+(?==$LAN_IP)" $config_file > $zk_data_dir/myid
+    fi
+}
+
+mod_ntp_conf () {
+    local timestamp=$(date +%Y%m%d%H%M%S)
+    # 允许连接的NTP Client IPlist
+    NTP_CLIENT=( $(echo ${ALL_IP[@]} ) )
+    
+    # NTP Server Backup节点连接的上游服务器为外部NTP服务器及NTP Server Master机器
+    is_string_in_array "$LAN_IP" "${NTP_IP[@]:1}" && NTP_SERVER=( "${NTP_SERVER[@]}" "$NTP_IP0" )
+
+    # NTP Client节点连接的上游NTP Server IPlist
+    is_string_in_array "$LAN_IP" "${NTP_IP[@]}" || NTP_SERVER=( "${NTP_SERVER[@]}" "${NTP_IP[@]}" ) 
+
+    log "Backup ntp.conf to ntp.conf.$timestamp"
+    log "$( cp -av /etc/ntp.conf{,".$timestamp"} )"
+
+    log "Modify ntp.conf"
+    cat << EOF > /etc/ntp.conf
+driftfile /var/lib/ntp/drift
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+restrict 127.0.0.1 
+restrict -6 ::1
+
+includefile /etc/ntp/crypto/pw
+keys /etc/ntp/keys
+
+## 指定NTP服务器
+$(
+    for ntp_server in ${NTP_SERVER[@]}; do
+        echo "server $ntp_server iburst"
+        echo "restrict $ntp_server nomodify notrap noquery"
+    done
+)
+## 允许连接的NTP Client IP
+$(
+    is_string_in_array "$LAN_IP" "${NTP_IP[@]}" || exit
+    for ip in ${NTP_CLIENT[@]} ; do
+        echo "restrict $ip nomodify notrap"
+    done
+)
+
+
+logfile /var/log/ntp.log
+EOF
+}
+### bkdata_3.5_add_tag_[start]
+_find_projects_by_module () {
+    local module=${1^^}
+    env | grep -E "^${module}_(.*?)_IP[0-9]"     | awk -F= -v ip=$LAN_IP '$2==ip {print $1}'     | sed 's/_IP[0-9]//g; s/_/-/g;' | tr '[A-Z]' '[a-z]'
+}
+
+render_dgraph() {
+    common_kp dgraph
+    _render_on_detect dgraph
+}
+
+render_presto() {
+    common_kp presto
+    _render_on_detect presto
+}
+
+render_hive() {
+    common_kp hive
+    _render_on_detect hive
+}
+
+set_default_instance_on_null() {
+    local inst_id inst_type
+
+    case $varname in
+    ZK*_IP | KAFKA*_IP | MONGODB*_IP* | MONGODB*_HOST | *REDIS*_IP* | MYSQL*_IP* | REDIS_CLUSTER*_HOST | DGRAPH*_IP*)
+        inst_id=$(echo ${varname} | grep -Po '0\d(?=_(IP|HOST)\d+)')
+        inst_type=$(echo ${varname} | grep -Po '.+?(?=0\d_(IP|HOST)\d+)')
+        res_type=$(echo ${varname##*_} | sed 's/[0-9]//g')
+
+        [ -z "$inst_id" ] && return
+
+        if [ -z "$value" ]; then
+            if [ "${varname//HOST/}" == "$varname" ]; then
+                value=$(value_of ${inst_type}_IP0)
+            else
+                value=$(value_of ${inst_type}_$res_type)
+            fi
+        fi
+        ;;
+    esac
+}
+
+load_mixed_variable() {
+    rdc=$(grep -P "$LAN_IP[ \t]" $CTRL_DIR/install.config | grep -oP '(?<=[ \t,])redis_cluster\d*')
+    REDIS_MASTER_IP=$(value_of "${rdc^^}_IP0")
+
+    name_mysql=$(grep -P "$LAN_IP[ \t]" $CTRL_DIR/install.config | grep -oP 'mysql\d*')
+    MYSQL_SERVER_ID=$(_lookup_id ${name_mysql^^})
+
+    if [ "$LAN_IP" == "$REDIS_MASTER_IP" ]; then
+        export REDIS_SLAVE="#"
+    else
+        export REDIS_SLAVE=""
+    fi
+
+    LOGS_HOME=$BK_HOME/logs/$module
+    MODULE_NAME=$module
+    MODULE_HOME=$BK_HOME/$module
+    JAVA_HOME=$BK_HOME/service/java
+    DATA_HOME=$BK_HOME/public
+    CONF_HOME=$BK_HOME/etc
+    CERT_PATH=$BK_HOME/cert
+
+    case ${_module} in
+    kafka*) export KAFKA_SVRID=$(_lookup_id ${_module^^}) ;;
+    dgraph*) export BKDATA_DGRAPH_ZERO_IDX=$(_lookup_id ${_module^^}) ;;
+    es* | etcd* | *rabbitmq* | influxdb*)
+        my_var_name=${_module%0*}
+        export ${my_var_name^^}_NODEID=$(_lookup_id ${_module})
+        ;;
+    esac
+    REDIS_CLUSTER_MEM=$(($(total_mem) / 2))
+    NGINX_WORKER=auto
+    ESB_SUPER_USER=admin
+}

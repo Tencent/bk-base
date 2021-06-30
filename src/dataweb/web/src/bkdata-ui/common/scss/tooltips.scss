@@ -1,0 +1,98 @@
+/*!
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+ */
+
+.vue-tooltip {
+  background-color: #000;
+  box-sizing: border-box;
+  color: #fff;
+  max-width: 320px;
+  padding: 6px 10px;
+  border-radius: 3px;
+  z-index: 100;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+.vue-tooltip.vue-tooltip-hidden {
+  transform: translateX(-100000px) !important;
+}
+.vue-tooltip .vue-tooltip-content {
+  text-align: center;
+}
+.vue-tooltip .tooltip-arrow {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+}
+.vue-tooltip[x-placement^='top'] {
+  margin-bottom: 5px;
+}
+.vue-tooltip[x-placement^='top'] .tooltip-arrow {
+  border-width: 5px 5px 0 5px;
+  border-top-color: #000;
+  border-bottom-color: transparent !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  bottom: -5px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.vue-tooltip[x-placement^='bottom'] {
+  margin-top: 5px;
+}
+.vue-tooltip[x-placement^='bottom'] .tooltip-arrow {
+  border-width: 0 5px 5px 5px;
+  border-bottom-color: #000;
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  top: -5px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.vue-tooltip[x-placement^='right'] {
+  margin-left: 5px;
+}
+.vue-tooltip[x-placement^='right'] .tooltip-arrow {
+  border-width: 5px 5px 5px 0;
+  border-right-color: #000;
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+  border-bottom-color: transparent !important;
+  left: -5px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.vue-tooltip[x-placement^='left'] {
+  margin-right: 5px;
+}
+.vue-tooltip[x-placement^='left'] .tooltip-arrow {
+  border-width: 5px 0 5px 5px;
+  border-left-color: #000;
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  right: -5px;
+  margin-left: 0;
+  margin-right: 0;
+}

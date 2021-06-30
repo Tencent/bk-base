@@ -1,0 +1,1457 @@
+{
+    "data_type": "clean",
+    "result_table_id": "{{ result_table_id }}",
+    "raw_data_id": {{ raw_data_id }},
+    "result_table_name": "{{ result_table_name }}",
+    "result_table_name_alias": "{{ result_table_alias }}",
+    "storage_type": "ignite",
+    "storage_cluster": "{{ storage_cluster }}",
+    "expires": "-1",
+    "fields": [
+        {
+            "physical_field": "bk_service_status",
+            "is_time": false,
+            "field_name": "bk_service_status",
+            "field_index": 1,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "服务状态",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_service_status",
+            "type": "string"
+        },
+        {
+            "physical_field": "creator",
+            "is_time": false,
+            "field_name": "creator",
+            "field_index": 2,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "创建者",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "creator",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_open_time",
+            "is_time": false,
+            "field_name": "bk_open_time",
+            "field_index": 3,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "开启时间",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_open_time",
+            "type": "string"
+        },
+        {
+            "physical_field": "area_ID",
+            "is_time": false,
+            "field_name": "area_ID",
+            "field_index": 4,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "大区id",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "area_ID",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_platform",
+            "is_time": false,
+            "field_name": "bk_platform",
+            "field_index": 5,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "平台",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_platform",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_customer",
+            "is_time": false,
+            "field_name": "bk_customer",
+            "field_index": 6,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "用户",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_customer",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_is_gcs",
+            "is_time": false,
+            "field_name": "bk_is_gcs",
+            "field_index": 7,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "是否gcs",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_is_gcs",
+            "type": "string"
+        },
+        {
+            "physical_field": "create_time",
+            "is_time": false,
+            "field_name": "create_time",
+            "field_index": 8,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "创建时间",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "create_time",
+            "type": "string"
+        },
+        {
+            "physical_field": "worldID",
+            "is_time": false,
+            "field_name": "worldID",
+            "field_index": 9,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "世界id",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "worldID",
+            "type": "string"
+        },
+        {
+            "physical_field": "TclsWorldID",
+            "is_time": false,
+            "field_name": "TclsWorldID",
+            "field_index": 10,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "tcls世界id",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "TclsWorldID",
+            "type": "string"
+        },
+        {
+            "physical_field": "last_time",
+            "is_time": false,
+            "field_name": "last_time",
+            "field_index": 11,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "最后修改时间",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "last_time",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_set_env",
+            "is_time": false,
+            "field_name": "bk_set_env",
+            "field_index": 12,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "集群环境",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_set_env",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_enable_relate_webplat",
+            "is_time": false,
+            "field_name": "bk_enable_relate_webplat",
+            "field_index": 13,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "与webplat关联",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_enable_relate_webplat",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_outer_source",
+            "is_time": false,
+            "field_name": "bk_outer_source",
+            "field_index": 14,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "外部来源",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_outer_source",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_capacity",
+            "is_time": false,
+            "field_name": "bk_capacity",
+            "field_index": 15,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "容量",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_capacity",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_alias_name",
+            "is_time": false,
+            "field_name": "bk_alias_name",
+            "field_index": 16,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "别名",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_alias_name",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_operation_state",
+            "is_time": false,
+            "field_name": "bk_operation_state",
+            "field_index": 17,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "韵味状态",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_operation_state",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_world_id",
+            "is_time": false,
+            "field_name": "bk_world_id",
+            "field_index": 18,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "世界id",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_world_id",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_category",
+            "is_time": false,
+            "field_name": "bk_category",
+            "field_index": 19,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "类别",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_category",
+            "type": "string"
+        },
+        {
+            "physical_field": "zh_name",
+            "is_time": false,
+            "field_name": "zh_name",
+            "field_index": 20,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "中文名",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "zh_name",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_set_name",
+            "is_time": false,
+            "field_name": "bk_set_name",
+            "field_index": 21,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "集群名",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_set_name",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_parent_id",
+            "is_time": false,
+            "field_name": "bk_parent_id",
+            "field_index": 22,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "父实体id",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_parent_id",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_biz_id",
+            "is_time": false,
+            "field_name": "bk_biz_id",
+            "field_index": 23,
+            "description": null,
+            "field_type": "int",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "业务id",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": true,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_biz_id",
+            "type": "int"
+        },
+        {
+            "physical_field": "bk_uniq_id",
+            "is_time": false,
+            "field_name": "bk_uniq_id",
+            "field_index": 24,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "唯一id",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_uniq_id",
+            "type": "string"
+        },
+        {
+            "physical_field": "IDC",
+            "is_time": false,
+            "field_name": "IDC",
+            "field_index": 25,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "idc机房",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "IDC",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_svc_name",
+            "is_time": false,
+            "field_name": "bk_svc_name",
+            "field_index": 26,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "服务名",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_svc_name",
+            "type": "string"
+        },
+        {
+            "physical_field": "default",
+            "is_time": false,
+            "field_name": "default",
+            "field_index": 27,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "默认",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "default",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_chn_name",
+            "is_time": false,
+            "field_name": "bk_chn_name",
+            "field_index": 28,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "cdn名称",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_chn_name",
+            "type": "string"
+        },
+        {
+            "physical_field": "set_template_id",
+            "is_time": false,
+            "field_name": "set_template_id",
+            "field_index": 29,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "集群模版id",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "set_template_id",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_supplier_account",
+            "is_time": false,
+            "field_name": "bk_supplier_account",
+            "field_index": 30,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "服务商账号",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_supplier_account",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_set_id",
+            "is_time": false,
+            "field_name": "bk_set_id",
+            "field_index": 31,
+            "description": null,
+            "field_type": "int",
+            "is_dimension": false,
+            "physical_field_type": "int",
+            "field_alias": "集群id",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": true,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": true,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": true,
+            "is_value": false,
+            "is_key": true,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_set_id",
+            "type": "int"
+        },
+        {
+            "physical_field": "bk_set_desc",
+            "is_time": false,
+            "field_name": "bk_set_desc",
+            "field_index": 32,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "集群描述",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_set_desc",
+            "type": "string"
+        },
+        {
+            "physical_field": "bk_system",
+            "is_time": false,
+            "field_name": "bk_system",
+            "field_index": 33,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "系统",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bk_system",
+            "type": "string"
+        },
+        {
+            "physical_field": "customize",
+            "is_time": false,
+            "field_name": "customize",
+            "field_index": 34,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "用户自定义字段",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "customize",
+            "type": "string"
+        },
+        {
+            "physical_field": "bkpub_collect_method",
+            "is_time": false,
+            "field_name": "bkpub_collect_method",
+            "field_index": 35,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "采集类型",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bkpub_collect_method",
+            "type": "string"
+        },
+        {
+            "physical_field": "bkpub_collect_time",
+            "is_time": false,
+            "field_name": "bkpub_collect_time",
+            "field_index": 36,
+            "description": null,
+            "field_type": "long",
+            "is_dimension": false,
+            "physical_field_type": "long",
+            "field_alias": "采集时间",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bkpub_collect_time",
+            "type": "long"
+        },
+        {
+            "physical_field": "bkpub_event_type",
+            "is_time": false,
+            "field_name": "bkpub_event_type",
+            "field_index": 37,
+            "description": null,
+            "field_type": "string",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "事件类型",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": false
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": false
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "bkpub_event_type",
+            "type": "string"
+        },
+        {
+            "physical_field": "dtEventTime",
+            "is_time": true,
+            "field_name": "timestamp",
+            "field_index": 39,
+            "description": "",
+            "field_type": "timestamp",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "数据时间，格式：YYYY-mm-dd HH:MM:SS",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": true
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": true
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "dtEventTime",
+            "type": "string"
+        },
+        {
+            "physical_field": "dtEventTimeStamp",
+            "is_time": true,
+            "field_name": "timestamp",
+            "field_index": 40,
+            "description": "",
+            "field_type": "timestamp",
+            "is_dimension": false,
+            "physical_field_type": "long",
+            "field_alias": "数据时间戳，毫秒级别",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": true
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": true
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "dtEventTimeStamp",
+            "type": "long"
+        },
+        {
+            "physical_field": "localTime",
+            "is_time": true,
+            "field_name": "timestamp",
+            "field_index": 41,
+            "description": "",
+            "field_type": "timestamp",
+            "is_dimension": false,
+            "physical_field_type": "string",
+            "field_alias": "本地时间，格式：YYYY-mm-dd HH:MM:SS",
+            "configs": [
+                {
+                    "key": "indexed_fields",
+                    "value": "索引字段",
+                    "field": "is_index",
+                    "checked": false,
+                    "isReadonly": true
+                },
+                {
+                    "key": "storage_keys",
+                    "value": "构成唯一键",
+                    "field": "is_key",
+                    "checked": false,
+                    "isReadonly": true
+                }
+            ],
+            "is_index": false,
+            "is_value": false,
+            "is_key": false,
+            "is_analyzed": false,
+            "is_doc_values": false,
+            "is_pri_key": false,
+            "is_json": false,
+            "fieldName": "localTime",
+            "type": "string"
+        }
+    ],
+    "index_fields":[],
+    "config": {
+        "has_replica": false,
+        "max_records": 1000000
+    }
+}

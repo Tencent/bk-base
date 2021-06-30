@@ -1,0 +1,14 @@
+{
+  "type": "assign",
+  "subtype": "assign_obj",
+  "assign": [
+    {
+      "key": "worldid",
+      "assign_to": "varname"
+    },
+    {
+      "key": "openid",
+      "assign_to": "varname2"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "type": "index_realtime_appenderator",
+  "spec": {
+    "dataSchema": {
+      "dataSource": "$dataSourceName",
+      "metricsSpec": $objectMapper.writeValueAsString($metrics),
+      "granularitySpec": {
+        "type": "uniform",
+        "segmentGranularity": "$segmentGranularity",
+        "queryGranularity": "none",
+        "rollup": false
+      },
+      "parser": {
+        "type": "map",
+        "parseSpec": {
+          "format": "json",
+          "timestampSpec": {
+            "column": "$timestampColumn",
+            "format": "millis",
+            "missingValue": null
+          },
+          "dimensionsSpec": {
+            "dimensions": $objectMapper.writeValueAsString($dimensions),
+            "dimensionExclusions": $objectMapper.writeValueAsString($dimensionExclusions)
+          }
+        }
+      }
+    },
+    "ioConfig": {
+      "type": "realtime",
+      "firehose": {
+        "type": "receiver",
+        "serviceName": "$serviceName",
+        "bufferSize": $bufferSize,
+        "maxIdleTime": $maxIdleTime
+      }
+    },
+    "tuningConfig": {
+      "type": "realtime_appenderator",
+      "intermediateHandoffPeriod": "$intermediateHandoffPeriod",
+      "maxRowsPerSegment": $maxRowsPerSegment,
+      "maxRowsInMemory": $maxRowsInMemory,
+      "maxTotalRows": $maxTotalRows,
+      "intermediatePersistPeriod": "$intermediatePersistPeriod"
+    }
+  }
+
+}

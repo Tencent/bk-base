@@ -1,0 +1,287 @@
+/*!
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+ */
+
+@charset "utf-8";
+
+.bk-select-input {
+  padding-right: 30px !important;
+}
+.bk-select-input[disabled='disabled'] {
+  background: #efefef;
+}
+.bk-selector-input[disabled='disabled'] {
+  background: #efefef;
+}
+.bk-selector-input.small {
+  padding: 0 5px !important;
+  height: 30px !important;
+}
+.bk-message {
+  .bk-message-icon {
+    display: inline !important;
+  }
+  .bk-message-content {
+    display: inline !important;
+  }
+}
+.bk-form .bk-label {
+  // font-weight: bold;
+  font-size: 12px;
+  .required {
+    font-weight: normal;
+  }
+}
+.bk-form-input[disabled] {
+  background: #fafbfd !important;
+  &:hover {
+    border-color: none !important;
+  }
+}
+.bk-loading {
+  background-color: rgba(255, 255, 255, 1);
+}
+.bk-loading1 {
+  width: 42px;
+  height: 6px;
+  .point {
+    transform: none;
+    width: 6px;
+    height: 6px;
+  }
+  .point1 {
+    left: 0px;
+  }
+  .point2 {
+    left: 12px;
+  }
+  .point3 {
+    left: 24px;
+  }
+  .point4 {
+    left: 36px;
+  }
+  .point1,
+  .point2,
+  .point3,
+  .point4 {
+    background-color: #dde4eb;
+  }
+  @keyframes scale-animate {
+    0% {
+      background-color: #3a84ff;
+    }
+
+    100% {
+      background-color: #dde4eb;
+    }
+  }
+}
+.bk-tab2 {
+  border-color: #ddd;
+  .bk-tab2-head {
+    height: 48px;
+  }
+  .bk-tab2-head .bk-tab2-nav > li {
+    height: 48px;
+    line-height: 48px;
+  }
+  .bk-tab2-head.is-fill {
+    border-color: #ddd;
+    .bk-tab2-nav > li.active:first-child {
+      border-color: #ddd;
+    }
+  }
+}
+.bk-dialog-body {
+  word-break: break-all;
+  // padding: 0!important;
+}
+
+.none-padding {
+  .bk-dialog-body {
+    padding: 0 !important;
+  }
+}
+
+.bk-selector-create-item {
+  cursor: pointer;
+  // height: 42px;
+  // line-height: 42px;
+  font-size: 14px;
+  background: #fafbfd;
+  padding-left: 10px;
+  border-top: 1px solid #e5e5e5;
+  width: 100%;
+  display: inline-block;
+  .text {
+    font-style: normal;
+    text-align: left;
+    color: $fnMainColor;
+  }
+}
+
+.bk-message {
+  z-index: 1;
+}
+
+.v-tooltips-arrows {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+
+  &.top-mid {
+    border-width: 5px 5px 0 5px;
+    border-top-color: #000;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    bottom: -5px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  &.bottom-mid {
+    border-width: 0 5px 5px 5px;
+    border-bottom-color: #000;
+    border-top-color: transparent !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    top: -5px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  &.right-mid {
+    border-width: 5px 5px 5px 0;
+    border-right-color: #000;
+    border-top-color: transparent !important;
+    border-left-color: transparent !important;
+    border-bottom-color: transparent !important;
+    left: -5px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  &.left-mid {
+    border-width: 5px 0 5px 5px;
+    border-left-color: #000;
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    right: -5px;
+    margin-right: 0;
+    margin-right: 0;
+  }
+}
+
+.vue-tooltip {
+  &.error-red {
+    background-color: #fff;
+    border: solid 1px;
+    color: #ea3636;
+    z-index: 9999;
+
+    &[x-placement^='top'] {
+      .tooltip-arrow {
+        border-top-color: #ea3636;
+        border-bottom-color: transparent !important;
+        border-left-color: transparent !important;
+        border-right-color: transparent !important;
+      }
+    }
+
+    &[x-placement^='right'] {
+      .tooltip-arrow {
+        border-right-color: #ea3636;
+        border-top-color: transparent !important;
+        border-left-color: transparent !important;
+        border-bottom-color: transparent !important;
+      }
+    }
+
+    &[x-placement^='left'] {
+      .tooltip-arrow {
+        border-left-color: #ea3636;
+        border-top-color: transparent !important;
+        border-right-color: transparent !important;
+        border-bottom-color: transparent !important;
+      }
+    }
+
+    &[x-placement^='bottom'] {
+      .tooltip-arrow {
+        border-bottom-color: #ea3636;
+        border-top-color: transparent !important;
+        border-left-color: transparent !important;
+        border-right-color: transparent !important;
+      }
+    }
+  }
+
+  &.tips-success {
+    background-color: #fff;
+    border: solid 1px;
+    color: #45e35f;
+    z-index: 300;
+
+    &[x-placement^='top'] {
+      .tooltip-arrow {
+        border-top-color: #45e35f;
+        border-bottom-color: transparent !important;
+        border-left-color: transparent !important;
+        border-right-color: transparent !important;
+      }
+    }
+
+    &[x-placement^='right'] {
+      .tooltip-arrow {
+        border-right-color: #45e35f;
+        border-top-color: transparent !important;
+        border-left-color: transparent !important;
+        border-bottom-color: transparent !important;
+      }
+    }
+
+    &[x-placement^='left'] {
+      .tooltip-arrow {
+        border-left-color: #45e35f;
+        border-top-color: transparent !important;
+        border-right-color: transparent !important;
+        border-bottom-color: transparent !important;
+      }
+    }
+
+    &[x-placement^='bottom'] {
+      .tooltip-arrow {
+        border-bottom-color: #45e35f;
+        border-top-color: transparent !important;
+        border-left-color: transparent !important;
+        border-right-color: transparent !important;
+      }
+    }
+  }
+}
+
+.bk-table,
+.bk-table .bk-button-text {
+  font-size: 12px;
+}

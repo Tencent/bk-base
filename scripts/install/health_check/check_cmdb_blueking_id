@@ -1,0 +1,49 @@
+#!/bin/bash
+# 用途：调用esb接口，检查是否能获取《蓝鲸》业务的业务ID
+
+SELF_DIR=$(dirname "$(readlink -f "$0")")
+CTRL_DIR=$SELF_DIR/../
+
+[[ -r $HOME/.bkrc ]] && . $HOME/.bkrc
+. $CTRL_DIR/utils.fc
+
+# get app token
+apptoken_file=$CTRL_DIR/.app.token
+if [[ -f $apptoken_file ]]; then
+  read -r app_code app_token _ < "$apptoken_file"
+else
+  fail "can not find file $apptoken_file"
+fi
+
+bk_biz_id=-1
+tmpfile=/tmp/getapplist.log
+: > $tmpfile
+
+curl -s -o $tmpfile -X POST http://$PAAS_HOST:$DEFAULT_HTTP_PORT/api/c/compapi/v2/cc/search_business/ --data @<(cat <<EOF
+{
+    "bk_app_code": "$app_code",
+    "bk_app_secret": "$app_token",
+    "bk_username": "admin",
+    "fields": [
+        "bk_biz_id",
+        "bk_biz_name"
+    ],
+    "condition": {
+        "bk_biz_name": "蓝鲸"
+    }
+}
+EOF
+)
+
+if [ -s $tmpfile ]; then
+  # parse json
+  chmod +x "$PKG_SRC_PATH"/gse/server/bin/parse_bizid
+  bk_biz_id=$("$PKG_SRC_PATH"/gse/server/bin/parse_bizid cc "$tmpfile")
+  if [[ $bk_biz_id == -1 ]]; then
+    fail "parse cc response error"
+  fi
+else
+  rm -f $tmpfile
+  fail "request cc get_app_list failed!"
+fi
+ 

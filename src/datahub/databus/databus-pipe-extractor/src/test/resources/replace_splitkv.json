@@ -1,0 +1,20 @@
+{
+  "type": "fun",
+  "method": "replace",
+  "args": ["获取中控状态：成功", "consoleStatus:1", "加速状态：失败", "speedupStatus:0", " ", ",", "：", ":"],
+  "next": {
+    "type": "fun",
+    "method": "splitkv",
+    "args": [",", ":"],
+    "next": {
+      "type": "assign",
+      "subtype": "assign_obj",
+      "assign": [
+        {"key": "consoleStatus", "assign_to": "consoleStatus", "type": "int" },
+        {"key": "speedupStatus", "assign_to": "speedupStatus", "type": "int" },
+        {"key": "apm", "assign_to": "amp_aaaa" , "type": "int"},
+        {"key": "fps", "assign_to": "fps_bbb", "type": "long" }
+      ]
+    }
+  }
+}

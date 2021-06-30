@@ -1,0 +1,79 @@
+/*
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ *
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ *
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+package com.tencent.bk.base.dataflow.udf.template
+
+import com.tencent.bk.base.dataflow.udf.common.FunctionContext
+import com.tencent.bk.base.dataflow.udf.common.FunctionContext
+
+class FlinkJavaUdafTemplate extends UdfTemplate {
+  override def generateFuncCode(context: FunctionContext)
+  : String = {
+    val funcCode = s"""
+       |package com.tencent.bk.base.dataflow.udf.codegen.flink;
+       |
+       |${context.getImports}
+       |
+       |import org.apache.flink.table.functions.AggregateFunction;
+       |
+       |import java.util.Iterator;
+       |
+       |/**
+       | * Automatic code generation.
+       | */
+       |public class ${context.getUdfClassName} extends AggregateFunction<${context.getReturnType}, ${context.getStateClass}> {
+       |
+       |  private ${context.getUserClass} outerFunction = new ${context.getUserClass}();
+       |
+       |  @Override
+       |  public ${context.getStateClass} createAccumulator() {
+       |    return this.outerFunction.createAccumulator();
+       |  }
+       |
+       |  @Override
+       |  public ${context.getReturnType} getValue(${context.getStateClass} state) {
+       |    return this.outerFunction.getValue(state);
+       |  }
+       |
+       |  public void accumulate(${context.getStateClass} state, ${context.getInputParams}) {
+       |    this.outerFunction.accumulate(state, ${context.getInputData});
+       |  }
+       |
+       |  public void merge(${context.getStateClass} state, Iterable<${context.getStateClass}> it) {
+       |    Iterator<${context.getStateClass}> iterator = it.iterator();
+       |    while (iterator.hasNext()) {
+       |      ${context.getStateClass} otherOneState = iterator.next();
+       |      this.outerFunction.merge(state, otherOneState);
+       |    }
+       |  }
+       |
+       |  public void resetAccumulator(${context.getStateClass} state) {
+       |    this.outerFunction.resetAccumulator(state);
+       |  }
+       |}
+       |""".stripMargin
+
+    funcCode
+  }
+}

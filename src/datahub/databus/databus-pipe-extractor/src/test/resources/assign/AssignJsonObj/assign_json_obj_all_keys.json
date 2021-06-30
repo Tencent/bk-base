@@ -1,0 +1,18 @@
+{
+  "extract": {
+    "type": "fun",
+    "args": [],
+    "method": "from_json",
+    "next": {
+      "type": "assign",
+      "subtype": "assign_json",
+      "label": "label001",
+      "assign": [
+        {
+          "key": "__all_keys__",
+          "assign_to": "varname1"
+        }
+      ]
+    }
+  }
+}

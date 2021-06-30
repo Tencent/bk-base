@@ -1,0 +1,87 @@
+#!/bin/bash
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+shopt -s expand_aliases
+source "$CTRL_DIR/utils.fc"
+
+RUNNER_ROOT="$INSTALL_PATH/bkdata/jobnavirunner"
+CLASS_PATH="$RUNNER_ROOT/tool/hdfs/*:$RUNNER_ROOT/env/hdfs/lib/*:$RUNNER_ROOT/env/hdfs/conf"
+HDFS_PUT_TOOL_CLASS="com.tencent.bk.base.dataflow.hdfs.tool.Put"
+alias hdfs-put='java -cp "$CLASS_PATH" "$HDFS_PUT_TOOL_CLASS"'
+
+function upload() {
+    target_path="$1"
+    source_file="$2"
+    overwrite="$3"
+    if ! hdfs-put "$target_path" "$source_file" "$overwrite"
+    then
+        echo "failed to upload $source_file to $target_path"
+        exit 1
+    fi
+}
+
+# upload spark assembly env file
+target_path=hdfs://__HDFS_CLUSTER_NAME2__/nfsserver/spark_support/2_4_7
+source_file=$RUNNER_ROOT/env/spark_2.4.7_sql/lib/spark-2.4.7-env.zip
+overwrite=true
+upload "$target_path" "$source_file" "$overwrite"
+
+# upload spark one time sql jar
+target_path=hdfs://__HDFS_CLUSTER_NAME2__/nfsserver/spark_support/one_time_sql/
+source_file=$RUNNER_ROOT/adaptor/one_time_sql/stable/batch-one-time-sql-0.1.0-jar-with-dependencies.jar
+overwrite=true
+upload "$target_path" "$source_file" "$overwrite"
+
+# upload spark sql jar
+target_path=hdfs://__HDFS_CLUSTER_NAME2__/nfsserver/spark_support/spark_sql/
+source_file=$RUNNER_ROOT/adaptor/spark_sql/stable/batch-sql-0.1.0-jar-with-dependencies.jar
+overwrite=true
+upload "$target_path" "$source_file" "$overwrite"
+
+# upload batch_common jar
+target_path=hdfs://__HDFS_CLUSTER_NAME2__/nfsserver/spark_support/batch_common/
+source_file=$RUNNER_ROOT/env/spark_2.4.7_python_code/batch-common-0.1.0-jar-with-dependencies.jar
+overwrite=true
+upload "$target_path" "$source_file" "$overwrite"
+
+# upload livy code zip file
+target_path=hdfs://__HDFS_CLUSTER_NAME2__/nfsserver/spark_support/livy/
+source_file=$RUNNER_ROOT/env/spark_2.4.7_interactive_python_server/livy_python_code.zip
+overwrite=true
+upload "$target_path" "$source_file" "$overwrite"
+
+# upload spark struct streaming files
+target_path=hdfs:///nfsserver/spark_support/structured_streaming/2_4_4/
+source_file_path=$RUNNER_ROOT/adaptor/sparkstreaming
+overwrite=true
+upload "$target_path" "$source_file_path/py4j-0.10.7-src.zip" "$overwrite"
+upload "$target_path" "$source_file_path/structured-streaming-extend-libs-2.4.4.jar" "$overwrite"
+upload "$target_path" "$source_file_path/pyspark.zip" "$overwrite"
+
+source_file="$RUNNER_ROOT/adaptor/sparkstreaming/spark-2.4.4-bin-hadoop2.6.zip"
+cp "$RUNNER_ROOT/env/batch_common_env/spark-2.4.4-jars.zip" "$source_file"
+upload "$target_path" "$source_file_path/spark-2.4.4-bin-hadoop2.6.zip" "$overwrite"
+
+target_path=hdfs:///app/spark_structured_streaming/system/var/
+source_file=$source_file_path/master_code_python-0.0.1.zip
+upload "$target_path" "$source_file" "$overwrite"

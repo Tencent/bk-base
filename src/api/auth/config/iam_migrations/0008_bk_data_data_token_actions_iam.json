@@ -1,0 +1,29 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "data_token-manage",
+                "name": "授权码管理",
+                "name_en": "DataToken Manage",
+                "description": "授权码管理",
+                "description_en": "DataToken Manage",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "data_token",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "data_token"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

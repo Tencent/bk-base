@@ -1,0 +1,32 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**",
+      "src/assets/json/*.json"
+    ]
+  },
+  "rules": {
+    "comma-dangle": [
+      2,
+      "never"
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "disableLanguages": [
+          "vue"
+        ],
+        "singleQuote": true,
+        "trailingComma": "none",
+        "jsxBracketSameLine": true,
+        "arrowParens": "avoid"
+      }
+    ]
+  }
+}

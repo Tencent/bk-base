@@ -1,0 +1,12 @@
+plans:
+  - task_code: dm_engine_syncdb
+    task_name: dm_engine_syncdb
+    task_category: dm_engine_inner
+    task_loader: import
+    task_entry: dm_engine.plugin.syncdb.SyncDB
+    task_params: ''
+    task_status: 'on'
+    work_type: long
+    work_crontab: '* * * * *'
+    work_status_interval: 60
+    work_timeout: 60

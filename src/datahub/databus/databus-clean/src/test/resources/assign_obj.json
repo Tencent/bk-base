@@ -1,0 +1,43 @@
+{
+  "extract": {
+    "type": "fun",
+    "method": "from_json",
+    "next": {
+      "type": "assign",
+      "subtype": "assign_obj",
+      "assign": [
+        {
+          "key": "timestamp",
+          "assign_to": "timestamp",
+          "type": "string"
+        },
+        {
+          "key": "field2",
+          "assign_to": "id",
+          "type": "long"
+        },
+        {
+          "key": "field3",
+          "assign_to": "info",
+          "type": "bigint"
+        },
+        {
+          "key": "field4",
+          "assign_to": "cal",
+          "type": "bigdecimal"
+        }
+      ]
+    }
+  },
+  "conf": {
+    "time_field_name": "timestamp",
+    "output_field_name": "timestamp",
+    "time_format": "yyyy-MM-dd HH:mm:ss",
+    "timestamp_len": 0,
+    "time_round": 1,
+    "compressed": 1,
+    "ignore_fields": [
+      "upload_time"
+    ]
+  }
+}

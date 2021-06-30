@@ -1,0 +1,327 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[ {
+  "id" : "591_test_ignite_multi_read_node_FlinkSqlSubquery_1",
+  "name" : "test_ignite_multi_read_node_FlinkSqlSubquery_1",
+  "parents" : [ "591_test_append_x" ],
+  "window" : {
+    "length" : 0,
+    "count_freq" : 0,
+    "waiting_time" : 0,
+    "session_gap" : 0,
+    "expired_time" : 0,
+    "allowed_lateness" : false,
+    "lateness_time" : 0,
+    "lateness_count_freq" : 0
+  },
+  "processor" : {
+    "processor_type" : "common_transform",
+    "processor_args" : "SELECT `dtEventTime`, utc_to_local(`dtEventTime`) AS `_startTime_`, utc_to_local(`dtEventTime`) AS `_endTime_`, `log`, `report_time`, `ip`, `gseindey` FROM `test_ignite_multi_read_node_FlinkSqlSubquery_1_591___test_append_x_591`"
+  },
+  "fields" : [ {
+    "field" : "dtEventTime",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_startTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_endTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "log",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "report_time",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "ip",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "gseindey",
+    "type" : "long",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  } ]
+}, {
+  "id" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2",
+  "name" : "test_ignite_multi_read_node_FlinkSqlStaticJoin_2",
+  "parents" : [ "591_test_ignite_multi_read_node_FlinkSqlSubquery_1" ],
+  "window" : {
+    "length" : 0,
+    "count_freq" : 0,
+    "waiting_time" : 0,
+    "session_gap" : 0,
+    "expired_time" : 0,
+    "allowed_lateness" : false,
+    "lateness_time" : 0,
+    "lateness_count_freq" : 0
+  },
+  "processor" : {
+    "processor_type" : "static_join_transform",
+    "processor_args" : "{\"storage_info\":{\"cache_name\":\"test_ignite_write2_591\",\"password\":\"\",\"kv_source_type\":\"ignite\",\"data_id\":\"591_test_ignite_write2\",\"port\":10800,\"ignite_cluster\":\"ignite-join-test\",\"redis_type\":\"private\",\"host\":\"0.0.0.0\",\"key_separator\":\":\",\"ignite_user\":\"admin\",\"query_mode\":\"single\",\"key_order\":[\"gseindex\",\"ip\",\"report_time\"]},\"table_name\":\"test_ignite_write2\",\"biz_id\":\"591\",\"type\":\"left\",\"join_keys\":[{\"static\":\"ip\",\"stream\":\"ip\"},{\"static\":\"report_time\",\"stream\":\"report_time\"},{\"static\":\"gseindex\",\"stream\":\"gseindey\"}]}"
+  },
+  "fields" : [ {
+    "field" : "dtEventTime",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_startTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_endTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_report_time_111111",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlSubquery_1:report_time",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_write2_gseindex_222222",
+    "type" : "long",
+    "origin" : "static_join_transform:gseindex",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_write2_report_time_333333",
+    "type" : "string",
+    "origin" : "static_join_transform:report_time",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_log_444444",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlSubquery_1:log",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_gseindey_555555",
+    "type" : "long",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlSubquery_1:gseindey",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_write2_ip_666666",
+    "type" : "string",
+    "origin" : "static_join_transform:ip",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_ip_777777",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlSubquery_1:ip",
+    "description" : "",
+    "is_dimension" : false
+  } ]
+}, {
+  "id" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_3",
+  "name" : "test_ignite_multi_read_node_FlinkSqlStaticJoin_3",
+  "parents" : [ "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2" ],
+  "window" : {
+    "length" : 0,
+    "count_freq" : 0,
+    "waiting_time" : 0,
+    "session_gap" : 0,
+    "expired_time" : 0,
+    "allowed_lateness" : false,
+    "lateness_time" : 0,
+    "lateness_count_freq" : 0
+  },
+  "processor" : {
+    "processor_type" : "static_join_transform",
+    "processor_args" : "{\"storage_info\":{\"cache_name\":\"test_ignite_write_redis2_node_591\",\"password\":\"\",\"kv_source_type\":\"ignite\",\"data_id\":\"591_test_ignite_write_redis2_node\",\"port\":10800,\"ignite_cluster\":\"ignite-join-test\",\"redis_type\":\"private\",\"host\":\"0.0.0.0\",\"key_separator\":\":\",\"ignite_user\":\"admin\",\"query_mode\":\"single\",\"key_order\":[\"ip\",\"report_time\"]},\"table_name\":\"test_ignite_write_redis2_node\",\"biz_id\":\"591\",\"type\":\"left\",\"join_keys\":[{\"static\":\"ip\",\"stream\":\"col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_ip_777777\"},{\"static\":\"report_time\",\"stream\":\"col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_report_time_111111\"}]}"
+  },
+  "fields" : [ {
+    "field" : "dtEventTime",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:dtEventTime",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_startTime_",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:_startTime_",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_endTime_",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:_endTime_",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_report_time_111111",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_report_time_111111",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_write2_gseindex_222222",
+    "type" : "long",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:col_591_test_ignite_write2_gseindex_222222",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_write2_report_time_333333",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:col_591_test_ignite_write2_report_time_333333",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_log_444444",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_log_444444",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_gseindey_555555",
+    "type" : "long",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_gseindey_555555",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_write2_ip_666666",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:col_591_test_ignite_write2_ip_666666",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_ip_777777",
+    "type" : "string",
+    "origin" : "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_2:col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_ip_777777",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_write_redis2_node_report_time_888888",
+    "type" : "string",
+    "origin" : "static_join_transform:report_time",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_test_ignite_write_redis2_node_ip_999999",
+    "type" : "string",
+    "origin" : "static_join_transform:ip",
+    "description" : "",
+    "is_dimension" : false
+  } ]
+}, {
+  "id" : "591_test_ignite_multi_read_node",
+  "name" : "test_ignite_multi_read_node",
+  "parents" : [ "591_test_ignite_multi_read_node_FlinkSqlStaticJoin_3" ],
+  "window" : {
+    "length" : 0,
+    "count_freq" : 0,
+    "waiting_time" : 0,
+    "session_gap" : 0,
+    "expired_time" : 0,
+    "allowed_lateness" : false,
+    "lateness_time" : 0,
+    "lateness_count_freq" : 0
+  },
+  "processor" : {
+    "processor_type" : "common_transform",
+    "processor_args" : "SELECT `dtEventTime`, utc_to_local(`dtEventTime`) AS `_startTime_`, utc_to_local(`dtEventTime`) AS `_endTime_`, `col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_log_444444` AS `log`, `col_591_test_ignite_write2_gseindex_222222` AS `gseindex`, `col_591_test_ignite_multi_read_node_FlinkSqlSubquery_1_report_time_111111` AS `report_time`, `col_591_test_ignite_write2_ip_666666` AS `ip`, `col_591_test_ignite_write2_report_time_333333` AS `b_report_time`, `col_591_test_ignite_write_redis2_node_ip_999999` AS `c_ip` FROM `test_ignite_multi_read_node_591___test_ignite_multi_read_node_FlinkSqlStaticJoin_3_591`"
+  },
+  "fields" : [ {
+    "field" : "dtEventTime",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_startTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_endTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "log",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "gseindex",
+    "type" : "long",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "report_time",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "ip",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "b_report_time",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "c_ip",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  } ]
+} ]

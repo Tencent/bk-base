@@ -1,0 +1,295 @@
+/*!
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+ */
+
+@mixin get-tag-row-style() {
+  width: 100%;
+  padding: 9px 0 7px 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  &.row-expand {
+    padding: 0;
+  }
+}
+@mixin get-tag-basic-style($background, $color, $activeBkColor) {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 3px 8px 1px 8px;
+  max-width: 88px;
+  border-radius: 2px;
+  cursor: pointer;
+  color: #979ba5;
+  &:hover {
+    background: $background;
+    color: $color;
+  }
+  &.is-active {
+    background: $activeBkColor;
+    color: $color;
+    &:hover {
+      background: $activeBkColor;
+      color: $color;
+    }
+  }
+}
+@mixin get-tag-list-title {
+  width: 108px;
+  display: flex;
+  color: #313238;
+  font-weight: bold;
+  .title-text {
+    min-width: 84px;
+    text-align: right;
+  }
+  .icon-area {
+    flex: 1;
+  }
+}
+
+@mixin get-tag-group-style {
+  font-size: 12px;
+  &:first-child {
+    margin-left: 108px;
+  }
+  .tag-wrapper {
+    width: 88px;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: center;
+    .tag {
+      @include get-tag-basic-style(#f0f1f5, #3a84ff, #e1ecff);
+    }
+    .single-tag {
+      @include get-tag-basic-style(#fdf6ec, #faad14, #fdf6ec);
+    }
+  }
+}
+.data-tag-wrapper {
+  width: 100%;
+  height: 32px;
+  .data-tag-header {
+    font-size: 18px;
+    line-height: 24px;
+    color: #313238;
+  }
+  .data-tag-inputs {
+    width: 100%;
+    border: 1px solid #dcdee5;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    min-height: 32px;
+    padding: 0 5px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &.no-margin {
+      margin: 0;
+    }
+    &.display-input {
+      height: 32px;
+      min-height: unset;
+      padding-left: 2px !important;
+      padding-top: 4px !important;
+      .data-tag-icon-group {
+        top: 50%;
+        transform: translateY(-50%);
+        .icon-close-circle-shape {
+          display: block;
+        }
+      }
+    }
+    .data-tag-collection {
+      width: 100%;
+      .tag-input {
+        margin-left: 5px;
+        border: none;
+        padding: 0;
+        width: 140px;
+        outline: none;
+        line-height: 30px;
+        font-size: 12px;
+        &.tag-big-size {
+          width: 100%;
+        }
+        &::placeholder {
+          color: #c4c6cc;
+        }
+      }
+      .tag {
+        height: 100%;
+        padding: 4px 5px;
+        border-radius: 2px;
+        background: #e1ecff;
+        display: inline-block;
+        font-size: 12px;
+        text-align: center;
+        color: #3a84ff;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        margin-top: 4px;
+      }
+      .single-tag {
+        background: #fdf6ec;
+        color: #faad14;
+      }
+      .icon-close {
+        color: #63656e;
+        display: inline-block;
+        cursor: pointer;
+      }
+    }
+    .data-tag-icon-group {
+      cursor: pointer;
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      .icon-close-circle-shape {
+        display: block;
+      }
+    }
+  }
+  .data-tag-list {
+    width: 100%;
+    margin-bottom: 16px;
+    .tag-list-tip {
+      display: flex;
+      align-items: center;
+      height: 19px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      .icon-info {
+        margin-right: 3px;
+        &.icon-multiple {
+          color: #3a84ff;
+        }
+        &.icon-single {
+          color: #faad14;
+        }
+      }
+      .tip-text {
+        font-size: #63656e;
+        line-height: 19px;
+      }
+    }
+    .tag-list-body {
+      width: 100%;
+      .tag-empty-body {
+        width: 100%;
+        height: 100px;
+        border: 1px solid #dcdee5;
+      }
+      // tag-list行样式
+      .tag-list-row {
+        @include get-tag-row-style;
+        border: 1px solid #dcdee5;
+        &:not(:first-child) {
+          border-top: none;
+        }
+        .tag-list-top {
+          width: 100%;
+          display: flex;
+          align-items: center;
+        }
+
+        // tag-list行内展开更多样式
+        .tag-list-more {
+          width: 100%;
+          .more-list-row {
+            @include get-tag-row-style;
+            border-bottom: 1px dashed #dcdee5;
+            align-items: flex-start;
+            .tag-list-sub-title {
+              font-weight: bold;
+              .tag-wrapper {
+                justify-content: flex-end;
+                .tag {
+                  margin-right: 14px;
+                }
+              }
+            }
+            @media only screen and (min-width: 1800px) {
+              .tag-list-tags {
+                width: 85%;
+              }
+            }
+            @media (max-width: 1600px) {
+              .tag-list-tags {
+                width: 78%;
+              }
+            }
+            .tag-list-tags {
+              flex-wrap: wrap;
+              max-width: 985px;
+            }
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+    .tag-list-title {
+      @include get-tag-list-title;
+      &.single-row {
+        width: 75px;
+        .title-text {
+          text-align: center;
+        }
+      }
+    }
+    @media only screen and (min-width: 1800px) {
+      .tag-list-tags {
+        width: 85%;
+      }
+    }
+    @media (max-width: 1600px) {
+      .tag-list-tags {
+        width: 78%;
+      }
+    }
+    .tag-list-tags,
+    .tag-list-sub-title {
+      display: flex;
+      align-items: center;
+      @include get-tag-group-style;
+    }
+    .click-more {
+      position: absolute;
+      padding: 3px 7px;
+      cursor: pointer;
+      right: 32px;
+      &:hover {
+        background: #f0f1f5;
+        color: #3a84ff;
+        border-radius: 2px;
+      }
+    }
+  }
+}

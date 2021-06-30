@@ -1,0 +1,12 @@
+-c requirements.txt
+
+pre-commit
+flake8
+pytest
+pytest-cov
+pytest-django
+pytest-mock
+pytest-pythonpath
+pytest-html
+pytest-flake8
+requests-mock

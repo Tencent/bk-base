@@ -1,0 +1,14 @@
+-c ../../requirements.txt
+-c ../requirements.txt
+
+enum34==1.1.6
+mock==3.0.5
+pytest==3.8.2
+pytest-cov==2.6.0
+pytest-django==3.4.3
+pytest-mock==1.10.0
+pytest-pythonpath==0.7.3
+pytest-html==1.19.0
+pytest-flake8==1.0.2
+PyYAML==3.11
+setuptools==44.1.0

@@ -1,0 +1,20 @@
+{
+  "name":"es-sink-example",
+  "config": {
+    "group.id":"es-cluster-01",
+    "connector.class":"com.tencent.bk.base.datahub.databus.connect.sink.es.EsSinkConnector",
+    "tasks.max":"1",
+    "topics":"TEST_TOPIC",
+    "type.name":"test_table_123",
+    "rt.id":"123_test_rt",
+    "es.index.prefix":"es_index",
+    "es.cluster.name":"elasticsearch",
+    "es.hosts":"localhost",
+    "es.transport.port":"9300",
+    "flush.timeout.ms":"10000",
+    "batch.size":"10000",
+    "max.in.flight.requests":"5",
+    "retry.backoff.ms":"5000",
+    "max.retry":"5"
+  }
+}

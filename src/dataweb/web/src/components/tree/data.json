@@ -1,0 +1,797 @@
+{
+  "renderList": [
+    {
+      "expanded": false,
+      "created_at": "2018-05-23 19:12:29",
+      "op_type_display": "任务停止",
+      "status": "success",
+      "created_by": "admin",
+      "logs": []
+    },
+    {
+      "expanded": false,
+      "created_at": "2018-05-22 11:10:26",
+      "op_type_display": "任务启动",
+      "status": "success",
+      "created_by": "admin",
+      "logs": []
+    },
+    {
+      "expanded": false,
+      "created_at": "2018-05-22 11:31:21",
+      "op_type_display": "任务停止",
+      "status": "failure",
+      "created_by": "admin",
+      "logs": [
+        {
+          "time": "2018-05-22 11:31:22",
+          "message": "锁定任务",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:22",
+          "message": "******************** 开始停止任务 ********************",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:24",
+          "message": "检查原始数据节点",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:25",
+          "message": "检查数据清洗据节点",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:26",
+          "message": "开始锁定作业",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:26",
+          "message": "成功锁定作业",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:27",
+          "message": "开始创建 RT 存储表",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:27",
+          "message": "开始注册业务拓扑",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:27",
+          "message": "开始更新 stream 配置, git_tag=master",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:28",
+          "message": "开始将作业提交至 Storm 集群",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:28",
+          "message": "计算资源不足,请联系数据平台管理员",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:29",
+          "message": "成功解锁作业",
+          "level": "INFO"
+        },
+        {
+          "time": "2018-05-22 11:31:29",
+          "message": "部署过程异常,errors=(STREAM 实时任务状态异常)",
+          "level": "INFO"
+        }
+      ]
+    }
+  ],
+  "outline": [
+    {
+      "id": "rawsource",
+      "menuName": "数据源",
+      "types": "parant",
+      "children": [
+        {
+          "type": "rawsource",
+          "node_id": "11",
+          "types": "child",
+          "menuName": "原始数据"
+        }
+      ]
+    },
+    {
+      "id": "cal",
+      "menuName": "数据处理",
+      "types": "parant",
+      "children": [
+        {
+          "type": "clean",
+          "node_id": "21",
+          "types": "child",
+          "menuName": "第一批数据清洗数据导出为出为出为出为"
+        },
+        {
+          "type": "clean",
+          "node_id": "22",
+          "types": "child",
+          "menuName": "第二批数据清洗"
+        },
+        {
+          "type": "clean",
+          "node_id": "23",
+          "types": "child",
+          "menuName": "第三批数据清洗数据导出为出出出出"
+        },
+        {
+          "type": "realtime",
+          "node_id": "24",
+          "types": "child",
+          "menuName": "第一次实时计算"
+        },
+        {
+          "type": "realtime",
+          "node_id": "25",
+          "types": "child",
+          "menuName": "第二次实时计算"
+        },
+        {
+          "type": "realtime",
+          "node_id": "26",
+          "types": "child",
+          "menuName": "第三次实时计算"
+        },
+        {
+          "type": "offline",
+          "node_id": "27",
+          "types": "child",
+          "menuName": "离线极端测文本溢出"
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "menuName": "数据存储",
+      "types": "parant",
+      "children": [
+        {
+          "type": "hdfs_storage",
+          "node_id": "31",
+          "types": "child",
+          "menuName": "测试HDFT存储测试HDFT存储测试HDFT存储"
+        },
+        {
+          "type": "mysql",
+          "node_id": "32",
+          "types": "child",
+          "menuName": "es存储"
+        },
+        {
+          "type": "elastic_storage",
+          "node_id": "33",
+          "types": "child",
+          "menuName": "es存储"
+        }
+      ]
+    }
+  ],
+  "line": [
+    {
+      "source": {
+        "node_id": 2178,
+        "id": "ch_2178",
+        "arrow": "Right"
+      },
+      "target": {
+        "id": "ch_2181",
+        "arrow": "Left"
+      }
+    },
+    {
+      "source": {
+        "node_id": 2181,
+        "id": "ch_2181",
+        "arrow": "Right"
+      },
+      "target": {
+        "id": "ch_2182",
+        "arrow": "Left"
+      }
+    },
+    {
+      "source": {
+        "node_id": 2182,
+        "id": "ch_2182",
+        "arrow": "Bottom"
+      },
+      "target": {
+        "id": "ch_2183",
+        "arrow": "Top"
+      }
+    },
+    {
+      "source": {
+        "node_id": 2181,
+        "id": "ch_2181",
+        "arrow": "Bottom"
+      },
+      "target": {
+        "id": "ch_2184",
+        "arrow": "Top"
+      }
+    },
+    {
+      "source": {
+        "node_id": 2182,
+        "id": "ch_2182",
+        "arrow": "Right"
+      },
+      "target": {
+        "id": "ch_2185",
+        "arrow": "Left"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "status": "no-start",
+      "alert_status": "info",
+      "name": "[2308] ff",
+      "status_display": "未启动",
+      "type": "rawsource",
+      "node_id": 2178,
+      "x": 60,
+      "y": 256,
+      "output": "2308",
+      "output_description": null,
+      "has_modify": false,
+      "config": {
+        "data_id": 2308,
+        "data_set": "ff",
+        "created_at": "1111",
+        "biz_name": "蓝鲸",
+        "updated_at": "1111",
+        "data_desc": "ff",
+        "biz_id": 2,
+        "data_src_display": "日志数据采集"
+      },
+      "id": "ch_2178"
+    },
+    {
+      "status": "no-start",
+      "alert_status": "info",
+      "name": "第一批数据清洗清洗清洗",
+      "status_display": "未启动",
+      "type": "clean",
+      "node_id": 2181,
+      "x": 202,
+      "y": 266,
+      "output": "2_aaazczxcz",
+      "output_description": "第一批数据清",
+      "has_modify": false,
+      "id": "ch_2181",
+      "config": {
+        "name": "第一批数据清洗清洗清洗",
+        "biz_name": "蓝鲸",
+        "table_name": "aaazczxcz",
+        "biz_id": 2,
+        "output_name": "第一批数据清洗",
+        "template_id": 1,
+        "fields": [
+          {
+            "time_format_id": 1,
+            "name": "a",
+            "sep": "|",
+            "sep_index": 1,
+            "time_zone": 8,
+            "type": "time",
+            "description": "b"
+          },
+          {
+            "sep_index": 2,
+            "sep": "|",
+            "type": "string",
+            "description": "c",
+            "name": "d"
+          }
+        ]
+      }
+    },
+    {
+      "status": "no-start",
+      "alert_status": "info",
+      "name": "第一次实时计算计算",
+      "status_display": "未启动",
+      "type": "realtime",
+      "node_id": 2182,
+      "x": 426,
+      "y": 268,
+      "output": "2_jkhkh",
+      "output_description": "第一次实时计算计算",
+      "has_modify": false,
+      "config": {
+        "window_type": "none",
+        "counter": "null",
+        "count_freq": "null",
+        "name": "第一次实时计算计算",
+        "biz_name": "蓝鲸",
+        "biz_id": 2,
+        "window_time": "null",
+        "table_name": "jkhkh",
+        "sql": "select d from 2_aaazczxcz",
+        "output_name": "第一次实时计算计算",
+        "waiting_time": "null"
+      },
+      "id": "ch_2182"
+    },
+    {
+      "status": "no-start",
+      "alert_status": "info",
+      "name": "2_jkhkh（Elasticsearch）",
+      "status_display": "未启动",
+      "type": "elastic_storage",
+      "node_id": 2183,
+      "x": 451,
+      "y": 420,
+      "output": "2_jkhkh",
+      "output_description": "第一次实时计算计算",
+      "has_modify": false,
+      "config": {
+        "analyzed_fields": [],
+        "name": "2_jkhkh（Elasticsearch）",
+        "biz_name": "蓝鲸",
+        "expires": 30,
+        "cluster_name": "Public Set",
+        "cluster": "default",
+        "date_fields": [],
+        "biz_id": 2
+      },
+      "id": "ch_2183"
+    },
+    {
+      "status": "no-start",
+      "alert_status": "info",
+      "name": "2_aaazczxcz（MySQL）",
+      "status_display": "未启动",
+      "type": "mysql",
+      "node_id": 2184,
+      "x": 237,
+      "y": 432,
+      "output": "2_aaazczxcz",
+      "output_description": "第一批数据清洗",
+      "has_modify": false,
+      "config": {
+        "name": "2_aaazczxcz（MySQL）",
+        "biz_name": "蓝鲸",
+        "expires": 30,
+        "cluster_name": "Public Set",
+        "cluster": "default",
+        "biz_id": 2
+      },
+      "id": "ch_2184"
+    },
+    {
+      "status": "no-start",
+      "alert_status": "info",
+      "name": "2_jkhkh（HDFS）",
+      "status_display": "未启动",
+      "type": "hdfs_storage",
+      "node_id": 2185,
+      "x": 677,
+      "y": 267,
+      "output": "2_jkhkh",
+      "output_description": "第一次实时计算计算",
+      "has_modify": false,
+      "config": {
+        "name": "2_jkhkh（HDFS）",
+        "biz_name": "蓝鲸",
+        "expires": 3,
+        "cluster_name": "Public Set",
+        "cluster": "default",
+        "biz_id": 2
+      },
+      "id": "ch_2185"
+    }
+  ],
+  "realtimeNode": {
+    "self": {
+      "status": "no-start",
+      "alert_status": "info",
+      "debugStatus": "no",
+      "auto": "false",
+      "name": "第一次实时计算计算",
+      "status_display": "未启动",
+      "type": "realtime",
+      "node_id": 2182,
+      "frontend_info": {
+        "x": 426,
+        "y": 268
+      },
+      "x": 426,
+      "y": 268,
+      "output": "2_jkhkh",
+      "output_description": "第一次实时计算计算",
+      "has_modify": false,
+      "config": {
+        "window_type": "none",
+        "counter": "null",
+        "count_freq": "null",
+        "name": "第一次实时计算计算",
+        "biz_name": "蓝鲸",
+        "biz_id": 2,
+        "window_time": "null",
+        "table_name": "jkhkh",
+        "sql": "select count(*) as dq_err_count from 2_aaazczxcz",
+        "output_name": "第一次实时计算计算",
+        "waiting_time": "null"
+      },
+      "id": "ch_2182",
+      "input_data_count": "-",
+      "interval": "null",
+      "monitorStartTime": "",
+      "output_data_count": "-",
+      "pointDebugStatus": "success",
+      "start_time": "暂未执行",
+      "title": ""
+    },
+    "source": [
+      {
+        "alert_status": "info",
+        "auto": "false",
+        "config": {
+          "biz_name": "蓝鲸",
+          "biz_id": 2,
+          "name": "第一次实时计算计算",
+          "output_name": "第一次实时计算计算",
+          "table_name": "aaazczxcz",
+          "template_id": 1,
+          "fields": [
+            {
+              "description": "b",
+              "name": "a",
+              "sep": "|",
+              "sep_index": 1,
+              "time_format_id": 1,
+              "time_zone": 8,
+              "type": "time"
+            },
+            {
+              "description": "c",
+              "name": "d",
+              "sep": "|",
+              "sep_index": 2,
+              "type": "string"
+            }
+          ]
+        },
+        "debugStatus": "no",
+        "id": "ch_2181",
+        "input_data_count": "-",
+        "interval": "null",
+        "monitorStartTime": "",
+        "name": "第一批数据清洗清洗清洗",
+        "node_id": 2181,
+        "output": "2_aaazczxcz",
+        "output_data_count": "-",
+        "output_description": "第一批数据清",
+        "pointDebugStatus": "success",
+        "start_time": "暂未执行",
+        "status": "no-start",
+        "status_display": "未启动",
+        "title": "",
+        "type": "clean",
+        "x": 202,
+        "y": 266
+      }
+    ],
+    "position": [
+      {
+        "source": {
+          "arrow": "Right",
+          "id": "ch_2181",
+          "node_id": 2181
+        },
+        "target": {
+          "arrow": "Left",
+          "id": "ch_2181"
+        }
+      }
+    ]
+  },
+  "function": [
+    {
+      "level": 1,
+      "name": "Hive内置函数",
+      "open": true,
+      "children": [
+        {
+          "level": 2,
+          "name": "IP域名函数",
+          "open": true,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": [
+                {
+                  "args": "a DOUBLE/FLOAT，指定数值字段；n INT，保留小数点后几位数字。",
+                  "compute_type": "通用",
+                  "name": "Parse_url",
+                  "return_type": "DOUBLE/FLOAT",
+                  "usage": "truncate(DOUBLE/FLOAT a, INT n)"
+                }
+              ]
+            },
+            {
+              "explain": "asdasdsaasassa",
+              "name": "Parse_src",
+              "open": true,
+              "level": 3,
+              "usages": [
+                {
+                  "args": "a DOUBLE/FLOAT，指定数值字段；n INT，保留小数点后几位数字。",
+                  "compute_type": "通用",
+                  "name": "Parse_url",
+                  "return_type": "DOUBLE/FLOAT",
+                  "usage": "truncate(DOUBLE/FLOAT a, INT n)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "分析函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "加密函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "字符串函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "数学函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "日期与时间函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "聚合函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "转换函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "逻辑函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "Hive内置函数",
+      "open": true,
+      "children": [
+        {
+          "level": 2,
+          "name": "IP域名函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "分析函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "加密函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "字符串函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "数学函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "日期与时间函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "聚合函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "转换函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "逻辑函数",
+          "open": false,
+          "children": [
+            {
+              "explain": "保留数值小数点后指定位数。",
+              "name": "Parse_url",
+              "open": true,
+              "level": 3,
+              "usages": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

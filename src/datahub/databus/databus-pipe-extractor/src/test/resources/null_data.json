@@ -1,0 +1,22 @@
+{
+  "time": "2016-07-26 15:59:58",
+  "value": [
+    {
+      "_platform_": "wx",
+      "_table_": "test_table",
+      "_timediff_": "58",
+      "_host_": "xx.xx.xx.xx",
+      "gsid": "xx-xx-xx-xx\u0000",
+      "_os_": "unknown",
+      "_db_": "test_db",
+      "gameappid": "xx-xx-xx-xx\u0000",
+      "zoneareaid": "1234",
+      "timekey": "24491999",
+      "dtEventTime": "2016-07-26 15:59:00",
+      "onlinecntios": "0",
+      "onlinecntandroid": "0"
+    }
+  ],
+  "server": "xx.xx.xx.xx  ",
+  "type": "json"
+}

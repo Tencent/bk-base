@@ -1,0 +1,31 @@
+{
+    "type": "fun",
+    "method": "zip",
+    "args": ["list1", "list2"],
+    "next": {
+        "type": "access",
+        "subtype": "access_pos",
+        "index": 0,
+        "next": {
+            "type": "assign",
+            "subtype": "assign_pos",
+            "assign": [
+                {
+                    "assign_to": "var1",
+                    "index": 0,
+                    "type": "string"
+                },
+                {
+                    "assign_to": "var2",
+                    "index": 1,
+                    "type": "string"
+                },
+                {
+                    "assign_to": "var3",
+                    "index": 2,
+                    "type": "string"
+                }
+            ]
+        }
+    }
+}

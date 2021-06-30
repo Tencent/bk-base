@@ -1,0 +1,714 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "result_table_name_alias",
+    "sensitivity",
+    "updated_at",
+    "generate_type",
+    "processing_type",
+    "description",
+    "created_by",
+    "count_freq_unit",
+    "platform",
+    "storages",
+    "project_id",
+    "result_table_id",
+    "project_name",
+    "count_freq",
+    "updated_by",
+    "tags",
+    "bk_biz_id",
+    "fields",
+    "created_at",
+    "result_table_type",
+    "result_table_name",
+    "data_category",
+    "is_managed"
+  ],
+  "properties": {
+    "result_table_name_alias": {
+      "$id": "#/properties/result_table_name_alias",
+      "type": "string",
+      "title": "The Result_table_name_alias Schema",
+      "default": "",
+      "examples": [
+        "越南热点运营商延迟"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "sensitivity": {
+      "$id": "#/properties/sensitivity",
+      "type": "string",
+      "title": "The Sensitivity Schema",
+      "default": "",
+      "examples": [
+        "public"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "updated_at": {
+      "$id": "#/properties/updated_at",
+      "type": "string",
+      "title": "The Updated_at Schema",
+      "default": "",
+      "examples": [
+        "2019-07-01 10:02:46"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "generate_type": {
+      "$id": "#/properties/generate_type",
+      "type": "string",
+      "title": "The Generate_type Schema",
+      "default": "",
+      "examples": [
+        "user"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "processing_type": {
+      "$id": "#/properties/processing_type",
+      "type": "string",
+      "title": "The Processing_type Schema",
+      "default": "",
+      "examples": [
+        "stream"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "description": {
+      "$id": "#/properties/description",
+      "type": "string",
+      "title": "The Description Schema",
+      "default": "",
+      "examples": [
+        "越南热点运营商延迟"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "created_by": {
+      "$id": "#/properties/created_by",
+      "type": "string",
+      "title": "The Created_by Schema",
+      "default": "",
+      "examples": [
+        "someone"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "count_freq_unit": {
+      "$id": "#/properties/count_freq_unit",
+      "type": "string",
+      "title": "The Count_freq_unit Schema",
+      "default": "",
+      "examples": [
+        "s"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "platform": {
+      "$id": "#/properties/platform",
+      "type": "string",
+      "title": "The Platform Schema",
+      "default": "",
+      "examples": [
+        "someone"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "storages": {
+      "$id": "#/properties/storages",
+      "type": "object",
+      "title": "The Storages Schema",
+      "required": [],
+      "properties": {},
+      "additionalProperties": {
+        "$id": "#/properties/storages/additionalProperties",
+        "type": "object",
+        "title": "The Storage Schema",
+        "required": [
+          "storage_channel",
+          "description",
+          "created_at",
+          "expires",
+          "updated_at",
+          "created_by",
+          "priority",
+          "active",
+          "storage_config",
+          "generate_type",
+          "updated_by",
+          "storage_cluster",
+          "id",
+          "data_type",
+          "physical_table_name",
+          "previous_cluster_name"
+        ],
+        "properties": {
+          "storage_channel": {
+            "$id": "#/properties/storages/properties/es/properties/storage_channel",
+            "type": "object",
+            "title": "The Storage_channel Schema"
+          },
+          "description": {
+            "$id": "#/properties/storages/properties/es/properties/description",
+            "type": "string",
+            "title": "The Description Schema",
+            "default": "",
+            "examples": [
+              "DataFlow增加存储"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "created_at": {
+            "$id": "#/properties/storages/properties/es/properties/created_at",
+            "type": "string",
+            "title": "The Created_at Schema",
+            "default": "",
+            "examples": [
+              "2018-12-25 14:48:16"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "expires": {
+            "$id": "#/properties/storages/properties/es/properties/expires",
+            "type": "string",
+            "title": "The Expires Schema",
+            "default": "",
+            "examples": [
+              "3d"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "updated_at": {
+            "$id": "#/properties/storages/properties/es/properties/updated_at",
+            "type": "string",
+            "title": "The Updated_at Schema",
+            "default": "",
+            "examples": [
+              "2018-12-25 16:23:00"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "created_by": {
+            "$id": "#/properties/storages/properties/es/properties/created_by",
+            "type": "string",
+            "title": "The Created_by Schema",
+            "default": "",
+            "examples": [
+              ""
+            ],
+            "pattern": "^(.*)$"
+          },
+          "priority": {
+            "$id": "#/properties/storages/properties/es/properties/priority",
+            "type": "integer",
+            "title": "The Priority Schema",
+            "default": 0,
+            "examples": [
+              0
+            ]
+          },
+          "active": {
+            "$id": "#/properties/storages/properties/es/properties/active",
+            "type": "boolean",
+            "title": "The Active Schema",
+            "default": false,
+            "examples": [
+              true
+            ]
+          },
+          "storage_config": {
+            "$id": "#/properties/storages/properties/es/properties/storage_config",
+            "type": "string",
+            "title": "The Storage_config Schema",
+            "default": "",
+            "examples": [
+              "{\"json_fields\": [], \"date_fields\": [\"dtEventTime\", \"dtEventTimeStamp\", \"localTime\", \"thedate\"], \"analyzed_fields\": [], \"doc_values_fields\": [], \"indexed_fields\": []}"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "generate_type": {
+            "$id": "#/properties/storages/properties/es/properties/generate_type",
+            "type": "string",
+            "title": "The Generate_type Schema",
+            "default": "",
+            "examples": [
+              "user"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "updated_by": {
+            "$id": "#/properties/storages/properties/es/properties/updated_by",
+            "type": "string",
+            "title": "The Updated_by Schema",
+            "default": "",
+            "examples": [
+              ""
+            ],
+            "pattern": "^(.*)$"
+          },
+          "storage_cluster": {
+            "$id": "#/properties/storages/properties/es/properties/storage_cluster",
+            "type": "object",
+            "title": "The Storage_cluster Schema",
+            "required": [
+              "storage_cluster_config_id",
+              "cluster_name",
+              "cluster_type",
+              "priority",
+              "version",
+              "meanings",
+              "cluster_domain",
+              "connection_info",
+              "belongs_to",
+              "cluster_group"
+            ],
+            "properties": {
+              "storage_cluster_config_id": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/storage_cluster_config_id",
+                "type": "integer",
+                "title": "The Storage_cluster_config_id Schema",
+                "default": 0,
+                "examples": [
+                  19
+                ]
+              },
+              "cluster_name": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/cluster_name",
+                "type": "string",
+                "title": "The Cluster_name Schema",
+                "default": "",
+                "examples": [
+                  "es-test"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "cluster_type": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/cluster_type",
+                "type": "string",
+                "title": "The Cluster_type Schema",
+                "default": "",
+                "examples": [
+                  "es"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "priority": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/priority",
+                "type": "integer",
+                "title": "The Priority Schema",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "version": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/version",
+                "type": "string",
+                "title": "The Version Schema",
+                "default": "",
+                "examples": [
+                  "2.0.0"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "meanings": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/meanings",
+                "type": "array",
+                "title": "The Meanings Schema"
+              },
+              "cluster_domain": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/cluster_domain",
+                "type": "string",
+                "title": "The Cluster_domain Schema",
+                "default": "",
+                "examples": [
+                  "localhost"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "connection_info": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/connection_info",
+                "type": "string",
+                "title": "The Connection_info Schema",
+                "default": "",
+                "examples": [
+                  "{\"enable_auth\": true, \"host\": \"127.0.0.1\", \"user\": \"xxxxx\", \"password\": \"xxxxx\\n\", \"port\": 8080, \"transport\": 9300}"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "belongs_to": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/belongs_to",
+                "type": "string",
+                "title": "The Belongs_to Schema",
+                "default": "",
+                "examples": [
+                  "someone"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "cluster_group": {
+                "$id": "#/properties/storages/properties/es/properties/storage_cluster/properties/cluster_group",
+                "type": "string",
+                "title": "The Cluster_group Schema",
+                "default": "",
+                "examples": [
+                  "default"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "id": {
+            "$id": "#/properties/storages/properties/es/properties/id",
+            "type": "integer",
+            "title": "The Id Schema",
+            "default": 0,
+            "examples": [
+              1002
+            ]
+          },
+          "data_type": {
+            "$id": "#/properties/storages/properties/es/properties/data_type",
+            "type": "string",
+            "title": "The Data_type Schema",
+            "default": "",
+            "examples": [
+              "iceberg"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "physical_table_name": {
+            "$id": "#/properties/storages/properties/es/properties/physical_table_name",
+            "type": "string",
+            "title": "The Physical_table_name Schema",
+            "default": "",
+            "examples": [
+              "tab"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "previous_cluster_name": {
+            "$id": "#/properties/storages/properties/es/properties/previous_cluster_name",
+            "type": "string",
+            "title": "The Previous_cluster_name Schema",
+            "default": "",
+            "examples": [
+              "es_666"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    },
+    "project_id": {
+      "$id": "#/properties/project_id",
+      "type": "integer",
+      "title": "The Project_id Schema",
+      "default": 0,
+      "examples": [
+        4251
+      ]
+    },
+    "result_table_id": {
+      "$id": "#/properties/result_table_id",
+      "type": "string",
+      "title": "The Result_table_id Schema",
+      "default": "",
+      "examples": [
+        "100_qsm_xxx"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "project_name": {
+      "$id": "#/properties/project_name",
+      "type": "string",
+      "title": "The Project_name Schema",
+      "default": "",
+      "examples": [
+        "Globalinfo"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "count_freq": {
+      "$id": "#/properties/count_freq",
+      "type": "integer",
+      "title": "The Count_freq Schema",
+      "default": 0,
+      "examples": [
+        300
+      ]
+    },
+    "updated_by": {
+      "$id": "#/properties/updated_by",
+      "type": "string",
+      "title": "The Updated_by Schema",
+      "default": "",
+      "examples": [
+        "someone"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "tags": {
+      "$id": "#/properties/tags",
+      "type": "object",
+      "title": "The Tags Schema",
+      "required": [
+        "manage"
+      ],
+      "properties": {
+        "manage": {
+          "$id": "#/properties/tags/properties/manage",
+          "type": "object",
+          "title": "The Manage Schema",
+          "required": [
+            "geog_area"
+          ],
+          "properties": {
+            "geog_area": {
+              "$id": "#/properties/tags/properties/manage/properties/geog_area",
+              "type": "array",
+              "title": "The Geog_area Schema",
+              "items": {
+                "$id": "#/properties/tags/properties/manage/properties/geog_area/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": [
+                  "alias",
+                  "code"
+                ],
+                "properties": {
+                  "alias": {
+                    "$id": "#/properties/tags/properties/manage/properties/geog_area/items/properties/alias",
+                    "type": "string",
+                    "title": "The Alias Schema",
+                    "default": "",
+                    "examples": [
+                      "中国内地"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "code": {
+                    "$id": "#/properties/tags/properties/manage/properties/geog_area/items/properties/code",
+                    "type": "string",
+                    "title": "The Code Schema",
+                    "default": "",
+                    "examples": [
+                      "inland"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "bk_biz_id": {
+      "$id": "#/properties/bk_biz_id",
+      "type": "integer",
+      "title": "The Bk_biz_id Schema",
+      "default": 0,
+      "examples": [
+        100
+      ]
+    },
+    "fields": {
+      "$id": "#/properties/fields",
+      "type": "array",
+      "title": "The Fields Schema",
+      "items": {
+        "$id": "#/properties/fields/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "field_type",
+          "field_alias",
+          "description",
+          "origins",
+          "created_at",
+          "is_dimension",
+          "created_by",
+          "updated_at",
+          "field_name",
+          "id",
+          "field_index",
+          "updated_by"
+        ],
+        "properties": {
+          "field_type": {
+            "$id": "#/properties/fields/items/properties/field_type",
+            "type": "string",
+            "title": "The Field_type Schema",
+            "default": "",
+            "examples": [
+              "timestamp"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "field_alias": {
+            "$id": "#/properties/fields/items/properties/field_alias",
+            "type": "string",
+            "title": "The Field_alias Schema",
+            "default": "",
+            "examples": [
+              "timestamp"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "description": {
+            "$id": "#/properties/fields/items/properties/description",
+            "type": "string",
+            "title": "The Description Schema",
+            "default": "",
+            "examples": [
+              "timestamp"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "origins": {
+            "$id": "#/properties/fields/items/properties/origins",
+            "type": "string",
+            "title": "The Origins Schema",
+            "default": "",
+            "examples": [
+              ""
+            ],
+            "pattern": "^(.*)$"
+          },
+          "created_at": {
+            "$id": "#/properties/fields/items/properties/created_at",
+            "type": "string",
+            "title": "The Created_at Schema",
+            "default": "",
+            "examples": [
+              "2019-05-14 19:51:47"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "is_dimension": {
+            "$id": "#/properties/fields/items/properties/is_dimension",
+            "type": "boolean",
+            "title": "The Is_dimension Schema",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "created_by": {
+            "$id": "#/properties/fields/items/properties/created_by",
+            "type": "string",
+            "title": "The Created_by Schema",
+            "default": "",
+            "examples": [
+              "someone"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "updated_at": {
+            "$id": "#/properties/fields/items/properties/updated_at",
+            "type": "string",
+            "title": "The Updated_at Schema",
+            "default": "",
+            "examples": [
+              "2019-07-01 10:02:46"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "field_name": {
+            "$id": "#/properties/fields/items/properties/field_name",
+            "type": "string",
+            "title": "The Field_name Schema",
+            "default": "",
+            "examples": [
+              "timestamp"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "id": {
+            "$id": "#/properties/fields/items/properties/id",
+            "type": "integer",
+            "title": "The Id Schema",
+            "default": 0,
+            "examples": [
+              934687
+            ]
+          },
+          "field_index": {
+            "$id": "#/properties/fields/items/properties/field_index",
+            "type": "integer",
+            "title": "The Field_index Schema",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "updated_by": {
+            "$id": "#/properties/fields/items/properties/updated_by",
+            "type": "string",
+            "title": "The Updated_by Schema",
+            "default": "",
+            "examples": [
+              "someone"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    },
+    "created_at": {
+      "$id": "#/properties/created_at",
+      "type": "string",
+      "title": "The Created_at Schema",
+      "default": "",
+      "examples": [
+        "2019-05-14 19:51:47"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "result_table_type": {
+      "$id": "#/properties/result_table_type",
+      "type": "null",
+      "title": "The Result_table_type Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "result_table_name": {
+      "$id": "#/properties/result_table_name",
+      "type": "string",
+      "title": "The Result_table_name Schema",
+      "default": "",
+      "examples": [
+        "qsm_pavg_vng"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "data_category": {
+      "$id": "#/properties/data_category",
+      "type": "string",
+      "title": "The Data_category Schema",
+      "default": "",
+      "examples": [
+        ""
+      ],
+      "pattern": "^(.*)$"
+    },
+    "is_managed": {
+      "$id": "#/properties/is_managed",
+      "type": "integer",
+      "title": "The Is_managed Schema",
+      "default": 0,
+      "examples": [
+        1
+      ]
+    }
+  }
+}

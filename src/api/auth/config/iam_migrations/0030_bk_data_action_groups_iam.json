@@ -1,0 +1,283 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action_groups",
+            "data": [
+                {
+                    "name": "数据集成",
+                    "name_en": "DataHub",
+                    "actions": [
+                        {
+                            "id": "raw_data-create"
+                        },
+                        {
+                            "id": "raw_data-delete"
+                        },
+                        {
+                            "id": "raw_data-etl"
+                        },
+                        {
+                            "id": "raw_data-etl_retrieve"
+                        },
+                        {
+                            "id": "raw_data-query_data"
+                        },
+                        {
+                            "id": "raw_data-retrieve"
+                        },
+                        {
+                            "id": "raw_data-retrieve_sensitive_info"
+                        },
+                        {
+                            "id": "raw_data-update"
+                        },
+                        {
+                            "id": "raw_data-collect_hub"
+                        }
+                    ]
+                },
+                {
+                    "name": "项目管理",
+                    "name_en": "Project",
+                    "actions": [
+                        {
+                            "id": "project-create"
+                        },
+                        {
+                            "id": "project-delete"
+                        },
+                        {
+                            "id": "project-manage"
+                        },
+                        {
+                            "id": "project-retrieve"
+                        },
+                        {
+                            "id": "project-update"
+                        },
+                        {
+                            "id": "project-manage_flow"
+                        },
+                        {
+                            "id": "project-manage_dashboard"
+                        }
+                    ]
+                },
+                {
+                    "name": "数据开发",
+                    "name_en": "DataFlow",
+                    "actions": [
+                        {
+                            "id": "flow-create"
+                        },
+                        {
+                            "id": "flow-delete"
+                        },
+                        {
+                            "id": "flow-execute"
+                        },
+                        {
+                            "id": "flow-retrieve"
+                        },
+                        {
+                            "id": "flow-update"
+                        },
+                        {
+                            "id": "flow-query_metrics"
+                        }
+                    ]
+                },
+                {
+                    "name": "数据视图",
+                    "name_en": "DataView",
+                    "actions": [
+                        {
+                            "id": "dashboard-create"
+                        },
+                        {
+                            "id": "dashboard-delete"
+                        },
+                        {
+                            "id": "dashboard-retrieve"
+                        },
+                        {
+                            "id": "dashboard-update"
+                        }
+                    ]
+                },
+                {
+                    "name": "授权码",
+                    "name_en": "DataToken",
+                    "actions": [
+                        {
+                            "id": "data_token-manage"
+                        }
+                    ]
+                },
+                {
+                    "name": "自定义计算函数",
+                    "name_en": "UDF",
+                    "actions": [
+                        {
+                            "id": "function-develop"
+                        }
+                    ]
+                },
+                {
+                    "name": "业务管理",
+                    "name_en": "Business",
+                    "actions": [
+                        {
+                            "id": "biz-manage"
+                        }
+                    ]
+                },
+                {
+                    "name": "资源组",
+                    "name_en": "ResourceGroup",
+                    "actions": [
+                        {
+                            "id": "resource_group-manage_capacity"
+                        },
+                        {
+                            "id": "resource_group-manage_info"
+                        },
+                        {
+                            "id": "resource_group-manage_auth"
+                        }
+                    ]
+                },
+                {
+                    "name": "结果数据",
+                    "name_en": "ResultTable",
+                    "actions": [
+                        {
+                            "id": "result_table-query_data"
+                        },
+                        {
+                            "id": "result_table-retrieve"
+                        },
+                        {
+                            "id": "result_table-retrieve_sens_info"
+                        },
+                        {
+                            "id": "result_table-update_data"
+                        },
+                        {
+                            "id": "result_table-delete_data"
+                        }
+                    ]
+                },
+                {
+                    "name": "AIOPS",
+                    "name_en": "AIOPS",
+                    "actions": [
+                        {
+                            "id": "model-create"
+                        },
+                        {
+                            "id": "model-copy"
+                        },
+                        {
+                            "id": "model-retrieve"
+                        },
+                        {
+                            "id": "model-update"
+                        },
+                        {
+                            "id": "model-delete"
+                        },
+                        {
+                            "id": "model-copy_experiment"
+                        },
+                        {
+                            "id": "model-retrieve_experiment"
+                        },
+                        {
+                            "id": "model-create_experiment"
+                        },
+                        {
+                            "id": "model-update_experiment"
+                        },
+                        {
+                            "id": "model-delete_experiment"
+                        },
+                        {
+                            "id": "model-copy_release"
+                        },
+                        {
+                            "id": "model-retrieve_release"
+                        },
+                        {
+                            "id": "model-create_release"
+                        },
+                        {
+                            "id": "model-update_release"
+                        },
+                        {
+                            "id": "model-delete_release"
+                        },
+                        {
+                            "id": "model-copy_service"
+                        },
+                        {
+                            "id": "model-retrieve_service"
+                        },
+                        {
+                            "id": "model-create_service"
+                        },
+                        {
+                            "id": "model-update_service"
+                        },
+                        {
+                            "id": "model-delete_service"
+                        },
+                        {
+                            "id": "model-retrieve_serving"
+                        },
+                        {
+                            "id": "model-create_serving"
+                        },
+                        {
+                            "id": "model-update_serving"
+                        },
+                        {
+                            "id": "model-delete_serving"
+                        },
+                        {
+                            "id": "sample_set-create"
+                        },
+                        {
+                            "id": "sample_set-copy"
+                        },
+                        {
+                            "id": "sample_set-retrieve"
+                        },
+                        {
+                            "id": "sample_set-update"
+                        },
+                        {
+                            "id": "sample_set-delete"
+                        },
+                        {
+                            "id": "algorithm-create"
+                        },
+                        {
+                            "id": "algorithm-copy"
+                        },
+                        {
+                            "id": "algorithm-retrieve"
+                        },
+                        {
+                            "id": "algorithm-update"
+                        },
+                        {
+                            "id": "algorithm-delete"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

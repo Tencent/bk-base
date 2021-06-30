@@ -1,0 +1,89 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+one-time-spark-sql:
+  walker:
+    type: .SerialGroup
+    groups:
+      - type: .ParallelGroup
+        groups:
+          - type: .checker.AbsentAliasChecker
+          - type: .checker.AbsentFromItemChecker
+          - type: .checker.DuplicatedColumnsChecker
+          - type: .checker.UseOfDisabledOperationChecker
+            disabled-operation-list:
+              - ALTER
+              - ALTER VIEW
+              - COMMIT
+              - CREATE INDEX
+              - CREATE TABLE
+              - CREATE VIEW
+              - DELETE
+              - DROP
+              - EXECUTE
+              - INSERT
+              - MERGE
+              - REPLACE
+              - SET
+              - TRUNCATE
+              - UPDATE
+              - UPSERT
+          - type: .checker.IcebergInvalidSQLChecker
+      - type: .SerialGroup
+        groups:
+          - type: .optimizer.FunctionNameCaseOptimizer
+            rule: ToLower
+            names:
+              - COUNT
+              - AVG
+              - MAX
+              - MIN
+              - SUM
+              - LAST
+      - type: .optimizer.TableNameOptimizer
+        moveNumericPrefixToTail: true
+      - type: .optimizer.SparkSqlLateralTableOptimizer
+      - type: .optimizer.SparkSqlIpLibOptimizer
+  de-parser:
+    type: .SparkSqlDeParser
+    trtTableMetadataUrlPattern: http://__BKDATA_METAAPI_HOST__:__BKDATA_METAAPI_PORT__/v3/meta/result_tables/{0}/?related=fields
+    dataflowUDFUrlPattern: http://__BKDATA_DATAFLOWAPI_HOST__:__BKDATA_DATAFLOWAPI_PORT__/v3/dataflow/udf/functions/?env={0}&function_name={1}
+    udf-list:
+      - ConvertToInteger(string)=int
+      - ConvertToLong(string)=long
+      - zip(string,array)=array(string)
+      - split_index(string,string,int)=string
+      - batch_scheduleTime(string,string)=string
+    udaf-list:
+      - GroupConcat(any, [string], [any], [string], [string])=string
+    udtf-list:
+      - ipv4link_udtf(String)=[String, String, String, String, String, String, String, String, String]
+      - ipv6link_udtf(String)=[String, String, String, String, String, String, String, String, String]
+      - ipv4linkTgeoGenericBusiness_udtf(String)=[String, String, String, String, String, String, String, String, String]
+      - ipv6linkTgeoGenericBusiness_udtf(String)=[String, String, String, String, String, String, String, String, String]
+      - ipv4linkTgeoBaseNetwork_udtf(String)=[String, String, String, String, String, String, String, String, String]
+      - ipv6linkTgeoBaseNetwork_udtf(String)=[String, String, String, String, String, String, String, String, String]
+
+  pre-loading:
+    type: .SparkSqlPreLoading
+    trtTableMetadataUrlPattern: http://__BKDATA_METAAPI_HOST__:__BKDATA_METAAPI_PORT__/v3/meta/result_tables/{0}/?related=fields

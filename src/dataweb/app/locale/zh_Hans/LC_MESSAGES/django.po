@@ -1,0 +1,979 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-10 12:14+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: apps/api/base.py:129
+#, python-brace-format
+msgid "【{module}】{msg}"
+msgstr "【{module}】{msg}"
+
+#: apps/api/base.py:178
+msgid "API请求超时，请管理员排查问题"
+msgstr "API请求超时，请管理员排查问题"
+
+#: apps/api/base.py:186
+msgid "API请求异常，请管理员排查问题"
+msgstr "API请求异常，请管理员排查问题"
+
+#: apps/api/base.py:195
+#, python-brace-format
+msgid ""
+"模块【{module}】，请求路径【{url}】，API请求异常，错误信息（{error_message})"
+msgstr ""
+"模块【{module}】，请求路径【{url}】，API请求异常，错误信息（{error_message})"
+
+#: apps/api/base.py:200
+#, python-brace-format
+msgid "API请求异常，状态码（{code}），请求路径【{url}】，请管理员排查问题"
+msgstr "API请求异常，状态码（{code}），请求路径【{url}】，请管理员排查问题"
+
+#: apps/api/base.py:212
+msgid "返回数据格式不正确，结果格式非json."
+msgstr "返回数据格式不正确，结果格式非json."
+
+#: apps/api/base.py:277
+#, python-brace-format
+msgid "[FLOW-API-LOG] {info}"
+msgstr "[FLOW-API-LOG] {info}"
+
+#: apps/api/base.py:498
+#, python-brace-format
+msgid "请求方法{key}不存在"
+msgstr "请求方法{key}不存在"
+
+#: apps/api/models.py:24 apps/api/models.py:25
+msgid "【平台日志】API调用日志"
+msgstr "【平台日志】API调用日志"
+
+#: apps/api/modules/access.py:11
+msgid "数据平台接入模块"
+msgstr "数据平台接入模块"
+
+#: apps/api/modules/algorithm.py:11
+msgid "数据平台算法模块"
+msgstr "数据平台算法模块"
+
+#: apps/api/modules/auth.py:14
+msgid "数据平台权限模块"
+msgstr "数据平台权限模块"
+
+#: apps/api/modules/bk_docs.py:11
+msgid "蓝鲸文档中心"
+msgstr ""
+
+#: apps/api/modules/bk_login.py:9 apps/api/sites/ieod/bk_paas.py:32
+#: apps/api/sites/openpaas/bk_login.py:11 apps/api/sites/openpaas/bk_paas.py:11
+#: apps/api/sites/tgdp/bk_login.py:13 apps/api/sites/tgdp/bk_paas.py:13
+msgid "PaaS平台登录模块"
+msgstr "PaaS平台登录模块"
+
+#: apps/api/modules/bk_paas.py:10 apps/api/sites/clouds/bk_paas.py:23
+msgid "PaaS平台"
+msgstr "PaaS平台"
+
+#: apps/api/modules/bksql.py:10
+msgid "BKSQL模块"
+msgstr ""
+
+#: apps/api/modules/cc.py:10 apps/api/sites/clouds/cc.py:145
+#: apps/api/sites/ieod/cc.py:137 apps/api/sites/openpaas/cc.py:19
+#: apps/api/sites/tgdp/cc.py:21
+msgid "配置平台"
+msgstr "配置平台"
+
+#: apps/api/modules/databus.py:15
+msgid "数据平台总线模块"
+msgstr "数据平台总线模块"
+
+#: apps/api/modules/dataflow.py:14
+msgid "数据平台计算模块"
+msgstr "数据平台计算模块"
+
+#: apps/api/modules/datalab.py:15
+msgid "数据平台探索模块"
+msgstr "数据平台探索模块"
+
+#: apps/api/modules/datamanage.py:14
+msgid "数据平台数据管理模块"
+msgstr "数据平台数据管理模块"
+
+#: apps/api/modules/dataquery.py:11
+msgid "数据平台查询模块"
+msgstr "数据平台查询模块"
+
+#: apps/api/modules/job.py:16
+msgid "作业平台"
+msgstr "作业平台"
+
+#: apps/api/modules/meta.py:29
+msgid "数据平台元数据模块"
+msgstr "数据平台元数据模块"
+
+#: apps/api/modules/model.py:12
+msgid "流程化建模模块"
+msgstr "流程化建模模块"
+
+#: apps/api/modules/queryengine.py:14
+msgid "查询引擎模块"
+msgstr ""
+
+#: apps/api/modules/resourcecenter.py:10
+msgid "资源中心模块"
+msgstr ""
+
+#: apps/api/modules/storekit.py:16
+msgid "数据平台存储模块"
+msgstr "数据平台存储模块"
+
+#: apps/api/sites/clouds/bk_login.py:25 apps/api/sites/ieod/bk_login.py:34
+msgid "TOF模块"
+msgstr "TOF模块"
+
+#: apps/api/sites/ieod/cc.py:288
+msgid "集群"
+msgstr "集群"
+
+#: apps/api/sites/ieod/cc.py:293
+msgid "模块"
+msgstr "模块"
+
+#: apps/api/sites/ieod/cc.py:304
+msgid "业务"
+msgstr "业务"
+
+#: apps/api/sites/ieod/cc.py:305
+#, python-format
+msgid "[%s]业务"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:19
+msgid "数据平台清洗项目"
+msgstr "数据平台清洗项目"
+
+#: apps/dataflow/datamart/datadict.py:20
+msgid "测试项目"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:23 apps/dataflow/datamart/datadict.py:25
+msgid "ModelFlow模型"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:24
+msgid "实时计算"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:26
+msgid "离线计算"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:27
+msgid "转换"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:28
+msgid "清洗"
+msgstr "清洗"
+
+#: apps/dataflow/datamart/datadict.py:29
+msgid "场景化模型"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:30
+msgid "存储类计算"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:31
+msgid "视图"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:34
+msgid "元数据同步正常"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:35
+msgid "元数据同步异常，请联系TGDP(IEG数据平台助手)"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:36
+msgid "元数据同步中"
+msgstr ""
+
+#: apps/dataflow/datamart/datadict.py:183
+#: apps/dataflow/views/data_dict_views.py:187
+msgid "腾讯数据仓库TDW"
+msgstr ""
+
+#: apps/dataflow/datamart/datamap_tag_selector.py:74
+msgid "其他"
+msgstr ""
+
+#: apps/dataflow/datamart/datamap_tree.py:106
+msgid "数据集市"
+msgstr ""
+
+#: apps/dataflow/datamart/lineage.py:139 apps/dataflow/datamart/lineage.py:140
+msgid "秒"
+msgstr ""
+
+#: apps/dataflow/datamart/lineage.py:139
+msgid "分钟"
+msgstr ""
+
+#: apps/dataflow/datamart/lineage.py:139 apps/dataflow/datamart/lineage.py:140
+msgid "小时"
+msgstr ""
+
+#: apps/dataflow/datamart/lineage.py:139 apps/dataflow/datamart/lineage.py:140
+msgid "天"
+msgstr ""
+
+#: apps/dataflow/datamart/lineage.py:139 apps/dataflow/datamart/lineage.py:140
+msgid "周"
+msgstr ""
+
+#: apps/dataflow/datamart/lineage.py:139
+msgid "月"
+msgstr ""
+
+#: apps/dataflow/handlers/business.py:38
+#, python-format
+msgid "获取业务列表异常，args=%s"
+msgstr "获取业务列表异常，args=%s"
+
+#: apps/dataflow/handlers/business.py:161
+msgid "已安装"
+msgstr "已安装"
+
+#: apps/dataflow/handlers/business.py:164
+msgid "异常"
+msgstr "Agent异常"
+
+#: apps/dataflow/handlers/business.py:167
+msgid "未安装"
+msgstr "未安装"
+
+#: apps/dataflow/handlers/business.py:173
+msgid "bk_biz_maintainer"
+msgstr "运维人员"
+
+#: apps/dataflow/handlers/business.py:286
+msgid "非法IP地址"
+msgstr "非法IP地址"
+
+#: apps/dataflow/handlers/business.py:356
+msgid "该业务在云区域【{}】下不存在以下主机"
+msgstr "该业务在云区域【{}】下不存在以下主机"
+
+#: apps/dataflow/handlers/business.py:370
+msgid "未知业务"
+msgstr ""
+
+#: apps/dataflow/handlers/etl.py:130
+msgid "当前仅支持对 RawData 进行1次处理"
+msgstr "当前仅支持对 RawData 进行1次处理"
+
+#: apps/dataflow/handlers/etl.py:132
+msgid "请在步骤1中对 RawData 进行处理"
+msgstr "请在步骤1中对 RawData 进行处理"
+
+#: apps/dataflow/handlers/etl.py:179
+msgid "存在回路，步骤（{}）重复出现"
+msgstr "存在回路，步骤（{}）重复出现"
+
+#: apps/dataflow/handlers/etl.py:864
+#, python-brace-format
+msgid "正则表达式不规范({regex})"
+msgstr ""
+
+#: apps/dataflow/handlers/etl.py:905
+msgid "非法清洗算子({})"
+msgstr "非法清洗算子({})"
+
+#: apps/dataflow/handlers/etl.py:933
+msgid "非法ETL类型({})"
+msgstr "非法ETL类型({})"
+
+#: apps/dataflow/handlers/node.py:13
+msgid "未启动"
+msgstr "未启动"
+
+#: apps/dataflow/handlers/node.py:14
+msgid "运行中"
+msgstr "运行中"
+
+#: apps/dataflow/handlers/node.py:74
+msgid "公共集群"
+msgstr "公共集群"
+
+#: apps/dataflow/handlers/node.py:98
+msgid "结果数据表已被删除"
+msgstr "结果数据表已被删除"
+
+#: apps/dataflow/handlers/result_table.py:44
+#: apps/dataflow/handlers/result_table.py:46
+msgid "数据时间，格式：YYYY-mm-dd HH:MM:SS"
+msgstr "数据时间，格式：YYYY-mm-dd HH:MM:SS"
+
+#: apps/dataflow/handlers/result_table.py:50
+#: apps/dataflow/handlers/result_table.py:52
+#: apps/dataflow/handlers/result_table.py:75
+#: apps/dataflow/handlers/result_table.py:77
+msgid "数据时间戳，毫秒级别"
+msgstr "数据时间戳，毫秒级别"
+
+#: apps/dataflow/handlers/result_table.py:57
+#: apps/dataflow/handlers/result_table.py:59
+msgid "本地时间，格式：YYYY-mm-dd HH:MM:SS"
+msgstr "本地时间，格式：YYYY-mm-dd HH:MM:SS"
+
+#: apps/dataflow/handlers/result_table.py:64
+#: apps/dataflow/handlers/result_table.py:66
+msgid "数据时间，格式：YYYYmmdd"
+msgstr "数据时间，格式：YYYYmmdd"
+
+#: apps/dataflow/handlers/result_table.py:418
+msgid "暂无上报数据"
+msgstr "暂无上报数据"
+
+#: apps/dataflow/handlers/result_table.py:431
+msgid "暂不支持此类数据源的数据查询"
+msgstr "暂不支持此类数据源的数据查询"
+
+#: apps/dataflow/handlers/result_table.py:437
+msgid "暂不支持关联数据查询"
+msgstr "暂不支持关联数据查询"
+
+#: apps/dataflow/handlers/result_table.py:449
+msgid "获取实时数据失败"
+msgstr ""
+
+#: apps/dataflow/handlers/result_table.py:453
+#: apps/dataflow/handlers/result_table.py:464
+#: apps/dataflow/handlers/result_table.py:466
+msgid "暂无数据"
+msgstr "暂无数据"
+
+#: apps/dataflow/handlers/result_table.py:463
+msgid "获取离线数据失败"
+msgstr ""
+
+#: apps/dataflow/handlers/result_table.py:501
+msgid "维度"
+msgstr "维度"
+
+#: apps/dataflow/handlers/result_table.py:502
+msgid "分词"
+msgstr "分词"
+
+#: apps/dataflow/handlers/result_table.py:503
+msgid "值"
+msgstr "值"
+
+#: apps/dataflow/handlers/result_table.py:504
+msgid "时间"
+msgstr "时间"
+
+#: apps/dataflow/handlers/result_table.py:505
+msgid "索引"
+msgstr "索引"
+
+#: apps/dataflow/handlers/result_table.py:506
+msgid "主键"
+msgstr "主键"
+
+#: apps/dataflow/models.py:13
+msgid "项目id(待废弃)"
+msgstr "项目id(待废弃)"
+
+#: apps/dataflow/models.py:14 apps/dataflow/models.py:50
+msgid "结果表"
+msgstr "结果表"
+
+#: apps/dataflow/models.py:15 apps/dataflow/models.py:51
+#: apps/dataflow/models.py:184
+msgid "查询人"
+msgstr "查询人"
+
+#: apps/dataflow/models.py:16 apps/dataflow/models.py:52
+#: apps/dataflow/models.py:186
+msgid "查询时间"
+msgstr "查询时间"
+
+#: apps/dataflow/models.py:49 apps/dataflow/models.py:171
+msgid "项目id"
+msgstr "项目id"
+
+#: apps/dataflow/models.py:53
+msgid "查询SQL"
+msgstr "查询SQL"
+
+#: apps/dataflow/models.py:54 apps/dataflow/models.py:155
+msgid "存储类型"
+msgstr "存储类型"
+
+#: apps/dataflow/models.py:55
+msgid "ES查询开始时间"
+msgstr "ES查询开始时间"
+
+#: apps/dataflow/models.py:56
+msgid "ES查询结束时间"
+msgstr "ES查询结束时间"
+
+#: apps/dataflow/models.py:58 apps/dataflow/models.py:174
+msgid "搜索关键字"
+msgstr "搜索关键字"
+
+#: apps/dataflow/models.py:59
+msgid "耗时"
+msgstr "耗时"
+
+#: apps/dataflow/models.py:60
+msgid "返回条数"
+msgstr "返回条数"
+
+#: apps/dataflow/models.py:62
+msgid "查询结果"
+msgstr "查询结果数据"
+
+#: apps/dataflow/models.py:63
+msgid "错误信息"
+msgstr "错误信息"
+
+#: apps/dataflow/models.py:66 apps/dataflow/models.py:67
+msgid "【查询记录】DB查询"
+msgstr "【查询记录】DB查询"
+
+#: apps/dataflow/models.py:151
+msgid "标签"
+msgstr ""
+
+#: apps/dataflow/models.py:152
+msgid "数据分类/标准分类"
+msgstr ""
+
+#: apps/dataflow/models.py:153
+msgid "数据地图分类"
+msgstr ""
+
+#: apps/dataflow/models.py:154
+msgid "创建者"
+msgstr ""
+
+#: apps/dataflow/models.py:156
+msgid "起始创建时间"
+msgstr ""
+
+#: apps/dataflow/models.py:157
+msgid "终止创建时间"
+msgstr ""
+
+#: apps/dataflow/models.py:158
+msgid "热度比较运算符"
+msgstr ""
+
+#: apps/dataflow/models.py:159
+msgid "热度评分"
+msgstr ""
+
+#: apps/dataflow/models.py:160
+msgid "广度比较运算符"
+msgstr ""
+
+#: apps/dataflow/models.py:161
+msgid "广度评分"
+msgstr ""
+
+#: apps/dataflow/models.py:162
+msgid "重要度比较运算符"
+msgstr ""
+
+#: apps/dataflow/models.py:163
+msgid "重要度评分"
+msgstr ""
+
+#: apps/dataflow/models.py:164
+msgid "价值比较运算符"
+msgstr ""
+
+#: apps/dataflow/models.py:165
+msgid "价值评分"
+msgstr ""
+
+#: apps/dataflow/models.py:166
+msgid "收益比比较运算符"
+msgstr ""
+
+#: apps/dataflow/models.py:167
+msgid "收益比"
+msgstr ""
+
+#: apps/dataflow/models.py:168
+msgid "存储成本比较运算符"
+msgstr ""
+
+#: apps/dataflow/models.py:169
+msgid "存储成本"
+msgstr ""
+
+#: apps/dataflow/models.py:170
+msgid "业务id"
+msgstr ""
+
+#: apps/dataflow/models.py:172
+msgid "数据集类型"
+msgstr ""
+
+#: apps/dataflow/models.py:173
+msgid "数据所在系统"
+msgstr ""
+
+#: apps/dataflow/models.py:175
+msgid "是否标准化"
+msgstr ""
+
+#: apps/dataflow/models.py:176
+msgid "按时间排序"
+msgstr ""
+
+#: apps/dataflow/models.py:177
+msgid "按热度评分排序"
+msgstr ""
+
+#: apps/dataflow/models.py:178
+msgid "按广度评分排序"
+msgstr ""
+
+#: apps/dataflow/models.py:179
+msgid "按价值评分排序"
+msgstr ""
+
+#: apps/dataflow/models.py:180
+msgid "按重要度评分排序"
+msgstr ""
+
+#: apps/dataflow/models.py:181
+msgid "按存储大小排序"
+msgstr ""
+
+#: apps/dataflow/models.py:182
+msgid "按收益比排序"
+msgstr ""
+
+#: apps/dataflow/models.py:183
+msgid "是否标准化数据"
+msgstr ""
+
+#: apps/dataflow/models.py:185
+msgid "标准内容id"
+msgstr ""
+
+#: apps/dataflow/permissions.py:131
+msgid "您没有项目权限"
+msgstr "您没有项目权限"
+
+#: apps/dataflow/permissions.py:168
+msgid "您没有 DataId 权限"
+msgstr "您没有 DataId 权限"
+
+#: apps/dataflow/permissions.py:177
+msgid "DataID不存在"
+msgstr "DataID不存在"
+
+#: apps/dataflow/permissions.py:215
+msgid "任务不存在"
+msgstr "任务不存在"
+
+#: apps/dataflow/permissions.py:264
+msgid "您没有业务权限"
+msgstr "您没有业务权限"
+
+#: apps/dataflow/validator.py:13
+msgid "频率"
+msgstr "频率"
+
+#: apps/dataflow/validator.py:14 apps/dataflow/views/result_table_views.py:341
+msgid "开始时间"
+msgstr "开始时间"
+
+#: apps/dataflow/validator.py:15 apps/dataflow/views/result_table_views.py:342
+msgid "结束时间"
+msgstr "结束时间"
+
+#: apps/dataflow/views/auth_views.py:87
+#, python-brace-format
+msgid "应用 {bk_app_code} 未注册，请联系管理员"
+msgstr ""
+
+#: apps/dataflow/views/auth_views.py:88
+#, python-brace-format
+msgid "请求参数不符合预期，<hr/>{errors}"
+msgstr ""
+
+#: apps/dataflow/views/auth_views.py:89
+msgid "非法授权码，请传递正确的授权码ID"
+msgstr ""
+
+#: apps/dataflow/views/auth_views.py:90
+msgid "授权码ID与应用ID不一致"
+msgstr ""
+
+#: apps/dataflow/views/auth_views.py:91
+msgid "请传递需要授权的结果表"
+msgstr ""
+
+#: apps/dataflow/views/auth_views.py:92
+msgid "目前仅支持同一业务授权"
+msgstr ""
+
+#: apps/dataflow/views/auth_views.py:167
+msgid "用户 {} 期望在 {} 上使用业务数据"
+msgstr ""
+
+#: apps/dataflow/views/data_dict_views.py:30
+msgid "同乐"
+msgstr ""
+
+#: apps/dataflow/views/data_dict_views.py:31
+msgid "财付通"
+msgstr ""
+
+#: apps/dataflow/views/data_map_views.py:468
+msgid "数据地图"
+msgstr ""
+
+#: apps/dataflow/views/etl_views.py:31
+msgid "字段名称"
+msgstr "字段名称"
+
+#: apps/dataflow/views/etl_views.py:32
+msgid "字段类型"
+msgstr "字段类型"
+
+#: apps/dataflow/views/etl_views.py:33
+msgid "字段中文名"
+msgstr "字段中文名"
+
+#: apps/dataflow/views/etl_views.py:34
+msgid "是否维度字段"
+msgstr "是否维度字段"
+
+#: apps/dataflow/views/etl_views.py:35
+msgid "字段序号"
+msgstr ""
+
+#: apps/dataflow/views/etl_views.py:37
+msgid "清洗名称"
+msgstr ""
+
+#: apps/dataflow/views/etl_views.py:38
+msgid "DataID"
+msgstr "DataID"
+
+#: apps/dataflow/views/etl_views.py:39
+msgid "清洗结果表名"
+msgstr "清洗结果表名"
+
+#: apps/dataflow/views/etl_views.py:40
+msgid "清洗配置名称"
+msgstr "清洗配置名称"
+
+#: apps/dataflow/views/etl_views.py:41
+msgid "描述"
+msgstr "描述"
+
+#: apps/dataflow/views/etl_views.py:42
+msgid "时间格式"
+msgstr "时间格式"
+
+#: apps/dataflow/views/etl_views.py:43
+msgid "时区"
+msgstr "时区"
+
+#: apps/dataflow/views/etl_views.py:44
+msgid "时间字段"
+msgstr "时间字段"
+
+#: apps/dataflow/views/etl_views.py:45
+msgid "编码格式"
+msgstr ""
+
+#: apps/dataflow/views/etl_views.py:46
+msgid "时间戳长度"
+msgstr ""
+
+#: apps/dataflow/views/etl_views.py:48
+msgid "字段列表"
+msgstr "字段列表"
+
+#: apps/dataflow/views/etl_views.py:51 apps/dataflow/views/etl_views.py:96
+msgid "清洗配置"
+msgstr "清洗配置"
+
+#: apps/dataflow/views/etl_views.py:95
+msgid "清洗数据"
+msgstr "清洗数据"
+
+#: apps/dataflow/views/etl_views.py:99
+msgid "是否单步调试"
+msgstr "是否单步调试"
+
+#: apps/dataflow/views/flow_views.py:311
+#, python-format
+msgid "非法操作类型，目前仅支持（%s）"
+msgstr "非法操作类型，目前仅支持（%s）"
+
+#: apps/dataflow/views/result_table_views.py:343
+msgid "关键词"
+msgstr "关键词"
+
+#: apps/dataflow/views/result_table_views.py:406
+msgid "分页长度"
+msgstr "分页长度"
+
+#: apps/dataflow/views/result_table_views.py:407
+msgid "页码"
+msgstr "页码"
+
+#: apps/dataflow/views/result_table_views.py:436
+msgid "时间间隔"
+msgstr "时间间隔"
+
+#: apps/dataflow/views/result_table_views.py:550
+msgid "结果表无数据，请先启动对应的任务"
+msgstr "结果表无数据，请先启动对应的任务"
+
+#: apps/dataflow/views/tool_views.py:49
+#, python-format
+msgid "不合法教程，目前仅支持（%s）"
+msgstr "不合法教程，目前仅支持（%s）"
+
+#: apps/exceptions.py:12
+msgid "系统异常"
+msgstr "系统异常"
+
+#: apps/exceptions.py:35
+msgid "参数验证失败"
+msgstr "参数验证失败"
+
+#: apps/exceptions.py:40
+msgid "远程服务请求结果异常"
+msgstr "远程服务请求结果异常"
+
+#: apps/exceptions.py:45
+msgid "组件调用异常"
+msgstr "组件调用异常"
+
+#: apps/exceptions.py:50
+msgid "权限不足"
+msgstr "权限不足"
+
+#: apps/exceptions.py:56
+msgid "服务不稳定，请检查组件健康状况"
+msgstr "服务不稳定，请检查组件健康状况"
+
+#: apps/exceptions.py:61
+msgid "找不到关联的存储节点"
+msgstr "找不到关联的存储节点"
+
+#: apps/exceptions.py:66
+msgid "ETL配置错误"
+msgstr "ETL配置错误"
+
+#: apps/exceptions.py:71
+msgid "ETL解析异常"
+msgstr "ETL解析异常"
+
+#: apps/forms.py:116
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr "Select a valid choice. %(value)s is not one of the available choices."
+
+#: apps/forms.py:117
+msgid "Enter a list of values."
+msgstr "Enter a list of values."
+
+#: apps/forms.py:148
+msgid "字段类型必须为数组"
+msgstr "字段类型必须为数组"
+
+#: apps/forms.py:161
+msgid "字段类型必须为字典类型"
+msgstr "字段类型必须为字典类型"
+
+#: apps/forms.py:175
+msgid "字段格式不对，必须符合json格式"
+msgstr "字段格式不对，必须符合json格式"
+
+#: apps/forms.py:234
+msgid "暂不支持存储类型为{}的结果表"
+msgstr "暂不支持存储类型为{}的结果表"
+
+#: apps/generic.py:217
+#, python-brace-format
+msgid "【APP 自定义异常】{message}, code={code}, args={args}, errors={errors}"
+msgstr "【APP 自定义异常】{message}, code={code}, args={args}, errors={errors}"
+
+#: apps/generic.py:234
+msgid "系统错误，请联系管理员"
+msgstr "系统错误，请联系管理员"
+
+#: apps/middlewares.py:115
+msgid "S-mart应用仅支持正式环境部署！"
+msgstr "S-mart应用仅支持正式环境部署！"
+
+#: apps/middlewares.py:126
+#, python-brace-format
+msgid "【APP 自定义异常】{message}, code={code}, args={args}"
+msgstr "【APP 自定义异常】{message}, code={code}, args={args}"
+
+#: blueapps/account/admin.py:13
+msgid "Personal info"
+msgstr "Personal info"
+
+#: blueapps/account/admin.py:14
+msgid "Permissions"
+msgstr "Permissions"
+
+#: blueapps/account/admin.py:16
+msgid "Important dates"
+msgstr "Important dates"
+
+#: blueapps/account/apps.py:9
+msgid "account"
+msgstr "account"
+
+#: blueapps/account/models.py:40
+msgid "username"
+msgstr "username"
+
+#: blueapps/account/models.py:43 blueapps/account/models.py:130
+msgid "Required. 64 characters or fewer. Letters, digits and underlined only."
+msgstr "Required. 64 characters or fewer. Letters, digits and underlined only."
+
+#: blueapps/account/models.py:47
+msgid ""
+"Enter a valid openid. This value may contain only letters, numbers and "
+"underlined characters."
+msgstr ""
+"Enter a valid openid. This value may contain only letters, numbers and "
+"underlined characters."
+
+#: blueapps/account/models.py:53
+msgid "A user with that openid already exists."
+msgstr "A user with that openid already exists."
+
+#: blueapps/account/models.py:58
+msgid "nick name"
+msgstr "nick name"
+
+#: blueapps/account/models.py:61
+msgid "Required. 64 characters or fewer."
+msgstr "Required. 64 characters or fewer."
+
+#: blueapps/account/models.py:64
+msgid "staff status"
+msgstr "staff status"
+
+#: blueapps/account/models.py:66
+msgid "Designates whether the user can log into this admin site."
+msgstr "Designates whether the user can log into this admin site."
+
+#: blueapps/account/models.py:70
+msgid "active"
+msgstr "active"
+
+#: blueapps/account/models.py:72
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+
+#: blueapps/account/models.py:76
+msgid "date joined"
+msgstr "date joined"
+
+#: blueapps/account/models.py:86
+msgid "user"
+msgstr "user"
+
+#: blueapps/account/models.py:87
+msgid "users"
+msgstr "users"
+
+#: blueapps/account/models.py:134
+msgid ""
+"Enter a valid key. This value may contain only letters, numbers and "
+"underlined characters."
+msgstr ""
+"Enter a valid key. This value may contain only letters, numbers and "
+"underlined characters."
+
+#: blueapps/account/models.py:143
+msgid "user property"
+msgstr "user property"
+
+#: blueapps/account/models.py:144
+msgid "user properties"
+msgstr "user properties"
+
+#: common/context_processors.py:17
+msgid "IEG数据平台"
+msgstr "IEG数据平台"
+
+#: common/context_processors.py:18
+msgid "IEG数据平台混合云版"
+msgstr "IEG数据平台混合云版"
+
+#: common/context_processors.py:19
+msgid "数据平台|蓝鲸智云企业版"
+msgstr "数据平台|蓝鲸智云企业版"
+
+#: common/context_processors.py:61
+msgid "数据平台"
+msgstr "数据平台"
+
+#: templates/admin/base_site.html:4
+msgid "管理"
+msgstr "管理"
+
+#: templates/admin/login.html:6
+msgid "您暂时不能访问该站点的后台管理，这是以下原因造成的："
+msgstr "您暂时不能访问该站点的后台管理，这是以下原因造成的："
+
+#: templates/admin/login.html:9
+msgid "你还没登录，请重新刷新页面！"
+msgstr "你还没登录，请重新刷新页面！"
+
+#: templates/admin/login.html:12 templates/admin/login.html:14
+msgid "用户"
+msgstr "用户"
+
+#: templates/admin/login.html:12
+msgid "未激活！"
+msgstr "未激活！"
+
+#: templates/admin/login.html:14
+msgid "没有管理员权限，请联系管理员！"
+msgstr "没有管理员权限，请联系管理员！"
+
+#: templates/admin/login.html:18
+msgid "如有需要，请联系管理员或开发者为您解决上述问题。"
+msgstr "如有需要，请联系管理员或开发者为您解决上述问题。"

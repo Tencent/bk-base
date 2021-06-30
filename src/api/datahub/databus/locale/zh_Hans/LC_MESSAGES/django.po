@@ -1,0 +1,1027 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-24 17:33+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: clean.py:104 clean_views.py:469 clean_views.py:559
+#| msgid "找不到清洗process id: %s"
+msgid "找不到清洗process id: %(processing_id)s"
+msgstr "找不到清洗process id: %(processing_id)s"
+
+#: clean_views.py:640 clean_views.py:907
+msgid "AccessByIndexFailedError"
+msgstr "列表索引不存在"
+
+#: clean_views.py:641 clean_views.py:908
+msgid "AccessByKeyFailedError"
+msgstr "对象属性不存在"
+
+#: clean_views.py:642 clean_views.py:909
+msgid "AssignNodeNeededError"
+msgstr "缺少赋值子节点"
+
+#: clean_views.py:643 clean_views.py:910
+msgid "BadCsvDataError"
+msgstr "不符合CSV格式的数据"
+
+#: clean_views.py:644 clean_views.py:911
+msgid "BadJsonListError"
+msgstr "不符合json列表的数据"
+
+#: clean_views.py:645 clean_views.py:912
+msgid "BadJsonObjectError"
+msgstr "不符合json对象的数据"
+
+#: clean_views.py:646 clean_views.py:913
+msgid "EmptyEtlResultError"
+msgstr "没有符合清洗规则的结果数据"
+
+#: clean_views.py:647 clean_views.py:914
+msgid "NotListDataError"
+msgstr "数据类型不是列表，无法处理"
+
+#: clean_views.py:648 clean_views.py:915
+msgid "NotMapDataError"
+msgstr "数据类型不是映射，无法处理"
+
+#: clean_views.py:649 clean_views.py:916
+msgid "NulDataError"
+msgstr "数据为空，无法处理"
+
+#: clean_views.py:650 clean_views.py:917 exceptions.py:16
+msgid "PipeExtractorException"
+msgstr "清洗规则处理异常"
+
+#: clean_views.py:651 clean_views.py:918
+msgid "TimeFormatError"
+msgstr "时间格式错误"
+
+#: clean_views.py:652 clean_views.py:919
+msgid "TypeConversionError"
+msgstr "数据类型不匹配，无法处理"
+
+#: clean_views.py:653 clean_views.py:920
+msgid "UrlDecodeError"
+msgstr "不符合url格式的数据"
+
+#: data_storage.py:30
+msgid "d"
+msgstr "天"
+
+#: data_storage.py:31
+msgid "h"
+msgstr "时"
+
+#: data_storage.py:32
+msgid "m"
+msgstr "月"
+
+#: data_storage.py:33
+msgid "-1"
+msgstr "永久"
+
+#: data_storage.py:84
+msgid "unknown"
+msgstr "未知"
+
+#: data_storage.py:291
+msgid "task start up successfully"
+msgstr "添加入库任务成功"
+
+#: data_storage.py:294 data_storage_views.py:150
+msgid "task start up exception"
+msgstr "添加入库任务异常"
+
+#: data_storage_views.py:108 data_storage_views.py:559
+msgid "persisting"
+msgstr "入库执行中"
+
+#: data_storage_views.py:621
+msgid "started"
+msgstr "正常"
+
+#: exceptions.py:21
+msgid "Processing id not found"
+msgstr "找不到processing id"
+
+#: exceptions.py:31
+msgid "查询离线导入任务失败,任务Id:{task_id}"
+msgstr "查询离线导入任务失败,任务Id:{task_id}"
+
+#: exceptions.py:36
+#| msgid "删除离线导入历史任务失败！"
+msgid "删除{days}天以前的离线导入历史任务失败！"
+msgstr "删除离线导入历史任务失败！"
+
+#: exceptions.py:41
+msgid "查询最近离线导入任务列表失败！"
+msgstr "查询最近离线导入任务列表失败！"
+
+#: exceptions.py:46
+msgid "更新离线导入任务失败,任务Id:{task_id}, result_table_id:{result_table_id}, data_dir:{data_dir}, finished:{finished}"
+msgstr "更新离线导入任务失败,任务Id:{task_id}, result_table_id:{result_table_id}, data_dir:{data_dir}, finished:{finished}"
+
+#: exceptions.py:51
+msgid "离线导入任务创建失败！"
+msgstr "离线导入任务创建失败！"
+
+#: exceptions.py:56
+msgid "总线事件创建失败，不支持的存储类型:{storage}!"
+msgstr "总线事件创建失败，不支持的存储类型:{storage}!"
+
+#: exceptions.py:61
+msgid "总线事件调用离线任务失败,result_table_id:{result_table_id}"
+msgstr "总线事件调用离线任务失败,result_table_id:{result_table_id}"
+
+#: exceptions.py:66
+msgid "总线事件创建失败,result_table_id:{result_table_id}"
+msgstr "总线事件创建失败,result_table_id:{result_table_id}"
+
+#: exceptions.py:71
+msgid "创建ResultTable失败：{rt_id}"
+msgstr "创建ResultTable失败：{rt_id}"
+
+#: exceptions.py:76
+#| msgid "更新ResultTable失败：{rt_id}"
+msgid "更新ResultTable失败：{message}"
+msgstr "更新ResultTable失败：{message}"
+
+#: exceptions.py:81
+#| msgid "创建ResultTable的存储失败：{rt_id}"
+msgid "创建ResultTable的存储失败：{message}"
+msgstr "创建ResultTable的存储失败：{message}"
+
+#: exceptions.py:86
+msgid "没有可用的inner channel，请先初始化inner channel的信息"
+msgstr "没有可用的inner channel，请先初始化inner channel的信息"
+
+#: exceptions.py:91
+msgid "清洗配置错误"
+msgstr "清洗配置错误"
+
+#: exceptions.py:96
+msgid "初始化数据kafka topic失败。{topic} -> {kafka_bs}"
+msgstr "初始化数据kafka topic失败。{topic} -> {kafka_bs}"
+
+#: exceptions.py:101
+msgid "kafka topic partition不存在！{topic}-{partition}"
+msgstr "kafka topic partition不存在！{topic}-{partition}"
+
+#: exceptions.py:106
+msgid "kafka topic partition中offset不存在！{tp}-{offset}"
+msgstr "kafka topic partition中offset不存在！{tp}-{offset}"
+
+#: exceptions.py:111
+#| msgid "{rt_id}kafka存储不存在！"
+msgid "{rt_id} kafka存储不存在！"
+msgstr "{rt_id} kafka存储不存在！"
+
+#: exceptions.py:116
+msgid "修改kafka topic({topic})分区数量失败！"
+msgstr "修改kafka topic({topic})分区数量失败！"
+
+#: exceptions.py:121
+msgid "离线任务状态检查失败！"
+msgstr "离线任务状态检查失败！"
+
+#: exceptions.py:126
+msgid "固化节点配置参数校验失败！"
+msgstr "固化节点配置参数校验失败！"
+
+#: exceptions.py:131
+msgid "固化节点算子创建失败！"
+msgstr "固化节点算子创建失败！"
+
+#: exceptions.py:136
+msgid "以下固化节点暂未支持,节点类型:{node_type}"
+msgstr "以下固化节点暂未支持,节点类型:{node_type}"
+
+#: exceptions.py:141
+msgid "调用结果表删除接口失败,接口表id:{result_table_id}"
+msgstr "调用结果表删除接口失败,接口表id:{result_table_id}"
+
+#: exceptions.py:146
+msgid "查询指定id的固化节点不存在,节点id:{processing_id}"
+msgstr "查询指定id的固化节点不存在,节点id:{processing_id}"
+
+#: exceptions.py:151
+msgid "固化节点创建失败！"
+msgstr "固化节点创建失败！"
+
+#: exceptions.py:156
+msgid "固化节点更新失败,节点id:{processing_id}！"
+msgstr "固化节点更新失败,节点id:{processing_id}！"
+
+#: exceptions.py:161
+msgid "固化节点删除失败,节点id:{processing_id}！"
+msgstr "固化节点删除失败,节点id:{processing_id}！"
+
+#: exceptions.py:166
+#| msgid "创建DataProcessing失败：{processing_id}"
+msgid "创建DataProcessing失败：{message}"
+msgstr "创建DataProcessing失败：{message}"
+
+#: exceptions.py:171
+msgid "RawData不存在：{raw_data_id}"
+msgstr "RawData不存在：{raw_data_id}"
+
+#: exceptions.py:176
+msgid "获取存储集群信息失败"
+msgstr "获取存储集群信息失败"
+
+#: exceptions.py:181
+msgid "存储类型不支持: {cluster_type}"
+msgstr "存储类型不支持: {cluster_type}"
+
+#: exceptions.py:186
+msgid "清洗ResultTable和源数据不匹配: {result_table_id} {raw_data_id}"
+msgstr "清洗ResultTable和源数据不匹配: {result_table_id} {raw_data_id}"
+
+#: exceptions.py:191
+msgid "清洗ResultTable已关联存储{cluster_type}"
+msgstr "清洗ResultTable已关联存储{cluster_type}"
+
+#: exceptions.py:196
+msgid "清洗ResultTable未关联存储{cluster_type}"
+msgstr "清洗ResultTable未关联存储{cluster_type}"
+
+#: exceptions.py:201
+msgid "创建物理表失败。{message}"
+msgstr "创建物理表失败。{message}"
+
+#: exceptions.py:206
+#| msgid "创建ResultTable的存储失败：{rt_id}"
+msgid "获取ResultTable的存储信息失败。{message}"
+msgstr "创建ResultTable的存储失败：{rt_id}"
+
+#: exceptions.py:211
+#| msgid "{rt_id}kafka存储不存在！"
+msgid "ResultTable({result_table_id})的Kafka存储不存在。"
+msgstr "ResultTable({result_table_id})的Kafka存储不存在。"
+
+#: exceptions.py:216
+#| msgid "没有可用的inner channel，请先初始化inner channel的信息"
+msgid "没有可用的config channel，请先初始化config channel的信息"
+msgstr "没有可用的inner channel，请先初始化inner channel的信息"
+
+#: exceptions.py:221
+msgid "初始化参数错误。{message}"
+msgstr "初始化参数错误。{message}"
+
+#: exceptions.py:226
+msgid "ResultTable({result_table_id})未找到存储类型({storage})的配置信息"
+msgstr "ResultTable({result_table_id})未找到存储类型({storage})的配置信息"
+
+#: exceptions.py:231
+msgid "ResultTable({result_table_id})的存储类型({storage})任务创建失败:{message}"
+msgstr "ResultTable({result_table_id})的存储类型({storage})任务创建失败:{message}"
+
+#: exceptions.py:236
+msgid "ResultTable({result_table_id})的存储类型({storage})任务数({count})异常(大于1)"
+msgstr "ResultTable({result_table_id})的存储类型({storage})任务数({count})异常(大于1)"
+
+#: exceptions.py:241
+msgid "ResultTable({result_table_id})的存储类型({storage})任务未找到"
+msgstr "ResultTable({result_table_id})的存储类型({storage})任务未找到"
+
+#: exceptions.py:246
+msgid "ResultTable({result_table_id})的存储类型({storage})任务打点信息未找到"
+msgstr "ResultTable({result_table_id})的存储类型({storage})任务打点信息未找到"
+
+#: exceptions.py:251
+msgid "请求参数必须包含{param}"
+msgstr "请求参数必须包含{param}"
+
+#: exceptions.py:256
+msgid "无法找到目标channel"
+msgstr "无法找到目标channel"
+
+#: exceptions.py:261
+msgid "无法为任务({task})寻找到合适的运行集群({cluster})"
+msgstr "无法为任务({task})寻找到合适的运行集群({cluster})"
+
+#: exceptions.py:266
+msgid "未查询到源kafka topic({topic})信息"
+msgstr "未查询到源kafka topic({topic})信息"
+
+#: exceptions.py:271
+msgid "任务写入数据库(databus_connector_task)失败"
+msgstr "任务写入数据库(databus_connector_task)失败"
+
+#: exceptions.py:276
+msgid "未找到kafka集群({kafka})对应的集群配置(databus_channel_cluster_config)信息"
+msgstr "未找到kafka集群({kafka})对应的集群配置(databus_channel_cluster_config)信息"
+
+#: exceptions.py:281
+msgid "未找到data_id({id})对应的原始数据信息配置(access_raw_data)信息"
+msgstr "未找到data_id({id})对应的原始数据信息配置(access_raw_data)信息"
+
+#: exceptions.py:286
+#| msgid "清洗配置错误"
+msgid "集群连接配置错误"
+msgstr "清洗配置错误"
+
+#: exceptions.py:291
+msgid "存储配置参数格式错误"
+msgstr "存储配置参数格式错误"
+
+#: exceptions.py:296
+msgid "druid集群连接配置中zookeeper.connect为空"
+msgstr "druid集群连接配置中zookeeper.connect为空"
+
+#: exceptions.py:301
+msgid "未找到符合({cluster})的集群"
+msgstr "未找到符合({cluster})的集群"
+
+#: exceptions.py:306
+msgid "启动任务失败，任务名称:{task}，集群:{cluster}"
+msgstr "启动任务失败，任务名称:{task}，集群:{cluster}"
+
+#: exceptions.py:311
+#| msgid "总线事件创建失败，不支持的存储类型:{storage}!"
+msgid "不支持存储类型{storage}"
+msgstr "总线事件创建失败，不支持的存储类型:{storage}!"
+
+#: exceptions.py:316
+msgid "集群({cluster})请求删除任务({task})失败"
+msgstr "集群({cluster})请求删除任务({task})失败"
+
+#: exceptions.py:321
+msgid "集群({cluster})的url查询失败"
+msgstr "集群({cluster})的url查询失败"
+
+#: exceptions.py:326
+msgid "生成(任务：{task},集群：{cluster})配置失败"
+msgstr "生成(任务：{task},集群：{cluster})配置失败"
+
+#: exceptions.py:331
+msgid "未找到对应的任务配置(databus_transform_process)信息"
+msgstr "未找到对应的任务配置(databus_transform_process)信息"
+
+#: exceptions.py:336
+msgid "未找到data_id({data_id})对应的TDW配置(access_resource_info)信息"
+msgstr "未找到data_id({data_id})对应的TDW配置(access_resource_info)信息"
+
+#: exceptions.py:341
+msgid "TDW配置参数错误"
+msgstr "TDW配置参数错误"
+
+#: exceptions.py:346
+msgid "不支持来源为({Scenario})的任务"
+msgstr "不支持来源为({Scenario})的任务"
+
+#: exceptions.py:351
+#| msgid "创建DataProcessing失败：{processing_id}"
+msgid "更新DataProcessing失败：{message}"
+msgstr "创建DataProcessing失败：{message}"
+
+#: exceptions.py:356
+msgid "新增rt与存储的关联关系失败"
+msgstr "新增rt与存储的关联关系失败"
+
+#: exceptions.py:361
+msgid "已经存在入库配置，请勿重复入库"
+msgstr "已经存在入库配置，请勿重复入库"
+
+#: exceptions.py:366
+msgid "入库记录不存在"
+msgstr "入库记录不存在"
+
+#: exceptions.py:371
+msgid "入库任务配置不存在"
+msgstr "入库任务配置不存在"
+
+#: exceptions.py:376
+msgid "任务类不存在"
+msgstr "任务类不存在"
+
+#: exceptions.py:381
+msgid "rt信息不存在"
+msgstr "rt信息不存在"
+
+#: exceptions.py:386
+msgid "入库配置不存在"
+msgstr "入库配置不存在"
+
+#: exceptions.py:391
+msgid "json格式错误"
+msgstr "json格式错误"
+
+#: exceptions.py:396
+msgid "本次入库失败"
+msgstr "本次入库失败"
+
+#: exceptions.py:401
+#| msgid "修改kafka topic({topic})分区数量失败！"
+msgid "修改kafka topic({topic})配置失败！"
+msgstr "修改kafka topic({topic})分区数量失败！"
+
+#: exceptions.py:406
+msgid "停止老分发集群任务失败, rt_id:{rt_id} , storages:{storages}"
+msgstr "停止老分发集群任务失败, rt_id:{rt_id} , storages:{storages}"
+
+#: exceptions.py:411
+#| msgid "{rt_id}kafka存储不存在！"
+msgid "{storage}-{cluster}存储集群不存在！"
+msgstr "{storage}-{cluster}存储集群不存在！"
+
+#: exceptions.py:416
+msgid "清洗不存在,rt_id: {result_table_id}"
+msgstr "清洗不存在,rt_id: {result_table_id}"
+
+#: exceptions.py:421
+msgid "该字段非json赋值节点, field:{field}"
+msgstr "该字段非json赋值节点, field:{field}"
+
+#: exceptions.py:426
+msgid "{param}格式错误，要求{format}"
+msgstr "{param}格式错误，要求{format}"
+
+#: exceptions.py:431
+msgid "{result_table_id}的tdw相关洛子(lhotse)任务id未找到"
+msgstr "{result_table_id}的tdw相关洛子(lhotse)任务id未找到"
+
+#: exceptions.py:436
+msgid "不支持任务周期, 频率是{freq} 周期是{unit}"
+msgstr "不支持任务周期, 频率是{freq} 周期是{unit}"
+
+#: exceptions.py:441
+msgid "meta返回结构错误, field={field}"
+msgstr "meta返回结构错误, field={field}"
+
+#: exceptions.py:446
+msgid "未找到data_id({data_id})对应的资源配置(access_resource_info)信息"
+msgstr "未找到data_id({data_id})对应的资源配置(access_resource_info)信息"
+
+#: exceptions.py:451
+msgid "data_id({data_id})资源配置(access_resource_info)信息不是合法json"
+msgstr "data_id({data_id})资源配置(access_resource_info)信息不是合法json"
+
+#: exceptions.py:456
+msgid "不存在对应数据结构配置"
+msgstr "不存在对应数据结构配置"
+
+#: exceptions.py:461
+msgid "源数据包含多个清洗配置:{raw_data_id}"
+msgstr "源数据包含多个清洗配置:{raw_data_id}"
+
+#: exceptions.py:466
+msgid "获取Rt表extra信息失败。{message}"
+msgstr "获取Rt表extra信息失败。{message}"
+
+#: exceptions.py:471
+msgid "停止任务失败。"
+msgstr "停止任务失败。"
+
+#: exceptions.py:476
+msgid "从meta获取data processing信息失败:{message}"
+msgstr "从meta获取data processing信息失败:{message}"
+
+#: exceptions.py:481
+msgid "RT的data processing信息input数量为:{input_num}，期望1。"
+msgstr "RT的data processing信息input数量为:{input_num}，期望1。"
+
+#: model_manager.py:181
+msgid "update_storage"
+msgstr "更新入库"
+
+#: model_manager.py:183
+msgid "add_storage"
+msgstr "新增入库"
+
+#: serializers.py:24
+#| msgid "总线任务集群名称"
+msgid "总线任务集群名称（命名规则：xxx-xxx-x）"
+msgstr "总线任务集群名称（命名规则：xxx-xxx-x）"
+
+#: serializers.py:25 serializers.py:98
+msgid "集群域名"
+msgstr "集群域名"
+
+#: serializers.py:26 serializers.py:103
+msgid "集群端口"
+msgstr "集群端口"
+
+#: serializers.py:27
+msgid "状态"
+msgstr "状态"
+
+#: serializers.py:30
+msgid "描述"
+msgstr "描述"
+
+#: serializers.py:46
+#| msgid "集群配置项"
+msgid "集群配置项，JSON格式"
+msgstr "集群配置项，JSON格式"
+
+#: serializers.py:47
+#| msgid "消费者配置项"
+msgid "消费者配置项，JSON格式"
+msgstr "消费者配置项，JSON格式"
+
+#: serializers.py:48
+msgid "监控配置项，JSON格式"
+msgstr "监控配置项，JSON格式"
+
+#: serializers.py:49
+msgid "其他者配置项，JSON格式"
+msgstr "其他者配置项，JSON格式"
+
+#: serializers.py:82
+msgid "总线任务集群名称"
+msgstr "总线任务集群名称"
+
+#: serializers.py:86
+#| msgid "总线任务集群名称"
+msgid "总线任务名称"
+msgstr "总线任务集群名称"
+
+#: serializers.py:90 serializers.py:138 serializers.py:166 serializers.py:177
+#: serializers.py:187 serializers.py:198 serializers.py:348 serializers.py:354
+#: serializers.py:375 serializers.py:417 serializers.py:457 serializers.py:475
+msgid "result_table_id"
+msgstr "result_table_id"
+
+#: serializers.py:97
+msgid "总线队列集群名称"
+msgstr "总线队列集群名称"
+
+#: serializers.py:99
+msgid "集群zk域名"
+msgstr "集群zk域名"
+
+#: serializers.py:100
+msgid "集群类型"
+msgstr "集群类型"
+
+#: serializers.py:101
+msgid "集群角色"
+msgstr "集群角色"
+
+#: serializers.py:102
+msgid "集群备用IP"
+msgstr "集群备用IP"
+
+#: serializers.py:104
+msgid "集群zk端口"
+msgstr "集群zk端口"
+
+#: serializers.py:105
+msgid "集群zk根路径"
+msgstr "集群zk根路径"
+
+#: serializers.py:106
+msgid "集群状态"
+msgstr "集群状态"
+
+#: serializers.py:107
+msgid "集群优先级"
+msgstr "集群优先级"
+
+#: serializers.py:108
+msgid "集群属性"
+msgstr "集群属性"
+
+#: serializers.py:109
+msgid "集群描述"
+msgstr "集群描述"
+
+#: serializers.py:113 serializers.py:121 serializers.py:130
+msgid "kafka集群地址"
+msgstr "kafka集群地址"
+
+#: serializers.py:114 serializers.py:122 serializers.py:131
+msgid "kafka topic"
+msgstr "kafka topic"
+
+#: serializers.py:115 serializers.py:123
+msgid "kafka消息类型"
+msgstr "kafka消息类型"
+
+#: serializers.py:116 serializers.py:124
+msgid "kafka分区"
+msgstr "kafka分区"
+
+#: serializers.py:117
+msgid "显示数据记录条数"
+msgstr "显示数据记录条数"
+
+#: serializers.py:125
+msgid "kafka消息offset"
+msgstr "kafka消息offset"
+
+#: serializers.py:126
+msgid "读取消息条数"
+msgstr "读取消息条数"
+
+#: serializers.py:139 serializers.py:167 serializers.py:178
+msgid "hdfs数据目录"
+msgstr "hdfs数据目录"
+
+#: serializers.py:140 serializers.py:261 serializers.py:438
+msgid "描述信息"
+msgstr "描述信息"
+
+#: serializers.py:146
+msgid "清除日期限定"
+msgstr "清除日期限定"
+
+#: serializers.py:153
+msgid "返回条目限定"
+msgstr "返回条目限定"
+
+#: serializers.py:159
+msgid "时间间隔"
+msgstr "时间间隔"
+
+#: serializers.py:168 serializers.py:179
+msgid "任务当前状态"
+msgstr "任务当前状态"
+
+#: serializers.py:169 serializers.py:180
+msgid "任务是否完成"
+msgstr "任务是否完成"
+
+#: serializers.py:176
+msgid "id"
+msgstr "id"
+
+#: serializers.py:188 serializers.py:515 serializers.py:545 serializers.py:555
+msgid "存储类型"
+msgstr "存储类型"
+
+#: serializers.py:189
+msgid "事件类型"
+msgstr "事件类型"
+
+#: serializers.py:190
+msgid "事件值"
+msgstr "事件值"
+
+#: serializers.py:191
+msgid "事件描述"
+msgstr "事件描述"
+
+#: serializers.py:199
+msgid "数据时间"
+msgstr "数据时间"
+
+#: serializers.py:230 serializers.py:422 serializers.py:495
+msgid "字段名称"
+msgstr "字段名称"
+
+#: serializers.py:231 serializers.py:423 serializers.py:496
+msgid "字段显示名称"
+msgstr "字段显示名称"
+
+#: serializers.py:232 serializers.py:424 serializers.py:497
+msgid "字段类型"
+msgstr "字段类型"
+
+#: serializers.py:233 serializers.py:425 serializers.py:499
+msgid "是否维度字段"
+msgstr "是否维度字段"
+
+#: serializers.py:234 serializers.py:426 serializers.py:507
+msgid "字段序号"
+msgstr "字段序号"
+
+#: serializers.py:243 serializers.py:245 serializers.py:300 serializers.py:302
+#| msgid "系统保留字段，不允许使用"
+msgid "系统保留字段，不允许使用。field:{}"
+msgstr "系统保留字段，不允许使用。field:{}"
+
+#: serializers.py:247 serializers.py:304
+#| msgid "字段不合规"
+msgid "字段不合规。field:{}"
+msgstr "字段不合规。field:{}"
+
+#: serializers.py:251 serializers.py:281 serializers.py:428
+msgid "清洗算子配置"
+msgstr "清洗算子配置"
+
+#: serializers.py:253 serializers.py:430
+msgid "业务ID"
+msgstr "业务ID"
+
+#: serializers.py:254 serializers.py:431
+#| msgid "清洗配置错误"
+msgid "清洗配置名称"
+msgstr "清洗配置错误"
+
+#: serializers.py:255 serializers.py:432 serializers.py:509
+msgid "表名"
+msgstr "表名"
+
+#: serializers.py:256 serializers.py:433 serializers.py:510
+msgid "表名别名"
+msgstr "表名别名"
+
+#: serializers.py:257 serializers.py:434 serializers.py:489 serializers.py:511
+#: serializers.py:544
+msgid "用户名"
+msgstr "用户名"
+
+#: serializers.py:259 serializers.py:313 serializers.py:358 serializers.py:416
+#: serializers.py:436 serializers.py:456 serializers.py:474 serializers.py:488
+#: serializers.py:513 serializers.py:542
+msgid "数据源ID"
+msgstr "数据源ID"
+
+#: serializers.py:262 serializers.py:439 serializers.py:519
+msgid "清洗字段列表"
+msgstr "清洗字段列表"
+
+#: serializers.py:282
+msgid "待清洗的数据"
+msgstr "待清洗的数据"
+
+#: serializers.py:283
+msgid "单步调试"
+msgstr "单步调试"
+
+#: serializers.py:320
+msgid "分区数量"
+msgstr "分区数量"
+
+#: serializers.py:333
+msgid "数据删除大小阈值"
+msgstr "数据删除大小阈值"
+
+#: serializers.py:334
+msgid "数据删除时间阈值"
+msgstr "数据删除时间阈值"
+
+#: serializers.py:338
+msgid "访问队列服务的用户（app_code）"
+msgstr "访问队列服务的用户（app_code）"
+
+#: serializers.py:339
+msgid "访问队列服务的密码（app_secret）"
+msgstr "访问队列服务的密码（app_secret）"
+
+#: serializers.py:343
+msgid "ResultTable列表"
+msgstr "ResultTable列表"
+
+#: serializers.py:344
+msgid "队列服务的用户名称"
+msgstr "队列服务的用户名称"
+
+#: serializers.py:349 serializers.py:366 serializers.py:370
+msgid "存储列表"
+msgstr "存储列表"
+
+#: serializers.py:362
+msgid "connector名称列表"
+msgstr "connector名称列表"
+
+#: serializers.py:376
+msgid "slot"
+msgstr "slot"
+
+#: serializers.py:380
+msgid "目标集群名称"
+msgstr "目标集群名称"
+
+#: serializers.py:387 serializers.py:405
+msgid "来源结果表列表"
+msgstr "来源结果表列表"
+
+#: serializers.py:388 serializers.py:406
+msgid "节点类型"
+msgstr "节点类型"
+
+#: serializers.py:389 serializers.py:407
+msgid "project_id"
+msgstr "项目ID"
+
+#: serializers.py:390 serializers.py:408
+msgid "bk_biz_id"
+msgstr "蓝鲸业务ID"
+
+#: serializers.py:391 serializers.py:409
+msgid "结果表英文名"
+msgstr "结果表英文名"
+
+#: serializers.py:392 serializers.py:410
+msgid "结果表中文名"
+msgstr "结果表中文名"
+
+#: serializers.py:393 serializers.py:411
+msgid "固化算子逻辑配置"
+msgstr "固化算子逻辑配置"
+
+#: serializers.py:394 serializers.py:412
+msgid "备注"
+msgstr "备注"
+
+#: serializers.py:400
+msgid "固化节点processing_id"
+msgstr "固化节点processing_id"
+
+#: serializers.py:440 serializers.py:543 serializers.py:554
+msgid "结果表id"
+msgstr "结果表id"
+
+#: serializers.py:458
+msgid "是否创建存储"
+msgstr "是否创建存储"
+
+#: serializers.py:459 serializers.py:476
+#| msgid "集群类型"
+msgid "存储集群类型"
+msgstr "集群类型"
+
+#: serializers.py:460
+#| msgid "总线队列集群名称"
+msgid "存储集群名称"
+msgstr "总线队列集群名称"
+
+#: serializers.py:461
+msgid "存储配置"
+msgstr  "存储配置"
+
+#: serializers.py:462
+msgid "数据过期天数"
+msgstr "数据过期天数"
+
+#: serializers.py:498
+msgid "物理表字段"
+msgstr "物理表字段"
+
+#: serializers.py:500
+msgid "是否索引字段"
+msgstr "是否索引字段"
+
+#: serializers.py:501
+msgid "是否是key"
+msgstr "是否是key"
+
+#: serializers.py:502
+msgid "是否是value"
+msgstr "是否是value"
+
+#: serializers.py:503
+msgid "是否分词字段"
+msgstr "是否分词字段"
+
+#: serializers.py:504
+msgid "是否聚合字段"
+msgstr "是否聚合字段"
+
+#: serializers.py:505
+msgid "是否json格式"
+msgstr "是否json格式"
+
+#: serializers.py:514 serializers.py:557
+msgid "数据源类型"
+msgstr "数据源类型"
+
+#: serializers.py:516 serializers.py:546 serializers.py:556
+msgid "存储集群"
+msgstr "存储集群"
+
+#: serializers.py:517
+msgid "过期时间"
+msgstr "过期时间"
+
+#: serializers.py:526
+msgid "原始数据只能入库elasticsearch存储"
+msgstr "原始数据只能入库elasticsearch存储"
+
+#: serializers.py:536
+msgid "fields:字段不能全部为维度字段"
+msgstr "fields:字段不能全部为维度字段"
+
+#: serializers.py:550
+msgid "场景"
+msgstr "场景"
+
+#: serializers.py:561
+msgid "数据源id"
+msgstr "数据源id"
+
+#: serializers.py:569
+msgid "目前该场景不支持提供模版。data_scenario:{}"
+msgstr "目前该场景不支持提供模版。data_scenario:{}"
+
+msgid "ready"
+msgstr "准备中"
+
+msgid "running"
+msgstr "运行中"
+
+msgid "stopped"
+msgstr "停止"
+
+msgid "deleted"
+msgstr "已删除"
+
+msgid "failed"
+msgstr "异常"
+
+msgid "finished"
+msgstr "完成"
+
+msgid "消费者kafka集群地址"
+msgstr "消费者kafka集群地址"
+
+msgid "module"
+msgstr "模块"
+
+msgid "component"
+msgstr "组件"
+
+msgid "raw_data"
+msgstr "原始数据"
+
+msgid "clean"
+msgstr "清洗数据"
+
+msgid "任务(result_table_id:{})启动成功!"
+msgstr "任务(result_table_id:{})启动成功!"
+
+msgid "result_table_id:{},任务已成功停止!"
+msgstr "result_table_id:{},任务已成功停止!"
+
+msgid "集群组权限错误"
+msgstr "集群组权限错误"
+
+msgid "add_connector"
+msgstr "启动任务"
+
+msgid "add_clean"
+msgstr "添加清洗"
+
+msgid "update_clean"
+msgstr "更新清洗"
+
+msgid "delete_clean"
+msgstr "删除清洗"
+
+msgid "delete_connector"
+msgstr "停止任务"
+
+msgid "prepare to start the task"
+msgstr "准备启动任务"
+
+msgid "start task failed"
+msgstr "启动任务失败"
+
+msgid "successfully started the task"
+msgstr "成功启动任务"
+
+msgid "prepare to stop the task"
+msgstr "准备停止任务"
+
+msgid "stop task failed"
+msgstr "停止任务失败"
+
+msgid "successfully stopped the task"
+msgstr "成功停止任务"
+
+msgid "start adding cleaning configuration"
+msgstr "开始添加清洗配置"
+
+msgid "start update cleaning configuration"
+msgstr "开始更新清洗配置"
+
+msgid "start delete cleaning configuration"
+msgstr "开始删除清洗配置"
+
+msgid "add cleaning configuration failed"
+msgstr "添加清洗配置失败"
+
+msgid "update cleaning configuration failed"
+msgstr "更新清洗配置失败"
+
+msgid "delete cleaning configuration failed"
+msgstr "删除清洗配置失败"
+
+msgid "successfully added cleaning configuration"
+msgstr "成功添加清洗配置"
+
+msgid "successfully updated cleaning configuration"
+msgstr "成功更新清洗配置"
+
+msgid "successfully deleted cleaning configuration"
+msgstr "成功删除清洗配置"
+
+msgid "暂不支持"
+msgstr "暂不支持"

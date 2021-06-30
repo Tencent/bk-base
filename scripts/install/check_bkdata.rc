@@ -1,0 +1,149 @@
+### bkdata_3.5_add_tag_[start]
+# vim:ft=sh
+export PKG_SRC_PATH=${bkee_root_path}/src
+export BK_PKG_SRC_PATH=${bkee_root_path}/src
+
+_check_bkdata ()
+{
+    l_module=`echo ${moudle}|awk -F_ '{print $1}'|tr 'A-Z' 'a-z'`
+    l_project=`echo ${moudle}|awk -F_ '{print $2}'|tr 'A-Z' 'a-z'`
+    for ip in $(eval echo "${${moudle}_IP[@]}")
+    do
+        if [[ ${l_module} == "bkdata" ]] && [[ ${l_project} != "influxdb" ]] ; then
+            s_ver=$(cat ${BK_PKG_SRC_PATH}/${l_module}/${l_project}/VERSION)
+            i_ver=$(rcmd ${ip} "cat ${INSTALL_PATH}/${l_module}/${l_project}/VERSION")
+            if [[ ${s_ver} == ${i_ver} ]] ; then
+                s_ver=$(green_echo $(cat ${BK_PKG_SRC_PATH}/${l_module}/${l_project}/VERSION))
+                i_ver=$(green_echo $(rcmd ${ip} "cat ${INSTALL_PATH}/${l_module}/${l_project}/VERSION"))
+            else
+                s_ver=$(red_echo $(cat ${BK_PKG_SRC_PATH}/${l_module}/${l_project}/VERSION))
+                i_ver=$(red_echo $(rcmd ${ip} "cat ${INSTALL_PATH}/${l_module}/${l_project}/VERSION"))
+            fi
+            echo "${l_module} ${l_project} ${ip} ${s_ver} ${i_ver}"|awk '{printf "%-10s%-15s%-15s%-25s%-30s\n",$1,$2,$3,$4,$5}'
+        elif [[ ${l_module} == "bkdata" ]] && [[ ${l_project} == "influxdb" ]] ; then
+            s_ver=$(cat $BK_PKG_SRC_PATH/${l_module}/${l_project}/VERSION)
+            i_ver=$(rcmd ${ip} "cat ${INSTALL_PATH}/${l_module}/${l_project}-proxy/VERSION")
+            if [[ ${s_ver} == ${i_ver} ]] ; then
+                s_ver=$(green_echo $(cat ${BK_PKG_SRC_PATH}/${l_module}/${l_project}/VERSION))
+                i_ver=$(green_echo $(rcmd ${ip} "cat ${INSTALL_PATH}/${l_module}/${l_project}-proxy/VERSION"))
+            else
+                s_ver=$(red_echo $(cat ${BK_PKG_SRC_PATH}/${l_module}/${l_project}/VERSION))
+                i_ver=$(red_echo $(rcmd ${ip} "cat ${INSTALL_PATH}/${l_module}/${l_project}-proxy/VERSION"))
+            fi
+            echo "${l_module} ${l_project} ${ip} ${s_ver} ${i_ver}"|column -t
+        else i_ver=$(rcmd ${ip} "cat ${INSTALL_PATH}/${l_module}/VERSION")
+            s_ver=$(cat ${BK_PKG_SRC_PATH}/${l_module}/VERSION)
+            if [[ ${s_ver} == ${i_ver} ]] ; then
+                s_ver=$(green_echo $(cat ${BK_PKG_SRC_PATH}/${l_module}/VERSION))
+                i_ver=$(green_echo $(rcmd ${ip} "cat ${INSTALL_PATH}/${l_module}/VERSION"))
+            else
+                s_ver=$(red_echo $(cat ${BK_PKG_SRC_PATH}/${l_module}/VERSION))
+                i_ver=$(red_echo $(rcmd ${ip} "cat ${INSTALL_PATH}/${l_module}/VERSION"))
+            fi
+            echo "${l_module} ${l_module} ${ip} ${s_ver} ${i_ver}"|column -t
+        fi
+    done
+}
+
+check_bkdata_version ()
+{
+echo -e "module project IP source_version install_version"|column -t
+echo -e "---------------------------------------------------------------------------------------------------------------------"
+grep -E "dgraph|presto|hive|bkdata|hadoop|yarnspark" $CTRL_DIR/install.config|grep -v "\[bkdata]"|awk '{print $NF}'|sed 's/,/\n/g'|sed 's/(/_/g'|sed 's/)//g'|sort -u|sed 's/-/_/g'|tr 'a-z' 'A-Z'|grep -iE "dgraph|presto|hive|bkdata|hadoop|yarn|spark" > /tmp/.bkdata_module
+if [[ ! -z $@ ]] ; then
+    for moudle in $(grep -iE `echo $@|sed 's/\ /\|/g'` /tmp/.bkdata_module)
+    do
+        _check_bkdata
+    done
+else
+    for moudle in $(cat /tmp/.bkdata_module)
+    do
+        _check_bkdata
+    done
+fi
+}
+
+check_bkdata_domain()
+{
+grep -E "dgraph|presto|hive|bkdata|hadoop|yarn|spark" $CTRL_DIR/install.config|grep -v "\[bkdata]"|awk '{print $NF}'|sed 's/,/\n/g'|sed 's/(/_/g'|sed 's/)//g'|sort -u|sed 's/-/_/g'|tr 'a-z' 'A-Z'|awk '{print $0"_HOST"}'|grep -iE "dgraph|presto|hive|bkdata|hadoop|yarn|spark" > /tmp/.bkdata_module
+if [[ ! -z $@ ]] ; then
+    for moudle in $(grep -iE `echo $@|sed 's/\ /\|/g'` /tmp/.bkdata_module)
+    do
+        if [[ ${moudle} ]] ; then
+            dig +short $(eval echo "${${moudle}}")
+            if [[ ! -z $(dig +short $(eval echo "${${moudle}}")) ]] ; then
+                green_echo ${moudle}
+            else
+                red_echo ${moudle}
+            fi
+            #echo -e "----------------------------"
+        else
+            red_echo "${moudle} not exist"
+        fi
+    done
+else
+    for moudle in $(cat /tmp/.bkdata_module)
+    do
+        _check_bkdata
+    done
+fi
+}
+
+check_bkdata_version_running() {
+    source /root/.bkrc
+    source ${CTRL_DIR}/utils.fc
+    source ${CTRL_DIR}/functions
+    source ${CTRL_DIR}/control.rc
+    source ${CTRL_DIR}/status.rc
+
+    LAN_IP=$(get_lan_ip)
+    module=$1
+    module_B=$(echo ${module}|sed 's/^\w\|\s\w/\U&/g')
+    datahub_version=3.5.0
+    dataflow_version=3.5.0
+    datahub_module=(authapi bksql collectorhub databus databusmgr datacube datacubeapi datahubapi datalabapi datamanageapi datamanager datamanagerv2 jupyterhub metaapi metadata queryengine queuemanager superset)
+    dataflow_module=(bksqlextend dataflowapi flinksql jobnavi jobnaviapi jobnavirunner jobnavischeduler modelapi modelflow modelflowapi modelflowweb modeling modelweb sparksql)
+    datahub_module_other=(dgraph presto hive)
+    dataflow_module_other=(hadoop yarn spark)
+
+    if [[ ! -z ${module} ]] ; then
+        if [[ "${datahub_module[@]}" =~ "${module}" ]] ; then
+            module_version=$(cat ${INSTALL_PATH}/bkdata/${module}/VERSION)
+            source ${CTRL_DIR}/.rcmdrc; export HASTTY=1; source ./status.rc; export APPENV=; get_status bkdata ${module}|grep STOP
+            if [[ $? -eq 0 ]] ; then
+                echo -e ${module_B} "\t" ${module_version} "\t" ${datahub_version} "\t" ${LAN_IP} "\t" STOPPING> /tmp/datahub_status_${module}_${LAN_IP}.log
+            else
+                echo -e ${module_B} "\t" ${module_version} "\t" ${datahub_version} "\t" ${LAN_IP} "\t" RUNNING > /tmp/datahub_status_${module}_${LAN_IP}.log
+            fi
+        elif [[ "${datahub_module_other[@]}" =~ "${module}" ]] ; then
+            module_version=$(cat ${INSTALL_PATH}/${module}/VERSION)
+            source ${CTRL_DIR}/.rcmdrc; export HASTTY=1; source ./status.rc; export APPENV=; get_status ${module}|grep STOP
+            if [[ $? -eq 0 ]] ; then
+                echo -e ${module_B} "\t" ${module_version} "\t" ${datahub_version} "\t" ${LAN_IP} "\t" STOPPING> /tmp/datahub_status_${module}_${LAN_IP}.log
+            else
+                echo -e ${module_B} "\t" ${module_version} "\t" ${datahub_version} "\t" ${LAN_IP} "\t" RUNNING > /tmp/datahub_status_${module}_${LAN_IP}.log
+            fi
+        elif [[ "${dataflow_module[@]}" =~ "${module}" ]] ; then
+            module_version=$(cat ${INSTALL_PATH}/bkdata/${module}/VERSION)
+            source ${CTRL_DIR}/.rcmdrc; export HASTTY=1; source ./status.rc; export APPENV=; get_status bkdata ${module}|grep STOP
+            if [[ $? -eq 0 ]] ; then
+                echo -e ${module_B} "\t" ${module_version} "\t" ${dataflow_version} "\t" ${LAN_IP} "\t" STOPPING> /tmp/dataflow_status_${module}_${LAN_IP}.log
+            else
+                echo -e ${module_B} "\t" ${module_version} "\t" ${dataflow_version} "\t" ${LAN_IP} "\t" RUNNING > /tmp/dataflow_status_${module}_${LAN_IP}.log
+            fi
+        elif [[ "${dataflow_module_other[@]}" =~ "${module}" ]] ; then
+            module_version=$(cat ${INSTALL_PATH}/${module}/VERSION)
+            source ${CTRL_DIR}/.rcmdrc; export HASTTY=1; source ./status.rc; export APPENV=; get_status ${module}|grep STOP
+            if [[ $? -eq 0 ]] ; then
+                echo -e ${module_B} "\t" ${module_version} "\t" ${dataflow_version} "\t" ${LAN_IP} "\t" STOPPING> /tmp/dataflow_status_${module}_${LAN_IP}.log
+            else
+                echo -e ${module_B} "\t" ${module_version} "\t" ${dataflow_version} "\t" ${LAN_IP} "\t" RUNNING > /tmp/dataflow_status_${module}_${LAN_IP}.log
+            fi
+        else
+            echo "not exist bkdata module"
+        fi
+    else
+        echo "module is null , error"
+    fi
+}
+### bkdata_3.5_add_tag_[end]

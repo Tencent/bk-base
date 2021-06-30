@@ -1,0 +1,23 @@
+{
+    "type": "fun",
+    "method": "csvline",
+    "next": {
+        "type": "assign",
+        "subtype": "assign_pos",
+        "assign": [
+            {
+                "index": 0,
+                "assign_to": "datetime",
+                "type": "string"
+            },
+            {
+                "index": 1,
+                "assign_to": "openid"
+            },
+            {
+                "index": 2,
+                "assign_to": "worldid"
+            }
+        ]
+    }
+}

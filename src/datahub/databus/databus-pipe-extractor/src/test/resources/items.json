@@ -1,0 +1,31 @@
+{
+  "extract": {
+    "next": {
+      "subtype": "access_obj",
+      "type": "access",
+      "key": "value",
+      "next": {
+        "method": "items",
+        "type": "fun",
+        "args": [
+          "keyname",
+          "dimension"
+        ],
+        "next": {
+          "subtype": "assign_obj",
+          "assign": [
+            {
+              "type": "int",
+              "assign_to": "val1",
+              "key": "val1"
+            }
+          ],
+          "type": "assign"
+        }
+      }
+    },
+    "type": "fun",
+    "args": [],
+    "method": "from_json"
+  }
+}

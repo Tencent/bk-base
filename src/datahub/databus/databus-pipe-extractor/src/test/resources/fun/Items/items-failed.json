@@ -1,0 +1,7 @@
+{
+  "args":["k1",
+    "dimension"],
+  "type":"fun",
+  "method":"items",
+  "next":null
+}

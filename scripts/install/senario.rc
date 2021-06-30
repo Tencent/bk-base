@@ -1,0 +1,13 @@
+# vim:ft=sh sts=4 sw=4 ts=4 expandtab
+
+enable () {
+    :
+}
+
+enable_https () {
+    :
+}
+
+enable_ () {
+    : 
+}

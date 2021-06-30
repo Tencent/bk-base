@@ -1,0 +1,110 @@
+#!/bin/bash
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+source $CTRL_DIR/utils.fc
+source $CTRL_DIR/render.rc
+source $HOME/.bkrc
+
+log "register channel"
+for cluster_type in config outer inner queue op; do
+    kafka_host=$(value_of "KAFKA_${cluster_type^^}_HOST")
+    zk_host=$(value_of "ZK_${cluster_type^^}_HOST")
+    output=$(mktemp /tmp/add_channels.XXXXXXX.$(date +%Y%m%d%H%M%S))
+    cluster_name=$cluster_type-$GEOG_AREA_CODE
+    curl -s -o $output -X POST \
+        -H "Accept: application/json" \
+        -H "Content-Type:application/json" \
+        -d '{
+            "priority": 0,
+            "cluster_domain": "'$kafka_host'",
+            "cluster_type": "kafka",
+            "cluster_port": '$KAFKA_PORT',
+            "cluster_role": "'$cluster_type'",
+            "cluster_name": "'$cluster_name'",
+            "zk_domain": "'$zk_host'",
+            "zk_port": '$ZK_PORT',
+            "zk_root_path": "/'$DATABUS_ZK_ROOT_PATH'",
+            "tags": ["'$GEOG_AREA_CODE'"]
+        }' "http://${BKDATA_DATAHUBAPI_HOST}:${BKDATA_DATAHUBAPI_PORT}/v3/databus/channels/"
+
+    grep -qE '"result": *true|"1500005"' $output
+    nassert "add channel kafka-$cluster_type cluster: $kafka_host:$KAFKA_PORT. $output"
+
+done
+
+log "init scenario channel"
+cd $INSTALL_PATH/bkdata/datahubapi
+chenv bkdata datahubapi
+python manage.py shell -c 'from datahub.access.utils.init import init_access_scenario_storage_channel;init_access_scenario_storage_channel()'
+
+log "register cluster"
+while read cluster cluster_host rest_port module component channel_name; do
+    output=$(mktemp /tmp/add_clusters.XXXXXXX.$(date +%Y%m%d%H%M%S))
+
+    curl -s -o $output -X POST \
+        -H "Accept: application/json" \
+        -H "Content-Type:application/json" \
+        -d '{
+            "cluster_name": "'$cluster'",
+            "cluster_rest_domain": "'$cluster_host'",
+            "cluster_rest_port": '$rest_port',
+            "channel_name": "'$channel_name'",
+            "module": "'$module'",
+            "component": "'$component'",
+            "tags": ["'$GEOG_AREA_CODE'"]
+    }' "http://${BKDATA_DATAHUBAPI_HOST}:${BKDATA_DATAHUBAPI_PORT}/v3/databus/clusters/"
+
+    # 1500007 meta duplicated error
+    grep -qE '"result": *true|1500005|1500007' $output
+    nassert "add cluster $cluster: $cluster_host:$rest_port. ${output}"
+
+done < <(cat  <<_OO_
+clean-outer-$GEOG_AREA_CODE-M     $BKDATA_DATABUS_HOST $DATABUS_CLEAN_REST_PORT           clean   clean    outer-$GEOG_AREA_CODE
+eslog-outer-$GEOG_AREA_CODE-M     $BKDATA_DATABUS_HOST $DATABUS_ESLOG_REST_PORT           shipper eslog    outer-$GEOG_AREA_CODE
+puller-jdbc-$GEOG_AREA_CODE-M     $BKDATA_DATABUS_HOST $DATABUS_JDBC_REST_PORT            puller  jdbc     outer-$GEOG_AREA_CODE
+puller-http-$GEOG_AREA_CODE-M     $BKDATA_DATABUS_HOST $DATABUS_HTTP_REST_PORT            puller  http     outer-$GEOG_AREA_CODE
+puller-kafka-$GEOG_AREA_CODE-M    $BKDATA_DATABUS_HOST $DATABUS_KAFKA_REST_PORT           puller  kafka    outer-$GEOG_AREA_CODE
+es-inner-$GEOG_AREA_CODE-M        $BKDATA_DATABUS_HOST $DATABUS_ES_REST_PORT              shipper es       inner-$GEOG_AREA_CODE
+hdfs-inner-$GEOG_AREA_CODE-M      $BKDATA_DATABUS_HOST $DATABUS_HDFS_REST_PORT            shipper hdfs     inner-$GEOG_AREA_CODE
+tspider-inner-$GEOG_AREA_CODE-M   $BKDATA_DATABUS_HOST $DATABUS_TSPIDER_REST_PORT         shipper tspider  inner-$GEOG_AREA_CODE
+mysql-inner-$GEOG_AREA_CODE-M     $BKDATA_DATABUS_HOST $DATABUS_TSPIDER_REST_PORT         shipper mysql    inner-$GEOG_AREA_CODE
+queue-inner-$GEOG_AREA_CODE-M     $BKDATA_DATABUS_HOST $DATABUS_QUEUE_REST_PORT           shipper queue    inner-$GEOG_AREA_CODE
+puller-datanode-$GEOG_AREA_CODE-M $BKDATA_DATABUS_HOST $DATABUS_DATANODE_REST_PORT        puller  datanode inner-$GEOG_AREA_CODE
+puller-bkhdfs-$GEOG_AREA_CODE-M   $BKDATA_DATABUS_HOST $DATABUS_BKHDFS_REST_PORT          puller  bkhdfs   inner-$GEOG_AREA_CODE
+tsdb-inner-$GEOG_AREA_CODE-M      $BKDATA_DATABUS_HOST $DATABUS_TSDB_REST_PORT            shipper tsdb     inner-$GEOG_AREA_CODE
+tredis-inner-$GEOG_AREA_CODE-M    $BKDATA_DATABUS_HOST $DATABUS_REDIS_REST_PORT           shipper tredis   inner-$GEOG_AREA_CODE
+_OO_)
+
+log "init channel role tags"
+>$output
+curl -s -o $output -X GET \
+    "http://${BKDATA_DATABUSAPI_HOST}:${BKDATA_DATABUSAPI_PORT}/v3/databus/admin/init_channel_role/"
+grep -qE '"result": *true' $output
+nassert "init tags. $output"
+
+log "migrate raw_data topic_name "
+>$output
+curl -s -o $output -X GET \
+    "http://${BKDATA_DATABUSAPI_HOST}:${BKDATA_DATABUSAPI_PORT}/v3/access/admin/topic_name_upgrade/"
+grep -qE '"result": *true' $output
+nassert "init topic_name. $output"

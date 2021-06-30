@@ -1,0 +1,55 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ignite:
+  walker:
+    type: .SerialGroup
+    groups:
+      - type: .optimizer.AddDefaultLimitOptimizer
+        limit: 100
+      - type: .checker.UseOfDisabledOperationChecker
+        disabled-operation-list:
+          - ALTER
+          - ALTER VIEW
+          - CREATE INDEX
+          - CREATE TABLE
+          - CREATE VIEW
+          - DELETE
+          - DROP
+          - EXECUTE
+          - INSERT
+          - MERGE
+          - UPDATE
+      - type: .checker.DuplicatedColumnsChecker
+      - type: com.tencent.bk.base.datalab.queryengine.validator.checker.IgniteExistUnionChecker
+      - type: com.tencent.bk.base.datalab.queryengine.validator.checker.IgniteExistJoinChecker
+      - type: .optimizer.BlueKingTableNameOptimizer
+        urlPattern: 'http://__BKDATA_METAAPI_HOST__:__BKDATA_METAAPI_PORT__/v3/meta/result_tables/{0}/?erp={"~StorageResultTable.result_table":{"physical_table_name":"true","active":"true","storage_cluster_config_id": "true","storage_cluster":{"cluster_name":"true","cluster_type": "true","connection_info":"true","expires":"true","version":"true"},"storage_channel":{"cluster_type":"true"}}}&result_format=classic'
+        target: ignite
+      - type: .optimizer.DivisionOptimizer
+      - type: .optimizer.ColumnNameOptimizer
+        caseFormat: 'upper'
+      - type: .optimizer.ReservedKeyOptimizer
+        keyWords: [ ALL,AND,ARRAY,AS,BETWEEN,BOTH,CASE,CHECK,CONSTRAINT,CROSS,CURRENT_CATALOG,CURRENT_SCHEMA,CURRENT_USER,DISTINCT,EXCEPT,EXISTS,FALSE,FETCH,FILTER,FOR,FOREIGN,FROM,FULL,GROUP,GROUPS,HAVING,IF,ILIKE,IN,INNER,INTERSECT,INTERSECTS,INTERVAL,IS,JOIN,LEADING,LEFT,LIKE,LIMIT,LOCALTIMESTAMP,MINUS,NATURAL,NOT,NULL,OFFSET,ON,OR,ORDER,OVER,PARTITION,PRIMARY,QUALIFY,RANGE,REGEXP,RIGHT,ROW,_ROWID_,ROWNUM,ROWS,SELECT,SYSDATE,SYSTIME,SYSTIMESTAMP,TABLE,TODAY,TOP,TRAILING,TRUE,UNION,UNIQUE,UNKNOWN,USING,VALUES,WHERE,WINDOW,WITH ]
+        quoting: '"'
+        caseFormat: 'upper'
+  de-parser:
+    type: .Sql

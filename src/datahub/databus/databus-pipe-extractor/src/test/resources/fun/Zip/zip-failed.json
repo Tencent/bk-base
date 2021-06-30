@@ -1,0 +1,6 @@
+{
+    "type": "fun",
+    "method": "zip",
+    "args": ["list1", "list2"],
+    "next": null
+}

@@ -1,0 +1,10 @@
+spark_sql:jobnavi-sparksql-adaptor
+one_time_sql:jobnavi-sparksql-adaptor
+stream:jobnavi-flink-adaptor
+stream-code-flink-1.10.1:jobnavi-flink-adaptor
+sparkstreaming:jobnavi-sparkstreaming-adaptor
+tensorflow:jobnavi-tensorflow-adaptor
+command:jobnavi-cmd-adaptor
+workflow:jobnavi-workflow
+tdw:extend/jobnavi-tdw
+tdw_source:extend/jobnavi-tdw

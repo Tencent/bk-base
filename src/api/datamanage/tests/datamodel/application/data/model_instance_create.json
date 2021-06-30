@@ -1,0 +1,247 @@
+{
+    "model_id": 230,
+    "flow_node_id": 30000,
+    "bk_username": "admin",
+    "appenv": "ieod",
+    "version_id": "chlx6evgjbw5qky8mz1tanru0p2os34i",
+    "bkdata_authentication_method": "inner",
+    "bk_app_secret": null,
+    "bk_biz_id": 591,
+    "result_table_id": "591_complex_main_table_joint_debug",
+    "fields": [
+        {
+            "input_result_table_id": "591_datamonitor_clean_test_data",
+            "field_name": "province",
+            "input_field_name": "province",
+            "relation": {
+                "related_model_id": 190,
+                "input_result_table_id": "591_province_dim_table",
+                "input_field_name": "province"
+            },
+            "application_clean_content": {}
+        },
+        {
+            "input_result_table_id": "591_datamonitor_clean_test_data",
+            "field_name": "client_ip",
+            "input_field_name": "client_ip",
+            "relation": {
+                "related_model_id": 218,
+                "input_result_table_id": "591_clientip_dim_table",
+                "input_field_name": "client_ip"
+            },
+            "application_clean_content": {}
+        },
+        {
+            "input_result_table_id": "591_datamonitor_clean_test_data",
+            "field_name": "uid",
+            "input_field_name": "uid",
+            "application_clean_content": {}
+        },
+        {
+            "input_result_table_id": "591_datamonitor_clean_test_data",
+            "field_name": "metric2",
+            "input_field_name": "metric2",
+            "application_clean_content": {}
+        },
+        {
+            "input_result_table_id": "591_datamonitor_clean_test_data",
+            "field_name": "metric1",
+            "input_field_name": "metric1",
+            "application_clean_content": {
+                "clean_option": "SQL",
+                "clean_content": "metric1 * 100 as metric1"
+            }
+        },
+        {
+            "input_result_table_id": "591_datamonitor_clean_test_data",
+            "field_name": "uid_type",
+            "input_field_name": "uid_type",
+            "application_clean_content": {}
+        },
+        {
+            "input_result_table_id": "591_datamonitor_clean_test_data",
+            "field_name": "country",
+            "input_field_name": "country",
+            "application_clean_content": {}
+        },
+        {
+            "input_result_table_id": "591_datamonitor_clean_test_data",
+            "field_name": "isp",
+            "input_field_name": "isp",
+            "application_clean_content": {}
+        },
+        {
+            "input_result_table_id": "591_datamonitor_clean_test_data",
+            "field_name": "valid_ip",
+            "input_field_name": "client_ip",
+            "application_clean_content": {
+                "clean_option": "SQL",
+                "clean_content": "udf_regexp(client_ip, '^[0-9]{1,3}\\\\.[0-9]{1,3}\\\\.[0-9]{1,3}\\\\.[0-9]{1,3}$')"
+            }
+        }
+    ],
+    "bk_app_code": "data",
+    "from_result_tables": [
+        {
+            "node_type": "stream_source",
+            "result_table_id": "591_datamonitor_clean_test_data"
+        },
+        {
+            "node_type": "kv_source",
+            "result_table_id": "591_province_dim_table"
+        },
+        {
+            "node_type": "kv_source",
+            "result_table_id": "591_clientip_dim_table"
+        }
+    ],
+    "flow_id": 8218,
+    "project_id": 211
+}
+
+{
+    "config": {
+        "outputs": [
+            {
+                "bk_biz_id": 591,
+                "fields": [],
+                "output_name": "数据模型应用表",
+                "table_name": "main_table_joint_debug",
+                "validate": {
+                    "table_name": {
+                        "status": false,
+                        "errorMsg": ""
+                    },
+                    "output_name": {
+                        "status": false,
+                        "errorMsg": ""
+                    },
+                    "field_config": {
+                        "status": false,
+                        "errorMsg": "必填项不可为空"
+                    }
+                }
+            }
+        ],
+        "from_nodes": [
+            {
+                "id": 22566,
+                "from_result_table_ids": [
+                    "591_main_table_source"
+                ]
+            },
+            {
+                "id": 22567,
+                "from_result_table_ids": [
+                    "591_channel_dim_table"
+                ]
+            }
+        ],
+        "output_name": "数据模型应用表",
+        "table_name": "main_table_joint_debug",
+        "name": "数据模型应用节点",
+        "bk_biz_id": 591,
+        "data_model": {
+            "model_id": 23,
+            "version_id": "ptidqv9aye2ulh0xc58nmbrfg7sw13zk",
+            "project_id": 211,
+            "fields": [
+                {
+                    "field_name": "test_1",
+                    "input_result_table_id": "591_main_table_source",
+                    "input_field_name": "test_1",
+                    "application_clean_content": {}
+                },
+                {
+                    "field_name": "test_2",
+                    "input_result_table_id": "591_main_table_source",
+                    "input_field_name": "test_2",
+                    "application_clean_content": {}
+                },
+                {
+                    "field_name": "channel_id",
+                    "input_result_table_id": "591_main_table_source",
+                    "input_field_name": "channel_id",
+                    "application_clean_content": {},
+                    "relation": {
+                        "related_model_id": 67,
+                        "input_result_table_id": "591_channel_dim_table",
+                        "input_field_name": "channel_id"
+                    }
+                },
+                {
+                    "field_name": "df",
+                    "input_result_table_id": "591_main_table_source",
+                    "input_field_name": "df",
+                    "application_clean_content": {}
+                },
+                {
+                    "field_name": "test",
+                    "input_result_table_id": "591_main_table_source",
+                    "input_field_name": "test",
+                    "application_clean_content": {}
+                },
+                {
+                    "field_name": "id",
+                    "input_result_table_id": "591_main_table_source",
+                    "input_field_name": "id",
+                    "application_clean_content": {}
+                },
+                {
+                    "field_name": "price",
+                    "input_result_table_id": "591_main_table_source",
+                    "input_field_name": "price",
+                    "application_clean_content": {
+                        "clean_option": "SQL",
+                        "clean_content": "price * 100"
+                    }
+                }
+            ]
+        },
+        "from_result_table_ids": [
+            "591_main_table_source",
+            "591_channel_dim_table"
+        ],
+        "origin_id": "bk_node_1606359271620"
+    },
+    "frontend_info": {
+        "x": 580,
+        "y": 326
+    },
+    "from_links": [
+        {
+            "source": {
+                "x": 329,
+                "y": 213,
+                "id": "bk_node_1606359122098",
+                "arrow": "Left",
+                "node_id": 22566
+            },
+            "target": {
+                "x": 580,
+                "y": 326,
+                "id": "bk_node_1606359271620",
+                "arrow": "Left",
+                "node_id": ""
+            }
+        },
+        {
+            "source": {
+                "x": 376,
+                "y": 410,
+                "id": "bk_node_1606359124092",
+                "arrow": "Left",
+                "node_id": 22567
+            },
+            "target": {
+                "x": 580,
+                "y": 326,
+                "id": "bk_node_1606359271620",
+                "arrow": "Left",
+                "node_id": ""
+            }
+        }
+    ],
+    "flow_id": 8199,
+    "node_type": "datamodel"
+}

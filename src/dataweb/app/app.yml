@@ -1,0 +1,17 @@
+app_code: bk_dataweb
+app_name: 计算平台
+language: python
+is_use_celery: True
+author: 蓝鲸智云
+introduction: 简化业务数据的获取，提升数据开发的效率，提供一站式、低门槛的大数据服务
+version: 3.0.2
+category: 运维工具
+language_support: 中文
+app_name_en: Data
+introduction_en: Simplify the acquisition of business data, Improve the efficiency of data development, Provide a one-stop and low-threshold big data service
+desktop:
+    width: 1200
+    height: 720
+    is_max: True
+container:
+    memory: 2048

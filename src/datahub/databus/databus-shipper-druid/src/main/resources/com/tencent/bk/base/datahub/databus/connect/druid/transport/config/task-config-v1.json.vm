@@ -1,0 +1,56 @@
+{
+  "type": "index_realtime",
+  "resource": {
+    "availabilityGroup": "$availabilityGroup",
+    "requiredCapacity": $requiredCapacity
+  },
+  "spec": {
+    "dataSchema": {
+      "dataSource": "$dataSourceName",
+      "metricsSpec": $objectMapper.writeValueAsString($metrics),
+      "granularitySpec": {
+        "segmentGranularity": "$segmentGranularity",
+        "queryGranularity": "none",
+        "rollup": false
+      },
+      "parser": {
+        "type": "map",
+        "parseSpec": {
+          "format": "json",
+          "timestampSpec": {
+            "column": "$timestampColumn",
+            "format": "millis",
+            "missingValue": null
+          },
+          "dimensionsSpec": {
+            "dimensions": $objectMapper.writeValueAsString($dimensions),
+            "dimensionExclusions": $objectMapper.writeValueAsString($dimensionExclusions)
+          }
+        }
+      }
+    },
+    "ioConfig": {
+      "type": "realtime",
+      "firehose": {
+        "type": "receiver",
+        "serviceName":"$serviceName",
+        "bufferSize": 50000,
+        "maxIdleTime": $maxIdleTime
+      }
+    },
+    "tuningConfig": {
+      "type": "realtime",
+      "maxRowsInMemory": 50000,
+      "intermediatePersistPeriod": "PT1M",
+      "windowPeriod": "$windowPeriod",
+      "rejectionPolicy": {
+        "type": "serverTime"
+      },
+      "shardSpec": {
+        "type": "linear",
+        "partitionNum": $partitionNum
+      }
+    }
+  },
+  "context": $objectMapper.writeValueAsString($context)
+}

@@ -1,0 +1,7 @@
+action_map:
+
+  - action_id: raw_data.retrieve_sensitive_information
+    iam_action_id: raw_data-retrieve_sensitive_info
+
+  - action_id: result_table.retrieve_sensitive_information
+    iam_action_id: result_table-retrieve_sens_info

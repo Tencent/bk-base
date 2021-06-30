@@ -1,0 +1,651 @@
+{
+  "bk_biz_id": {{ bk_biz_id }},
+  "clean_config_name": "{{ result_table_name }}",
+  "description": "{{ result_table_alias }}",
+  "fields": [
+    {
+      "id": 256497,
+      "field_name": "bkpub_collect_method",
+      "field_type": "string",
+      "field_alias": "采集方式",
+      "is_dimension": false,
+      "field_index": 1
+    },
+    {
+      "id": 256498,
+      "field_name": "bkpub_collect_time",
+      "field_type": "long",
+      "field_alias": "采集时间",
+      "is_dimension": false,
+      "field_index": 2
+    },
+    {
+      "id": 256499,
+      "field_name": "bkpub_event_type",
+      "field_type": "string",
+      "field_alias": "事件类型",
+      "is_dimension": false,
+      "field_index": 3
+    },
+    {
+      "id": 256500,
+      "field_name": "bk_isp_name",
+      "field_type": "string",
+      "field_alias": "所属运营商",
+      "is_dimension": false,
+      "field_index": 4
+    },
+    {
+      "id": 256501,
+      "field_name": "bk_biz_id",
+      "field_type": "int",
+      "field_alias": "业务ID",
+      "is_dimension": false,
+      "field_index": 5
+    },
+    {
+      "id": 256502,
+      "field_name": "bk_relations",
+      "field_type": "string",
+      "field_alias": "关联拓扑信息",
+      "is_dimension": false,
+      "field_index": 6
+    },
+    {
+      "id": 256503,
+      "field_name": "domain",
+      "field_type": "string",
+      "field_alias": "域名",
+      "is_dimension": false,
+      "field_index": 7
+    },
+    {
+      "id": 256504,
+      "field_name": "net_struct_id",
+      "field_type": "string",
+      "field_alias": "网络结构id",
+      "is_dimension": false,
+      "field_index": 8
+    },
+    {
+      "id": 256505,
+      "field_name": "bk_os_name",
+      "field_type": "string",
+      "field_alias": "操作系统名称",
+      "is_dimension": false,
+      "field_index": 9
+    },
+    {
+      "id": 256506,
+      "field_name": "srv_out_band_manage_type",
+      "field_type": "string",
+      "field_alias": "带外管理卡类型",
+      "is_dimension": false,
+      "field_index": 10
+    },
+    {
+      "id": 256507,
+      "field_name": "bk_host_id",
+      "field_type": "int",
+      "field_alias": "主机id",
+      "is_dimension": false,
+      "field_index": 11
+    },
+    {
+      "id": 256508,
+      "field_name": "bk_os_version",
+      "field_type": "string",
+      "field_alias": "操作系统版本",
+      "is_dimension": false,
+      "field_index": 12
+    },
+    {
+      "id": 256509,
+      "field_name": "group_name",
+      "field_type": "string",
+      "field_alias": "群组名",
+      "is_dimension": false,
+      "field_index": 13
+    },
+    {
+      "id": 256510,
+      "field_name": "operator",
+      "field_type": "string",
+      "field_alias": "维护人",
+      "is_dimension": false,
+      "field_index": 14
+    },
+    {
+      "id": 256511,
+      "field_name": "hard_memo",
+      "field_type": "string",
+      "field_alias": "硬件备注",
+      "is_dimension": false,
+      "field_index": 15
+    },
+    {
+      "id": 256512,
+      "field_name": "bk_host_name",
+      "field_type": "string",
+      "field_alias": "主机名",
+      "is_dimension": false,
+      "field_index": 16
+    },
+    {
+      "id": 256513,
+      "field_name": "sub_zone_id",
+      "field_type": "string",
+      "field_alias": "子区id",
+      "is_dimension": false,
+      "field_index": 17
+    },
+    {
+      "id": 256514,
+      "field_name": "bk_host_innerip",
+      "field_type": "string",
+      "field_alias": "主机内部ip",
+      "is_dimension": false,
+      "field_index": 18
+    },
+    {
+      "id": 256515,
+      "field_name": "raid_name",
+      "field_type": "string",
+      "field_alias": "RAID",
+      "is_dimension": false,
+      "field_index": 19
+    },
+    {
+      "id": 256516,
+      "field_name": "bk_comment",
+      "field_type": "string",
+      "field_alias": "备注",
+      "is_dimension": false,
+      "field_index": 20
+    },
+    {
+      "id": 256517,
+      "field_name": "bk_bs_info",
+      "field_type": "string",
+      "field_alias": "公司cmdb中主机所属的1/2/3 级业务详细信息",
+      "is_dimension": false,
+      "field_index": 21
+    },
+    {
+      "id": 256518,
+      "field_name": "dept_name",
+      "field_type": "string",
+      "field_alias": "运维部门",
+      "is_dimension": false,
+      "field_index": 22
+    },
+    {
+      "id": 256519,
+      "field_name": "srv_status",
+      "field_type": "string",
+      "field_alias": "服务器状态",
+      "is_dimension": false,
+      "field_index": 23
+    },
+    {
+      "id": 256520,
+      "field_name": "svr_type_name",
+      "field_type": "string",
+      "field_alias": "服务器类型",
+      "is_dimension": false,
+      "field_index": 24
+    },
+    {
+      "id": 256521,
+      "field_name": "idc_id",
+      "field_type": "string",
+      "field_alias": "idc_id",
+      "is_dimension": false,
+      "field_index": 25
+    },
+    {
+      "id": 256522,
+      "field_name": "net_struct_name",
+      "field_type": "string",
+      "field_alias": "网络结构名",
+      "is_dimension": false,
+      "field_index": 26
+    },
+    {
+      "id": 256523,
+      "field_name": "classify_level_name",
+      "field_type": "string",
+      "field_alias": "分级级别名",
+      "is_dimension": false,
+      "field_index": 27
+    },
+    {
+      "id": 256524,
+      "field_name": "sub_zone",
+      "field_type": "string",
+      "field_alias": "子区",
+      "is_dimension": false,
+      "field_index": 28
+    },
+    {
+      "id": 256525,
+      "field_name": "rack_id",
+      "field_type": "string",
+      "field_alias": "rack_id",
+      "is_dimension": false,
+      "field_index": 29
+    },
+    {
+      "id": 256526,
+      "field_name": "raid_id",
+      "field_type": "string",
+      "field_alias": "raid_id",
+      "is_dimension": false,
+      "field_index": 30
+    },
+    {
+      "id": 256527,
+      "field_name": "is_special",
+      "field_type": "string",
+      "field_alias": "是否固资",
+      "is_dimension": false,
+      "field_index": 31
+    },
+    {
+      "id": 256528,
+      "field_name": "bk_asset_id",
+      "field_type": "string",
+      "field_alias": "固资编号",
+      "is_dimension": false,
+      "field_index": 32
+    },
+    {
+      "id": 256529,
+      "field_name": "logic_domain",
+      "field_type": "string",
+      "field_alias": "本地域名",
+      "is_dimension": false,
+      "field_index": 33
+    },
+    {
+      "id": 256530,
+      "field_name": "outer_switch_port",
+      "field_type": "string",
+      "field_alias": "外网交换机端口",
+      "is_dimension": false,
+      "field_index": 34
+    },
+    {
+      "id": 256531,
+      "field_name": "bk_bak_operator",
+      "field_type": "string",
+      "field_alias": "备份维护人",
+      "is_dimension": false,
+      "field_index": 35
+    },
+    {
+      "id": 256532,
+      "field_name": "bk_cloud_id",
+      "field_type": "int",
+      "field_alias": "云区域",
+      "is_dimension": false,
+      "field_index": 36
+    },
+    {
+      "id": 256533,
+      "field_name": "svr_id",
+      "field_type": "string",
+      "field_alias": "公司cmdbSvrID",
+      "is_dimension": false,
+      "field_index": 37
+    },
+    {
+      "id": 256534,
+      "field_name": "bk_sla",
+      "field_type": "string",
+      "field_alias": "SLA级别",
+      "is_dimension": false,
+      "field_index": 38
+    },
+    {
+      "id": 256535,
+      "field_name": "inner_switch_port",
+      "field_type": "string",
+      "field_alias": "内网交换机端口",
+      "is_dimension": false,
+      "field_index": 39
+    },
+    {
+      "id": 256536,
+      "field_name": "bk_host_outerip",
+      "field_type": "string",
+      "field_alias": "外网IP",
+      "is_dimension": false,
+      "field_index": 40
+    },
+    {
+      "id": 256537,
+      "field_name": "logic_domain_id",
+      "field_type": "string",
+      "field_alias": "逻辑区域ID",
+      "is_dimension": false,
+      "field_index": 41
+    },
+    {
+      "id": 256538,
+      "field_name": "inner_network_segment",
+      "field_type": "string",
+      "field_alias": "内网网段",
+      "is_dimension": false,
+      "field_index": 42
+    },
+    {
+      "id": 256539,
+      "field_name": "svr_device_class",
+      "field_type": "string",
+      "field_alias": "SCM设备类型",
+      "is_dimension": false,
+      "field_index": 43
+    },
+    {
+      "id": 256540,
+      "field_name": "idc_city_name",
+      "field_type": "string",
+      "field_alias": "IDC城市名",
+      "is_dimension": false,
+      "field_index": 44
+    },
+    {
+      "id": 256541,
+      "field_name": "idc_unit_name",
+      "field_type": "string",
+      "field_alias": "机房管理单元",
+      "is_dimension": false,
+      "field_index": 45
+    },
+    {
+      "id": 256542,
+      "field_name": "svr_device_id",
+      "field_type": "string",
+      "field_alias": "设备编号",
+      "is_dimension": false,
+      "field_index": 46
+    },
+    {
+      "id": 256543,
+      "field_name": "net_device_id",
+      "field_type": "string",
+      "field_alias": "网络设备ID",
+      "is_dimension": false,
+      "field_index": 47
+    },
+    {
+      "id": 256544,
+      "field_name": "srv_important_level",
+      "field_type": "string",
+      "field_alias": "重要级别",
+      "is_dimension": false,
+      "field_index": 48
+    },
+    {
+      "id": 256545,
+      "field_name": "idc_unit_id",
+      "field_type": "string",
+      "field_alias": "机房管理单元ID",
+      "is_dimension": false,
+      "field_index": 49
+    },
+    {
+      "id": 256546,
+      "field_name": "idc_city_id",
+      "field_type": "string",
+      "field_alias": "IDC城市ID",
+      "is_dimension": false,
+      "field_index": 50
+    },
+    {
+      "id": 256547,
+      "field_name": "svr_input_time",
+      "field_type": "string",
+      "field_alias": "入库时间",
+      "is_dimension": false,
+      "field_index": 51
+    },
+    {
+      "id": 256548,
+      "field_name": "svr_first_time",
+      "field_type": "string",
+      "field_alias": "启用时间",
+      "is_dimension": false,
+      "field_index": 52
+    },
+    {
+      "id": 256549,
+      "field_name": "bk_supplier_account",
+      "field_type": "string",
+      "field_alias": "供应商账号",
+      "is_dimension": false,
+      "field_index": 53
+    },
+    {
+      "id": 256550,
+      "field_name": "module_name",
+      "field_type": "string",
+      "field_alias": "Module名称",
+      "is_dimension": false,
+      "field_index": 54
+    },
+    {
+      "id": 256551,
+      "field_name": "bk_sn",
+      "field_type": "string",
+      "field_alias": "设备SN",
+      "is_dimension": false,
+      "field_index": 55
+    },
+    {
+      "id": 256552,
+      "field_name": "rack",
+      "field_type": "string",
+      "field_alias": "存放机架",
+      "is_dimension": false,
+      "field_index": 56
+    },
+    {
+      "id": 256553,
+      "field_name": "outer_network_segment",
+      "field_type": "string",
+      "field_alias": "外网部门",
+      "is_dimension": false,
+      "field_index": 57
+    },
+    {
+      "id": 256554,
+      "field_name": "iFix",
+      "field_type": "string",
+      "field_alias": "接入iFix",
+      "is_dimension": false,
+      "field_index": 58
+    },
+    {
+      "id": 256555,
+      "field_name": "bk_cpu",
+      "field_type": "string",
+      "field_alias": "cpu",
+      "is_dimension": false,
+      "field_index": 59
+    },
+    {
+      "id": 256556,
+      "field_name": "bk_state",
+      "field_type": "string",
+      "field_alias": "状态",
+      "is_dimension": false,
+      "field_index": 60
+    },
+    {
+      "id": 256557,
+      "field_name": "bk_province_name",
+      "field_type": "string",
+      "field_alias": "省份",
+      "is_dimension": false,
+      "field_index": 61
+    },
+    {
+      "id": 256558,
+      "field_name": "import_from",
+      "field_type": "string",
+      "field_alias": "由何导入",
+      "is_dimension": false,
+      "field_index": 62
+    },
+    {
+      "id": 256559,
+      "field_name": "bk_disk",
+      "field_type": "string",
+      "field_alias": "磁盘",
+      "is_dimension": false,
+      "field_index": 63
+    },
+    {
+      "id": 256560,
+      "field_name": "create_time",
+      "field_type": "string",
+      "field_alias": "创建时间",
+      "is_dimension": false,
+      "field_index": 64
+    },
+    {
+      "id": 256561,
+      "field_name": "bk_mem",
+      "field_type": "string",
+      "field_alias": "内存",
+      "is_dimension": false,
+      "field_index": 65
+    },
+    {
+      "id": 256562,
+      "field_name": "bk_mac",
+      "field_type": "string",
+      "field_alias": "mac地址",
+      "is_dimension": false,
+      "field_index": 66
+    },
+    {
+      "id": 256563,
+      "field_name": "last_time",
+      "field_type": "string",
+      "field_alias": "最后变更时间",
+      "is_dimension": false,
+      "field_index": 67
+    },
+    {
+      "id": 256564,
+      "field_name": "bk_os_bit",
+      "field_type": "string",
+      "field_alias": "os_bit",
+      "is_dimension": false,
+      "field_index": 68
+    },
+    {
+      "id": 256565,
+      "field_name": "bk_cloud_inst_id",
+      "field_type": "string",
+      "field_alias": "cloud_inst_id",
+      "is_dimension": false,
+      "field_index": 69
+    },
+    {
+      "id": 256566,
+      "field_name": "bk_outer_mac",
+      "field_type": "string",
+      "field_alias": "外部mac",
+      "is_dimension": false,
+      "field_index": 70
+    },
+    {
+      "id": 256567,
+      "field_name": "clb_vip",
+      "field_type": "string",
+      "field_alias": "clb_vip",
+      "is_dimension": false,
+      "field_index": 71
+    },
+    {
+      "id": 256568,
+      "field_name": "bk_cpu_mhz",
+      "field_type": "string",
+      "field_alias": "cpu_mhz",
+      "is_dimension": false,
+      "field_index": 72
+    },
+    {
+      "id": 256569,
+      "field_name": "bk_cloud_vendor",
+      "field_type": "string",
+      "field_alias": "云服务供应商",
+      "is_dimension": false,
+      "field_index": 73
+    },
+    {
+      "id": 256570,
+      "field_name": "bk_cloud_host_status",
+      "field_type": "string",
+      "field_alias": "云主机状态",
+      "is_dimension": false,
+      "field_index": 74
+    },
+    {
+      "id": 256571,
+      "field_name": "bk_os_type",
+      "field_type": "string",
+      "field_alias": "系统类型",
+      "is_dimension": false,
+      "field_index": 75
+    },
+    {
+      "id": 256572,
+      "field_name": "svr_out_band_type",
+      "field_type": "string",
+      "field_alias": "svr_out_band_type",
+      "is_dimension": false,
+      "field_index": 76
+    },
+    {
+      "id": 256573,
+      "field_name": "svr_type_id",
+      "field_type": "string",
+      "field_alias": "svr_type_id",
+      "is_dimension": false,
+      "field_index": 77
+    },
+    {
+      "id": 256574,
+      "field_name": "bk_state_name",
+      "field_type": "string",
+      "field_alias": "状态名",
+      "is_dimension": false,
+      "field_index": 78
+    },
+    {
+      "id": 256575,
+      "field_name": "bk_cpu_module",
+      "field_type": "string",
+      "field_alias": "cpu模块",
+      "is_dimension": false,
+      "field_index": 79
+    },
+    {
+      "id": 256576,
+      "field_name": "customize",
+      "field_type": "text",
+      "field_alias": "用户自定义字段",
+      "is_dimension": false,
+      "field_index": 80
+    }
+  ],
+  "json_config": "{\"extract\":{\"args\":[],\"label\":\"label49daab\",\"result\":\"host_json\",\"next\":{\"label\":null,\"type\":\"branch\",\"name\":\"\",\"next\":[{\"subtype\":\"assign_obj\",\"label\":\"labeleb440c\",\"type\":\"assign\",\"assign\":[{\"type\":\"string\",\"assign_to\":\"bkpub_collect_method\",\"key\":\"collect_method\"},{\"type\":\"long\",\"assign_to\":\"bkpub_collect_time\",\"key\":\"collect_time\"},{\"type\":\"string\",\"assign_to\":\"bkpub_event_type\",\"key\":\"event_type\"}],\"next\":null},{\"default_value\":\"\",\"default_type\":\"null\",\"label\":\"labelfba1ff\",\"subtype\":\"access_obj\",\"result\":\"host_json_content\",\"key\":\"event_content\",\"next\":{\"label\":null,\"type\":\"branch\",\"name\":\"\",\"next\":[{\"subtype\":\"assign_obj\",\"label\":\"label0d4c8a\",\"type\":\"assign\",\"assign\":[{\"type\":\"string\",\"assign_to\":\"bk_isp_name\",\"key\":\"bk_isp_name\"},{\"type\":\"int\",\"assign_to\":\"bk_biz_id\",\"key\":\"bk_biz_id\"},{\"type\":\"string\",\"assign_to\":\"bk_relations\",\"key\":\"bk_relations\"},{\"type\":\"string\",\"assign_to\":\"domain\",\"key\":\"domain\"},{\"type\":\"string\",\"assign_to\":\"net_struct_id\",\"key\":\"net_struct_id\"},{\"type\":\"string\",\"assign_to\":\"bk_os_name\",\"key\":\"bk_os_name\"},{\"type\":\"string\",\"assign_to\":\"srv_out_band_manage_type\",\"key\":\"srv_out_band_manage_type\"},{\"type\":\"int\",\"assign_to\":\"bk_host_id\",\"key\":\"bk_host_id\"},{\"type\":\"string\",\"assign_to\":\"bk_os_version\",\"key\":\"bk_os_version\"},{\"type\":\"string\",\"assign_to\":\"group_name\",\"key\":\"group_name\"},{\"type\":\"string\",\"assign_to\":\"operator\",\"key\":\"operator\"},{\"type\":\"string\",\"assign_to\":\"hard_memo\",\"key\":\"hard_memo\"},{\"type\":\"string\",\"assign_to\":\"bk_host_name\",\"key\":\"bk_host_name\"},{\"type\":\"string\",\"assign_to\":\"sub_zone_id\",\"key\":\"sub_zone_id\"},{\"type\":\"string\",\"assign_to\":\"bk_host_innerip\",\"key\":\"bk_host_innerip\"},{\"type\":\"string\",\"assign_to\":\"raid_name\",\"key\":\"raid_name\"},{\"type\":\"string\",\"assign_to\":\"bk_comment\",\"key\":\"bk_comment\"},{\"type\":\"string\",\"assign_to\":\"bk_bs_info\",\"key\":\"bk_bs_info\"},{\"type\":\"string\",\"assign_to\":\"dept_name\",\"key\":\"dept_name\"},{\"type\":\"string\",\"assign_to\":\"srv_status\",\"key\":\"srv_status\"},{\"type\":\"string\",\"assign_to\":\"svr_type_name\",\"key\":\"svr_type_name\"},{\"type\":\"string\",\"assign_to\":\"idc_id\",\"key\":\"idc_id\"},{\"type\":\"string\",\"assign_to\":\"net_struct_name\",\"key\":\"net_struct_name\"},{\"type\":\"string\",\"assign_to\":\"classify_level_name\",\"key\":\"classify_level_name\"},{\"type\":\"string\",\"assign_to\":\"sub_zone\",\"key\":\"sub_zone\"},{\"type\":\"string\",\"assign_to\":\"rack_id\",\"key\":\"rack_id\"},{\"type\":\"string\",\"assign_to\":\"raid_id\",\"key\":\"raid_id\"},{\"type\":\"string\",\"assign_to\":\"is_special\",\"key\":\"is_special\"},{\"type\":\"string\",\"assign_to\":\"bk_asset_id\",\"key\":\"bk_asset_id\"},{\"type\":\"string\",\"assign_to\":\"logic_domain\",\"key\":\"logic_domain\"},{\"type\":\"string\",\"assign_to\":\"outer_switch_port\",\"key\":\"outer_switch_port\"},{\"type\":\"string\",\"assign_to\":\"bk_bak_operator\",\"key\":\"bk_bak_operator\"},{\"type\":\"int\",\"assign_to\":\"bk_cloud_id\",\"key\":\"bk_cloud_id\"},{\"type\":\"string\",\"assign_to\":\"svr_id\",\"key\":\"svr_id\"},{\"type\":\"string\",\"assign_to\":\"bk_sla\",\"key\":\"bk_sla\"},{\"type\":\"string\",\"assign_to\":\"inner_switch_port\",\"key\":\"inner_switch_port\"},{\"type\":\"string\",\"assign_to\":\"bk_host_outerip\",\"key\":\"bk_host_outerip\"},{\"type\":\"string\",\"assign_to\":\"logic_domain_id\",\"key\":\"logic_domain_id\"},{\"type\":\"string\",\"assign_to\":\"inner_network_segment\",\"key\":\"inner_network_segment\"},{\"type\":\"string\",\"assign_to\":\"svr_device_class\",\"key\":\"svr_device_class\"},{\"type\":\"string\",\"assign_to\":\"idc_city_name\",\"key\":\"idc_city_name\"},{\"type\":\"string\",\"assign_to\":\"idc_unit_name\",\"key\":\"idc_unit_name\"},{\"type\":\"string\",\"assign_to\":\"svr_device_id\",\"key\":\"svr_device_id\"},{\"type\":\"string\",\"assign_to\":\"net_device_id\",\"key\":\"net_device_id\"},{\"type\":\"string\",\"assign_to\":\"srv_important_level\",\"key\":\"srv_important_level\"},{\"type\":\"string\",\"assign_to\":\"idc_unit_id\",\"key\":\"idc_unit_id\"},{\"type\":\"string\",\"assign_to\":\"idc_city_id\",\"key\":\"idc_city_id\"},{\"type\":\"string\",\"assign_to\":\"svr_input_time\",\"key\":\"svr_input_time\"},{\"type\":\"string\",\"assign_to\":\"svr_first_time\",\"key\":\"svr_first_time\"},{\"type\":\"string\",\"assign_to\":\"bk_supplier_account\",\"key\":\"bk_supplier_account\"},{\"type\":\"string\",\"assign_to\":\"module_name\",\"key\":\"module_name\"},{\"type\":\"string\",\"assign_to\":\"bk_sn\",\"key\":\"bk_sn\"},{\"type\":\"string\",\"assign_to\":\"rack\",\"key\":\"rack\"},{\"type\":\"string\",\"assign_to\":\"outer_network_segment\",\"key\":\"outer_network_segment\"},{\"type\":\"string\",\"assign_to\":\"iFix\",\"key\":\"接入iFix\"}],\"next\":null},{\"subtype\":\"assign_obj\",\"label\":\"labelfc5f53\",\"type\":\"assign\",\"assign\":[{\"type\":\"string\",\"assign_to\":\"bk_cpu\",\"key\":\"bk_cpu\"},{\"type\":\"string\",\"assign_to\":\"bk_state\",\"key\":\"bk_state\"},{\"type\":\"string\",\"assign_to\":\"bk_province_name\",\"key\":\"bk_province_name\"},{\"type\":\"string\",\"assign_to\":\"import_from\",\"key\":\"import_from\"},{\"type\":\"string\",\"assign_to\":\"bk_disk\",\"key\":\"bk_disk\"},{\"type\":\"string\",\"assign_to\":\"create_time\",\"key\":\"create_time\"},{\"type\":\"string\",\"assign_to\":\"bk_mem\",\"key\":\"bk_mem\"},{\"type\":\"string\",\"assign_to\":\"bk_mac\",\"key\":\"bk_mac\"},{\"type\":\"string\",\"assign_to\":\"last_time\",\"key\":\"last_time\"},{\"type\":\"string\",\"assign_to\":\"bk_os_bit\",\"key\":\"bk_os_bit\"},{\"type\":\"string\",\"assign_to\":\"bk_cloud_inst_id\",\"key\":\"bk_cloud_inst_id\"},{\"type\":\"string\",\"assign_to\":\"bk_outer_mac\",\"key\":\"bk_outer_mac\"},{\"type\":\"string\",\"assign_to\":\"clb_vip\",\"key\":\"clb_vip\"},{\"type\":\"string\",\"assign_to\":\"bk_cpu_mhz\",\"key\":\"bk_cpu_mhz\"},{\"type\":\"string\",\"assign_to\":\"bk_cloud_vendor\",\"key\":\"bk_cloud_vendor\"},{\"type\":\"string\",\"assign_to\":\"bk_cloud_host_status\",\"key\":\"bk_cloud_host_status\"},{\"type\":\"string\",\"assign_to\":\"bk_os_type\",\"key\":\"bk_os_type\"},{\"type\":\"string\",\"assign_to\":\"svr_out_band_type\",\"key\":\"svr_out_band_type\"},{\"type\":\"string\",\"assign_to\":\"svr_type_id\",\"key\":\"svr_type_id\"},{\"type\":\"string\",\"assign_to\":\"bk_state_name\",\"key\":\"bk_state_name\"},{\"type\":\"string\",\"assign_to\":\"bk_cpu_module\",\"key\":\"bk_cpu_module\"},{\"type\":\"text\",\"assign_to\":\"customize\",\"key\":\"customize\"}],\"next\":null}]},\"type\":\"access\"}]},\"type\":\"fun\",\"method\":\"from_json\"},\"conf\":{\"timestamp_len\":13,\"encoding\":\"UTF-8\",\"time_format\":\"Unix Time Stamp(milliseconds)\",\"timezone\":8,\"output_field_name\":\"timestamp\",\"time_field_name\":\"bkpub_collect_time\"}}",
+  "raw_data_id": {{ raw_data_id }},
+  "result_table_name": "{{ result_table_name }}",
+  "result_table_name_alias": "{{ result_table_alias }}"
+}

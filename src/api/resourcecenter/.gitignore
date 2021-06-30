@@ -1,0 +1,13 @@
+*.egg-info
+*.pot
+*.py[co]
+*.swp
+
+/.idea
+*.iml
+*/.idea
+*.log
+local_doc/
+
+apidoc/
+apidoc.json

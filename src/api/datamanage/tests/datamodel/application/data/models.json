@@ -1,0 +1,26 @@
+[
+    {
+        "model_name": "danny_complex_fact_model",
+        "model_alias": "复杂事实表模型",
+        "model_type": "fact_table",
+        "description": "test",
+        "table_name": "danny_complex_fact_model",
+        "table_alias": "复杂事实表模型"
+    },
+    {
+        "model_name": "danny_clientip_dim_model",
+        "model_alias": "clientip维度表模型",
+        "model_type": "dimension_table",
+        "description": "test",
+        "table_name": "danny_clieanip_dim_model",
+        "table_alias": "clientip维度表模型"
+    },
+    {
+        "model_name": "danny_dim_model",
+        "model_alias": "danny维度表模型",
+        "model_type": "dimension_table",
+        "description": "test",
+        "table_name": "danny_dim_model",
+        "table_alias": "danny维度表模型"
+    }
+]

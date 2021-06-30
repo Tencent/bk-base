@@ -1,0 +1,30 @@
+export RUN_MODE=prod
+export JAVA_HOME=/data/bkee/service/java
+export CLASS_PATH=/data/bkee/service/java/lib
+export INSTALL_PATH=/data/bkee
+export PKG_SRC_PATH=/data/src
+export CTRL_DIR=/data/install
+export PATH=$INSTALL_PATH/paas_agent/paas_agent/bin:/usr/local/bin:/opt/py27/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$INSTALL_PATH/service/consul/bin:$PATH
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$INSTALL_PATH/service/mongodb/bin:$PATH
+export PATH=$PKG_SRC_PATH/service/mysql/bin:$PATH
+export PATH=$INSTALL_PATH/ci/docker/bin:$PATH
+export WORKON_HOME=/data/bkee/.envs
+export BK_PROXY=
+ulimit -n 102400
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+elif [ -f /opt/py27/bin/virtualenvwrapper.sh ]; then
+    source /opt/py27/bin/virtualenvwrapper.sh
+fi
+
+export BK_HOME=$INSTALL_PATH
+export CONF_HOME=$BK_HOME/etc
+export CERT_PATH=$BK_HOME/cert
+export CERT_HOME=$BK_HOME/cert
+export DATA_HOME=$BK_HOME/public
+export LOGS_PATH=$BK_HOME/logs
+export RABBITMQ_CONFIG_FILE=/data/bkee/etc/rabbitmq/rabbitmq.config
+export CONF_ENV_FILE=/data/bkee/etc/rabbitmq/rabbitmq-env.conf

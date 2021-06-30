@@ -1,0 +1,4 @@
+*.pyc
+.DS_Store
+tests/dataapi_settings*
+*reports/

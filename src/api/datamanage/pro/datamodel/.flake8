@@ -1,0 +1,18 @@
+[flake8]
+ignore = W503
+exclude =
+    *migrations*,
+    # python related
+    *.pyc,
+    .git,
+    __pycache__,
+    ./apidoc/*,
+    ./docs/*,
+    *mako_modules*
+
+max-line-length=120
+max-complexity=12
+format=pylint
+show_source = False
+statistics = True
+count = True

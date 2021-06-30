@@ -1,0 +1,77 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "resource_group-manage_capacity",
+                "name": "资源组容量管理",
+                "name_en": "ResourceGroup CapacityManage",
+                "description": "资源组容量管理",
+                "description_en": "ResourceGroup CapacityManage",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "resource_group",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "resource_group"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "resource_group-manage_info",
+                "name": "资源组信息管理",
+                "name_en": "ResourceGroup InformationManage",
+                "description": "资源组信息管理",
+                "description_en": "ResourceGroup InformationManage",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "resource_group",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "resource_group"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "resource_group-manage_auth",
+                "name": "资源组授权管理",
+                "name_en": "ResourceGroup AuthorizationManage",
+                "description": "资源组授权管理",
+                "description_en": "ResourceGroup AuthorizationManage",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "resource_group",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "resource_group"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

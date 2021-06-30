@@ -1,0 +1,231 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "raw_data-create",
+                "name": "数据源创建",
+                "name_en": "RawData Create",
+                "description": "数据源创建相关的操作",
+                "description_en": "RawData Create",
+                "type": "create",
+                "related_actions": [
+                ]
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "raw_data-delete",
+                "name": "数据源删除",
+                "name_en": "RawData Delete",
+                "type": "delete",
+                "description": "数据源删除",
+                "description_en": "RawData Delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-raw_data",
+                                "ignore_iam_path": true
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": [
+                ]
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "raw_data-etl",
+                "name": "数据源清洗配置管理",
+                "name_en": "RawData ETL",
+                "description": "数据源清洗管理",
+                "description_en": "RawData ETL",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-raw_data",
+                                "ignore_iam_path": true
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": [
+                ]
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "raw_data-etl_retrieve",
+                "name": "数据源清洗配置查看",
+                "name_en": "RawData ETL View",
+                "description": "数据源清洗查看",
+                "description_en": "RawData ETL View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-raw_data",
+                                "ignore_iam_path": true
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": [
+                ]
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "raw_data-query_data",
+                "name": "数据源数据查询",
+                "name_en": "RawData DataQuery",
+                "description": "数据源数据查询",
+                "description_en": "RawData DataQuery",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-raw_data",
+                                "ignore_iam_path": true
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": [
+                ]
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "raw_data-retrieve",
+                "name": "数据源查看",
+                "name_en": "RawData View",
+                "description": "数据源查看",
+                "description_en": "RawData View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-raw_data",
+                                "ignore_iam_path": true
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "raw_data-retrieve_sensitive_info",
+                "name": "数据源敏感信息查看",
+                "name_en": "RawData SensitiveInfomation View",
+                "description": "数据源敏感信息查看",
+                "description_en": "RawData SensitiveInfomation View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-raw_data",
+                                "ignore_iam_path": true
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": [
+                ]
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "raw_data-update",
+                "name": "数据源编辑",
+                "name_en": "RawData Edit",
+                "description": "数据源编辑",
+                "description_en": "RawData Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-raw_data",
+                                "ignore_iam_path": true
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": [
+                ]
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "raw_data-collect_hub",
+                "name": "数据源采集管理",
+                "name_en": "Raw Data Collect Hub",
+                "description": "数据源采集管理",
+                "description_en": "Raw Data Collect Hub",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-raw_data",
+                                "ignore_iam_path": true
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

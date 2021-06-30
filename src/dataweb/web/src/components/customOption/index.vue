@@ -1,0 +1,134 @@
+
+
+<!--
+  - Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+  - Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+  - BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+  -
+  - License for BK-BASE 蓝鲸基础平台:
+  - -------------------------------------------------------------------
+  -
+  - Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  - documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  - the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+  - and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  - The above copyright notice and this permission notice shall be included in all copies or substantial
+  - portions of the Software.
+  -
+  - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  - LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  - NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  - WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  - SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+  -->
+
+<template>
+  <bkdata-option :id="calcItem.id"
+    :name="calcItem.name"
+    :disabled="!!calcItem.disabled"
+    class="bkdata-option-cstm">
+    <div class="item-custom-line">
+      <div class="item-icon">
+        <i :class="calcItem.icon" />
+      </div>
+      <div class="item-content">
+        <div class="item-title">
+          {{ calcItem.name }}
+        </div>
+        <div class="item-description">
+          <template v-for="(desc, index) in calcItem.description">
+            <span :key="index">{{ desc }}</span>
+          </template>
+        </div>
+      </div>
+    </div>
+  </bkdata-option>
+</template>
+<script lang="ts" src="./index.tsx"></script>
+<style lang="scss">
+.item-custom-line {
+  height: 88px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .item-icon {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 60px;
+    height: 60px;
+    color: #63656e;
+    background: #f5f6fa;
+    border-radius: 2px;
+    i {
+      font-size: 30px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .item-content {
+    width: calc(100% - 90px);
+    padding: 10px 0px 10px 10px;
+
+    .item-title {
+      height: 20px;
+      font-size: 14px;
+      text-align: left;
+      line-height: 21px;
+      color: #63656e;
+    }
+    .item-description {
+      height: 40px;
+      color: #979ba5;
+
+      span {
+        line-height: 20px;
+        height: 20px;
+        display: flex;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  &:hover {
+    background: #eaf3ff;
+    .item-icon {
+      background: #dbe8ff;
+      color: #3a84ff;
+    }
+
+    .item-title {
+      color: #3a84ff;
+    }
+  }
+}
+.bkdata-option-cstm {
+  &.is-selected {
+    background: #f4f6fa;
+    .item-custom-line {
+      background: #f4f6fa;
+      .item-icon {
+        background: #dbe8ff;
+        color: #3a84ff;
+      }
+
+      .item-title {
+        color: #3a84ff;
+      }
+    }
+
+    &:hover {
+      background: #eaf3ff;
+      .item-custom-line {
+        background: #eaf3ff;
+      }
+    }
+  }
+}
+</style>

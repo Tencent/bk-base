@@ -1,0 +1,199 @@
+#
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础计算平台 available.
+#
+# Copyright (C) 2019 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础计算平台 is licensed under the MIT license.
+#
+# A copy of the MIT License is included in this file.
+#
+#
+# Terms of the MIT License: # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions: #
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+
+{
+"job_id": "591_test_bucketizer_source1",
+"job_name": "591_test_bucketizer_source1",
+"job_type": "spark_mllib",
+"run_mode": "dev",
+"time_zone": "Asia/Shanghai",
+"resource": {
+"cluster_group": "default",
+"queue_name": "root.dataflow.batch.default"
+},
+"nodes": {
+"source": {
+"591_test_bucketizer_source1": {
+"id": "591_test_bucketizer_source1",
+"input": {
+"type": "hdfs",
+"path": "hdfs://xxxx/591_test_bucketizer_source1",
+"format": "parquet"
+},
+"name": "591_test_bucketizer_source1",
+"fields": [
+{
+"origin": "",
+"field": "features",
+"type": "double",
+"description": ""
+}
+],
+"description": "591_test_bucketizer_source1 rt",
+"type": "data"
+},
+"591_test_bucketizer_source2": {
+"id": "591_test_bucketizer_source2",
+"input": {
+"type": "hdfs",
+"path": "hdfs://xxxx/591_test_bucketizer_source2",
+"format": "parquet"
+},
+"name": "591_test_bucketizer_source2",
+"fields": [
+{
+"origin": "",
+"field": "features1",
+"type": "double",
+"description": ""
+},
+{
+"origin": "",
+"field": "features2",
+"type": "double",
+"description": ""
+}
+],
+"description": "591_test_bucketizer_source2 rt",
+"type": "data"
+}
+},
+"transform": {
+"591_test_bucketizer1": {
+"description": "591_test_bucketizer1",
+"fields": [
+{
+"origin": "",
+"field": "bucketedFeatures",
+"type": "double",
+"description": "bucketedFeatures"
+}
+],
+"interpreter": {
+},
+"processor": {
+"name": "bucketizer",
+"type": "untrained-run",
+"args": {
+"splits": ["-Infinity", -0.5, 0.0, 0.5, "Infinity"],
+"input_col": "features",
+"output_col": "bucketedFeatures"
+}
+},
+"parents": [
+"591_test_bucketizer_source1"
+],
+"id": "591_test_bucketizer1",
+"name": "591_test_bucketizer1",
+"type": "data"
+},
+"591_test_bucketizer2": {
+"description": "591_test_bucketizer2",
+"fields": [
+{
+"origin": "",
+"field": "bucketedFeatures1",
+"type": "double",
+"description": "bucketedFeatures"
+},
+{
+"origin": "",
+"field": "bucketedFeatures2",
+"type": "double",
+"description": "bucketedFeatures"
+}
+],
+"interpreter": {
+},
+"processor": {
+"name": "bucketizer",
+"type": "untrained-run",
+"args": {
+"splits_array": [
+["-Infinity", -0.5, 0.0, 0.5, "Infinity"],
+["-Infinity", -0.3, 0.0, 0.3, "Infinity"]
+],
+"input_cols": ["features1", "features2"],
+"output_cols": ["bucketedFeatures1", "bucketedFeatures2"]
+}
+},
+"parents": [
+"591_test_bucketizer_source2"
+],
+"id": "591_test_bucketizer2",
+"name": "591_test_bucketizer2",
+"type": "data"
+}
+},
+"sink": {
+"591_test_bucketizer1": {
+"description": "591_test_bucketizer1",
+"fields": [
+{
+"origin": "",
+"field": "bucketedFeatures",
+"type": "double",
+"description": "bucketedFeatures"
+}
+],
+"output": {
+"type": "hdfs",
+"path": "hdfs://xxxx/591_test_bucketizer1",
+"format": "parquet",
+"mode": "overwrite"
+},
+"id": "591_test_bucketizer1",
+"name": "591_test_bucketizer1",
+"type": "data"
+},
+"591_test_bucketizer2": {
+"description": "591_test_bucketizer2",
+"fields": [
+{
+"origin": "",
+"field": "bucketedFeatures1",
+"type": "double",
+"description": "bucketedFeatures"
+},
+{
+"origin": "",
+"field": "bucketedFeatures2",
+"type": "double",
+"description": "bucketedFeatures"
+}
+],
+"output": {
+"type": "hdfs",
+"path": "hdfs://xxxx/591_test_bucketizer2",
+"format": "parquet",
+"mode": "overwrite"
+},
+"id": "591_test_bucketizer2",
+"name": "591_test_bucketizer2",
+"type": "data"
+}
+}
+}
+}
+}

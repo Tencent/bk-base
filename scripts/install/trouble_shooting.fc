@@ -1,0 +1,79 @@
+# vim:ft=sh sts=4 ts=4
+
+source ./utils.fc 
+
+# 以下在agent机器上执行
+
+check_procinfo () {
+	local conf=$(grep -E '"(startCmd|type)"' /usr/local/gse/agent/etc/procinfo.json  | grep -A1 "basereport" | awk '/type/ { print $NF }')
+	if [[ ${conf/,/} -ne 1 ]]; then
+		echo "check type field value in /usr/local/gse/agent/etc/procinfo.json of basereport section"
+		echo "it should be 1, otherwise, change it to 1"
+		return 1
+	else
+		echo "check procinfo.json [OK]"
+	        return 0
+	fi
+	
+}
+
+check_basereport () {
+	if ! ps -C basereport -o pid,ppid,lstart,args ; then
+		echo "basereport process is not exist."
+		echo "check procinfo.json" 
+		check_procinfo
+	fi
+}
+
+check_agent_netstat () {
+	# 目的端口是gse_data的port
+	netstat -anpt | grep :58625
+}
+
+# 以下在GSE机器上执行
+check_gse_path () {
+	local flag=0
+	for dir in /var/log/gse /var/lib/gse /var/run/gse; do
+		[[ -d $dir ]] ||  { echo $dir not exist ; flag=1; }
+	done
+	return $flag
+}
+
+check_gse_connection () {
+	# 目的端口是kafka的port
+	nettat -anpt | grep :9092
+}
+
+check_gse_data_log () {
+	local _p_dataWorker=$( ps h -C dataWorker -o pid )
+	tail -f $INSTALL_PATH/public/gse/data/${_p_dataWorker}*
+}
+
+# 在包含了zkcli机器上，一般是ZK_IP
+get_snapshot_topic_name () {
+	local zkcli=$INSTALL_PATH/service/zk/bin/zkCli.sh 
+	echo "gse dataserver config" >&2
+	local data_config=$($zkcli -server ${ZK_HOST}:${ZK_PORT} get /gse/config/etc/dataserver/data/1001 2>&1 | grep data_set | python -m json.tool)
+	echo "$data_config" >&2
+
+	local data_set=$(awk '/data_set/ { print $NF }' <<<"$data_config")
+	local biz_id=$(awk '/biz_id/ { print $NF }' <<<"$data_config")
+	local topic=$(sed 's/,//g; s/\"//g' <<<"${data_set}${biz_id}")
+	echo "$topic"
+}
+
+# 在KAFKA机器上
+show_kafka_all_topic () {
+	local zkaddr=$(awk -F'=' '/common_kafka/ { print $2 }' $INSTALL_PATH/service/kafka/config/server.properties)
+	/data/bkee/service/kafka/bin/kafka-topics.sh --list --zookeeper $zkaddr 
+}
+
+show_kafka_topic_livedata () {
+	local topic=$1
+	/data/bkee/service/kafka/bin/kafka-console-consumer.sh --bootstrap-server $KAFKA_HOST:$KAFKA_PORT --topic $topic
+}
+
+# 需要既是zk又是kafka，否则需要分步执行
+show_snapshot_in_kafka () {
+	show_kafka_topic_livedata "$(get_snapshot_topic_name 2>/dev/null)"
+}

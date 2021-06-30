@@ -1,0 +1,109 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+count_freq: 0
+description: ' '
+fields:
+- default_value: null
+  field: timestamp
+  processor: => dtEventType
+  processor_args: {format: 'yyyy-MM-dd HH:mm:ss'}
+  type: timestamp
+- default_value: null
+  field: dtEventType
+  origins: raw_data
+  processor: parse_jsonsplit
+  processor_args:
+    encoding: UTF8
+    fields: [Loyalty, timestamp, dtEventType, iPlatformVersion, iGameVersion, iClientVersion,
+      iShardID, iUin, iAccountID, iSummonerID, vClientIp, iSessionID, vMAC, iBillingFlag,
+      vPreferredMAC, iCafeID, iTierID, iMapID, iGameMode, iGameName, iItemType, iDisconnectTime,
+      iSkinID, iChampionID, gameID]
+    flatten_field: _value_
+    is_compensate: true
+    is_double_link: true
+    is_open_bill_index_reset: true
+    is_open_ip_blacklist: true
+    root_fields: {_gseindex_: _gseindex_, _server_: _server_}
+    split_char: ','
+  type: string
+- {default_value: null, field: _gseindex_, processor: => dtEventType, type: string}
+- {default_value: null, field: _server_, processor: => dtEventType, type: string}
+- {default_value: null, field: iShardID, processor: => dtEventType, type: string}
+- {default_value: null, field: iUin, is_dimension: true, processor: => dtEventType,
+  type: string}
+- {default_value: null, field: vClientIp, is_dimension: true, processor: => dtEventType,
+  type: string}
+- {default_value: null, field: vPreferredMAC, is_dimension: true, processor: => dtEventType,
+  type: string}
+- {default_value: null, field: iCafeID, is_dimension: true, processor: => dtEventType,
+  type: string}
+- {default_value: null, field: iTierID, is_dimension: true, processor: => dtEventType,
+  type: string}
+- {default_value: null, field: gameID, processor: => dtEventType, type: string}
+- {default_value: null, field: Loyalty, processor: => dtEventType, type: string}
+- {default_value: null, field: iPlatformVersion, processor: => dtEventType, type: string}
+- {default_value: null, field: iGameVersion, processor: => dtEventType, type: string}
+- {default_value: null, field: iClientVersion, processor: => dtEventType, type: string}
+- {default_value: null, field: iAccountID, processor: => dtEventType, type: string}
+- {default_value: null, field: iSummonerID, processor: => dtEventType, type: string}
+- {default_value: null, field: iSessionID, processor: => dtEventType, type: string}
+- {default_value: null, field: vMAC, processor: => dtEventType, type: string}
+- {default_value: null, field: iBillingFlag, processor: => dtEventType, type: string}
+- {default_value: null, field: iMapID, processor: => dtEventType, type: string}
+- {default_value: null, field: iGameMode, processor: => dtEventType, type: string}
+- {default_value: null, field: iGameName, processor: => dtEventType, type: string}
+- {default_value: null, field: iItemType, processor: => dtEventType, type: string}
+- {default_value: null, field: iDisconnectTime, processor: => dtEventType, type: string}
+- {default_value: null, field: iSkinID, processor: => dtEventType, type: string}
+- {default_value: null, field: iChampionID, processor: => dtEventType, type: string}
+- {default_value: null, field: offset, type: long}
+id: 132_lol_raw_event_mix1_metric
+input_source: '3271'
+input_type: data_id
+project_id: 3123
+storages: [hermes, redis]
+storages_args:
+  redis: {cluster: lol, redis_extract_field: _server_, redis_key: lol_raw_event_mix1_metric}
+  hermes: {expires: 30, table_name: lol_raw_event_mix1_metric}
+z=====> children:
+- concurrency: 50
+  count_freq: 0
+  description: ' '
+  fields:
+  - {default_value: null, field: timestamp, processor: join, type: timestamp}
+  - {default_value: null, field: iUin, processor: => dtEventType, type: string}
+  - {default_value: null, field: vClientIp, processor: => dtEventType, type: string}
+  - {default_value: null, field: vPreferredMAC, processor: => dtEventType, type: string}
+  - {default_value: null, field: iCafeID, processor: => dtEventType, type: string}
+  - {default_value: null, field: iShardID, processor: => dtEventType, type: string}
+  - {default_value: null, field: iTierID, processor: => dtEventType, type: string}
+  - {default_value: null, field: dtEventType, processor: lol_bill, type: string}
+  - {default_value: null, field: logout_status, processor: => dtEventType, type: int}
+  - {default_value: null, field: offset, processor: => dtEventType, type: long}
+  - {default_value: null, field: dtEventTimeStamp, processor: => dtEventType, type: long}
+  id: 132_lol_bill_event_mix1_metric
+  project_id: 3123
+  storages: [kafka]
+  storages_args:
+    kafka: {topic: lol_raw_event_mix1_metric}
+  z=====> children: []

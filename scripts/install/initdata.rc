@@ -1,0 +1,332 @@
+# vim:ft=sh
+
+source ./utils.fc
+
+load_functions initdata third
+load_functions initdata extra
+load_module bcs
+load_module ci
+
+DB_TYPE=(mysql mongodb influxdb)
+
+storage_migration () {
+    local module=$1
+    local proj=$2
+    local proc=$3
+
+    case $module in
+        paas) module_dir=open_paas ;;
+        appt | appo) module_dir=paas_agent ;;
+        plugin) module_dir=paas_plugins ;;
+        *) module_dir=$module ;;
+    esac
+
+    local migrate_dir=$PKG_SRC_PATH/$module_dir/support-files/sql
+
+    if [ -d $migrate_dir ]; then
+        cd $migrate_dir
+        for db_type in ${DB_TYPE[@]}; do
+            shopt -s nullglob
+            sql=(????_*$db_type*.sql)
+            js=(????_*$db_type*.js)
+            json=(????_*$db_type*.json)
+
+            shopt -u nullglob
+            migrate_by_sql ${sql[@]}
+            migrate_by_js ${js[@]}
+            migrate_by_json ${json[@]}
+        done
+    fi
+}
+
+tag_db_file () {
+    local file_path=$1
+    local ret=0
+
+    if [ ! -d ${file_path%/*} ]; then
+        if ! mkdir -p ${file_path%/*}; then
+            err "create migrate tag dir for db migration failed. please"
+            err "   1. creaet direcotry ${file_path%/*} manully"
+            err "   2. touch file ${file_path##*/}"
+            err "   3. re-run the command"
+
+            return 1
+        fi
+    fi
+
+    touch $file_path ; ret=$?
+    chattr +i $file_path
+
+    return $ret
+}
+
+migrate_by_sql () {
+    local sqlfile
+    local sqlload_err=/tmp/loadsql.err
+    local mycmd
+
+    for sqlfile in $@; do
+        if [ ! -f $CTRL_DIR/.migrate/${sqlfile##*/} ]; then
+            local _tmpname=${sqlfile##*_mysql}
+            local mysqlname=mysql${_tmpname%.sql}
+            local DBIP=$(value_of "${mysqlname^^}_IP0")
+            local DBUSER=$(value_of "${mysqlname^^}_USER")
+            local DBPASS=$(value_of "${mysqlname^^}_PASS")
+            local DBPORT=$(value_of "${mysqlname^^}_PORT")
+
+            mycmd="mysql -h ${DBIP:-$MYSQL_IP0} -u ${DBUSER:-$MYSQL_USER} -p${DBPASS:-$MYSQL_PASS} -P ${DBPORT:-$MYSQL_PORT}"
+
+            MYSQL_PWD="${DBPASS:-$MYSQL_PASS}" $mycmd <$sqlfile 2>$sqlload_err
+            nassert "load sqlfile:${sqlfile##*/}" "load sqlfile:${sqlfile##*/}: $sqlload_err"
+
+            tag_db_file $CTRL_DIR/.migrate/${sqlfile##*/} || fail "Abort"
+        fi
+    done
+}
+
+migrate_by_json (){
+    local json_file
+    local jsonload_err=/tmp/loadjson.err
+    local dbc="$PKG_SRC_PATH/service/mongodb/bin/mongoimport -h $MONGODB_IP -u $MONGODB_USER -p $MONGODB_PASS  --authenticationDatabase=admin"
+
+    for json_file in $@ ;do
+        json_filename=${json_file##*/}
+        # 提取数据库和表名.
+        db_string=${json_filename##*_db_}
+        db_string=${db_string%%_[0-9]*}
+        db_name=db_${db_string%%-t_*}
+        collection_name=t_${db_string##*-t_}
+        # 约定db_XXX为数据库名 t_XXX为collection名. XXX为小写字母及下划线, 不能含数字.
+        #    因为含数字会和后面的日期混淆.
+        # 0001_module_db_XXX-t_XXX_date-time_mongo.json
+        # 存在flag文件, 则跳过.
+        flag_file="$CTRL_DIR/.migrate/$json_filename"
+        [ -f "$flag_file" ] && warn "SKIP due to run-once: $json_filename" || {
+            warn "NOTE: import to db_name: $db_name, collection_name: $collection_name"
+            $dbc -d "$db_name" -c "$collection_name" --file="$json_file" 2> "$jsonload_err"
+            nassert "load jsonfile:$json_filename" "load jsonfile:$json_filename: $jsonload_err"
+            tag_db_file "$flag_file" || fail "Abort"
+        }
+    done
+}
+
+migrate_by_js () {
+    local jsfile
+}
+
+migrate_by_script () {
+    local script
+}
+
+make_ruled_migrate () {
+    local module=$1
+    local proj=$2
+
+    local module_home=$INSTALL_PATH/$module/$proj
+    [ ! -d $module_home ] && return 0
+
+    mig_script=$(find $module_home  -type f -name "on_migrate"   | head -1)
+    pre_script=$(find $module_home  -type f -name "pre_migrate"  | head -1)
+    post_script=$(find $module_home -type f -name "post_migrate" | head -1)
+
+    if [ -f "$mig_script" ]; then
+        emphasize "start to make migration for $module ..."
+        if [ -f "$pre_script" ]; then
+            log "pre-migrate ... $pre_script"
+            chmod +x $pre_script
+            $pre_script
+            assert "previous migrate done" "previous migrate failed for $module(${proj:-all})"
+        fi
+
+        log "on-migrate ... $mig_script"
+        chmod +x $mig_script
+        $mig_script
+        assert "migrate $module(${proj}) done" "migrate failed for $module(${proj:-all})"
+
+        if [ -f "$post_script" ]; then
+            log "post-migrate ... $post_script"
+            chmod +x $post_script
+            $post_script
+            assert "post migrate done" "post migrate failed for $module(${proj:-all})"
+        fi
+    fi
+}
+
+initdata () {
+    local module=$1
+    local proj=$2
+    local proc=$3
+
+    check_name initdata $module
+
+    # 目标模块的第一台机器
+    TARGET_IPS=( $(map_name2ip $module $proj) )
+    if [ "${#TARGET_IPS[@]}" == 0 ]; then
+        warn "$module was not configured in install.config"
+        return 0
+    fi
+
+    # 在中控机执行
+    step "initdata for $module($proj)"
+    storage_migration $module
+
+    [ ${module%0*} == "rabbitmq" ] && init_rabbitmq_cluster
+    [ ${module%0*} == "mongodb" ] && init_mongodb_cluster ${module}
+    [ ${module} == "ceph" ] && initdata_ceph && return 0
+
+    [ "$module" == "appo" -a "X${TARGET_IPS[1]}" != "X" ] && \
+        rcmd root@${TARGET_IPS[1]} "source $CTRL_DIR/initdata.rc; initdata_$module $proj"
+
+    [[ "$module" =~ ^mysql && "X${TARGET_IPS[1]}" != "X" ]] && \
+        rcmd root@${TARGET_IPS[1]} "source $CTRL_DIR/initdata.rc; initdata_${module%0*} $proj"
+
+    if [[ "${module}" == "bcs" ]]; then
+        case ${proj} in
+            dns-service)
+                rcmd root@${TARGET_IPS[0]} "source $CTRL_DIR/initdata.rc; _add_harbor_domain" && return 0 \
+                    || fail "add Harbor domain failed"
+                ;;
+            ops)
+                _import_sops_common_tpl "$(ls -t $PKG_SRC_PATH/bcs_cluster/*.dat | head -1)" && return 0 \
+                    || fail "import common template of bcs failed"
+                ;;
+        esac
+    fi
+
+    # initdata 仅在第一台机器上执行.
+
+    # 若一个模块下的不同工程部署在不同的机器上，该方式仅选择第一台，将会遗漏其他工程的初始化流程
+    if [ -f $PKG_SRC_PATH/$module/projects.yaml ]; then
+        for ip in ${TARGET_IPS[@]}; do
+            log "exec initdata_$module on ${ip}"
+            rcmd root@$ip "
+                source $CTRL_DIR/initdata.rc
+                for p in \$(selected_projects ${module} $proj); do
+                    initdata_${module%0*} \$p || exit 1
+                done
+            "
+            [ $? -ne 0 ] && fail "Abort"
+        done
+    else
+        log "exec initdata_$module on ${TARGET_IPS[0]}"
+        rcmd root@${TARGET_IPS[0]} "source $CTRL_DIR/initdata.rc; initdata_${module%0*} $proj" || exit $?
+    fi
+
+    iam_migration $module 
+    # 在中控机执行扫尾操作
+    initdata_common
+}
+
+initdata_bkdata () {
+    local module=bkdata
+    local p=$1 _p
+
+    for _p in $(selected_projects $module $p); do
+        make_ruled_migrate $module $_p
+    done
+}
+
+initdata_gse () {
+    make_ruled_migrate gse server
+}
+
+initdata_paas () {
+    initdata_open_paas $@
+}
+
+initdata_open_paas () {
+    local module=open_paas
+    local p=$1 _p
+    load_env
+
+    for _p in $(selected_projects $module $p); do
+        make_ruled_migrate $module $_p
+    done
+
+     _add_esb_whitelist
+}
+
+_add_esb_whitelist () {
+    local app_code app_desc
+
+    while read app_code app_desc; do
+        add_app_token $app_code $(_app_token $app_code) "$app_desc"
+    done <$CTRL_DIR/app.list
+}
+
+initdata_fta () {
+    make_ruled_migrate fta fta
+}
+
+initdata_paas_agent () {
+    #make_ruled_migrate paas_agent $@
+    local name=$1
+    local tmpfile=/tmp/register.$name.tmp
+
+    case $name in
+        *o) env=prod ;;
+        *t) env=test ;;
+    esac
+
+    rm -f $tmpfile
+    curl -o $tmpfile --connect-timeout 10 -s \
+        -H 'Content-Type:application/x-www-form-urlencoded' \
+        -X POST \
+        -d "agent_ip=$LAN_IP&mode=$env&agent_port=$PAAS_AGENT_PORT&web_port=$APP_NGXPROXY_PORT" \
+        "http://$PAAS_IP:8000/v1/agent/init/"
+
+    if [ -f "$tmpfile" ]; then
+        if ! grep -Eq '(token.*sid|sid.*token)' $tmpfile; then
+            err "register $name failed. requrest env: $env. "
+            err "api response: $(< $tmpfile)"
+            return 1
+        else
+            sid=$(grep -oP '(?<=sid": ")[^"]+' $tmpfile)
+            token=$(grep -oP '(?<=token": ")[^"]+' $tmpfile)
+
+            if [ -z "$sid" ]; then
+                fail "register failed. Abort"
+            fi
+
+            log "update config file: paas_agent_config.yaml"
+            _update_paas_agent_yaml "$sid" "$token"
+            if [ $? -eq 0 ]; then
+                touch $INSTALL_PATH/.reg.$name
+            fi
+
+            ok "register $name succeded."
+        fi
+    else
+        err "request failed. reponse not found"
+        return $FILE_NOT_FOUND
+    fi
+
+    build_image_java
+    build_image_python
+    build_image_python3
+}
+
+initdata_appo () {
+    export APPENV=O
+    initdata_paas_agent appo $@
+}
+
+initdata_appt () {
+    export APPENV=T
+    initdata_paas_agent appt $@
+}
+
+initdata_job () {
+    make_ruled_migrate job job
+}
+
+initdata_cmdb () {
+    make_ruled_migrate cmdb server
+}
+
+initdata_license () {
+    make_ruled_migrate license license
+}
+
+
+

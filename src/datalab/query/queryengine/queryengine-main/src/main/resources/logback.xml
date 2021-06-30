@@ -1,0 +1,210 @@
+<!--
+  ~ Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+  ~
+  ~ Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+  ~
+  ~ BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+  ~
+  ~ License for BK-BASE 蓝鲸基础平台:
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  ~ documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  ~ the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+  ~ and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<configuration debug="false">
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include
+            resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <property name="APP_NAME" value="queryengine"/>
+    <property name="APP_HOME" value="${QUERYENGINE_HOME}"/>
+    <property name="LOG_HOME_PATH" value="${APP_HOME}/logs"/>
+    <property name="DEBUG_LOG_FILE"
+            value="${LOG_HOME_PATH}/debug/${APP_NAME}_debug"/>
+    <property name="FILE_LOG_PATTERN"
+            value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%p] [%class{35}.%M:%L] - %msg %n"/>
+
+    <property name="SYS_LOG" value="${LOG_HOME_PATH}/sys.log"/>
+    <property name="API_LOG" value="${LOG_HOME_PATH}/api.log"/>
+    <property name="DOWNLOAD_LOG" value="${LOG_HOME_PATH}/download.log"/>
+
+    <appender name="SYS-ROLLING"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${SYS_LOG}</file>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${SYS_LOG}.%i</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>9</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>500MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <appender name="API-ROLLING"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${API_LOG}</file>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${API_LOG}.%i</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>9</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>500MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder
+                class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "path":"%mdc{path}",
+                        "status_code":"#asLong{%mdc{status_code}}",
+                        "result_code":"%mdc{result_code}",
+                        "result":"#asJson{%mdc{result}}",
+                        "extra":"#asJson{%mdc{extra}}",
+                        "time_taken":"#asLong{%mdc{timetaken}}",
+                        "query_params":"#asJson{%mdc{query_params}}",
+                        "http_header":"#asJson{%mdc{http_header}}",
+                        "requested_at":"%date{\"yyyy-MM-dd HH:mm:ss\"}",
+                        "remote_addr":"%mdc{remote_addr}",
+                        "user":"%mdc{user}",
+                        "is_log_resp":"#asJson{%mdc{is_log_resp}}",
+                        "response":"%mdc{response}",
+                        "host":"%mdc{host}",
+                        "request_id":"%mdc{request_id}",
+                        "data":"#asJson{%mdc{data}}",
+                        "method":"%mdc{method}",
+                        "response_ms":"#asLong{%mdc{response_ms}}",
+                        "level": "%level",
+                        "thread": "%thread",
+                        "class": "%logger{40}",
+                        "message": "%message",
+                        "sql": "%mdc{sql}",
+                        "total_records":"#asLong{%mdc{total_records}}",
+                        "stack_trace": "%exception{10}",
+                        "result_table_scan_range": "%mdc{result_table_scan_range}",
+                        "result_table_ids": "%mdc{result_table_ids}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+    </appender>
+
+    <appender name="DOWNLOAD-ROLLING"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${DOWNLOAD_LOG}</file>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${DOWNLOAD_LOG}.%i</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>9</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>500MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder
+                class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "bk_username":"%mdc{bk_username}",
+                        "query_id":"%mdc{query_id}",
+                        "result_tables":"%mdc{result_tables}",
+                        "sql":"%mdc{sql}",
+                        "total_records":"#asLong{%mdc{total_records}}",
+                        "download_path":"%mdc{download_path}",
+                        "cost_time":"%mdc{cost_time}",
+                        "status_code":"#asLong{%mdc{status_code}}",
+                        "result_code":"%mdc{result_code}",
+                        "result":"#asJson{%mdc{result}}",
+                        "error":"%mdc{error}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+    </appender>
+
+    <!--API日志 异步输出 -->
+    <appender name="API-ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>512</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="API-ROLLING"/>
+    </appender>
+
+    <!--SYS日志 异步输出 -->
+    <appender name="SYS-ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>512</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="SYS-ROLLING"/>
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <!--DOWNLOAD日志 异步输出 -->
+    <appender name="DOWNLOAD-ASYNC"
+            class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>512</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="DOWNLOAD-ROLLING"/>
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="SYS-ASYNC"/>
+    </root>
+
+    <logger name="com.tencent" level="INFO" additivity="false">
+        <appender-ref ref="SYS-ASYNC"/>
+    </logger>
+
+    <logger name="com.tencent.bk.base.datalab.queryengine.server.filter.ResponseFilter"
+            level="INFO"
+            additivity="false">
+        <appender-ref ref="API-ASYNC"/>
+    </logger>
+
+    <logger name="com.tencent.bk.base.datalab.queryengine.server.filter.DownloadResponseFilter"
+            level="INFO"
+            additivity="false">
+        <appender-ref ref="DOWNLOAD-ASYNC"/>
+    </logger>
+
+</configuration>

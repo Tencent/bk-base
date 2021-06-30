@@ -1,0 +1,17 @@
+#!/bin/bash -l
+
+source $CTRL_DIR/utils.fc
+workon bkdata-datamanageapi
+
+# 配置django环境变量
+export PYTHONPATH=${PYTHONPATH}:$(pwd)
+export DJANGO_SETTINGS_MODULE=pizza.settings
+
+# log "给告警配置增加地域标签"
+# python -m datamanage.scripts.add_tag_to_alert_config
+
+log "更新并合并告警配置"
+python -m datamanage.scripts.upgrade_alert_config
+
+log "创建Influxdb的DB和保留策略"
+python -m datamanage.scripts.init_influx_db_and_rp

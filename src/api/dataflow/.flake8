@@ -1,0 +1,22 @@
+[flake8]
+ignore =
+    ;W503 line break before binary operator
+    W503,
+    ;E203 whitespace before ':'
+    E203,
+    F405
+
+; exclude file
+exclude =
+    .tox,
+    .git,
+    __pycache__,
+    build,
+    dist,
+    *.pyc,
+    *.egg-info,
+    .cache,
+    .eggs
+
+max-line-length = 120
+max-complexity = 40

@@ -1,0 +1,16 @@
+{
+  "name":"hdfs-storm-test-data-puller",
+  "config": {
+    "group.id":"hdfs-cluster-01",
+    "connector.class":"com.tencent.bk.base.datahub.databus.connect.hdfs.BizHdfsSinkConnector",
+    "tasks.max":"10",
+    "topics":"storm_test_data_puller",
+    "topics.dir":"/kafka/data",
+    "partitioner.class":"com.tencent.bk.base.datahub.databus.connect.hdfs.BizDataPartitioner",
+    "hdfs.url":"hdfs://hdfsTest",
+    "hadoop.home.dir":"/data/mapf/hadoop/",
+    "hadoop.conf.dir":"/data/test/hdfs/config/",
+    "flush.size":"1000",
+    "rotate.interval.ms":"60000"
+  }
+}

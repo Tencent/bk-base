@@ -1,0 +1,277 @@
+# vim:ft=sh
+#
+
+source ./utils.fc
+
+load_functions status third
+load_functions status extra
+
+load_module ci
+
+ps_status_fta () {
+    local module=fta
+    local proj=fta
+    local ret=0
+
+    _ps_status $module $proj
+}
+
+_ps_status () {
+    local module=$1
+    local proj=$2
+    local checkcmd=${3:-supervisorctl}
+
+    workon $proj >/dev/null 2>&1
+
+    if process_is_running "supervisord -c .*$module-${proj}.conf" >/dev/null; then
+        $checkcmd -c $INSTALL_PATH/etc/supervisor-$module-${proj}.conf status | awk -v IP=$LAN_IP -v P=$proj '{printf "[%s] %-8s%4s%s\n", IP, P, "", $0}'
+    else
+        echo "[$(blue_echo $LAN_IP)] $proj: $(red_echo EXIT)"
+        return 1
+    fi
+}
+
+ps_status_bkdata () {
+    local module=bkdata
+    local project=$1
+    local ret=0
+
+    projects=( $(selected_projects $module $project) )
+
+    for proj in ${projects[@]}; do
+        # 无状态服务模块，status时不显示
+        [[ "$proj" == "modeling" ]] && return 0
+        _ps_status $module $proj /opt/py27/bin/supervisorctl || { let ret+=1; continue; }
+    done
+
+    return $ret
+}
+
+
+ps_status_docker () {
+    ps_status docker "dockerd .*docker.sock"
+}
+
+ps_status () {
+    local module="$1"
+    local pattern="$2"
+    local ret
+
+    [ -z "$module" ] && return 0
+
+    _pids=( $(process_is_running "$pattern") )
+    if [ ${#_pids[@]} -ne 0 ]; then
+        status="$(green_echo RUNNING)"
+        ret=0
+    else
+        status="$(red_echo EXIT)"
+        ret=1
+    fi
+
+    echo "[$(blue_echo $LAN_IP)] $module: $status"
+    return $ret
+}
+
+ps_status_nginx () {
+    ps_status nginx "nginx: master process nginx"
+}
+
+ps_status_nfs () {
+    service rpcbind status >/dev/null 2>&1 && ok "rpcbind is running" || err "rpcbind not running"
+    service nfs status >/dev/null 2>&1 && ok "nfs is running" || err "nfs is not running"
+}
+
+ps_status_java () {
+    local module=$1
+    local pattern=$2
+
+    if jps -lv | grep -q "$pattern"; then
+	    echo "[$(blue_echo $LAN_IP)] $module: $(green_echo RUNNING)"
+        return 0
+    else
+	    echo "[$(blue_echo $LAN_IP)] $module: $(red_echo EXIT)"
+        return 2
+    fi
+}
+
+_check_status_bygroup () {
+    local ret=0
+
+    for m in $@; do
+        proc_pattern="${m} .*${m//_//}.conf"
+        pids=( $(process_is_running "$proc_pattern") )
+        if process_paired ${pids[@]}; then
+            status="$(green_echo RUNNING)"
+            let ret+=$ret
+        elif [ "${#pids[@]}" -ne 0 ]; then
+            status="$(red_echo 'ERROR STATUS')"
+            let ret+=1
+        else
+            status="$(red_echo 'EXIT')"
+            let ret+=1
+        fi
+        echo "[$(blue_echo $LAN_IP)] $m: $status"
+    done
+
+    return $ret
+}
+
+ps_status_consul () {
+    local ret
+
+    local sp_conf=$INSTALL_PATH/etc/supervisor-consul.conf
+
+    if process_is_running "supervisord -c $sp_conf" >/dev/null 2>&1; then
+        /opt/py27/bin/supervisorctl -c $sp_conf status all | awk -v I=$LAN_IP '{print "["I"]\t" $0}'
+    else
+        echo "[$(blue_echo $LAN_IP)] consul: $(red_echo EXIT)"
+        ret=1
+    fi
+
+    return $ret
+}
+
+
+_colored_output () {
+    case $1 in
+        active)   green_echo "$1" ;;
+        failed|inactive)	  red_echo "$1"	  ;;
+        *)	  yellow_echo "$1" ;;
+    esac
+}
+
+ps_status_etcd () {
+     local ret=0
+
+     if systemctl -a | grep -q 'etcd.service'; then
+         log "status of etcd: $(_colored_output $(systemctl is-active etcd))"
+     else
+        ps_status etcd "etcd --name.*initial-advertise"
+    fi
+
+     return $?
+}
+
+ps_status_paas_plugins () {
+    local ret=0
+    ps_status_plugin log_parser || let ret+=1
+    ps_status_plugin log_alert || let ret+=1
+
+    if grep -E '(appo|appt|paas_agent|open_paas|paas)' $INSTALL_PATH/.installed_module; then
+        ps_status_plugin log_agent || let ret+=1
+    fi
+
+    return $ret
+}
+
+status_all () {
+    local mod
+
+    for mod  in $(awk '{print $1}' $INSTALL_PATH/.installed_module); do
+        [ "$mod" == "paas_plugins" ] && continue
+        ps_status_$mod
+    done
+}
+
+get_status () {
+    local module=$1
+    local proj=$2
+
+    case $module in
+        saas-*) status_saas; return $? ;;
+        all)  status_all; return $? ;;
+    esac
+
+    ps_status_${module%0*} $proj
+
+    return $?
+}
+
+
+ps_status_tsdbproxy () {
+    ps_status tsdbproxy "tsdb-proxy -config.*tsdb-proxy.conf"
+
+    return $?
+}
+
+ps_status_mongodb () {
+    ps_status mongod "mongod -f .*$INSTALL_PATH/etc/mongodb.yaml"
+}
+
+
+status () {
+    local module=$1
+    local proj=$2
+    local proc=$3
+
+    case $module in
+        paas_plugins|plugin) _status_paas_plugins; return $? ;;
+        consul) TARGET_IPS=( ${ALL_IP[@]} ) ;;
+        all) # 因为 paas_plugin 的进程分布毫无规律, 因此单独处理.
+             # 相应的, 下面的 get_status all 中则略过对 paas_plugin 的处理
+             # TODO: 待优化
+             grep -q paas_plugins $INSTALL_PATH/.installed_sumary && _status_paas_plugins
+             TARGET_IPS=( ${ALL_IP[@]} ) ;;
+        open_paas) TARGET_IPS=( ${PAAS_IP[@]} ) ;;
+        tsdbproxy) TARGET_IPS=( ${INFLUXDB_IP[@]} ) ;;
+        gse_agent) TARGET_IPS=( ${ALL_IP[@]} ) ;;
+        saas-o) TARGET_IPS=( ${APPO_IP[@]} ) ;;
+        saas-t) TARGET_IPS=( ${APPT_IP[@]} ) ;;
+        *) TARGET_IPS=( $(map_name2ip $module $proj) )
+           ;;
+    esac
+
+    for ip in ${TARGET_IPS[@]};do
+        rcmd root@$ip "source ./status.rc; export APPENV=$APPENV; get_status ${module%0*} $proj $proc"
+    done
+}
+
+ps_status_ntp () {
+    local module=ntp
+    local proj="$1"
+    local ret
+    local server
+
+    module="$module(client)"
+    ## server 主模块
+    if [[ "$LAN_IP" == "$NTP_IP0" ]]; then
+        server=${NTP_SERVER[0]}
+        module="$module(server-master)"
+    fi
+    ## NTP Server备机模块
+    is_string_in_array "$LAN_IP" "${NTP_IP[@]:1}" && module="$module(server-backup)"
+
+    server_time_dist=$( ntpdate -q ${server:-$NTP_IP0} 2>&1 | grep -oP '(?<=: ).*' )
+
+    if syscmd_byos is-active ntpd &> /dev/null; then
+        status="$(green_echo RUNNING)"
+        server_now=$( ntpdc -c sysinfo | grep -oP '(?<=\[).*[^\]]' )
+        ret=0
+    else
+        status="$(red_echo EXIT)"
+        server_now="$(red_echo NULL)"
+        let ret+=1
+    fi
+
+    log "[$(blue_echo $LAN_IP)] $module: $status"
+    log "[$(blue_echo $LAN_IP)] offset: $server_time_dist"
+    log "[$(blue_echo $LAN_IP)] reference server: $server_now"
+
+    return $ret
+}
+
+ps_status_confd () {
+    local ret
+
+    local sp_conf=$INSTALL_PATH/etc/supervisor-confd.conf
+
+    if process_is_running "supervisord -c $sp_conf" >/dev/null 2>&1; then
+        /opt/py27/bin/supervisorctl -c $sp_conf status all | awk -v I=$LAN_IP '{print "["I"]\t" $0}'
+    else
+        echo "[$(blue_echo $LAN_IP)] confd: $(red_echo EXIT)"
+        ret=1
+    fi
+
+    return $ret
+}
+

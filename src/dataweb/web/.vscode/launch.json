@@ -1,0 +1,36 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch via NPM",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "debug"],
+      "port": 9229
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch via NPM",
+      "runtimeExecutable": "npm",
+      "preLaunchTask": "build",
+      "sourceMaps": true,
+      "stopOnEntry": false,
+      "smartStep": true,
+      "runtimeArgs": ["run-script", "debug"],
+      "outFiles": ["${workspaceFolder}/lib/**"],
+      "port": 8280
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:8280",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

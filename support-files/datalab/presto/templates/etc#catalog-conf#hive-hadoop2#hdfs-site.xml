@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  ~ Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+  ~
+  ~ Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+  ~
+  ~ BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+  ~
+  ~ License for BK-BASE 蓝鲸基础平台:
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  ~ documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  ~ the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+  ~ and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+  <property>
+    <name>dfs.namenode.heartbeat.recheck-interval</name>
+    <value>600000</value>
+    <description>ms</description>
+  </property>
+  <property>
+    <name>dfs.replication</name>
+    <value>2</value>
+  </property>
+  <property>
+    <name>dfs.permissions</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>dfs.blocksize</name>
+    <value>67108864</value>
+  </property>
+  <!-- IPC config -->
+  <property>
+      <name>ipc.server.listen.queue.size</name>
+      <value>12800</value>
+  </property>
+  <property>
+      <name>dfs.namenode.handler.count</name>
+      <value>64</value>
+  </property>
+  <property>
+      <name>ipc.9000.callqueue.impl</name>
+      <value>org.apache.hadoop.ipc.FairCallQueue</value>
+  </property>
+  <property>
+      <name>ipc.maximum.data.length</name>
+      <value>268435456</value>
+  </property>
+  <property>
+       <name>ipc.client.connect.timeout</name>
+       <value>60000</value>
+  </property>
+  <property>
+       <name>dfs.nameservices</name>
+       <value>__PRESTO_HDFS_CLUSTER_01__,__PRESTO_HDFS_CLUSTER_02__,__PRESTO_HDFS_CLUSTER_03__</value>
+       <description>Logical name for this newnameservice</description>
+  </property>
+  <!-- 集群详细信息配置 -->
+  <property>
+       <name>dfs.ha.namenodes.__PRESTO_HDFS_CLUSTER_01__</name>
+       <value>nn1,nn2</value>
+       <description>Unique identifiers for each NameNode in thenameservice</description>
+  </property>
+  <property>
+       <name>dfs.namenode.rpc-address.__PRESTO_HDFS_CLUSTER_01__.nn1</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN1_RPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.rpc-address.__PRESTO_HDFS_CLUSTER_01__.nn2</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN2_RPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.servicerpc-address.__PRESTO_HDFS_CLUSTER_01__.nn1</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN1_SERVICERPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.servicerpc-address.__PRESTO_HDFS_CLUSTER_01__.nn2</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN2_SERVICERPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.http-address.__PRESTO_HDFS_CLUSTER_01__.nn1</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN1_HTTP_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.http-address.__PRESTO_HDFS_CLUSTER_01__.nn2</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN2_HTTP_ADDRESS__</value>
+  </property>
+
+  <property>
+       <name>dfs.ha.namenodes.__PRESTO_HDFS_CLUSTER_02__</name>
+       <value>nn1,nn2</value>
+       <description>Unique identifiers for each NameNode in thenameservice</description>
+  </property>
+  <property>
+       <name>dfs.namenode.rpc-address.__PRESTO_HDFS_CLUSTER_02__.nn1</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN1_RPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.rpc-address.__PRESTO_HDFS_CLUSTER_02__.nn2</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN2_RPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.servicerpc-address.__PRESTO_HDFS_CLUSTER_02__.nn1</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN1_SERVICERPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.servicerpc-address.__PRESTO_HDFS_CLUSTER_02__.nn2</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN2_SERVICERPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.http-address.__PRESTO_HDFS_CLUSTER_02__.nn1</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN1_HTTP_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.http-address.__PRESTO_HDFS_CLUSTER_02__.nn2</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN2_HTTP_ADDRESS__</value>
+  </property>
+
+  <property>
+       <name>dfs.ha.namenodes.__PRESTO_HDFS_CLUSTER_03__</name>
+       <value>nn1,nn2</value>
+       <description>Unique identifiers for each NameNode in thenameservice</description>
+  </property>
+  <property>
+       <name>dfs.namenode.rpc-address.__PRESTO_HDFS_CLUSTER_03__.nn1</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN1_RPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.rpc-address.__PRESTO_HDFS_CLUSTER_03__.nn2</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN2_RPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.servicerpc-address.__PRESTO_HDFS_CLUSTER_03__.nn1</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN1_SERVICERPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.servicerpc-address.__PRESTO_HDFS_CLUSTER_03__.nn2</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN2_SERVICERPC_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.http-address.__PRESTO_HDFS_CLUSTER_03__.nn1</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN1_HTTP_ADDRESS__</value>
+  </property>
+  <property>
+       <name>dfs.namenode.http-address.__PRESTO_HDFS_CLUSTER_03__.nn2</name>
+       <value>__PRESTO_HDFS_CLUSTER_01_NN2_HTTP_ADDRESS__</value>
+  </property>
+  <!-- HA Config -->
+  <property>
+     <name>ha.zookeeper.quorum</name>
+     <value>__PRESTO_HADOOP_HA_ZOOKEEPER_QUORUM__</value>
+  </property>
+  <property>
+   <name>ha.zookeeper.session-timeout.ms</name>
+    <value>5000</value>
+    <description>ms</description>
+  </property>
+  <property>
+       <name>dfs.client.failover.proxy.provider.__PRESTO_HDFS_CLUSTER_01__</name>
+       <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+  </property>
+  <property>
+       <name>dfs.client.failover.proxy.provider.__PRESTO_HDFS_CLUSTER_02__</name>
+       <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+  </property>
+  <property>
+       <name>dfs.client.failover.proxy.provider.__PRESTO_HDFS_CLUSTER_03__</name>
+       <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+  </property>
+  <property>
+       <name>dfs.ha.fencing.ssh.connect-timeout</name>
+       <value>30000</value>
+  </property>
+  <property>
+       <name>dfs.ha.automatic-failover.enabled</name>
+       <value>true</value>
+  </property>
+  <property>
+       <name>ha.failover-controller.cli-check.rpc-timeout.ms</name>
+       <value>60000</value>
+  </property>
+<!-- Client Config -->
+ <property>
+       <name>dfs.client.block.write.replace-datanode-on-failure.best-effort</name>
+       <value>true</value>
+ </property>
+  <property>
+       <name>dfs.client.socket-timeout</name>
+       <value>300000</value>
+ </property>
+ <property>
+       <name>dfs.client.block.write.replace-datanode-on-failure.policy</name>
+       <value>ALWAYS</value>
+ </property>
+</configuration>

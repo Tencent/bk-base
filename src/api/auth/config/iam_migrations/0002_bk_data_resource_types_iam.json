@@ -1,0 +1,214 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "biz",
+                "name": "业务",
+                "name_en": "Business",
+                "description": "蓝鲸配置平台的对象概念，用于区分不同项目组，比如游戏，部门组织和对外产品等",
+                "description_en": "...",
+                "parents": [],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "project",
+                "name": "项目",
+                "name_en": "Project",
+                "description": "项目为平台的管理单位，在项目内可进行配置计算任务、探索结果数据、配置图表面板等数据相关工作",
+                "description_en": "..",
+                "parents": [],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "raw_data",
+                "name": "数据源",
+                "name_en": "RawData",
+                "description": "数据集成中未清洗的数据源，属于非结构化数据，需要经过清洗后才可进一步计算或者入库。",
+                "description_en": "...",
+                "parents": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "biz"
+                    }
+                ],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "result_table",
+                "name": "结果数据",
+                "name_en": "ResultTable",
+                "description": "数据清洗或者数据开发中产生的结果表，属于结构化数据，平台内数据流转的基本单位。",
+                "description_en": "...",
+                "parents": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "biz"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    }
+                ],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "flow",
+                "name": "计算任务",
+                "name_en": "DataFlow",
+                "description": "计算任务以 DataFlow + SQL 的形式进行配置，便于解决常规的数据处理工作",
+                "description_en": "...",
+                "parents": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    }
+                ],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                },
+                "version": 1
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "function",
+                "name": "自定义计算函数",
+                "name_en": "UDF",
+                "description": "用户在平台上基于SQL进行数据开发，可自定义计算函数在SQL中使用",
+                "description_en": "...",
+                "parents": [
+                ],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "dashboard",
+                "name": "图表面板",
+                "name_en": "Dashboard",
+                "description": "在项目内，配置图表面板展示数据特性，目前支持 superset 等BI组件",
+                "description_en": "...",
+                "parents": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    }
+                ],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "data_token",
+                "name": "授权码",
+                "name_en": "DataToken",
+                "description": "授权码是构建平台数据查询请求的重要凭证，可动态添加用户授权",
+                "description_en": "...",
+                "parents": [],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "resource_group",
+                "name": "资源组",
+                "name_en": "Resource Group",
+                "description": "资源组用于集中管理所有的计算和存储资源",
+                "description_en": "...",
+                "parents": [],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "model",
+                "name": "算法模型",
+                "name_en": "Algorithm Model",
+                "description": "算法模型作为 AIOPS 处理逻辑载体",
+                "description_en": "...",
+                "parents": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    }
+                ],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "sample_set",
+                "name": "样本集",
+                "name_en": "Sample Set",
+                "description": "样本集作为 AIOPS 训练和评估的数据集",
+                "description_en": "...",
+                "parents": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    }
+                ],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        },
+        {
+            "operation": "upsert_resource_type",
+            "data": {
+                "id": "algorithm",
+                "name": "算法",
+                "name_en": "Algorithm",
+                "description": "算法作为 AIOPS 处理逻辑单元",
+                "description_en": "...",
+                "parents": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    }
+                ],
+                "provider_config": {
+                    "path": "/v3/auth/iam/resource/api/v1/"
+                }
+            }
+        }
+    ]
+}

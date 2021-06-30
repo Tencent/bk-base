@@ -1,0 +1,780 @@
+{
+    "model_detail": {
+        "indicators": [],
+        "fields": [
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bkpub_collect_method",
+        "origin_fields": [
+          "bkpub_collect_method"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 1,
+        "description": "数据平台采集CMDB数据的方式",
+        "is_extended_field": false,
+        "field_alias": "采集类型",
+        "model_id": 42,
+        "id": 1085
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bkpub_collect_time",
+        "origin_fields": [
+          "bkpub_collect_time"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "long",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 2,
+        "description": "数据平台采集时间",
+        "is_extended_field": false,
+        "field_alias": "采集时间",
+        "model_id": 42,
+        "id": 1086
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bkpub_event_type",
+        "origin_fields": [
+          "bkpub_event_type"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 3,
+        "description": "数据平台采集事件类型",
+        "is_extended_field": false,
+        "field_alias": "事件类型",
+        "model_id": 42,
+        "id": 666
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_biz_id",
+        "origin_fields": [
+          "bk_biz_id"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "int",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 4,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "业务id",
+        "model_id": 42,
+        "id": 674
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_module_id",
+        "origin_fields": [
+          "bk_module_id"
+        ],
+        "is_primary_key": true,
+        "field_constraint_content": null,
+        "field_type": "int",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 5,
+        "description": "模块  唯一识别ID",
+        "is_extended_field": false,
+        "field_alias": "模块id",
+        "model_id": 42,
+        "id": 676
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "service_category_id",
+        "origin_fields": [
+          "service_category_id"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 6,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "服务类型id",
+        "model_id": 42,
+        "id": 677
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "default",
+        "origin_fields": [
+          "default"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 7,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "默认",
+        "model_id": 42,
+        "id": 678
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "creator",
+        "origin_fields": [
+          "creator"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 8,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "创建者",
+        "model_id": 42,
+        "id": 652
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "set_template_id",
+        "origin_fields": [
+          "set_template_id"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 9,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "集群模版id",
+        "model_id": 42,
+        "id": 680
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "create_time",
+        "origin_fields": [
+          "create_time"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 10,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "创建时间",
+        "model_id": 42,
+        "id": 653
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_module_name",
+        "origin_fields": [
+          "bk_module_name"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 11,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "模块名",
+        "model_id": 42,
+        "id": 654
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "service_template_id",
+        "origin_fields": [
+          "service_template_id"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 12,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "服务模版id",
+        "model_id": 42,
+        "id": 685
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_supplier_account",
+        "origin_fields": [
+          "bk_supplier_account"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 13,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "供应商账号",
+        "model_id": 42,
+        "id": 668
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_set_id",
+        "origin_fields": [
+          "bk_set_id"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "int",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 14,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "集群id",
+        "model_id": 42,
+        "id": 671
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "host_apply_enabled",
+        "origin_fields": [
+          "host_apply_enabled"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 15,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "是否可应用主机",
+        "model_id": 42,
+        "id": 672
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_parent_id",
+        "origin_fields": [
+          "bk_parent_id"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 16,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "父实体id",
+        "model_id": 42,
+        "id": 673
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "last_time",
+        "origin_fields": [
+          "last_time"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 17,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "最后修改时间",
+        "model_id": 42,
+        "id": 658
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_module_type",
+        "origin_fields": [
+          "bk_module_type"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 18,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "模块类型",
+        "model_id": 42,
+        "id": 656
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_phone_warn_start",
+        "origin_fields": [
+          "bk_phone_warn_start"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 19,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "电话告警启始",
+        "model_id": 42,
+        "id": 651
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "operator",
+        "origin_fields": [
+          "operator"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 20,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "维护人",
+        "model_id": 42,
+        "id": 655
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_db_port",
+        "origin_fields": [
+          "bk_db_port"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 21,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "数据库端口",
+        "model_id": 42,
+        "id": 657
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_svr_port",
+        "origin_fields": [
+          "bk_svr_port"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 22,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "服务端口",
+        "model_id": 42,
+        "id": 659
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_validity",
+        "origin_fields": [
+          "bk_validity"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 23,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "有效性",
+        "model_id": 42,
+        "id": 662
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_wan_need",
+        "origin_fields": [
+          "bk_wan_need"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 24,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "wan_need",
+        "model_id": 42,
+        "id": 663
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_db_charset",
+        "origin_fields": [
+          "bk_db_charset"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 25,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "数据库字符集",
+        "model_id": 42,
+        "id": 664
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_db_type",
+        "origin_fields": [
+          "bk_db_type"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 26,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "数据库类型",
+        "model_id": 42,
+        "id": 665
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_phone_warn_end",
+        "origin_fields": [
+          "bk_phone_warn_end"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 27,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "电话告警开启",
+        "model_id": 42,
+        "id": 669
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_db_ip",
+        "origin_fields": [
+          "bk_db_ip"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 28,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "数据库地址",
+        "model_id": 42,
+        "id": 670
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_need_phone_warn",
+        "origin_fields": [
+          "bk_need_phone_warn"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 29,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "是否需要电话告警",
+        "model_id": 42,
+        "id": 675
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_svr_dns",
+        "origin_fields": [
+          "bk_svr_dns"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 30,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "服务dns",
+        "model_id": 42,
+        "id": 679
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bs3_name_id",
+        "origin_fields": [
+          "bs3_name_id"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 31,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "bs3名称id",
+        "model_id": 42,
+        "id": 681
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_bak_operator",
+        "origin_fields": [
+          "bk_bak_operator"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 32,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "bak_operator",
+        "model_id": 42,
+        "id": 682
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_is_single_point",
+        "origin_fields": [
+          "bk_is_single_point"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 33,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "是否单点",
+        "model_id": 42,
+        "id": 683
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "bk_machine_type",
+        "origin_fields": [
+          "bk_machine_type"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 34,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "机器类型",
+        "model_id": 42,
+        "id": 686
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "customize",
+        "origin_fields": [
+          "customize"
+        ],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "string",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 35,
+        "description": null,
+        "is_extended_field": false,
+        "field_alias": "用户自定义字段",
+        "model_id": 42,
+        "id": 667
+      },
+      {
+        "is_join_field": false,
+        "source_field_name": null,
+        "field_name": "__time__",
+        "origin_fields": [],
+        "is_primary_key": false,
+        "field_constraint_content": null,
+        "field_type": "timestamp",
+        "source_model_id": null,
+        "field_clean_content": null,
+        "field_category": "dimension",
+        "join_field_name": null,
+        "field_index": 36,
+        "description": "平台内置时间字段，数据入库后将转换为可查询字段，比如 dtEventTime、dtEventTimeStamp、localtime",
+        "is_extended_field": false,
+        "field_alias": "时间字段",
+        "model_id": 42,
+        "id": 684
+      }
+    ],
+        "model_relation": [],
+        "calculation_atoms": []
+    },
+    "description": "CMDB 模块信息",
+    "tags": [
+      {
+        "tag_code": "business_module",
+        "tag_alias": "业务模块"
+      },
+      {
+        "tag_code": "property_config",
+        "tag_alias": "属性配置"
+      }
+    ],
+    "table_alias": "CMDB 模块信息",
+    "model_alias": "CMDB 模块信息 维度模型",
+    "table_name": "{{ model_name }}",
+    "model_type": "dimension_table",
+    "project_id": {{ project_id }},
+    "model_name": "{{ model_name }}"
+}

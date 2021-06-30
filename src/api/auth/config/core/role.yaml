@@ -1,0 +1,937 @@
+roles:
+  - role_id: bkdata.superuser
+    role_name: 平台超级管理员
+    role_name_en: SystemAdministrator
+    object_class: bkdata
+    description:
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: bkdata.batch_manager
+    role_name: 离线负责人
+    role_name_en: BatchManager
+    object_class: bkdata
+    description:
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: bkdata.ops
+    role_name: 平台运维
+    role_name_en: SystemOperator
+    object_class: bkdata
+    description:
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: bkdata.resource_manager
+    role_name: 平台资源管理员
+    role_name_en: SystemResourceManager
+    object_class: bkdata
+    description:
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: bkdata.tdm_manager
+    role_name: TDM负责人
+    role_name_en: TDMManager
+    object_class: bkdata
+    description:
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: bkdata.user
+    role_name: 平台用户
+    role_name_en: SystemUser
+    object_class: bkdata
+    description:
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: biz.leader
+    role_name: 业务总监
+    role_name_en: BusinessLeader
+    object_class: biz
+    description: 对业务下所有私有、机密的数据都有查询、修改和审批权限
+    description_en: With query, update and authorization permissions for all private or confidential business data
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: biz.manager
+    role_name: 业务运维人员
+    role_name_en: BusinessMaintainer
+    object_class: biz
+    description: 对业务下所有私有的数据都有查询、修改和审批权限
+    description_en: With query, update and authorization permissions for all private business data
+    allow_empty_member: True
+    user_mode: True
+    order: 2
+    to_iam: False
+
+  - role_id: biz.developer
+    role_name: 业务开发人员
+    role_name_en: BusinessDeveloper
+    object_class: biz
+    description: 对业务下所有私有的数据都有查询和修改权限
+    description_en: With query and update permissions for all private business data
+    allow_empty_member: True
+    user_mode: True
+    order: 3
+    to_iam: False
+
+  - role_id: biz.productor
+    role_name: 业务产品人员
+    role_name_en: BusinessProductor
+    object_class: biz
+    description: 对业务下所有私有的数据都有查询权限
+    description_en: With query permissions for all private business data
+    allow_empty_member: True
+    user_mode: True
+    order: 4
+    to_iam: False
+
+  - role_id: biz.tester
+    role_name: 业务测试人员
+    role_name_en: BusinessTester
+    object_class: biz
+    description: 对业务下所有私有数据都有查询权限
+    description_en: With query permissions for all private business data
+    allow_empty_member: True
+    user_mode: True
+    order: 5
+    to_iam: False
+
+  - role_id: dataadmin.data_operator
+    role_name: 数据运维
+    role_name_en: AdminDataOperator
+    object_class: dataadmin
+    description:
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: dataadmin.sys_admin
+    role_name: 系统管理员
+    role_name_en: AdminManager
+    object_class: dataadmin
+    description:
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: dataadmin.sys_operator
+    role_name: 系统运维
+    role_name_en: AdminOperator
+    object_class: dataadmin
+    description:
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: data_token.manager
+    role_name: 授权码管理员
+    role_name_en: TokenManager
+    object_class: data_token
+    description: 具有授权码管理权限，可以进行信息管理，人员管理，授权管理
+    description_en: With management permission, including information management, members management and usage management
+    allow_empty_member: False
+    user_mode: True
+    order: 1
+    to_iam: True
+
+  - role_id: function.manager
+    role_name: 函数管理员
+    role_name_en: FunctionManager
+    object_class: function
+    description: 具有函数开发权限，并且可以增添成员
+    description_en: Has function development permissions and undertake the approval of role about function
+    allow_empty_member: False
+    user_mode: True
+    order: 1
+    to_iam: True
+
+  - role_id: function.developer
+    role_name: 函数开发员
+    role_name_en: FunctionDeveloper
+    object_class: function
+    description: 具有函数开发权限
+    description_en: Has function development permissions
+    allow_empty_member: True
+    user_mode: True
+    order: 2
+    to_iam: True
+
+  - role_id: project.manager
+    role_name: 项目管理员
+    role_name_en: ProjectManager
+    object_class: project
+    description: 具有该项目的所有操作权限，包括项目信息管理、人员管理、资源管理、数据开发
+    description_en: Have all operation permissions to the project, including project information management, personnel management, resource management, data development
+    allow_empty_member: False
+    user_mode: True
+    order: 1
+    to_iam: True
+
+  - role_id: project.flow_member
+    role_name: 数据开发员
+    role_name_en: DataDeveloper
+    object_class: project
+    description: 具有该项目内的任务管理权限，包括实时计算、离线计算、数据视图、模型的开发和调试
+    description_en: Has task management permissions within the project, including stream processing, batch processing, data view, model development and debugging
+    allow_empty_member: True
+    user_mode: True
+    order: 2
+    to_iam: True
+
+  - role_id: project.flow_developer
+    role_name: 任务开发员
+    role_name_en: FlowDeveloper
+    object_class: project
+    description: 具有该项目内的任务管理权限，包括实时计算、离线计算、模型的开发和调试，不包含数据查看权限
+    description_en: Has task management permissions within the project, including stream processing, batch processing, data view, model development and debugging, except data query permission
+    allow_empty_member: True
+    user_mode: False
+    order: 3
+    to_iam: True
+
+  - role_id: project.dashboard_viewer
+    role_name: 图表观察员
+    role_name_en: DashboardViewer
+    object_class: project
+    description: 具有项目下所有图表的查看权限
+    description_en: Has view permission for all dashboard
+    allow_empty_member: True
+    user_mode: False
+    order: 4
+    to_iam: True
+
+  - role_id: project.viewer
+    role_name: 项目观察员
+    role_name_en: ProjectViewer
+    object_class: project
+    description: 具有项目查看和数据查询权限
+    description_en: With viewing project and querying data permissions
+    allow_empty_member: True
+    user_mode: True
+    order: 5
+    to_iam: True
+
+  - role_id: project.model_member
+    role_name: 数据分析员
+    role_name_en: ModelDeveloper
+    object_class: project
+    description: 具有数据分析和数据开发的全部权限
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 6
+    to_iam: False
+
+  - role_id: dashboard.viewer
+    role_name: 图表观察员
+    role_name_en: DashboardViewer
+    object_class: dashboard
+    description: 具有当前图表的查看权限
+    description_en:
+    allow_empty_member: True
+    user_mode: True
+    order: 1
+    to_iam: True
+
+  - role_id: raw_data.manager
+    role_name: 数据管理员
+    role_name_en: DataManager
+    object_class: raw_data
+    description: 具有数据查询权限，并承当数据授权的审批工作（业务负责人也参与审批）
+    description_en: Have data query permission and undertake the approval of data authorization(BusinessManager together)
+    allow_empty_member: False
+    user_mode: True
+    order: 1
+    to_iam: True
+
+  - role_id: raw_data.cleaner
+    role_name: 数据清洗员
+    role_name_en: DataCleaner
+    object_class: raw_data
+    description: 具有数据查询权限，负责数据清洗
+    description_en: Have data query permission, responsible for data cleaning
+    allow_empty_member: True
+    user_mode: True
+    order: 2
+    to_iam: True
+
+  - role_id: raw_data.viewer
+    role_name: 数据观察员
+    role_name_en: DataViewer
+    object_class: raw_data
+    description: 具有数据查询权限
+    description_en: Have data query permission
+    allow_empty_member: True
+    user_mode: True
+    order: 3
+    to_iam: True
+
+  - role_id: resource_group.manager
+    role_name: 资源组管理员
+    role_name_en: ResourceManager
+    object_class: resource_group
+    description: 具有资源组的全部管理权限
+    description_en: With all permission of resource group
+    allow_empty_member: False
+    user_mode: True
+    order: 1
+    to_iam: True
+
+  - role_id: result_table.manager
+    role_name: 数据管理员
+    role_name_en: DataManager
+    object_class: result_table
+    description: 具有数据查询权限，并承当数据授权的审批工作（业务负责人也参与审批），成员列表通过血缘关系继承而来
+    description_en: With DataQuery permission, undertake the approval of data authorization(BusinessManager together), members inherited through lineage
+    allow_empty_member: False
+    user_mode: True
+    order: 1
+    to_iam: False
+
+  - role_id: result_table.viewer
+    role_name: 数据观察员
+    role_name_en: DataViewer
+    object_class: result_table
+    description: 具有数据查询权限
+    description_en: Have data query permission
+    allow_empty_member: True
+    user_mode: True
+    order: 2
+    to_iam: True
+
+
+policies:
+  # bkdata.superuser
+  - role_id: bkdata.superuser
+    action_id: "*"
+    object_class: "*"
+
+  - role_id: bkdata.superuser
+    action_id: bkdata.manage_auth
+    object_class: bkdata
+
+  # bkdata.user
+  - role_id: bkdata.user
+    action_id: project.create
+    object_class: project
+
+  - role_id: bkdata.user
+    action_id: result_table.retrieve
+    object_class: result_table
+
+  - role_id: bkdata.user
+    action_id: raw_data.create
+    object_class: raw_data
+
+  - role_id: bkdata.user
+    action_id: raw_data.retrieve
+    object_class: raw_data
+
+  - role_id: bkdata.user
+    action_id: raw_data.query_data
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: bkdata.user
+    action_id: result_table.query_data
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: bkdata.user
+    action_id: sample_set.copy
+    object_class: sample_set
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: bkdata.user
+    action_id: sample_set.retrieve
+    object_class: sample_set
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: bkdata.user
+    action_id: model.retrieve
+    object_class: model
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: bkdata.user
+    action_id: model.retrieve_experiment
+    object_class: model
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: bkdata.user
+    action_id: algorithm.retrieve
+    object_class: algorithm
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: bkdata.user
+    action_id: datamodel.retrieve
+    object_class: datamodel
+
+  # dataadmin.sys_admin
+  - role_id: dataadmin.sys_admin
+    action_id: "*"
+    object_class: dataadmin
+
+  - role_id: dataadmin.sys_admin
+    action_id: dataadmin.manage_auth
+    object_class: dataadmin
+
+  # dataadmin.data_operator
+  - role_id: dataadmin.data_operator
+    action_id: dataadmin.standardization
+    object_class: dataadmin
+
+  - role_id: dataadmin.data_operator
+    action_id: dataadmin.tag_manage
+    object_class: dataadmin
+
+  - role_id: dataadmin.data_operator
+    action_id: dataadmin.op_record
+    object_class: dataadmin
+
+  # dataadmin.sys_operator
+  - role_id: dataadmin.sys_operator
+    action_id: dataadmin.cluster_manage
+    object_class: dataadmin
+
+  - role_id: dataadmin.sys_operator
+    action_id: dataadmin.task_manage
+    object_class: dataadmin
+
+  - role_id: dataadmin.sys_operator
+    action_id: dataadmin.op_record
+    object_class: dataadmin
+
+  # project.manager
+  - role_id: project.manager
+    action_id: "*"
+    object_class: project
+
+  - role_id: project.manager
+    action_id: "*"
+    object_class: flow
+
+  - role_id: project.manager
+    action_id: result_table.query_data
+    object_class: result_table
+
+  - role_id: project.manager
+    action_id: result_table.update_data
+    object_class: result_table
+
+  - role_id: project.manager
+    action_id: "*"
+    object_class: dashboard
+
+  - role_id: project.manager
+    action_id: project.manage_auth
+    object_class: project
+
+  - role_id: project.manager
+    action_id: flow.manage_auth
+    object_class: flow
+
+  - role_id: project.manager
+    action_id: dashboard.manage_auth
+    object_class: dashboard
+
+  - role_id: project.manager
+    action_id: "*"
+    object_class: model
+
+  - role_id: project.manager
+    action_id: "*"
+    object_class: sample_set
+
+  - role_id: project.manager
+    action_id: "*"
+    object_class: algorithm
+
+  - role_id: project.manager
+    action_id: result_table.delete_data
+    object_class: result_table
+
+  - role_id: project.manager
+    action_id: "*"
+    object_class: datamodel
+
+  - role_id: project.manager
+    action_id: result_table.update
+    object_class: result_table
+
+  - role_id: project.manager
+    action_id: result_table.delete
+    object_class: result_table
+
+  # project.flow_member
+  - role_id: project.flow_member
+    action_id: project.retrieve
+    object_class: project
+
+  - role_id: project.flow_member
+    action_id: project.manage_flow
+    object_class: project
+
+  - role_id: project.flow_member
+    action_id: "*"
+    object_class: flow
+
+  - role_id: project.flow_member
+    action_id: result_table.query_data
+    object_class: result_table
+
+  - role_id: project.flow_member
+    action_id: result_table.update_data
+    object_class: result_table
+
+  - role_id: project.flow_member
+    action_id: project.manage_dashboard
+    object_class: project
+
+  - role_id: project.flow_member
+    action_id: "*"
+    object_class: dashboard
+
+  - role_id: project.flow_member
+    action_id: sample_set.copy
+    object_class: sample_set
+
+  - role_id: project.flow_member
+    action_id: sample_set.retrieve
+    object_class: sample_set
+
+  - role_id: project.flow_member
+    action_id: model.retrieve_service
+    object_class: model
+
+  - role_id: project.flow_member
+    action_id: model.retrieve_serving
+    object_class: model
+
+  - role_id: project.flow_member
+    action_id: model.create_serving
+    object_class: model
+
+  - role_id: project.flow_member
+    action_id: model.update_serving
+    object_class: model
+
+  - role_id: project.flow_member
+    action_id: model.delete_serving
+    object_class: model
+
+  - role_id: project.flow_member
+    action_id: algorithm.retrieve
+    object_class: algorithm
+
+  - role_id: project.flow_member
+    action_id: datamodel.create
+    object_class: project
+
+  - role_id: project.flow_member
+    action_id: "*"
+    object_class: datamodel
+
+  - role_id: project.flow_member
+    action_id: result_table.update
+    object_class: result_table
+
+  - role_id: project.flow_member
+    action_id: result_table.delete
+    object_class: result_table
+
+  # project.flow_developer
+  - role_id: project.flow_developer
+    action_id: project.retrieve
+    object_class: project
+
+  - role_id: project.flow_developer
+    action_id: project.manage_flow
+    object_class: project
+
+  # project.dashboard_viewer
+  - role_id: project.dashboard_viewer
+    action_id: project.retrieve
+    object_class: project
+
+  - role_id: project.dashboard_viewer
+    action_id: dashboard.retrieve
+    object_class: dashboard
+
+  # project.flow_developer
+  - role_id: project.flow_developer
+    action_id: flow.create
+    object_class: flow
+
+  - role_id: project.flow_developer
+    action_id: flow.retrieve
+    object_class: flow
+
+  - role_id: project.flow_developer
+    action_id: flow.update
+    object_class: flow
+
+  - role_id: project.flow_developer
+    action_id: flow.delete
+    object_class: flow
+
+  - role_id: project.flow_developer
+    action_id: flow.execute
+    object_class: flow
+
+  # project.viewer
+  - role_id: project.viewer
+    action_id: project.retrieve
+    object_class: project
+
+  - role_id: project.viewer
+    action_id: flow.retrieve
+    object_class: flow
+
+  - role_id: project.viewer
+    action_id: result_table.query_data
+    object_class: result_table
+
+  - role_id: project.viewer
+    action_id: sample_set.retrieve
+    object_class: sample_set
+
+  - role_id: project.viewer
+    action_id: model.retrieve_serving
+    object_class: model
+
+  - role_id: project.viewer
+    action_id: model.retrieve_service
+    object_class: model
+
+  - role_id: project.viewer
+    action_id: algorithm.retrieve
+    object_class: algorithm
+
+  # project.model_member
+  - role_id: project.model_member
+    action_id: project.retrieve
+    object_class: project
+
+  - role_id: project.model_member
+    action_id: project.manage_flow
+    object_class: project
+
+  - role_id: project.model_member
+    action_id: model.create
+    object_class: project
+
+  - role_id: project.model_member
+    action_id: sample_set.create
+    object_class: project
+
+  - role_id: project.model_member
+    action_id: "*"
+    object_class: model
+
+  - role_id: project.model_member
+    action_id: "*"
+    object_class: sample_set
+
+  - role_id: project.model_member
+    action_id: "*"
+    object_class: flow
+
+  - role_id: project.model_member
+    action_id: result_table.query_data
+    object_class: result_table
+
+  - role_id: project.model_member
+    action_id: "*"
+    object_class: algorithm
+
+  - role_id: project.model_member
+    action_id: algorithm.create
+    object_class: project
+
+  - role_id: project.model_member
+    action_id: datamodel.create
+    object_class: project
+
+  - role_id: project.model_member
+    action_id: "*"
+    object_class: datamodel
+
+  # dashboard.viewer
+  - role_id: dashboard.viewer
+    action_id: dashboard.retrieve
+    object_class: dashboard
+
+  # raw_data.cleaner
+  - role_id: raw_data.cleaner
+    action_id: raw_data.etl
+    object_class: raw_data
+
+  - role_id: raw_data.cleaner
+    action_id: raw_data.query_data
+    object_class: raw_data
+
+  - role_id: raw_data.cleaner
+    action_id: raw_data.update
+    object_class: raw_data
+
+  - role_id: raw_data.cleaner
+    action_id: raw_data.collect_hub
+    object_class: raw_data
+
+  - role_id: raw_data.cleaner
+    action_id: result_table.query_data
+    object_class: result_table
+
+  - role_id: raw_data.cleaner
+    action_id: result_table.update
+    object_class: result_table
+
+  # raw_data.viewer
+  - role_id: raw_data.viewer
+    action_id: raw_data.query_data
+    object_class: raw_data
+
+  # raw_data.manager
+  - role_id: raw_data.manager
+    action_id: "*"
+    object_class: raw_data
+
+  - role_id: raw_data.manager
+    action_id: raw_data.manage_auth
+    object_class: raw_data
+
+  - role_id: raw_data.manager
+    action_id: result_table.query_data
+    object_class: result_table
+
+  - role_id: raw_data.manager
+    action_id: result_table.update
+    object_class: result_table
+
+  # result_table.viewer
+  - role_id: result_table.viewer
+    action_id: result_table.query_data
+    object_class: result_table
+
+  # result_table.manager
+  - role_id: result_table.manager
+    action_id: "*"
+    object_class: result_table
+
+  - role_id: result_table.manager
+    action_id: result_table.manage_auth
+    object_class: result_table
+
+  # function.manager
+  - role_id: function.manager
+    action_id: "*"
+    object_class: function
+
+  - role_id: function.manager
+    action_id: function.manage_auth
+    object_class: function
+
+  # function.developer
+  - role_id: function.developer
+    action_id: function.develop
+    object_class: function
+
+  # data_token.manager
+  - role_id: data_token.manager
+    action_id: data_token.manage
+    object_class: data_token
+
+  - role_id: data_token.manager
+    action_id: data_token.manage_auth
+    object_class: data_token
+
+  # resource_group.manager
+  - role_id: resource_group.manager
+    action_id: "*"
+    object_class: resource_group
+
+  - role_id: resource_group.manager
+    action_id: resource_group.manage_auth
+    object_class: resource_group
+
+  # biz.manager
+  - role_id: biz.manager
+    action_id: "*"
+    object_class: biz
+
+  - role_id: biz.manager
+    action_id: "*"
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.manager
+    action_id: "*"
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: biz.manager
+    action_id: result_table.query_data
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.manager
+    action_id: raw_data.manage_auth
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: biz.manager
+    action_id: result_table.manage_auth
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: biz.manager
+    action_id: raw_data.manage_auth
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.manager
+    action_id: result_table.manage_auth
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  # biz.leader
+  - role_id: biz.leader
+    action_id: "*"
+    object_class: biz
+
+  - role_id: biz.leader
+    action_id: "*"
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: public
+
+  - role_id: biz.leader
+    action_id: "*"
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.leader
+    action_id: "*"
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: confidential
+
+  - role_id: biz.leader
+    action_id: result_table.query_data
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.leader
+    action_id: result_table.query_data
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: confidential
+
+  - role_id: biz.leader
+    action_id: raw_data.manage_auth
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: confidential
+
+  - role_id: biz.leader
+    action_id: result_table.manage_auth
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: confidential
+
+  # biz.productor
+  - role_id: biz.productor
+    action_id: raw_data.query_data
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.productor
+    action_id: result_table.query_data
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.productor
+    action_id: biz.common_access
+    object_class: biz
+
+  # biz.developer
+  - role_id: biz.developer
+    action_id: raw_data.query_data
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.developer
+    action_id: result_table.query_data
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.developer
+    action_id: biz.common_access
+    object_class: biz
+
+  # biz.tester
+  - role_id: biz.tester
+    action_id: raw_data.query_data
+    object_class: raw_data
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.tester
+    action_id: result_table.query_data
+    object_class: result_table
+    scope_attr_key: sensitivity
+    scope_attr_value: private
+
+  - role_id: biz.tester
+    action_id: biz.common_access
+    object_class: biz

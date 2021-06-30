@@ -1,0 +1,52 @@
+plans:
+  - task_code: auth_migrate_iam_auth
+    task_name: 将平台权限同步至 BKIAM
+    task_category: auth
+    task_loader: import
+    task_entry: auth.tasks.migrate_iam_autho
+    task_status: 'off'
+    work_type: interval
+    work_crontab: '0 */1 * * *'
+
+  - task_code: auth_sync_business_leader
+    task_name: 同步业务 Leader
+    task_category: auth
+    task_loader: import
+    task_entry: auth.tasks.sync_leader
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '15 8,18 * * *'
+
+  - task_code: auth_sync_business_members
+    task_name: 同步业务成员
+    task_category: auth
+    task_loader: import
+    task_entry: auth.tasks.sync_members
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '* * * * *'
+
+  - task_code: auth_transmit_meta_operation_record
+    task_name: 解读元数据事件
+    task_category: auth
+    task_loader: import
+    task_entry: auth.tasks.transmit_meta_operation_record
+    task_status: 'on'
+    work_type: long
+
+  - task_code: auth_init_data_managers
+    task_name: 初始数据管理员
+    task_category: auth
+    task_loader: import
+    task_entry: auth.tasks.init
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '10 8 * * *'
+
+  - task_code: auth_sync_data_managers
+    task_name: 同步数据管理员
+    task_category: auth
+    task_loader: import
+    task_entry: auth.tasks.sync
+    task_status: 'on'
+    work_type: long

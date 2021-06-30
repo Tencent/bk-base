@@ -1,0 +1,116 @@
+#
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础计算平台 available.
+#
+# Copyright (C) 2019 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础计算平台 is licensed under the MIT license.
+#
+# A copy of the MIT License is included in this file.
+#
+#
+# Terms of the MIT License:
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+
+{
+  "job_id": "12497_38cd0408b5784bd2bfeb2e8eec51943d",
+  "job_type": "spark-mllib",
+  "run_mode": "dev/product",
+  "time_zone": "Asia/Shanghai",
+  "nodes": {
+    "source": {
+      "source_rt": {
+        "id": "source_rt",
+        "input": {
+          "type": "hdfs",
+          "path": "xxxx",
+          "format": "parquet/pca/avro"
+        },
+        "name": "source_rt",
+        "fields": [
+          {
+            "origin": "",
+            "field": "dtEventTime",
+            "type": "string",
+            "description": "eventtime"
+          },
+          {
+            "origin": "",
+            "field": "bkdata_par_offset",
+            "type": "string",
+            "description": "bkdataparoffset"
+          }
+        ],
+        "description": "XXXX",
+        "type": "model/data"
+      }
+    },
+    "transform": {
+      "rt1": {
+        "description": "rt1",
+        "fields": [
+          {
+            "origin": "",
+            "field": "dtEventTime",
+            "type": "string",
+            "description": "eventtime"
+          }
+        ],
+        "interpreter": {
+          "feature_uuid": {"value": "[a, b ,c]", "implement": "vectors"} ,
+          "label_uuid": []
+        },
+        "processor": {
+          "name": "RandomForestClassifier",
+          "type": "特征转换/训练算法/算法应用 train/trained-run/untrained-run",
+          "args": {
+            "AnomalyScoreCol": ["AnomalyScore"],
+            "input_col": "feature_uuid",
+            "xxx": "xxx"
+          }
+        },
+        "parents": [
+          "source_rt"
+        ],
+        "id": "rt1",
+        "name": "rt1"
+      }
+    },
+    "sink": {
+      "rt1": {
+        "fields": [
+          {
+            "origin": "",
+            "field": "dtEventTime",
+            "type": "string",
+            "description": "eventtime"
+          }
+        ],
+        "output": {
+          "type": "hdfs",
+          "path": "xxxx",
+          "conf": {
+            "xxxx": "xxxx"
+          },
+          "format": "xxx"
+        },
+        "id": "rt1",
+        "name": "rt1",
+        "description": "rt1",
+        "type": "model/data"
+      }
+    }
+  }
+}

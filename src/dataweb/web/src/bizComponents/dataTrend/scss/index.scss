@@ -1,0 +1,396 @@
+/*!
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+ */
+
+$bk-primary: #3a84ff;
+$text-color: #212232;
+$bg-color: #fff;
+$data-success: #9dcb6b;
+$data-doing: #fe771d;
+$data-fail: #ff5656;
+$data-nostart: #dedede;
+.hide {
+  display: none;
+}
+.data-detail {
+  position: relative;
+  // padding: 7px 10px 15px;
+  background: $bg-color;
+  color: $text-color;
+  background-color: #fafafa;
+  ::v-deep .bk-date-picker {
+    width: 290px;
+    .bk-date-picker-dropdown {
+      z-index: 9999;
+    }
+  }
+  .host-list {
+    top: 0px;
+    left: 610px !important;
+  }
+  .ip-select-bottom {
+    text-align: center;
+    padding-top: 30px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 97px;
+    border-top: 1px solid #efefef;
+    button {
+      margin: 0 20px;
+      width: 97px;
+    }
+  }
+  .sideslider-select1 {
+    padding: 20px 50px;
+    .bk-form-content {
+      margin-left: 90px;
+    }
+    .bk-label {
+      top: 25px;
+    }
+  }
+  .bk-date .range-action a {
+    display: inline-block;
+    font-size: 14px;
+    color: #3c96ff;
+    text-decoration: none;
+    line-height: 16px;
+    padding: 8px 0 8px 16px;
+  }
+  .bk-date .range-action {
+    padding: 6px 0;
+  }
+  .bk-date .date-range-view {
+    background: #ebf4ff;
+  }
+  .sub-header {
+    color: #737987;
+    margin: 0 -70px;
+    height: 61px;
+    line-height: 61px;
+    border-bottom: 1px solid #dfe2ef;
+    padding-left: 75px;
+    button {
+      background-color: #3a84ff;
+      width: 60px;
+      height: 26px;
+      line-height: 25px;
+      color: #fff;
+      font-size: 11px;
+      padding: 0px;
+      border: none;
+      display: inline-block;
+      vertical-align: 2px;
+    }
+    li {
+      display: inline-block;
+      position: relative;
+      padding: 0 25px 0 0;
+      line-height: 60px;
+      &:not(:last-child) {
+        cursor: pointer;
+      }
+      &:last-child {
+        color: #212232;
+      }
+      i {
+        line-height: 60px;
+        font-size: 10px;
+        position: absolute;
+        right: 4px;
+        top: 0;
+        transform: scale(0.7);
+      }
+    }
+    .breadcrumb {
+      height: 60px;
+    }
+  }
+  .box-wrapper {
+    .title {
+      font-size: 12px;
+      .title-left {
+        float: left;
+        font-size: 16px;
+        .line {
+          display: inline-block;
+          vertical-align: top;
+          width: 4px;
+          height: 19px;
+          background: $bk-primary;
+          margin-right: 16px;
+        }
+      }
+      .title-right {
+        float: left;
+        color: $bk-primary;
+        .data-icon {
+          display: inline-block;
+          margin-left: 30px;
+          cursor: pointer;
+          line-height: 21px;
+          > i {
+            display: inline-block;
+            vertical-align: -1px;
+            width: 14px;
+            height: 14px;
+            margin-right: 10px;
+            position: relative;
+            top: 2px;
+          }
+          .data-icon-edit {
+            background: url('../../../common/images/icon/icon-edit.png');
+          }
+          .data-icon-delete {
+            background: url('../../../common/images/icon/icon-delete.png');
+          }
+          .data-icon-plus-circle {
+            background: url('../../../common/images/icon/icon-plus-circle.png');
+          }
+        }
+      }
+    }
+    .detail-wrapper {
+      margin: 0 -70px;
+      padding: 0 70px 0px;
+      li {
+        height: 61px;
+        line-height: 60px;
+        border-bottom: 1px solid $bg-color;
+        font-size: 0;
+        .title {
+          font-size: 14px;
+          float: left;
+          width: 130px;
+          background-color: #fafafafa;
+          color: #737987;
+          text-align: right;
+          padding: 0 20px;
+          border-right: 1px solid $bg-color;
+        }
+        .detail {
+          font-size: 14px;
+          float: left;
+          padding: 0 20px;
+          width: calc(100% - 130px);
+          height: 60px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+      .left-box {
+        float: left;
+        background: #fff;
+        width: 35%;
+        height: 243px;
+        box-shadow: 0 0 10px 0 rgba(33, 34, 50, 0.05);
+      }
+      .right-box {
+        float: right;
+        background: #fff;
+        box-shadow: 0 0 10px 0 rgba(33, 34, 50, 0.05);
+        width: calc(65% - 25px);
+        height: 243px;
+        &.database {
+          li:nth-child(1),
+          li:nth-child(2),
+          li:nth-child(3),
+          li:nth-child(4) {
+            width: 50%;
+            float: left;
+          }
+        }
+        li:nth-child(1),
+        li:nth-child(3) {
+          border-right: 1px solid $bg-color;
+        }
+        li {
+          float: left;
+          width: 100%;
+        }
+      }
+    }
+    .chart-wrapper {
+      background: #fafafa;
+      padding: 2px;
+      .bk-date .daterange-dropdown-panel {
+        z-index: 1000;
+      }
+      .bk-date .date-dropdown-panel {
+        right: 0;
+        left: auto;
+        z-index: 1001;
+      }
+
+      .left-chart {
+        background: #fff;
+        box-shadow: 0 0 10px 0 rgba(33, 34, 50, 0.05);
+        float: left;
+        height: 388px;
+        position: relative;
+        width: calc(50% - 12px);
+      }
+      .right-chart {
+        background: #fff;
+        box-shadow: 0 0 10px 0 rgba(33, 34, 50, 0.05);
+        float: right;
+        height: 388px;
+        position: relative;
+        width: calc(50% - 13px);
+      }
+    }
+    .node-wrapper {
+      background: #fff;
+      box-shadow: 0 0 10px 0 rgba(33, 34, 50, 0.05);
+      table {
+        width: 100%;
+        text-align: left;
+        tr {
+          height: 48px;
+          th {
+            cursor: pointer;
+            background: #fafafa;
+            font-weight: normal;
+            i {
+              float: right;
+              width: 14px;
+              height: 14px;
+              /*&:hover {
+                                opacity: 0.8;
+                            }*/
+            }
+          }
+          td {
+            &.success {
+              color: $data-success;
+            }
+            &.exception {
+              color: $data-doing;
+            }
+            &.doing {
+              color: $data-doing;
+            }
+            &.nostart {
+              color: $data-nostart;
+            }
+            &.fail {
+              color: $data-fail;
+            }
+            &.btn-wrapper {
+              font-size: 0;
+              a {
+                font-size: 14px;
+                color: $bk-primary;
+                margin-right: 30px;
+                padding: 14px 0;
+                &:hover {
+                  color: #333982;
+                }
+                &.disable {
+                  cursor: not-allowed;
+                  color: #ccc;
+                }
+              }
+              .btn-delete {
+                position: relative;
+                &:hover {
+                  .delete-confirm {
+                    display: block;
+                  }
+                }
+              }
+              .delete-confirm {
+                display: none;
+                position: absolute;
+                bottom: 40px;
+                left: -40px;
+                width: 256px;
+                background: #e1ecff;
+                border: 1px solid #d4d6f3;
+                padding: 15px;
+                font-size: 14px;
+                color: #737987;
+                &:before {
+                  content: '';
+                  position: absolute;
+                  left: 48px;
+                  bottom: -11px;
+                  width: 0;
+                  height: 0;
+                  border: 5px solid;
+                  border-color: #d4d6f3 transparent transparent transparent;
+                }
+                &:after {
+                  content: '';
+                  position: absolute;
+                  left: 48px;
+                  bottom: -10px;
+                  width: 0;
+                  height: 0;
+                  border: 5px solid;
+                  border-color: #e1ecff transparent transparent transparent;
+                }
+              }
+              .confirm-buttom {
+                margin-top: 5px;
+              }
+            }
+            &.progress-bar {
+              .bar-wrapper {
+                position: relative;
+                width: 100%;
+                height: 6px;
+                border-radius: 3px;
+                background: #e6e6e6;
+                .bar {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  height: 6px;
+                  border-radius: 3px;
+                  background: #85d14d;
+                }
+              }
+            }
+          }
+        }
+        td,
+        th {
+          padding: 0 15px 0 42px;
+          border: 1px solid $bg-color;
+        }
+        .no-data {
+          margin: 38px 0;
+          text-align: center;
+          p {
+            color: #cfd3dd;
+          }
+        }
+      }
+      .page-wrapper {
+        text-align: right;
+        padding: 20px 30px 20px 0;
+      }
+    }
+  }
+}

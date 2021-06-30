@@ -1,0 +1,11 @@
+{
+  "type": "assign",
+  "subtype": "assign_pos",
+  "assign": [
+    {
+      "index": "0",
+      "assign_to": "varname",
+      "is_dimension": 1
+    }
+  ]
+}

@@ -1,0 +1,994 @@
+actions:
+  # bkdata
+  - action_id: bkdata.admin
+    action_name: 平台管理
+    action_name_en: System Manage
+    object_class: bkdata
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: False
+
+  - action_id: bkdata.manage_auth
+    action_name: 平台授权
+    action_name_en: System AuthorizationManage
+    object_class: bkdata
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: False
+
+  # dataadmin
+  - action_id: dataadmin.cluster_manage
+    action_name: Admin集群管理
+    action_name_en: AdminSystem ClusterManage
+    object_class: dataadmin
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: False
+
+  - action_id: dataadmin.manage_auth
+    action_name: Admin审批授权
+    action_name_en: AdminSystem AuthorizationManage
+    object_class: dataadmin
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: False
+
+  - action_id: dataadmin.op_record
+    action_name: Admin操作流水
+    action_name_en: AdminSystem OpRecordManage
+    object_class: dataadmin
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 3
+    to_iam: False
+
+  - action_id: dataadmin.standardization
+    action_name: Admin标准化操作
+    action_name_en: AdminSystem StandardizationManage
+    object_class: dataadmin
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 4
+    to_iam: False
+
+  - action_id: dataadmin.tag_manage
+    action_name: Admin标签管理
+    action_name_en: AdminSystem TagManage
+    object_class: dataadmin
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 5
+    to_iam: False
+
+  - action_id: dataadmin.task_manage
+    action_name: Admin任务管理
+    action_name_en: AdminSystem TaskManage
+    object_class: dataadmin
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 6
+    to_iam: False
+
+  # biz
+  - action_id: biz.common_access
+    action_name: 普通场景接入
+    action_name_en: Business CommonAccess
+    object_class: biz
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: False
+
+  - action_id: biz.job_access
+    action_name: 运维场景接入
+    action_name_en: Business JobAccess
+    object_class: biz
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: False
+
+  - action_id: biz.manage
+    action_name: 业务数据接入
+    action_name_en: Business DataAccess
+    object_class: biz
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: biz.manage_auth
+    action_name: 业务授权
+    action_name_en: Business AuthorizationManage
+    object_class: biz
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 4
+    to_iam: False
+
+  # project
+  - action_id: project.create
+    action_name: 项目创建
+    action_name_en: Project Create
+    object_class: project
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: project.delete
+    action_name: 项目删除
+    action_name_en: Project Delete
+    object_class: project
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: True
+
+  - action_id: project.manage
+    action_name: 项目管理
+    action_name_en: Project Manage
+    object_class: project
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: project.manage_auth
+    action_name: 项目授权
+    action_name_en: Project AuthorizationManage
+    object_class: project
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 4
+    to_iam: False
+
+  - action_id: project.manage_dashboard
+    action_name: 图表开发
+    action_name_en: DashboardManage
+    object_class: project
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 5
+    to_iam: True
+
+  - action_id: project.manage_flow
+    action_name: 数据开发
+    action_name_en: FlowManage
+    object_class: project
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 6
+    to_iam: True
+
+  - action_id: project.retrieve
+    action_name: 项目查看
+    action_name_en: Project View
+    object_class: project
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 7
+    to_iam: True
+
+  - action_id: project.update
+    action_name: 项目编辑
+    action_name_en: Project Edit
+    object_class: project
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 8
+    to_iam: True
+
+  # dashboard
+  - action_id: dashboard.create
+    action_name: 图表创建
+    action_name_en: Dashboard Create
+    object_class: dashboard
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: dashboard.delete
+    action_name: 图表删除
+    action_name_en: Dashboard Delete
+    object_class: dashboard
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: True
+
+  - action_id: dashboard.retrieve
+    action_name: 图表查看
+    action_name_en: Dashboard Retrieve
+    object_class: dashboard
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: dashboard.update
+    action_name: 图表编辑
+    action_name_en: Dashboard Update
+    object_class: dashboard
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 4
+    to_iam: True
+
+  - action_id: dashboard.manage_auth
+    action_name: 图表授权
+    action_name_en: Dashboard AuthorizationManage
+    object_class: dashboard
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 5
+    to_iam: False
+
+  # flow
+  - action_id: flow.create
+    action_name: 任务创建
+    action_name_en: DataFlow Create
+    object_class: flow
+    has_instance: False
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: flow.delete
+    action_name: 任务删除
+    action_name_en: DataFlow Delete
+    object_class: flow
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: True
+
+  - action_id: flow.execute
+    action_name: 任务执行
+    action_name_en: DataFlow Execute
+    object_class: flow
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: flow.manage_auth
+    action_name: 任务授权
+    action_name_en: DataFlow AuthorizationManage
+    object_class: flow
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 4
+    to_iam: False
+
+  - action_id: flow.query_metrics
+    action_name: 任务质量查看
+    action_name_en: DataFlow MetricsQuery
+    object_class: flow
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 5
+    to_iam: True
+
+  - action_id: flow.retrieve
+    action_name: 任务查看
+    action_name_en: DataFlow View
+    object_class: flow
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 6
+    to_iam: True
+
+  - action_id: flow.update
+    action_name: 任务编辑
+    action_name_en: DataFlow Edit
+    object_class: flow
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 7
+    to_iam: True
+
+  # function
+  - action_id: function.develop
+    action_name: 自定义计算函数开发
+    action_name_en: UDF Develop
+    object_class: function
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: function.manage_auth
+    action_name: 自定义计算函数授权
+    action_name_en: UDF AuthorizationManage
+    object_class: function
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 2
+    to_iam: False
+
+  # rawdata
+  - action_id: raw_data.collect_hub
+    action_name: 数据源采集管理
+    action_name_en: RawData CollectorManage
+    object_class: raw_data
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: raw_data.create
+    action_name: 数据源创建
+    action_name_en: RawData Create
+    object_class: raw_data
+    has_instance: False
+    user_mode: False
+    can_be_applied: True
+    order: 2
+    to_iam: True
+
+  - action_id: raw_data.delete
+    action_name: 数据源删除
+    action_name_en: RawData Delete
+    object_class: raw_data
+    has_instance: True
+    user_mode: False
+    can_be_applied: True
+    order: 3
+    to_iam: True
+
+  - action_id: raw_data.etl
+    action_name: 数据源清洗配置管理
+    action_name_en: RawData ETL
+    object_class: raw_data
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 4
+    to_iam: True
+
+  - action_id: raw_data.etl_retrieve
+    action_name: 数据源清洗配置查看
+    action_name_en: RawData ETL View
+    object_class: raw_data
+    has_instance: True
+    user_mode: False
+    can_be_applied: True
+    order: 5
+    to_iam: True
+
+  - action_id: raw_data.manage_auth
+    action_name: 数据源授权
+    action_name_en: RawData AuthorizationManage
+    object_class: raw_data
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 6
+    to_iam: False
+
+  - action_id: raw_data.query_data
+    action_name: 数据源数据查询
+    action_name_en: RawData DataQuery
+    object_class: raw_data
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 7
+    to_iam: True
+
+  - action_id: raw_data.retrieve
+    action_name: 数据源查看
+    action_name_en: RawData View
+    object_class: raw_data
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 8
+    to_iam: True
+
+  - action_id: raw_data.retrieve_sensitive_information
+    action_name: 数据源敏感信息查询
+    action_name_en: RawData SensitiveInfomation View
+    object_class: raw_data
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 9
+    to_iam: True
+
+  - action_id: raw_data.update
+    action_name: 数据源编辑
+    action_name_en: RawData Edit
+    object_class: raw_data
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 10
+    to_iam: True
+
+  # resource_group
+  - action_id: resource_group.manage_auth
+    action_name: 资源组授权
+    action_name_en: ResourceGroup AuthorizationManage
+    object_class: resource_group
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: resource_group.manage_capacity
+    action_name: 资源组容量管理
+    action_name_en: ResourceGroup CapacityManage
+    object_class: resource_group
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 2
+    to_iam: True
+
+  - action_id: resource_group.manage_info
+    action_name: 资源组信息管理
+    action_name_en: ResourceGroup InformationManage
+    object_class: resource_group
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: resource_group.use
+    action_name: 资源组使用
+    action_name_en: ResourceGroup Use
+    object_class: resource_group
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 4
+    to_iam: False
+
+  # result_table
+  - action_id: result_table.manage_auth
+    action_name: 结果数据授权
+    action_name_en: ResourceGroup AuthorizationManage
+    object_class: result_table
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 1
+    to_iam: False
+
+  - action_id: result_table.query_data
+    action_name: 结果数据查询
+    action_name_en: ResultTable DataQuery
+    object_class: result_table
+    has_instance: True
+    user_mode: True
+    can_be_applied: True
+    order: 2
+    to_iam: True
+
+  - action_id: result_table.query_queue
+    action_name: 结果数据订阅
+    action_name_en: ResultTable Subscribe
+    object_class: result_table
+    has_instance: True
+    user_mode: True
+    can_be_applied: True
+    order: 0
+    to_iam: False
+
+  - action_id: result_table.retrieve
+    action_name: 结果数据查看
+    action_name_en: ResultTable View
+    object_class: result_table
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: result_table.retrieve_sensitive_information
+    action_name: 结果数据敏感信息查看
+    action_name_en: ResultTable SensitiveInfomation View
+    object_class: result_table
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: result_table.update_data
+    action_name: 结果数据更新
+    action_name_en: ResultTable DataUpdate
+    object_class: result_table
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 4
+    to_iam: True
+
+  - action_id: result_table.delete_data
+    action_name: 结果数据删除
+    action_name_en: ResultTable DataDelete
+    object_class: result_table
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 5
+    to_iam: True
+
+  - action_id: result_table.update
+    action_name: 结果数据信息更新
+    action_name_en: ResultTable Update
+    object_class: result_table
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 6
+    to_iam: True
+
+  - action_id: result_table.delete
+    action_name: 结果数据信息删除
+    action_name_en: ResultTable Delete
+    object_class: result_table
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 7
+    to_iam: True
+
+  # datatoken
+  - action_id: data_token.manage
+    action_name: 授权码管理
+    action_name_en: DataToken Manage
+    object_class: data_token
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: data_token.manage_auth
+    action_name: 授权码授权
+    action_name_en: DataToken AuthorizationManage
+    object_class: data_token
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: False
+
+  # AlgoModel
+  - action_id: model.create
+    action_name: 模型管理
+    action_name_en: Model Create
+    object_class: project
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 9
+    to_iam: True
+
+  - action_id: model.copy
+    action_name: 模型复制
+    action_name_en: Model Copy
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: model.retrieve
+    action_name: 模型查看
+    action_name_en: Model View
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: True
+
+  - action_id: model.update
+    action_name: 模型编辑
+    action_name_en: Model Edit
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: model.delete
+    action_name: 模型删除
+    action_name_en: Model Delete
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 4
+    to_iam: True
+
+  - action_id: model.copy_experiment
+    action_name: 实验复制
+    action_name_en: Model Experiment Copy
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 5
+    to_iam: True
+
+  - action_id: model.retrieve_experiment
+    action_name: 实验查看
+    action_name_en: Model Experiment View
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 6
+    to_iam: True
+
+  - action_id: model.create_experiment
+    action_name: 实验创建
+    action_name_en: Model Experiment Create
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 7
+    to_iam: True
+
+  - action_id: model.update_experiment
+    action_name: 实验编辑
+    action_name_en: Model Experiment Edit
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 8
+    to_iam: True
+
+  - action_id: model.delete_experiment
+    action_name: 实验删除
+    action_name_en: Model Experiment Delete
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 9
+    to_iam: True
+
+  - action_id: model.copy_release
+    action_name: 发布配置复制
+    action_name_en: Model Release Copy
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 10
+    to_iam: True
+
+  - action_id: model.retrieve_release
+    action_name: 发布配置查看
+    action_name_en: Model Release View
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 11
+    to_iam: True
+
+  - action_id: model.create_release
+    action_name: 发布配置创建
+    action_name_en: Model Release Create
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 12
+    to_iam: True
+
+  - action_id: model.update_release
+    action_name: 发布配置更新
+    action_name_en: Model Release Edit
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 13
+    to_iam: True
+
+  - action_id: model.delete_release
+    action_name: 发布配置删除
+    action_name_en: Model Release Delete
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 14
+    to_iam: True
+
+  - action_id: model.copy_service
+    action_name: 服务复制
+    action_name_en: Model Service Copy
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 15
+    to_iam: True
+
+  - action_id: model.retrieve_service
+    action_name: 服务查看
+    action_name_en: Model Service View
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 16
+    to_iam: True
+
+  - action_id: model.create_service
+    action_name: 服务创建
+    action_name_en: Model Service Create
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 17
+    to_iam: True
+
+  - action_id: model.update_service
+    action_name: 服务更新
+    action_name_en: Model Service Edit
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 18
+    to_iam: True
+
+  - action_id: model.delete_service
+    action_name: 服务删除
+    action_name_en: Model Service Delete
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 19
+    to_iam: True
+
+  - action_id: model.retrieve_serving
+    action_name: 应用查看
+    action_name_en: Model Serving View
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 20
+    to_iam: True
+
+  - action_id: model.create_serving
+    action_name: 应用创建
+    action_name_en: Model Serving Create
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 21
+    to_iam: True
+
+  - action_id: model.update_serving
+    action_name: 应用编辑
+    action_name_en: Model Serving Edit
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 22
+    to_iam: True
+
+  - action_id: model.delete_serving
+    action_name: 应用删除
+    action_name_en: Model Serving Delete
+    object_class: model
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 23
+    to_iam: True
+
+  # SampleSet
+  - action_id: sample_set.create
+    action_name: 样本集管理
+    action_name_en: SampleSet Create
+    object_class: project
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 10
+    to_iam: True
+
+  - action_id: sample_set.copy
+    action_name: 样本集复制
+    action_name_en: SampleSet Copy
+    object_class: sample_set
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: sample_set.retrieve
+    action_name: 样本集查看
+    action_name_en: SampleSet View
+    object_class: sample_set
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: True
+
+  - action_id: sample_set.update
+    action_name: 样本集编辑
+    action_name_en: SampleSet Edit
+    object_class: sample_set
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: sample_set.delete
+    action_name: 样本集删除
+    action_name_en: SampleSet Delete
+    object_class: sample_set
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 4
+    to_iam: True
+
+  - action_id: algorithm.copy
+    action_name: 算法复制
+    action_name_en: Algorithm Replication
+    object_class: algorithm
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: algorithm.retrieve
+    action_name: 算法查看
+    action_name_en: Algorithm View
+    object_class: algorithm
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: True
+
+  - action_id: algorithm.create
+    action_name: 算法管理
+    action_name_en: Algorithm Create
+    object_class: project
+    has_instance: True
+    user_mode: True
+    can_be_applied: False
+    order: 11
+    to_iam: True
+
+  - action_id: algorithm.update
+    action_name: 算法编辑
+    action_name_en: Algorithm Update
+    object_class: algorithm
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: algorithm.delete
+    action_name: 算法删除
+    action_name_en: Algorithm Delete
+    object_class: algorithm
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 4
+    to_iam: True
+
+  # DataModel
+  - action_id: datamodel.create
+    action_name: 创建数据模型
+    action_name_en: DataModel Create
+    object_class: project
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+  - action_id: datamodel.retrieve
+    action_name: 获取数据模型
+    action_name_en: DataModel Retrieve
+    object_class: datamodel
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 2
+    to_iam: True
+
+  - action_id: datamodel.update
+    action_name: 更新数据模型
+    action_name_en: DataModel Update
+    object_class: datamodel
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 3
+    to_iam: True
+
+  - action_id: datamodel.delete
+    action_name: 删除数据模型
+    action_name_en: DataModel Delete
+    object_class: datamodel
+    has_instance: True
+    user_mode: False
+    can_be_applied: False
+    order: 1
+    to_iam: True
+
+action_relations:
+  - parent: raw_data.etl
+    child: raw_data.etl_retrieve
+
+  - parent: result_table.query_data
+    child: result_table.retrieve_sensitive_information
+
+  - parent: raw_data.query_data
+    child: raw_data.retrieve_sensitive_information

@@ -1,0 +1,126 @@
+{
+  "convert": [
+    {
+      "method": "trim",
+      "args": [
+        "gsid"
+      ],
+      "type": "fun",
+      "next": null
+    },
+    {
+      "next": null,
+      "type": "fun",
+      "args": [
+        "server"
+      ],
+      "method": "trim"
+    },
+    {
+      "args": [
+        "gameappid"
+      ],
+      "method": "trim",
+      "next": null,
+      "type": "fun"
+    }
+  ],
+  "conf": {
+    "timestamp_len": 8,
+    "time_field_name": "timekey",
+    "timezone": 8,
+    "output_field_name": "timestamp",
+    "encoding": "UTF8",
+    "time_format": ""
+  },
+  "extract": {
+    "type": "fun",
+    "next": {
+      "type": "branch",
+      "next": [
+        {
+          "key": "value",
+          "subtype": "access_obj",
+          "type": "access",
+          "next": {
+            "next": {
+              "subtype": "assign_obj",
+              "assign": [
+                {
+                  "type": "string",
+                  "assign_to": "gameappid",
+                  "key": "gameappid"
+                },
+                {
+                  "key": "timekey",
+                  "assign_to": "timekey",
+                  "type": "long"
+                },
+                {
+                  "type": "string",
+                  "key": "gsid",
+                  "assign_to": "gsid"
+                },
+                {
+                  "key": "onlinecntios",
+                  "assign_to": "onlinecntios",
+                  "type": "long"
+                },
+                {
+                  "assign_to": "onlinecntandroid",
+                  "key": "onlinecntandroid",
+                  "type": "long"
+                },
+                {
+                  "assign_to": "zoneareaid",
+                  "key": "zoneareaid",
+                  "type": "long"
+                }
+              ],
+              "type": "assign"
+            },
+            "type": "fun",
+            "method": "iterate",
+            "args": []
+          }
+        },
+        {
+          "type": "assign",
+          "subtype": "assign_obj",
+          "assign": [
+            {
+              "type": "string",
+              "key": "time",
+              "assign_to": "time"
+            }
+          ]
+        },
+        {
+          "type": "assign",
+          "subtype": "assign_obj",
+          "assign": [
+            {
+              "key": "server",
+              "assign_to": "server",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "assign": [
+            {
+              "key": "type",
+              "assign_to": "type",
+              "type": "string"
+            }
+          ],
+          "subtype": "assign_obj",
+          "type": "assign"
+        }
+      ],
+      "name": "#branch1"
+    },
+    "method": "from_json",
+    "args": []
+  }
+}

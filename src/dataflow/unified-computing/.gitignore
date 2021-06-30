@@ -1,0 +1,16 @@
+/.idea
+*.iml
+*/.idea
+*/target
+*/*/target
+/var
+*.log
+*.pyc
+/udf/udf-core/src/main/java/com/tencent/bk/base/dataflow/udf/codegen/flink
+/udf/udf-core/src/main/java/com/tencent/bk/base/dataflow/udf/codegen/hive
+**/metastore_db
+python/*.egg-info
+python/build
+python/dist
+.DS_Store
+**/.idea

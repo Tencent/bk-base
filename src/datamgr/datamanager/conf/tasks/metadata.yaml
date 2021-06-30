@@ -1,0 +1,27 @@
+plans:
+  - task_code: metadata_sync_staff_info
+    task_name: 更新平台存量用户信息
+    task_category: metadata
+    task_loader: import
+    task_entry: entry.refresh_existed_staff_info
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '18 12 * * *'
+
+  - task_code: metadata_sync_new_staff_info
+    task_name: 补充平台新增用户信息
+    task_category: metadata
+    task_loader: import
+    task_entry: entry.sync_new_staff_info
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '5,15,25,35,45,55 * * * *'
+
+  - task_code: metadata_renew_bizes
+    task_name: 更新业务信息
+    task_category: metadata
+    task_loader: import
+    task_entry: entry.renew_bizes
+    task_status: 'on'
+    work_type: interval
+    work_crontab: '* * * * *'

@@ -1,0 +1,58 @@
+{
+    "extract": {
+        "args": [],
+        "method": "from_json",
+        "next": {
+            "args": [
+                "list1",
+                "list2"
+            ],
+            "method": "zip",
+            "next": {
+                "args": [],
+                "method": "iterate",
+                "next": {
+                    "name": "#branch1",
+                    "next": [
+                        {
+                            "index": 0,
+                            "next": {
+                                "assign": [
+                                    {
+                                        "assign_to": "var1",
+                                        "key": "k1",
+                                        "type": "int"
+                                    }
+                                ],
+                                "subtype": "assign_obj",
+                                "type": "assign"
+                            },
+                            "subtype": "access_pos",
+                            "type": "access"
+                        },
+                        {
+                            "index": 1,
+                            "next": {
+                                "assign": [
+                                    {
+                                        "assign_to": "var2",
+                                        "index": 0,
+                                        "type": "string"
+                                    }
+                                ],
+                                "subtype": "assign_pos",
+                                "type": "assign"
+                            },
+                            "subtype": "access_pos",
+                            "type": "access"
+                        }
+                    ],
+                    "type": "branch"
+                },
+                "type": "fun"
+            },
+            "type": "fun"
+        },
+        "type": "fun"
+    }
+}

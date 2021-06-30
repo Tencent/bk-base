@@ -1,0 +1,112 @@
+{
+    "extract": {
+        "type": "fun",
+        "method": "from_json",
+        "next": {
+            "type": "branch",
+            "next": [
+                {
+                    "type": "access",
+                    "subtype": "access_obj",
+                    "key": "_value_",
+                    "next": {
+                        "type": "fun",
+                        "method": "iterate",
+                        "next": {
+                            "type": "fun",
+                            "method": "split",
+                            "args": ["|"],
+                            "next": {
+                                "type": "assign",
+                                "subtype": "assign_pos",
+                                "assign": [
+                                    {
+                                        "index": 0,
+                                        "assign_to": "onlinenum",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "index": 1,
+                                        "assign_to": "set"
+                                    },
+                                    {
+                                        "index": 2,
+                                        "assign_to": "set2"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "assign",
+                    "subtype": "assign_obj",
+                    "assign": [
+                        {
+                            "key": "_time_",
+                            "assign_to": "report_time"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "dispatch": [
+        {
+            "data_id": 209,
+            "cond": {
+                "op": "and",
+                "lval": {
+                    "op": "equal",
+                    "lval": {
+                        "op": "value",
+                        "type": "field",
+                        "name": "onlinenum"
+                    },
+                    "rval": {
+                        "op": "value",
+                        "type": "int",
+                        "val": 123
+                    }
+                },
+                "rval": {
+                    "op": "equal",
+                    "lval": {
+                        "op": "value",
+                        "type": "field",
+                        "name": "set2"
+                    },
+                    "rval": {
+                        "op": "value",
+                        "type": "string",
+                        "val": "abc"
+                    }
+                }
+            }
+        },
+        {
+            "data_id": 300,
+            "cond": {
+                "op": "equal",
+                "lval": {
+                    "op": "value",
+                    "type": "field",
+                    "name": "onlinenum"
+                },
+                "rval": {
+                    "op": "value",
+                    "type": "int",
+                    "val": 456
+                }
+            }
+        }
+    ],
+    "conf": {
+        "time_format": "yyyyyyyy-MM-dd HH:mm:ss",
+        "timestamp_len": 0,
+        "time_field_name": "report_time",
+        "output_field_name": "bk_dtEventTime",
+        "delimiter": "|",
+        "encoding": "UTF-8"
+    }
+}

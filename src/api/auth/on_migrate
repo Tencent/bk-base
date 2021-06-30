@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source $CTRL_DIR/utils.fc
+
+mkdir -p ${BK_HOME}/public/bkdata/authapi
+
+workon bkdata-authapi
+python manage.py registe_iam_config

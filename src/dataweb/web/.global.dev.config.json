@@ -1,0 +1,20 @@
+{
+    "BKBASE_Global": {
+        "webTitle": "基础计算平台",
+        "siteUrl": "/",
+        "ccUrl": "/",
+        "supersetUrl": "/",
+        "grafanaUrl": "/",
+        "dataGraphUrl": "/",
+        "dataAdminUrl": "/",
+        "staticUrl": "/static",
+        "dataVersion": "",
+        "runVersion": "ieod",
+        "helpDocUrl": "/",
+        "ceUrl": "/",
+        "loginUrl": "/",
+        "langServerProdWS": "/",
+        "langServerDevWS": "/",
+        "CESiteUrl": "/"
+    }
+}

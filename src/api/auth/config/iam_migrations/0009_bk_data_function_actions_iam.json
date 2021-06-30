@@ -1,0 +1,29 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "function-develop",
+                "name": "自定义计算函数开发",
+                "name_en": "UDF  Develop",
+                "description": "自定义计算函数开发",
+                "description_en": "UDF  Develop",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "function",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "function"
+                            }
+                        ],
+                        "related_actions": []
+                    }
+                ]
+            }
+        }
+    ]
+}

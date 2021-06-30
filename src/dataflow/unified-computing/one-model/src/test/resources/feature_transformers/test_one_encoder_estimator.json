@@ -1,0 +1,144 @@
+#
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础计算平台 available.
+#
+# Copyright (C) 2019 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础计算平台 is licensed under the MIT license.
+#
+# A copy of the MIT License is included in this file.
+#
+#
+# Terms of the MIT License: # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions: #
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+
+{
+"job_id": "test_n_gram",
+"job_name": "test_n_gram",
+"job_type": "spark_mllib",
+"run_mode": "dev",
+"time_zone": "Asia/Shanghai",
+"resource": {
+"cluster_group": "default",
+"queue_name": "root.dataflow.batch.default"
+},
+"nodes": {
+"source": {
+"591_test_one_hot_encoder_estimator_source": {
+"id": "591_test_one_hot_encoder_estimator_source",
+"input": {
+"type": "hdfs",
+"path": "hdfs://xxxx/591_test_one_hot_encoder_estimator_source",
+"format": "parquet"
+},
+"name": "test_pca_source",
+"fields": [
+{
+"origin": "",
+"field": "categoryIndex1",
+"type": "double",
+"description": ""
+},
+{
+"origin": "",
+"field": "categoryIndex2",
+"type": "double",
+"description": ""
+}
+],
+"description": "591_test_one_hot_encoder_estimator_source rt",
+"type": "data"
+}
+},
+"transform": {
+"591_test_one_hot_encoder_estimator_train": {
+"description": "test_one_hot_encoder_estimator train",
+"fields": [
+],
+"interpreter": {
+},
+"processor": {
+"name": "one_hot_encoder_estimator",
+"type": "train",
+"args": {
+"input_cols": ["categoryIndex1", "categoryIndex2"],
+"output_cols": ["categoryVec1", "categoryVec2"]
+}
+},
+"parents": [
+"591_test_one_hot_encoder_estimator_source"
+],
+"id": "591_test_one_hot_encoder_estimator_train",
+"name": "591_test_one_hot_encoder_estimator_train",
+"type": "model"
+},
+"591_test_one_hot_encoder_estimator_run": {
+"description": "test_one_hot_encoder_estimator run",
+"fields": [
+{
+"origin": "",
+"field": "categoryVec1",
+"type": "string",
+"description": "pcaFeatures"
+},
+{
+"origin": "",
+"field": "categoryVec2",
+"type": "string",
+"description": "pcaFeatures"
+}
+],
+"interpreter": {
+},
+"processor": {
+"name": "one_hot_encoder_estimator",
+"type": "trained-run"
+},
+"parents": [
+"591_test_one_hot_encoder_estimator_train", "591_test_one_hot_encoder_estimator_source"
+],
+"id": "591_test_one_hot_encoder_estimator_run",
+"name": "test_one_hot_encoder_estimator_run",
+"type": "data"
+}
+},
+"sink": {
+"591_test_one_hot_encoder_estimator_run": {
+"description": "test_one_hot_encoder_estimator run",
+"fields": [
+{
+"origin": "",
+"field": "categoryVec1",
+"type": "string",
+"description": "pcaFeatures"
+},
+{
+"origin": "",
+"field": "categoryVec2",
+"type": "string",
+"description": "pcaFeatures"
+}
+],
+"output": {
+"type": "hdfs",
+"path": "hdfs://xxxx/591_test_one_hot_encoder_estimator_run",
+"format": "parquet",
+"mode": "overwrite"
+},
+"id": "591_test_one_hot_encoder_estimator_run",
+"name": "test_one_hot_encoder_estimator_run",
+"type": "data"
+}
+}
+}
+}

@@ -1,0 +1,83 @@
+# vim:ft=sh
+
+source ./utils.fc
+
+load_functions activate third
+load_functions activate extra
+
+activate () {
+    local module=$1
+    local proj=$2
+    local ip
+
+    check_name activate $module
+
+    local TARGET_IPS=( $(map_name2ip $module $proj) )
+
+    for ip in ${TARGET_IPS[@]}; do
+        rcmd root@$ip "source $CTRL_DIR/activate.rc; activate_$module $proj"
+    done
+}
+
+activate_rabbitmq () {
+    local tmpfile=/tmp/activate.rbtmq.tmp
+    local rbtmq_res=$RABBITMQ_HOST
+
+    curl -o $tmpfile --connect-timeout 10 \
+        -H 'Content-Type:application/x-www-form-urlencoded' \
+        -X POST \
+        -d "mq_ip=$rbtmq_res&username=$MQ_USER&password=$MQ_PASS" \
+        "http://$PAAS_IP:8000/v1/rabbitmq/init/"
+
+    sleep 2
+    if [ -f $tmpfile ]; then
+        if grep -Eq '"code": 0' $tmpfile; then
+            ok "activate rabbitmq succeded. rabbitmq server: $rbtmq_res"
+            rm -f $tmpfile
+        elif grep -Eq "mq_ip.*$rbtmq_res" $tmpfile; then
+            ok "activate rabbitmq succeded. rabbitmq server: $rbtmq_res"
+            rm -f $tmpfile
+        else
+            err "register and activate rabbitmq failed. requrest env: $env. "
+            err "api response: $(< $tmpfile)"
+            rm -f $tmpfile
+            return 1
+        fi
+    else
+        err "request failed. $tmpfile not found"
+        return $FILE_NOT_FOUND
+    fi
+}
+
+activate_appo () {
+    _activate_paas_agent appo
+}
+
+activate_appt () {
+    _activate_paas_agent appt
+}
+
+_activate_paas_agent () {
+    local env_name=$1
+    local tmpfile=/tmp/activate.$env_name.tmp
+
+    local api_url="/v1/agent/init/?agent_ip=$LAN_IP"
+
+    curl -o $tmpfile -s \
+        -X GET \
+        -H "Host: $PAAS_HOST" \
+        "http://$NGINX_IP0:$PAAS_HTTP_PORT$api_url"
+
+    if [ -f $tmpfile ]; then
+        if ! grep -q '"agent_ip"' $tmpfile; then
+            err "activate $env_name failed. api:$api_url, response: $(< $tmpfile)"
+            rm -f $tmpfile
+            return 1
+        else
+            ok "activate $env_name($LAN_IP) succeded"
+        fi
+    else
+        err "request failed. not reposne found"
+        return $FILE_NOT_FOUND
+    fi
+}

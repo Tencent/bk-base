@@ -1,0 +1,22 @@
+{
+  "type": "fun",
+  "method": "regex_extract",
+  "args": [
+    {"regexp": "([a-zA-Z]+_a.*)", "key": "worldid"},
+    {"regexp": "([a-zA-Z]+_ab.*)", "key": "openid"}
+  ],
+  "next": {
+    "type": "assign",
+    "subtype": "assign_obj",
+    "assign": [
+      {
+        "key": "worldid",
+        "assign_to": "varname"
+      },
+      {
+        "key": "openid",
+        "assign_to": "varname2"
+      }
+    ]
+  }
+}

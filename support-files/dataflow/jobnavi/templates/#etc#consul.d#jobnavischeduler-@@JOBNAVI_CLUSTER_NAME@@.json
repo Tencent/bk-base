@@ -1,0 +1,13 @@
+{
+    "services": [
+        {
+            "check": {
+                "name": "jobnavi scheduler master runs on port __BKDATA_JOBNAVISCHEDULER_PORT__",
+                "tcp": "__LAN_IP__:__BKDATA_JOBNAVISCHEDULER_PORT__",
+                "interval": "10s",
+                "timeout": "1s"
+            }, 
+            "name": "jobnavischeduler-@@JOBNAVI_CLUSTER_NAME@@"
+        }
+    ]
+}

@@ -1,0 +1,239 @@
+# vim:ft=sh
+
+source ./utils.fc
+
+load_functions register third
+load_functions register extra
+
+get_setname () {
+    local module="$1"
+
+    case $module in
+        job) set_name="作业平台" ;;
+        gse_*|license) set_name="管控平台" ;;
+        cmdb|cc_service) set_name="配置平台" ;;
+        paas|open_paas|esb|login|appengine|appo|appt|paas_agent) set_name="集成平台" ;;
+        redis|mysql|kafka|zk|beanstalk|zookeeper|rabbitmq|es|elasticsearch) set_name="公共组件"
+    esac
+
+    echo $set_name
+}
+
+get_full_name() {
+    local module=$1
+    case $module in
+        es) full_module_name="elasticsearch" ;;
+        zk) full_module_name="zookeeper" ;;
+        paas_agent) full_module_name="appo" ;;
+        *)  full_module_name="$module" ;;
+    esac
+
+    echo $full_module_name
+}
+
+register_host_to_module () {
+    local addr="$1"
+    local module="$2"
+
+    curl -X POST \
+        -H 'cache-control: no-cache' \
+        -H 'content-type: multipart/form-data' \
+        -F ip=$addr \
+        -F appName="蓝鲸" \
+        -F osType=$os_type \
+        -F moduleName=$(get_full_name $module) \
+        -F hostname=$(hostname) \
+        -F setName=$(get_setname $module) \
+        http://$CMDB_HOST/api/host/enterIP
+
+    return $?
+}
+
+register_auto_launch_plugins () {
+    local proc_name lan_ip
+
+    local api_url=http://$PAAS_HOST:$DEFAULT_HTTP_PORT/api/c/compapi/v2/gse/register_proc_info/
+    local api_url2=http://$PAAS_HOST:$DEFAULT_HTTP_PORT/api/c/compapi/v2/gse/operate_proc/
+
+    local plugins=( $(echo -e "import yaml
+for i in yaml.load(open('$PKG_SRC_PATH/gse/plugins_linux_x86_64/project.yaml')):
+    if i['auto_launch'] == 1:
+        print i['name']" | /opt/py27/bin/python 2>/dev/null) )
+
+    for lan_ip in ${ALL_IP[@]}; do
+        for proc_name in ${plugins[@]}; do
+            local plugin_conf="${proc_name}.conf"
+            local start_proc_body="{ \"bk_app_code\": \"bk_gse\", \"bk_username\": \"bk_gse\", \"bk_app_secret\": \"$(_app_token bk_gse)\", \"meta\": { \"namespace\": \"nodeman\", \"name\": \"$proc_name\", \"labels\": { \"proc_name\": \"$proc_name\" } }, \"op_type\": 0, \"hosts\": [ { \"ip\": \"$lan_ip\", \"bk_cloud_id\": 0, \"bk_supplier_id\": 0 } ] }"
+            cat > /tmp/register_plugin.json <<_OO_   
+{
+  "bk_app_code": "bk_gse",
+  "bk_username": "bk_gse",
+  "bk_app_secret": "$(_app_token bk_gse)",
+  "meta": {
+    "namespace": "nodeman",
+    "name": "$proc_name",
+    "labels": {
+      "proc_name": "$proc_name"
+    }
+  },
+  "hosts": [
+    {
+      "ip": "$lan_ip",
+      "bk_cloud_id": 0,
+      "bk_supplier_id": 0
+    }
+  ],
+  "spec": {
+    "identity": {
+      "user":"root",
+      "index_key": "",
+      "proc_name": "$proc_name",
+      "setup_path": "$GSE_AGENT_HOME/plugins/bin",
+      "pid_path": "${GSE_AGENT_RUN_DIR}/${proc_name}.pid",
+      "config_path": "$GSE_AGENT_HOME/plugins/etc/${plugin_conf}",
+      "log_path": "$GSE_AGENT_LOG_DIR/"
+    },
+    "control": {
+      "start_cmd": "./start.sh $proc_name",
+      "stop_cmd": "./stop.sh $proc_name",
+      "restart_cmd": "./restart.sh $proc_name",
+      "reload_cmd": "./reload.sh $proc_name",
+      "kill_cmd": "./stop.sh $proc_name",
+      "version_cmd": "./$proc_name -v",
+      "health_cmd": "./$proc_name -z"
+    },
+    "resource": {
+      "cpu": 10.0,
+      "mem": 10.0,
+      "fd": 10000,
+      "disk": 100,
+      "net": 0
+    },
+    "monitor_policy": {
+      "auto_type": 1,
+      "start_check_secs": 5,
+      "stop_check_secs": 5,
+      "start_retries": 3,
+      "start_interval": 20,
+      "crotab_rule": ""
+    },
+    "warn_report_policy": {
+      "report_id": 0
+    },
+    "configmap": [
+      {
+        "path": "",
+        "md5": ""
+      }
+    ]
+  }
+}
+_OO_
+            local register_proc_body=$(cat /tmp/register_plugin.json)
+
+            curl -s -X POST -d "$register_proc_body" $api_url
+            echo
+            curl -s -X POST -d "$start_proc_body"    $api_url2
+            echo
+        done
+    done
+
+    # 内部开发商id是tencent
+    # 其余环境使用0
+}
+
+
+register_jobnavi () {
+    #local cluster_name=${1:-default}
+    local cluster_name=default
+    local config_api="http://${BKDATA_JOBNAVIAPI_HOST}:${BKDATA_JOBNAVIAPI_PORT}/v3/jobnavi/cluster_config/"
+    local register_res=$(curl -s -X POST -H 'cache-control: no-cache' -H 'content-type: application/json' -d '{ "tags" : ["'$GEOG_AREA_CODE'"] , "cluster_name": "'$cluster_name'", "cluster_domain": "'jobnavischeduler-default.service.consul':'$BKDATA_JOBNAVISCHEDULER_PORT'","version": "0.4.0","created_by": "admin"}' "$config_api")
+    if curl -s -XGET http://${BKDATA_JOBNAVIAPI_HOST}:${BKDATA_JOBNAVIAPI_PORT}/v3/jobnavi/cluster_config/|grep "jobnavischeduler-default.service.consul" ; then
+        log "jobnavi cluster_config register success"
+    else
+        err "jobnavi cluster_config register failed"
+    fi
+
+    echo "$register_res"
+    if echo "$register_res" | grep -q "true"; then
+        deploy_res=$(curl -s -i "http://${BKDATA_DATAFLOWAPI_HOST}:${BKDATA_DATAFLOWAPI_PORT}/v3/dataflow/batch/deploy/?geog_area_code=$GEOG_AREA_CODE")
+    echo "http://${BKDATA_DATAFLOWAPI_HOST}:${BKDATA_DATAFLOWAPI_PORT}/v3/dataflow/batch/deploy/?geog_area_code=$GEOG_AREA_CODE"
+        echo "$deploy_res"
+        if echo "$deploy_res" | grep -q "true"; then
+            log "register jobnavi scheduler && deploy succss"
+        else
+            fail "deploy jobnavi scheduler failed"
+        fi
+    else
+        fail "register jobnavi scheduler failed: response msg: $register_res"
+    fi
+
+    deploy_res=$(curl -s -i "http://${BKDATA_DATAFLOWAPI_HOST}:${BKDATA_DATAFLOWAPI_PORT}/v3/dataflow/flow/deploy/?geog_area_code=$GEOG_AREA_CODE")
+    echo "$deploy_res"
+    if echo "$deploy_res" | grep -q "true"; then
+        log "register dataflow flow && deploy succss"
+    else
+        fail "deploy dataflow flow failed"
+    fi
+
+}
+
+register_flink () {
+    local api="http://$BKDATA_DATAFLOWAPI_HOST:$BKDATA_DATAFLOWAPI_PORT/v3/dataflow/stream/cluster_config/"
+
+    curl -s -X POST -H 'cache-control: no-cache' -H 'content-type: application/json' -H 'postman-token: b3c452d0-9ac4-ffe3-843a-ba3a03e7ae18' -d '{
+                "component_type": "flink",
+                "cluster_group": "debug",
+                "cluster_name": "debug_standard",
+                "version": "1.7.2",
+                "geog_area_code": "'$GEOG_AREA_CODE'",
+                "extra_info": {
+                    "slot": 1,
+                    "job_manager_memory": 1024,
+                    "task_manager_memory": 3072,
+                    "container": 1
+                }
+            }' "$api"
+    echo ""
+
+    if curl -s -XGET http://$BKDATA_DATAFLOWAPI_HOST:$BKDATA_DATAFLOWAPI_PORT/v3/dataflow/stream/cluster_config/|grep debug_standard ; then
+        log "dataflow stream cluster_config register success"
+    else
+        err "dataflow stream cluster_config register failed"
+    fi
+}
+
+register_jobnavirunner () {
+    source $CTRL_DIR/utils.fc
+    export USER=dataflow ; export GROUP=dataflow ;
+
+    if [[ ! $(id dataflow) ]] ; then
+        mkdir -p $INSTALL_PATH/home/dataflow ; groupadd dataflow ; useradd -d $INSTALL_PATH/home/dataflow -g dataflow -s /bin/bash dataflow ; chown -R dataflow:dataflow $INSTALL_PATH/home/dataflow
+    fi
+
+    mkdir -p $BK_HOME/logs/bkdata/jobnavi-runner ; chown -R dataflow:dataflow $BK_HOME/logs/bkdata/jobnavi-runner
+    mkdir -p $BK_HOME/logs/bkdata/jobnavirunner; chown -R dataflow:dataflow $BK_HOME/logs/bkdata/jobnavirunner
+    chmod -R 777 $BK_HOME/logs/bkdata/
+    mkdir -p $BK_HOME/public/spark ; chown -R dataflow:dataflow $BK_HOME/public/spark ; chown -R dataflow:dataflow $BK_HOME/bkdata/jobnavirunner
+}
+
+register_jobnavirunner_label () {
+    curl "http://$BKDATA_JOBNAVISCHEDULER_HOST:$BKDATA_JOBNAVISCHEDULER_PORT/label" -d '{"operate":"add_label","label_name":"algorithm","description":"算法任务标签"}'
+    curl "http://$BKDATA_JOBNAVISCHEDULER_HOST:$BKDATA_JOBNAVISCHEDULER_PORT/label" -d '{"operate":"add_label","label_name":"stream","description":"实时任务标签"}'
+    curl "http://$BKDATA_JOBNAVISCHEDULER_HOST:$BKDATA_JOBNAVISCHEDULER_PORT/label" -d '{"operate":"add_label","label_name":"spark_session_server","description":"离线交互式任务标签"}'
+
+    total_jobnavirunner_num=$(grep jobnavirunner $CTRL_DIR/install.config|wc -l)
+    if [[ ${total_jobnavirunner_num} -lt 3 ]] ; then
+        err "jobnavirunner total num less than 3 , error , must greater than or equal 3"
+        exit 1
+    elif [[ ${total_jobnavirunner_num} -eq 3 ]] ; then
+        #jobnavirunner_node1_host=$(eval echo "\${$(grep jobnavirunner install.config|sed -n 'np'|cut -d "," -f 1|awk '{print $2}'|sed 's/(/_/g;s/)/_node1_host/g'|tr '[a-z]' '[A-Z')}")
+        curl "http://$BKDATA_JOBNAVISCHEDULER_HOST:$BKDATA_JOBNAVISCHEDULER_PORT/label" -d '{"operate":"add_host_label","label_name":"algorithm","host":"'$BKDATA_JOBNAVIRUNNER_NODE1_HOST'","description":"算法任务"}    '
+        curl "http://$BKDATA_JOBNAVISCHEDULER_HOST:$BKDATA_JOBNAVISCHEDULER_PORT/label" -d '{"operate":"add_host_label","label_name":"stream","host":"'$BKDATA_JOBNAVIRUNNER_NODE2_HOST'","description":"实时任务"}'
+        curl "http://$BKDATA_JOBNAVISCHEDULER_HOST:$BKDATA_JOBNAVISCHEDULER_PORT/label" -d '{"operate":"add_host_label","label_name":"spark_session_server","host":"'$BKDATA_JOBNAVIRUNNER_NODE2_HOST'","description":"离线交互式任务"}'
+    else
+        curl "http://$BKDATA_JOBNAVISCHEDULER_HOST:$BKDATA_JOBNAVISCHEDULER_PORT/label" -d '{"operate":"add_host_label","label_name":"algorithm","host":"'$BKDATA_JOBNAVIRUNNER_NODE1_HOST'","description":"算法任务"}    '
+        curl "http://$BKDATA_JOBNAVISCHEDULER_HOST:$BKDATA_JOBNAVISCHEDULER_PORT/label" -d '{"operate":"add_host_label","label_name":"stream","host":"'$BKDATA_JOBNAVIRUNNER_NODE2_HOST'","description":"实时任务"}'
+        curl "http://$BKDATA_JOBNAVISCHEDULER_HOST:$BKDATA_JOBNAVISCHEDULER_PORT/label" -d '{"operate":"add_host_label","label_name":"spark_session_server","host":"'$BKDATA_JOBNAVIRUNNER_NODE3_HOST'","description":"离线交互式任务"}'
+    fi
+}

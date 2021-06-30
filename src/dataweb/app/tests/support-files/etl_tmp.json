@@ -1,0 +1,217 @@
+{
+    "args": [],
+    "next": {
+        "next": [
+            {
+                "type": "assign",
+                "subtype": "assign_obj",
+                "assign": [
+                    {
+                        "assign_to": "server_ip",
+                        "key": "_server_",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "next": {
+                    "args": [],
+                    "next": {
+                        "next": {
+                            "type": "branch",
+                            "name": "#branch2",
+                            "next": [
+                                {
+                                    "index": 0,
+                                    "subtype": "access_pos",
+                                    "type": "access",
+                                    "next": {
+                                        "method": "split",
+                                        "type": "fun",
+                                        "next": {
+                                            "type": "branch",
+                                            "next": [
+                                                {
+                                                    "next": {
+                                                        "next": {
+                                                            "subtype": "assign_pos",
+                                                            "type": "assign",
+                                                            "assign": [
+                                                                {
+                                                                    "assign_to": "remote_host",
+                                                                    "index": 0,
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "assign_to": "user_id",
+                                                                    "index": 1,
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "type": "string",
+                                                                    "index": 2,
+                                                                    "assign_to": "user_name"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "type": "fun",
+                                                        "method": "split",
+                                                        "args": [
+                                                            " "
+                                                        ]
+                                                    },
+                                                    "type": "access",
+                                                    "subtype": "access_pos",
+                                                    "index": 0
+                                                },
+                                                {
+                                                    "subtype": "access_pos",
+                                                    "type": "access",
+                                                    "next": {
+                                                        "next": {
+                                                            "assign": [
+                                                                {
+                                                                    "assign_to": "access_time",
+                                                                    "index": 0,
+                                                                    "type": "string"
+                                                                }
+                                                            ],
+                                                            "subtype": "assign_pos",
+                                                            "type": "assign"
+                                                        },
+                                                        "method": "replace",
+                                                        "type": "fun",
+                                                        "args": [
+                                                            "]"
+                                                        ]
+                                                    },
+                                                    "index": 1
+                                                }
+                                            ],
+                                            "name": "#branch3"
+                                        },
+                                        "args": [
+                                            "["
+                                        ]
+                                    }
+                                },
+                                {
+                                    "next": {
+                                        "type": "assign",
+                                        "subtype": "assign_pos",
+                                        "assign": [
+                                            {
+                                                "assign_to": "request",
+                                                "index": 0,
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "subtype": "access_pos",
+                                    "type": "access",
+                                    "index": 1
+                                },
+                                {
+                                    "index": 3,
+                                    "next": {
+                                        "assign": [
+                                            {
+                                                "type": "string",
+                                                "index": 0,
+                                                "assign_to": "referer"
+                                            }
+                                        ],
+                                        "subtype": "assign_pos",
+                                        "type": "assign"
+                                    },
+                                    "subtype": "access_pos",
+                                    "type": "access"
+                                },
+                                {
+                                    "index": 5,
+                                    "next": {
+                                        "subtype": "assign_pos",
+                                        "type": "assign",
+                                        "assign": [
+                                            {
+                                                "assign_to": "user_agent",
+                                                "index": 0,
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "type": "access",
+                                    "subtype": "access_pos"
+                                },
+                                {
+                                    "subtype": "access_pos",
+                                    "type": "access",
+                                    "next": {
+                                        "args": [
+                                            " "
+                                        ],
+                                        "next": {
+                                            "type": "branch",
+                                            "next": [
+                                                {
+                                                    "type": "access",
+                                                    "subtype": "access_pos",
+                                                    "next": {
+                                                        "assign": [
+                                                            {
+                                                                "index": 0,
+                                                                "assign_to": "status_code",
+                                                                "type": "string"
+                                                            }
+                                                        ],
+                                                        "subtype": "assign_pos",
+                                                        "type": "assign"
+                                                    },
+                                                    "index": 1
+                                                },
+                                                {
+                                                    "index": 2,
+                                                    "next": {
+                                                        "type": "assign",
+                                                        "subtype": "assign_pos",
+                                                        "assign": [
+                                                            {
+                                                                "assign_to": "response_size",
+                                                                "index": 0,
+                                                                "type": "long"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "access",
+                                                    "subtype": "access_pos"
+                                                }
+                                            ],
+                                            "name": "#branch4"
+                                        },
+                                        "method": "split",
+                                        "type": "fun"
+                                    },
+                                    "index": 2
+                                }
+                            ]
+                        },
+                        "method": "split",
+                        "type": "fun",
+                        "args": [
+                            "\""
+                        ]
+                    },
+                    "method": "iterate",
+                    "type": "fun"
+                },
+                "subtype": "access_obj",
+                "type": "access",
+                "key": "_value_"
+            }
+        ],
+        "name": "#branch1",
+        "type": "branch"
+    },
+    "method": "from_json",
+    "type": "fun"
+}

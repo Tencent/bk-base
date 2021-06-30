@@ -1,0 +1,5 @@
+{
+  "type": "fun",
+  "method": "replace",
+  "args": ["abc","bca",",",":"]
+}

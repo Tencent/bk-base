@@ -1,0 +1,80 @@
+# vim: ft=sh
+#
+
+source ./functions
+
+cron_backup () {
+    local tmpfile=$(mktemp /tmp/bkinstall.XXXXXXXXX)
+    crontab -l > $tmpfile
+
+    echo $tmpfile
+}
+
+addcron_for () {
+    local module="$1"
+    local cron_file=$(cron_backup)
+
+    case $module in
+        paas) module=open_paas ;;
+        appo|appt) module=paas_agent ;;
+    esac
+
+    func_name="watch_$module"
+    sed -i "/watch.rc;/d" $cron_file
+    sed -i "/process_watch $module/d" $cron_file
+    echo "* * * * * export INSTALL_PATH=$INSTALL_PATH; $INSTALL_PATH/bin/process_watch $module >/dev/null 2>&1" >>$cron_file
+
+    crontab < $cron_file
+    #loadcron $module
+
+    rm -f $cron_file
+}
+
+removecron_for () {
+    local module="$1"
+    local cron_file=$(cron_backup)
+
+    case $module in
+        paas) module=open_paas ;;
+        appo|appt) module=paas_agent ;;
+    esac
+
+    func_name="watch_$module"
+    sed -i "/process_watch $module/d" $cron_file
+
+    crontab < $cron_file
+    rm -f $cron_file
+}
+
+install_cron () {
+    local module
+
+    for module in $(cat $INSTALL_PATH/.installed_module); do
+        log "add crontask for $module"
+        addcron_for $module
+    done
+
+    if ! grep -q consul $INSTALL_PATH/.installed_module; then
+        log "add crontask for consul"
+        addcron_for consul
+    fi
+}
+
+loadcron () {
+    local module=$1
+    local project=$2
+    local cronfile
+    local cronpath=${PKG_SRC_PATH}/$module/support-files/scripts
+
+    (
+        for cronfile in ${cronpath}/{crontab,$project.crontab}; do
+            if [ -f $cronfile ]; then
+                log "load crontab task for $module"
+                crontab <(
+                    grep -vFf <(sed "s#__INSTALL_PATH__#$INSTALL_PATH#;/^[ \t]*$/d" $cronfile) <(crontab -l)
+                    sed "s#__INSTALL_PATH__#$INSTALL_PATH#" $cronfile
+                )
+            fi
+        done
+    )
+}

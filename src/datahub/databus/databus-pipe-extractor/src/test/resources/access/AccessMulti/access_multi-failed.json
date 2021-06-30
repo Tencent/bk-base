@@ -1,0 +1,7 @@
+{
+  "type": "access",
+  "subtype": "access_multi",
+  "keys": "worldid,openid",
+  "separator": "+",
+  "next": null
+}

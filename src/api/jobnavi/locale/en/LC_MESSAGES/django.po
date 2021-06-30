@@ -1,0 +1,488 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-25 17:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: api/jobnavi_api.py:27
+msgid "没有JobNavi集群信息."
+msgstr "No JobNavi cluster information."
+
+#: api/jobnavi_api.py:31
+#, fuzzy, python-format
+#| msgid "没有JobNavi集群%s配置."
+msgid "没有JobNavi集群(geog_area_code: %s, cluster_name: %s)配置."
+msgstr "No JobNavi cluster %s configuration."
+
+#: api_helpers/api/modules/datamanage.py:28
+msgid "查询数据质量TSDB中的监控指标"
+msgstr ""
+
+#: api_helpers/api/modules/datamanage.py:47
+msgid "查询结果表监控状态"
+msgstr ""
+
+#: api_helpers/api/modules/datamanage.py:63
+msgid "相关监控信息查询"
+msgstr ""
+
+#: api_helpers/api/modules/resourcecenter.py:25
+#: api_helpers/api/modules/resourcecenter.py:32
+msgid "任务提交资源实例"
+msgstr ""
+
+#: api_helpers/api/util/api_driver.py:42
+msgid "API返回为空"
+msgstr "API return is null"
+
+#: api_helpers/api/util/api_driver.py:45
+#, python-format
+msgid "调用%(api_name)s失败(%(code)s) - %(message)s"
+msgstr "Call %(api_name)s failed (%(code)s) - %(message)s"
+
+#: api_helpers/api/util/api_driver.py:52
+msgid "API返回格式错误"
+msgstr "API return format error"
+
+#: exception/exceptions.py:19
+msgid "非预期异常"
+msgstr "unexpected exception"
+
+#: exception/exceptions.py:20
+msgid "任务调度集群信息异常"
+msgstr "schedule cluster info exception"
+
+#: exception/exceptions.py:21
+msgid "请求参数异常"
+msgstr "request argument error"
+
+#: exception/exceptions.py:22
+msgid "任务调度接口调用异常"
+msgstr "schedule interface call exception"
+
+#: views/config_views.py:80 views/config_views.py:115
+msgid "配置jobnavi集群信息失败，请联系管理员"
+msgstr ""
+"Failed to configure jobnavi cluster information. Please contact the "
+"administrator"
+
+#: views/config_views.py:104
+#, python-format
+msgid "集群不存在%s"
+msgstr "Cluster does not exist %s"
+
+#: views/data_makeup_views.py:91
+msgid "等待中"
+msgstr "waiting"
+
+#: views/data_makeup_views.py:93
+msgid "运行中"
+msgstr "running"
+
+#: views/data_makeup_views.py:95
+msgid "失败"
+msgstr "failed"
+
+#: views/data_makeup_views.py:97
+msgid "前序节点执行失败"
+msgstr "preorder nodes failed"
+
+#: views/data_makeup_views.py:99
+msgid "前序节点未执行，请等待下个周期"
+msgstr "preorder nodes not scheduled"
+
+#: views/data_makeup_views.py:101
+msgid "警告"
+msgstr "warning"
+
+#: views/data_makeup_views.py:103
+msgid "成功"
+msgstr "succeeded"
+
+#: views/execute_views.py:97
+msgid "过滤条件必须包含[schedule_id]."
+msgstr "Filter conditions must contain [schedule_id]."
+
+#: views/execute_views.py:106
+msgid "过滤条件只支持[limit] 和 [status]"
+msgstr "Filter conditions only support [limit] and [status]"
+
+#: views/execute_views.py:147
+msgid "获取执行结果目前仅支持field=status"
+msgstr "Getting execution results currently only supports field=status"
+
+#: views/health_check_views.py:57
+msgid "scheduler检查异常"
+msgstr "Scheduler check exception"
+
+#: views/health_check_views.py:63
+msgid "获取runner信息异常"
+msgstr "Get the runner information exception"
+
+#: views/health_check_views.py:68
+#, python-format
+msgid "当前可用的runner数小于2个，存活runner列表: %s"
+msgstr ""
+"The number of currently available runners is less than 2, and the list of "
+"surviving runners: %s"
+
+#: views/serializers.py:24
+msgid "tags 字段必填。"
+msgstr "tags field is required"
+
+#: views/serializers.py:31
+msgid "地域标签信息"
+msgstr "geographical tag"
+
+#: views/serializers.py:41
+msgid "时区"
+msgstr "Time zone"
+
+#: views/serializers.py:42
+msgid "cron表达式"
+msgstr "Cron expression"
+
+#: views/serializers.py:43
+msgid "统计频率"
+msgstr "Count frequency"
+
+#: views/serializers.py:44
+msgid "周期单位"
+msgstr "Count frequency unit"
+
+#: views/serializers.py:45
+msgid "启动时间"
+msgstr "Start time"
+
+#: views/serializers.py:46
+msgid "延迟"
+msgstr "Delay"
+
+#: views/serializers.py:49
+msgid "父任务标识"
+msgstr "Parent task ID"
+
+#: views/serializers.py:50
+msgid "依赖规则"
+msgstr "Dependency rule"
+
+#: views/serializers.py:51
+msgid "依赖值类型"
+msgstr "Dependency value type"
+
+#: views/serializers.py:52
+msgid "依赖值"
+msgstr "Dependency value"
+
+#: views/serializers.py:55
+msgid "是否可恢复"
+msgstr "Is it recoverable"
+
+#: views/serializers.py:56
+msgid "间隔时间"
+msgstr "Intervals"
+
+#: views/serializers.py:57
+msgid "重试次数"
+msgstr "Number of retries"
+
+#: views/serializers.py:59 views/serializers.py:75 views/serializers.py:88
+#: views/serializers.py:93 views/serializers.py:128
+msgid "任务标识"
+msgstr "Task identification"
+
+#: views/serializers.py:60 views/serializers.py:220
+msgid "任务类型"
+msgstr "Task type"
+
+#: views/serializers.py:61
+msgid "任务描述"
+msgstr "Task description"
+
+#: views/serializers.py:62
+msgid "周期"
+msgstr "Cycle"
+
+#: views/serializers.py:63
+msgid "依赖关系"
+msgstr "Dependency"
+
+#: views/serializers.py:64
+msgid "重试策略"
+msgstr "Retry strategy"
+
+#: views/serializers.py:65
+msgid "是否可用"
+msgstr "Is it usable"
+
+#: views/serializers.py:66
+msgid "创建后执行"
+msgstr "Execute after creation"
+
+#: views/serializers.py:67
+msgid "是否可以从当前时间之前执行任务"
+msgstr "Is it possible to perform the task before the current time"
+
+#: views/serializers.py:68
+msgid "节点标签"
+msgstr "Node label"
+
+#: views/serializers.py:69
+msgid "退服超时时间"
+msgstr "Service withdrawal timeout"
+
+#: views/serializers.py:70
+msgid "可运行的最大任务数"
+msgstr "Maximum number of tasks that can be run"
+
+#: views/serializers.py:71 views/serializers.py:148 views/serializers.py:274
+msgid "创建人"
+msgstr "Creator"
+
+#: views/serializers.py:89 views/serializers.py:94
+msgid "任务调度时间"
+msgstr "Task schedule time"
+
+#: views/serializers.py:98 views/serializers.py:120 views/serializers.py:225
+#: views/serializers.py:231
+msgid "schedule_id"
+msgstr ""
+
+#: views/serializers.py:99 views/serializers.py:226
+msgid "start_time"
+msgstr ""
+
+#: views/serializers.py:100 views/serializers.py:227
+msgid "end_time"
+msgstr ""
+
+#: views/serializers.py:104 views/serializers.py:112 views/serializers.py:211
+#: views/serializers.py:237
+msgid "rerun_processings"
+msgstr ""
+
+#: views/serializers.py:105 views/serializers.py:113 views/serializers.py:212
+#: views/serializers.py:238
+msgid "rerun_model"
+msgstr ""
+
+#: views/serializers.py:106 views/serializers.py:114 views/serializers.py:213
+#: views/serializers.py:218
+msgid "起始时间"
+msgstr "Start time"
+
+#: views/serializers.py:107 views/serializers.py:115 views/serializers.py:214
+#: views/serializers.py:219
+msgid "截止时间"
+msgstr "Deadline"
+
+#: views/serializers.py:108
+msgid "任务优先度"
+msgstr ""
+
+#: views/serializers.py:116
+msgid "不补算指定状态的任务"
+msgstr ""
+
+#: views/serializers.py:121 views/serializers.py:232
+msgid "schedule_time"
+msgstr ""
+
+#: views/serializers.py:122
+msgid "是否重算子节点"
+msgstr "rerun children"
+
+#: views/serializers.py:123
+msgid "不重算指定状态的任务"
+msgstr ""
+
+#: views/serializers.py:129
+msgid "事件名称"
+msgstr "Event name"
+
+#: views/serializers.py:130
+msgid "任务改变状态"
+msgstr "Task change status"
+
+#: views/serializers.py:131
+msgid "事件信息"
+msgstr "Event information"
+
+#: views/serializers.py:140 views/serializers.py:171 views/serializers.py:176
+#: views/serializers.py:181 views/serializers.py:188 views/serializers.py:194
+#: views/serializers.py:199 views/serializers.py:205
+#, fuzzy
+#| msgid "任务类型"
+msgid "任务类型ID"
+msgstr "Task type ID"
+
+#: views/serializers.py:141 views/serializers.py:172 views/serializers.py:177
+#: views/serializers.py:182 views/serializers.py:189
+#, fuzzy
+#| msgid "任务类型"
+msgid "任务类型tag"
+msgstr "Task type tag"
+
+#: views/serializers.py:142
+msgid "任务入口"
+msgstr "Task main entry"
+
+#: views/serializers.py:143
+msgid "任务环境配置"
+msgstr "Task env"
+
+#: views/serializers.py:144
+msgid "任务系统环境依赖"
+msgstr "Task system env"
+
+#: views/serializers.py:145
+msgid "任务运行语言"
+msgstr "Task language"
+
+#: views/serializers.py:146
+msgid "任务运行模式"
+msgstr "Task mode"
+
+#: views/serializers.py:147
+msgid "任务是否可自愈"
+msgstr "Recoverable"
+
+#: views/serializers.py:149
+#, fuzzy
+#| msgid "任务类型"
+msgid "任务类型描述"
+msgstr "Task type"
+
+#: views/serializers.py:155
+#, python-format
+msgid "非法任务运行语言: %(language)s，目前仅支持以下语言[%(languages)s]"
+msgstr ""
+"Illegal task runtime language:（%(language)s）. Currently only the following "
+"languages are supported:（%(languages)s）"
+
+#: views/serializers.py:164
+#, python-format
+msgid "非法任务运行模式: %(task_mode)s，目前仅支持以下模式[%(task_modes)s]"
+msgstr ""
+"Illegal task mode:（%(task_mode)s）. Currently only the following modes are "
+"supported:（%(task_modes)s）"
+
+#: views/serializers.py:183 views/serializers.py:190
+#, fuzzy
+#| msgid "任务类型"
+msgid "任务类型tag别名"
+msgstr "Task type tag alias"
+
+#: views/serializers.py:184
+#, fuzzy
+#| msgid "任务类型"
+msgid "任务类型tag别名描述"
+msgstr "Task type tag alias description"
+
+#: views/serializers.py:195 views/serializers.py:200 views/serializers.py:206
+#: views/serializers.py:253 views/serializers.py:258
+#, fuzzy
+#| msgid "节点标签"
+msgid "Runner节点标签"
+msgstr "Node label"
+
+#: views/serializers.py:201
+#, fuzzy
+#| msgid "任务类型"
+msgid "默认任务类型tag"
+msgstr "Default task type"
+
+#: views/serializers.py:236
+msgid "processing_id"
+msgstr ""
+
+#: views/serializers.py:239
+msgid "target_schedule_time"
+msgstr ""
+
+#: views/serializers.py:240
+msgid "source_schedule_time"
+msgstr ""
+
+#: views/serializers.py:241
+msgid "是否下发到存储"
+msgstr "dispatch to storage"
+
+#: views/serializers.py:246
+msgid "begin"
+msgstr ""
+
+#: views/serializers.py:247
+msgid "end"
+msgstr ""
+
+#: views/serializers.py:252
+msgid "Runner节点ID"
+msgstr ""
+
+#: views/serializers.py:254
+#, fuzzy
+#| msgid "节点标签"
+msgid "Runner节点标签描述"
+msgstr "Node label"
+
+#: views/serializers.py:262 views/serializers.py:267
+#, fuzzy
+#| msgid "节点标签"
+msgid "Runner节点标签定义名"
+msgstr "Node label"
+
+#: views/serializers.py:263
+msgid "Runner节点标签定义描述"
+msgstr ""
+
+#: views/serializers.py:272
+msgid "集群连接信息"
+msgstr "Cluster connection information"
+
+#: views/serializers.py:273
+msgid "版本"
+msgstr "Version"
+
+#: views/serializers.py:278
+msgid "集群名称"
+msgstr "Cluster name"
+
+#~ msgid "heads"
+#~ msgstr "heads"
+
+#~ msgid "tails"
+#~ msgstr "tails"
+
+#~ msgid "时间名称"
+#~ msgstr "Time name"

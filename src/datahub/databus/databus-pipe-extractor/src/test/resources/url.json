@@ -1,0 +1,52 @@
+{
+    "type": "fun",
+    "method": "from_json",
+    "next": {
+        "type": "branch",
+        "next": [
+            {
+                "type": "access",
+                "subtype": "access_obj",
+                "key": "_value_",
+                "next": {
+                    "type": "fun",
+                    "method": "iterate",
+                    "next": {
+                        "type": "fun",
+                        "method": "split",
+                        "args": ["|"],
+                        "next": {
+                            "type": "access",
+                            "subtype": "access_pos",
+                            "index": 1,
+                            "next":  {
+                                "type": "fun",
+                                "method": "from_url",
+                                "next":{
+                                    "type": "assign",
+                                    "subtype": "assign_obj",
+                                    "assign": [
+                                        {
+                                            "key": "A2",
+                                            "assign_to": "ZoneA"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "type": "assign",
+                "subtype": "assign_obj",
+                "assign": [
+                    {
+                        "key": "_time_",
+                        "assign_to": "report_time"
+                    }
+                ]
+            }
+        ]
+    }
+}

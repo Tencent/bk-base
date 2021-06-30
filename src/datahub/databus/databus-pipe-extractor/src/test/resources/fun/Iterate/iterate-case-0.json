@@ -1,0 +1,19 @@
+{
+  "args":[],
+  "type":"fun",
+  "method":"iterate",
+  "next":{
+    "type":"assign",
+    "subtype": "assign_obj",
+    "assign":[
+      {
+        "key": "k1",
+        "assign_to": "var1"
+      },
+      {
+        "key": "k2",
+        "assign_to": "var2"
+      }
+    ]
+  }
+}

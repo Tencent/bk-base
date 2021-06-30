@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html data-blockbyte-bs-uid="80103"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Authorize required</title>
+    
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <link type="text/css" href="{{STATIC_URL}}auth/grant.css" rel="stylesheet">
+
+    <style class="blockbyte-bs-style" data-name="content">body>div#blockbyte-bs-indicator>div{opacity:0;pointer-events:none}body>iframe#blockbyte-bs-sidebar.blockbyte-bs-visible,body>iframe#blockbyte-bs-overlay.blockbyte-bs-visible{opacity:1;pointer-events:auto}body.blockbyte-bs-noscroll{overflow:hidden !important}body>div#blockbyte-bs-indicator>div{position:absolute;transform:translate3d(-40px, 0, 0);top:0;left:0;width:40px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity 0.3s, transform 0.3s;z-index:2}body>div#blockbyte-bs-indicator>div>span{-webkit-mask:no-repeat center/32px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#blockbyte-bs-indicator[data-pos='right']{left:auto;right:0}body>div#blockbyte-bs-indicator[data-pos='right']>div{transform:translate3d(40px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#blockbyte-bs-indicator.blockbyte-bs-fullHeight>div{border-radius:0}body>div#blockbyte-bs-indicator.blockbyte-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb{height:100% !important;top:0 !important}body>div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb>div{background:transparent}body>div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>iframe#blockbyte-bs-sidebar{width:350px;max-width:none;height:0;z-index:2147483646;background-color:rgba(0,0,0,0.6) !important;border:none;display:block !important;transform:translate3d(-350px, 0, 0);will-change:width, height, opacity, transform;transition:width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s}body>iframe#blockbyte-bs-sidebar[data-pos='right']{left:auto;right:0;transform:translate3d(350px, 0, 0)}body>iframe#blockbyte-bs-sidebar.blockbyte-bs-visible{width:calc(100% + 350px);height:100%;transform:translate3d(0, 0, 0);transition:opacity 0.3s, transform 0.3s}body>iframe#blockbyte-bs-sidebar.blockbyte-bs-hideMask{background:none !important}body>iframe#blockbyte-bs-sidebar.blockbyte-bs-hideMask:not(.blockbyte-bs-hover){width:calc(350px + 50px)}body>iframe#blockbyte-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;background:rgba(0,0,0,0.5) !important;transition:opacity 0.3s}
+    </style>
+    <style>
+        .icon {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+{% if is_popup %}
+<body class="authorize-page popup">
+{% else %}
+<body class="authorize-page">
+{% endif %}
+<div class="content">
+    <div class="contaier clearfix">
+        {% if not is_popup %}
+        <div class="header" role="header">
+            <h3 class="page-title">
+                应用授权
+            </h3>
+        </div>
+        {% endif %}
+        <div class="main-wrapper">
+            <div class="main" role="main">
+
+                <div class="oauth-header">
+                    {% if not is_popup %}
+                    <div class="app-main-logo">
+                        <div class="avatar-holder current-app-logo avatar-hexagon s90">
+                            <img class="app-logo" src="{{bk_app_logo}}">
+                            <div class="avatar-hexagon-inner"></div>
+                        </div>
+                        <div class="avatar-holder system-logo avatar-hexagon s90">
+                            <div class="main-logo">
+                                <img class="main-logo" src="{{STATIC_URL}}img/dataweb.png">
+                                <div class="avatar-hexagon-inner"></div>
+                            </div>
+                        </div>
+                        <div class="icon-holder"><i class="icon-arrow"></i></div>
+                    </div>
+                    {% endif %}
+                    <p class="oauth-info">
+                        您正在授权 <span>{{bk_app_name}}</span> 使用授权码访问<span>{{bk_biz_name}}({{bk_biz_id}})</span>业务数据
+                    </p>
+                </div>
+                <div class="oauth-permissions">
+                    <div class="account-info">
+                        <p class="light list-title">当前登录账号：</p>
+                        <div class="user-info">
+                            <div class="current-user">
+                                <div class="avatar-holder avatar-hexagon s28">
+                                    <img class="app-logo" src="{{user_logo_url}}" onerror="this.src='{{STATIC_URL}}img/profile.jpg'">
+                                    <div class="avatar-hexagon-inner avatar-hexagon-gray"></div>
+                                </div>
+                                <div class="username">
+                                    {{request.user.username}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="permission-info">
+
+                        <p class="light list-title">功能权限：</p>
+                        <ul class="text-info">
+                            <li class="permission">
+                                数据查询API
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="permission-info">
+                        <p class="light list-title">数据范围（总计 {{ result_tables_length }} 张结果表）：</p>
+                        <ul class="text-info">
+                            {% for result_table in result_tables %}
+                            <li class="permission">{{ result_table.result_table_id }}
+                                {% if result_table.status == 'active' %}
+                                    <span title="已授权，无需提交申请" style="cursor:pointer">
+                                        <svg class="bk-icon"
+                                                style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <path  fill="#31a86e" d="M8,15a7,7,0,1,1,7-7A7,7,0,0,1,8,15ZM7,8.93934,5.03033,6.96967,3.96967,8.03033,7,11.06066l5.03033-5.03033L10.96967,4.96967Z"/>
+                                        </svg>
+                                    </span>
+                                {% endif %}
+                                {% if result_table.status == 'applying' %}
+                                    <span title="已提交过申请，待审批" style="cursor:pointer">
+                                        <svg class="bk-icon"
+                                                style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <path  fill="#d9a33a" d="M8,15a7,7,0,1,1,7-7A7,7,0,0,1,8,15ZM7.25,7v5h1.5V7Zm0-3V6h1.5V4Z"/>
+                                        </svg>
+                                    </span>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                        <p class="more-link">
+                            当前用户没能完成授权的结果表将提交至数据管理员进行审批，可以在<a href="{{SITE_URL}}#/auth-center/records" target="_blank">单据中心</a>查看
+                        </p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <form id="command" class="authorize-form" action="{{SITE_URL}}oauth/authorize/" method="post">
+                        {% csrf_token %}
+                        <input id="bk_app_code" name="bk_app_code" type="hidden" value="{{ bk_app_code }}">
+                        <input id="data_token_id" name="data_token_id" type="hidden" value="{{ data_token_id }}">
+                        <input id="state" name="state" type="hidden" value="{{ state }}">
+                        <input id="redirect_url" name="redirect_url" type="hidden" value="{{ redirect_url }}">
+                        <input id="scopes" name="scopes" type="hidden" value="{{ scopes }}">
+                        <button class="btn btn-tp-success authorize-btn" name="action" type="submit">
+                            授权
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

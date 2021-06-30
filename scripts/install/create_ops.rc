@@ -1,0 +1,89 @@
+# vim:ft=sh sts=4 ts=4 expandtab
+
+cd ${BASH_SOURCE%/*} 2>/dev/null
+source ./utils.fc
+source ./summary.fc
+
+create_db () {
+    local target_mysql=${1:-$MYSQL_IP0}
+    local mycmd="mysql --default-character-set=utf8 -h$target_mysql -u $MYSQL_USER -P $MYSQL_PORT"
+
+    cat > /tmp/bkv_create.sql <<'_XX_'
+CREATE DATABASE IF NOT EXISTS `bksuite_common`;
+use `bksuite_common`;
+
+CREATE TABLE IF NOT EXISTS production_info (
+    `index`   INT(11) NOT NULL,
+    `code`    VARCHAR(32) NOT NULL PRIMARY KEY COMMENT '模块代码',
+    `name`    VARCHAR(32) NOT NULL COMMENT '模块名称',
+    `version` VARCHAR(32) NOT NULL COMMENT '版本号',
+    UNIQUE KEY `index` (`index`),
+    UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8
+
+_XX_
+
+    MYSQL_PWD="$MYSQL_PASS" $mycmd -e "source /tmp/bkv_create.sql;" 2>/dev/null
+}
+
+query_version () {
+    local v=$1
+    local target_mysql=${2:-$MYSQL_IP0}
+    local mycmd="mysql --default-character-set=utf8 -h$target_mysql -u $MYSQL_USER -P $MYSQL_PORT"
+
+    if [ -z "$v" ]; then
+        MYSQL_PWD="$MYSQL_PASS" $mycmd -e "select verion from bksuite_common.production_info where code=1" | tail -n +2
+    fi
+}
+
+update_version () {
+    local module=$1
+
+    case $module in
+        bksuite*)
+            ;;
+        job|cmdb|open_paas|paas_agent|gse|fta|bkdata|license)
+            local version
+            read version ignore <INSTALL_PATH/$module/VERSION
+
+            curr_version=$(get_version $module)
+            ;;
+    esac
+}
+
+init_version_data () {
+    local target_mysql=${1:-$MYSQL_IP0}
+    local mycmd="mysql --default-character-set=utf8 -h$target_mysql -u $MYSQL_USER -P $MYSQL_PORT"
+
+    local BKVERSION=$(cat $PKG_SRC_PATH/VERSION)
+
+    local PAAS_VERSION=$(get_version open_paas)
+    local PAAS_AGENT_VERSION=$(get_version paas_agent)
+    local CMDB_VERSION=$(get_version cmdb)
+    local JOB_VERSION=$(get_version job)
+    local GSE_VERSION=$(get_version gse)
+    local FTA_VERSION=$(get_version fta)
+
+    if [ -d $PKG_SRC_PATH/bkmonitor ]; then
+        local BKMONITOR_VERSION=$(get_version bkmonitor)
+    else
+        local BKMONITOR_VERSION=$(get_version bkdata/monitor)
+    fi
+
+    local BKDATA_VERSION=$(get_version bkdata)
+    local LICENSE_VERSION=$(get_version license)
+
+    cat >/tmp/bkv_init_v.sql <<_OO_
+    INSERT INTO production_info VALUES (1, 'bksuite', '蓝鲸企业版', '$BKVERSION') ON DUPLICATE KEY UPDATE version='$BKVERSION';
+    INSERT INTO production_info VALUES (2, 'open_paas', 'PaaS 平台', '$PAAS_VERSION') ON DUPLICATE KEY UPDATE version='$PAAS_VERSION';
+    INSERT INTO production_info VALUES (3, 'paas_agent', 'paas_agent', '$PAAS_AGENT_VERSION') ON DUPLICATE KEY UPDATE version='$PAAS_AGENT_VERSION';
+    INSERT INTO production_info VALUES (4, 'cmdb', '配置平台', '$CMDB_VERSION') ON DUPLICATE KEY UPDATE version='$CMDB_VERSION';
+    INSERT INTO production_info VALUES (5, 'job', '作业平台', '$JOB_VERSION') ON DUPLICATE KEY UPDATE version='$JOB_VERSION';
+    INSERT INTO production_info VALUES (6, 'gse', '管控平台', '$GSE_VERSION') ON DUPLICATE KEY UPDATE version='$GSE_VERSION';
+    INSERT INTO production_info VALUES (7, 'fta', '故障自愈', '$FTA_VERSION') ON DUPLICATE KEY UPDATE version='$FTA_VERSION';
+    INSERT INTO production_info VALUES (8, 'bkdata', '数据基础模块', '$BKDATA_VERSION') ON DUPLICATE KEY UPDATE version='$BKDATA_VERSION';
+    INSERT INTO production_info VALUES (9, 'license', '全局认证服务', '$LICENSE_VERSION') ON DUPLICATE KEY UPDATE version='$LICENSE_VERSION';
+    INSERT INTO production_info VALUES (10, 'bkmonitor', '蓝鲸监控后台', '$BKMONITOR_VERSION') ON DUPLICATE KEY UPDATE version='$BKMONITOR_VERSION';
+_OO_
+    MYSQL_PWD="$MYSQL_PASS" $mycmd -e "use bksuite_common; source /tmp/bkv_init_v.sql;"
+}

@@ -1,0 +1,237 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "biz",
+                "name": "业务",
+                "name_en": "BusinessList",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "biz"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "project-dashboard",
+                "name": "项目 - 仪表盘",
+                "name_en": "Project - Dashboard",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "dashboard"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "project-flow",
+                "name": "项目 - 计算任务",
+                "name_en": "Project - DataFlow",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "flow"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "biz-raw_data",
+                "name": "业务 - 数据源",
+                "name_en": "Business - RawData",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "biz"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "biz-result_table",
+                "name": "业务 - 结果数据",
+                "name_en": "Business ResultTable",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "biz"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "result_table"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "project-result_table",
+                "name": "项目 - 结果数据",
+                "name_en": "Project ResultTable",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "result_table"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "project",
+                "name": "项目列表",
+                "name_en": "Project List",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "data_token",
+                "name": "授权码列表",
+                "name_en": "Data Token",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "data_token"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "function",
+                "name": "函数列表",
+                "name_en": "Function List",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "function"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "resource_group",
+                "name": "资源组列表",
+                "name_en": "Resource List",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "resource_group"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "raw_data-result_table",
+                "name": "数据源-结果数据",
+                "name_en": "Raw_Data-Result_Table",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "raw_data"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "result_table"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "project-model",
+                "name": "项目-算法模型",
+                "name_en": "Project-Model",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "project-sample_set",
+                "name": "项目-样本集",
+                "name_en": "Project-SampleSet",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "sample_set"
+                    }
+                ]
+            }
+        },
+        {
+            "operation": "upsert_instance_selection",
+            "data": {
+                "id": "project-algorithm",
+                "name": "项目-算法",
+                "name_en": "Project-Algorithm",
+                "resource_type_chain": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project"
+                    },
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "algorithm"
+                    }
+                ]
+            }
+        }
+    ]
+}

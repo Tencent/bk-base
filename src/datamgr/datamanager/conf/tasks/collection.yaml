@@ -1,0 +1,142 @@
+plans: 
+  - task_code: collection_collect_cmdb_host_info
+    task_name: 采集业务主机信息
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.collect_cmdb_host_info
+    task_status: 'on'
+    work_type: long
+
+  - task_code: collection_batch_collect_cmdb_host_info
+    task_name: 周期性批量采集业务主机信息
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.batch_collect_cmdb_host_info
+    work_crontab: '0 2 * * *'
+    task_status: 'on'
+    work_type: interval
+
+  - task_code: collection_process_cmdb_host_info
+    task_name: 初始化业务主机信息处理任务
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.process_cmdb_host_info
+    task_status: 'on'
+    work_type: once
+
+  - task_code: collection_check_cmdb_host_info
+    task_name: 将平台和 CMDB 主机信息进行对账
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.check_cmdb_host_info
+    work_crontab: '0 * * * *'
+    task_status: 'on'
+    work_type: interval
+
+  - task_code: collection_collect_cmdb_module_info
+    task_name: 采集业务模块信息
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.collect_cmdb_module_info
+    task_params: ''
+    task_status: 'on'
+    work_type: long
+
+  - task_code: collection_process_cmdb_module_info
+    task_name: 初始化业务模块信息处理任务
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.process_cmdb_module_info
+    task_params: ''
+    task_status: 'on'
+    work_type: once
+
+  - task_code: collection_batch_collect_cmdb_module_info
+    task_name: 周期性批量采集业务模块信息
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.batch_collect_cmdb_module_info
+    work_crontab: '0 3 * * *'
+    task_status: 'on'
+    work_type: interval
+
+  - task_code: collection_check_cmdb_module_info
+    task_name: 将平台和 CMDB 模块信息进行对账
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.check_cmdb_module_info
+    work_crontab: '10 * * * *'
+    task_status: 'on'
+    work_type: interval
+
+  - task_code: collection_collect_cmdb_set_info
+    task_name: 采集业务集群信息
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.collect_cmdb_set_info
+    task_params: ''
+    task_status: 'on'
+    work_type: long
+
+  - task_code: collection_process_cmdb_set_info
+    task_name: 初始化业务集群信息处理任务
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.process_cmdb_set_info
+    task_params: ''
+    task_status: 'on'
+    work_type: once
+
+  - task_code: collection_batch_collect_cmdb_set_info
+    task_name: 周期性批量采集业务集群信息
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.batch_collect_cmdb_set_info
+    work_crontab: '0 4 * * *'
+    task_status: 'on'
+    work_type: interval
+
+  - task_code: collection_check_cmdb_set_info
+    task_name: 将平台和 CMDB 集群信息进行对账
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.check_cmdb_set_info
+    work_crontab: '20 * * * *'
+    task_status: 'on'
+    work_type: interval
+
+  - task_code: collection_process_cmdb_biz_info
+    task_name: 初始化业务信息处理任务
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.process_cmdb_biz_info
+    task_params: ''
+    task_status: 'on'
+    work_type: once
+
+  - task_code: collection_batch_collect_cmdb_biz_info
+    task_name: 周期性批量采集 cmdb 业务信息
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.batch_collect_cmdb_biz_info
+    work_crontab: '20 * * * *'
+    task_status: 'on'
+    work_type: interval
+
+  - task_code: collection_process_user_info
+    task_name: 初始化平台用户信息处理任务
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.process_user_info
+    task_params: ''
+    task_status: 'on'
+    work_type: once
+
+  - task_code: collection_user_info
+    task_name: 采集平台用户基本信息
+    task_category: collection
+    task_loader: import
+    task_entry: collection.tasks.batch_collect_user_info
+    work_crontab: '0 20 * * *'
+    task_status: 'on'
+    work_type: interval

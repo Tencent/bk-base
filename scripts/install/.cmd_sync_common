@@ -1,0 +1,19 @@
+#!/bin/bash
+source /data/install/utils.fc
+ip=${1}
+# 创建基础目录.
+ssh -o StrictHostKeyChecking=no root@${ip} "umask 022; mkdir -m 775 -p /data/src /data/bkee/bin /data/install"
+#_rsync -a /data/src/service/py27/ root@${ip}:/opt/py27/
+#_rsync -a /data/src/service/py36/ root@${ip}:/opt/py36/
+_rsync -a /data/install/bin/jq root@${ip}:/usr/bin/
+
+_rsync -a /tmp/OVdwCs10KUDKaAE/ root@${ip}:/data/bkee/
+_rsync -a /data/src/ENTERPRISE /data/src/*.env root@${ip}:/data/src/
+
+# 配置模板
+cd /data/src
+rsync -a service/.pip service/consul service/support-files /tmp/vt694IkLyESdKli/service/
+rsync -a /data/install/pip/pip.conf cert /tmp/vt694IkLyESdKli/
+
+_rsync -a --delete /data/install/ root@${ip}:/data/install/
+_rsync -a /tmp/vt694IkLyESdKli/ root@${ip}:/data/src/

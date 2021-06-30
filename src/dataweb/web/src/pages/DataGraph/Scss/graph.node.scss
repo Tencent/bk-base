@@ -1,0 +1,332 @@
+/*!
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+ */
+
+$NodeHeaderHeight: 86px;
+$FooterHeight: 55px;
+$GraphOffsetTop: 60px;
+$SQLEditWidth: 660px;
+.bk-graph-node-container {
+  &.bk-sideslider {
+    top: $GraphOffsetTop;
+    &.full-screen .bk-sideslider-wrapper .bk-sideslider-content {
+      height: calc(100% - 82px);
+    }
+    .bk-sideslider-wrapper {
+      top: 0px;
+      overflow-y: hidden;
+      display: flex;
+      flex-direction: column;
+      .bk-sideslider-header {
+        height: auto;
+        .bk-sideslider-closer {
+          position: fixed;
+          top: $GraphOffsetTop;
+          transform: translateX(-100%);
+          z-index: 1;
+          .icon-angle-right {
+            &::before {
+              content: '\E2AF';
+            }
+          }
+        }
+
+        .bk-sideslider-title {
+          min-height: 60px;
+          line-height: 1;
+          height: auto;
+          padding: 0;
+          border-bottom: none;
+          margin-left: -50px;
+        }
+      }
+      .bk-sideslider-content {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        top: 0;
+        bottom: $FooterHeight;
+        right: 0;
+        overflow: hidden;
+        &::-webkit-scrollbar {
+          width: 4px;
+          background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+          border-radius: 4px;
+          background-color: #dcdee5;
+        }
+        .outputs-wrapper {
+          .data-table {
+            position: relative;
+            .add-btn {
+              position: absolute;
+              top: 10px;
+              right: 20px;
+              z-index: 1;
+            }
+            .del-btn {
+              font-size: 12px;
+              margin-left: 10px;
+              position: relative;
+              &::before {
+                content: '';
+                display: inline-block;
+                width: 1px;
+                height: 12px;
+                background: #cbcdd2;
+                position: absolute;
+                left: -7px;
+                top: 6px;
+              }
+            }
+          }
+          .dialog-edit {
+            width: 540px;
+            margin: 0 auto;
+            padding: 20px 0px 30px;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+            border-radius: 2px;
+            position: absolute;
+            top: -80px;
+            z-index: 20;
+            .dialog-edit-head {
+              font-size: 24px;
+              color: #444;
+              padding-left: 24px;
+              i {
+                color: #979ba5;
+                font-size: 12px;
+                font-weight: 900;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                cursor: pointer;
+              }
+            }
+            .dialog-edit-body {
+              margin-top: 20px;
+              ::v-deep .bk-form-item {
+                width: 490px !important;
+              }
+              .mr10 {
+                margin-right: 10px;
+              }
+              .output {
+                float: left;
+                margin-left: 5px;
+                width: calc(70% - 5px);
+              }
+              .biz_id {
+                width: 30%;
+                float: left;
+              }
+              .tdw-field-wrapper {
+                margin-top: 20px;
+                padding: 0 20px;
+              }
+              .table-name {
+                width: 365px;
+                margin-top: -5px;
+                line-height: 28px;
+                height: 28px;
+                background: #3a84ff;
+                border-radius: 2px;
+                color: #fff;
+                margin-left: 125px;
+                padding-left: 10px;
+                margin-bottom: 10px;
+                overflow: hidden;
+                .bk-icon {
+                  color: #3a84ff;
+                  font-size: 14px;
+                  top: 5px !important;
+                }
+              }
+            }
+          }
+        }
+        .bkdata-node-action {
+          height: 100%;
+
+          .help-block {
+            color: red;
+          }
+          .bk-tab-section {
+            border: none;
+            height: calc(100% - 50px);
+            overflow-y: auto;
+            &::-webkit-scrollbar {
+              width: 4px;
+              background-color: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+              border-radius: 4px;
+              background-color: #dcdee5;
+            }
+            .bk-tab-header {
+              border-left: none;
+            }
+          }
+
+          .flex-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+          }
+
+          .bk-form-item {
+            width: 466px;
+            margin-bottom: 20px;
+            margin-top: 0;
+            &.result-table-select {
+              width: 442px;
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            .bk-label {
+              width: 125px;
+            }
+
+            .bk-form-content {
+              margin-left: 125px;
+            }
+          }
+          .content-up {
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgb(239, 239, 239);
+            .text-overflow {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            .data-input {
+              line-height: 32px;
+            }
+            .bk-label {
+              position: relative;
+
+              .required {
+                color: red;
+                position: absolute;
+                right: 15px;
+              }
+            }
+          }
+          .content-down {
+            padding: 15px 0px 0 0;
+            fieldset {
+              border-color: #dde4eb;
+              border-radius: 2px;
+
+              legend {
+                padding: 10px;
+              }
+            }
+
+            .lastest-data-content {
+              word-wrap: break-word;
+              padding: 0 10px;
+              width: 100%;
+              border-radius: 5px;
+              min-height: 150px;
+            }
+            .bk-label {
+              position: relative;
+
+              .required {
+                color: red;
+                position: absolute;
+                right: 15px;
+              }
+            }
+          }
+          .content-mid {
+            padding: 15px 0;
+            border-bottom: 1px solid rgb(239, 239, 239);
+          }
+
+          /** SQL 编辑器样式开始 */
+          .bk-code-edit {
+            position: fixed;
+            top: $GraphOffsetTop;
+            bottom: 0;
+            transform: translateX(-100%);
+            width: $SQLEditWidth;
+            background: #ddd;
+            display: none;
+          }
+          /** SQL 编辑器样式结束 */
+
+          /** sql编辑器展开、收起按钮样式 开始 */
+          .sql-expand {
+            cursor: pointer;
+            z-index: 340;
+            position: fixed;
+            top: 50%;
+            width: 18px;
+            height: 37px;
+            padding-left: 4px;
+            line-height: 37px;
+            box-shadow: rgba(0, 0, 0, 0.1) 2px 6px 10px 6px;
+            transform: translate(-50%, -50%);
+            border-radius: 3px 0px 0px 3px;
+            background: rgb(255, 255, 255);
+          }
+          /** sql编辑器展开、收起按钮样式 结束 */
+        }
+      }
+
+      .bk-sideslider-footer {
+        padding-right: 20px;
+        bottom: 0;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 999;
+      }
+    }
+  }
+
+  &.node-v2 {
+    .bk-sideslider-wrapper .bk-sideslider-content {
+      height: auto;
+    }
+  }
+
+  &.bksql-edit-expand {
+    .bk-sideslider-wrapper {
+      .bk-sideslider-header {
+        .bk-sideslider-closer {
+          transform: translateX(calc(-100% - #{$SQLEditWidth}));
+        }
+      }
+
+      .bk-code-edit {
+        display: inline-block !important;
+      }
+    }
+  }
+}

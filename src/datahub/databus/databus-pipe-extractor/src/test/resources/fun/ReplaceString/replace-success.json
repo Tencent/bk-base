@@ -1,0 +1,14 @@
+{
+  "type": "fun",
+  "method": "replace",
+  "args": ["abc","bca",",",":"],
+  "next": {
+    "type": "assign",
+    "subtype": "assign_value",
+    "assign":
+    {
+      "key": "message",
+      "assign_to": "varname"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+    "server": "xx.xx.xx.xx",
+    "time": "2016-09-14 21:50:44", 
+    "type": "json", 
+    "value": [
+        {
+            "_db_": "db_store", 
+            "_host_": "xx.xx.xx.xx",
+            "_os_": "unknown", 
+            "_platform_": "unknown", 
+            "_table_": "item", 
+            "_timediff_": "-43756", 
+            "active": "1", 
+            "created": null, 
+            "description_id": null, 
+            "dtEventTime": "2016-09-15 10:00:00", 
+            "icon_url": "xxxx.jpg",
+            "id": "xxxxxx",
+            "inactive_date": null, 
+            "inventory_type": "xxxxxxx",
+            "ip_cost": null, 
+            "item_id": "2006", 
+            "max_quantity": "1", 
+            "modified": null, 
+            "name_id": null, 
+            "product_id": "xxxx",
+            "quantity": null, 
+            "release_date": "2016-09-15 10:00:00", 
+            "rp_cost": "4500", 
+            "sp_cost": null, 
+            "tags": "xxxxxxxx",
+            "version": "0"
+        }
+    ]
+}
