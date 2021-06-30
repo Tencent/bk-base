@@ -1,0 +1,88 @@
+
+
+<!--
+  - Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+  - Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+  - BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+  -
+  - License for BK-BASE 蓝鲸基础平台:
+  - -------------------------------------------------------------------
+  -
+  - Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  - documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  - the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+  - and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  - The above copyright notice and this permission notice shall be included in all copies or substantial
+  - portions of the Software.
+  -
+  - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  - LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  - NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  - WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  - SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+  -->
+
+<template>
+  <i class="bk-icon icons icon-clean-node fr"
+    @click="clickIcon">
+    <div class="x-tip">
+      {{ content }}
+    </div>
+  </i>
+</template>
+
+<script>
+export default {
+  name: 'goto-icon',
+  props: {
+    content: {
+      type: String,
+      default: '',
+    },
+  },
+  methods: {
+    clickIcon() {
+      this.$emit('click');
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+i.icons {
+  min-width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 2px;
+  position: relative;
+  display: block;
+  background: #3a84ff;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  div {
+    position: absolute;
+    background: #212232;
+    display: none;
+    width: 120px;
+    padding: 5px;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    line-height: 14px;
+    transform: translate(-50%, 0);
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      border: 5px solid;
+      border-color: #212232 transparent transparent transparent;
+      transform: translate(-50%, 0);
+    }
+  }
+  &:hover div {
+    display: block;
+  }
+}
+</style>

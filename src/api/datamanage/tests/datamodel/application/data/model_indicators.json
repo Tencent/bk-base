@@ -1,0 +1,80 @@
+[
+    {
+        "indicator_name": "sum_metric1_ddd_1min",
+        "indicator_alias": "ddddd",
+        "description": "1d最大价格",
+        "calculation_atom_name": "sum_metric1",
+        "aggregation_fields": ["province", "country"],
+        "filter_formula": "",
+        "scheduling_type": "stream",
+        "scheduling_content": {
+            "window_type": "scroll",
+            "count_freq": 60,
+            "format_window_size_unit": "s",
+            "format_window_size": 60,
+            "window_lateness": {
+                "allowed_lateness": false,
+                "lateness_time": 1,
+                "lateness_count_freq": 60
+            },
+            "window_time": 10,
+            "waiting_time": 0
+        },
+        "parent_indicator_name": null,
+        "condition_fields": []
+    },
+    {
+        "indicator_name": "sum_metric1_by_geog_1min",
+        "indicator_alias": "按地域汇总指标1",
+        "description": "test",
+        "calculation_atom_name": "sum_metric1",
+        "aggregation_fields": ["province", "country"],
+        "filter_formula": "",
+        "scheduling_type": "stream",
+        "scheduling_content": {
+            "window_type": "scroll",
+            "count_freq": 60,
+            "format_window_size_unit": "s",
+            "format_window_size": 60,
+            "window_lateness": {
+                "allowed_lateness": false,
+                "lateness_time": 1,
+                "lateness_count_freq": 60
+            },
+            "window_time": 10,
+            "waiting_time": 0
+        },
+        "parent_indicator_name": null,
+        "condition_fields": []
+    },
+    {
+        "indicator_name": "country_count_valid_1h",
+        "indicator_alias": "合法用户中统计国家数量",
+        "description": "1d最大价格",
+        "calculation_atom_name": "country_count",
+        "aggregation_fields": [],
+        "filter_formula": "uid_is_mail = 0 and valid_ip = 1",
+        "scheduling_type": "batch",
+        "scheduling_content": {
+            "window_type": "fixed",
+            "count_freq": 1,
+            "dependency_config_type": "unified",
+            "format_window_size": 1,
+            "schedule_period": "hour",
+            "fixed_delay": 0,
+            "format_window_size_unit": "h",
+            "unified_config": {
+                "window_size": 1,
+                "window_size_period": "hour",
+                "dependency_rule": "all_finished"
+            },
+            "advanced": {
+                "recovery_enable": false,
+                "recovery_times": 1,
+                "recovery_interval": "5m"
+            }
+        },
+        "parent_indicator_name": null,
+        "condition_fields": ["uid_is_mail", "valid_ip"]
+    }
+]

@@ -1,0 +1,73 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[ {
+  "id" : "591_test_result",
+  "name" : "test_result",
+  "parents" : [ "591_etl_flink_sql" ],
+  "window" : {
+    "type" : "session",
+    "length" : 0,
+    "count_freq" : 0,
+    "waiting_time" : 60,
+    "session_gap" : 600,
+    "expired_time" : 180,
+    "allowed_lateness" : false,
+    "lateness_time" : 0,
+    "lateness_count_freq" : 0
+  },
+  "processor" : {
+    "processor_type" : "event_time_window",
+    "processor_args" : "SELECT SESSION_END(`rowtime`, INTERVAL '10' MINUTE) AS `dtEventTime`, utc_to_local(SESSION_START(`rowtime`, INTERVAL '10' MINUTE)) AS `_startTime_`, utc_to_local(SESSION_END(`rowtime`, INTERVAL '10' MINUTE)) AS `_endTime_`, `log`, count(1) AS `cnt` FROM `test_result_591___etl_flink_sql_591` GROUP BY SESSION(`rowtime`, INTERVAL '10' MINUTE), `log`"
+  },
+  "fields" : [ {
+    "field" : "dtEventTime",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_startTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_endTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "log",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "cnt",
+    "type" : "long",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  } ]
+} ]

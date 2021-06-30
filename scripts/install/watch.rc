@@ -1,0 +1,178 @@
+# vim:ft=sh
+
+cd ${BASH_SOURCE%/*} 2>/dev/null
+source /root/.bkrc
+source ./functions
+source ./utils.fc
+source ./control.rc
+
+load_functions watch third
+load_functions watch extra
+
+if [ -z "$INSTALL_PATH" ]; then
+    export INSTALL_PATH=${PWD%/bin*}
+fi
+
+export PATH=/usr/local/sbin:/usr/local/bin:/opt/py27/bin:/usr/sbin:/usr/bin/:/sbin:/bin:$INSTALL_PATH/service/java/bin
+
+load_env () {
+
+    if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+        source /usr/local/bin/virtualenvwrapper.sh
+    elif [ -f /opt/py27/bin/virtualenvwrapper.sh ];then
+        source /opt/py27/bin/virtualenvwrapper.sh
+    fi
+
+    export WORKON_HOME=$INSTALL_PATH/.envs
+}
+
+load_env
+
+_watch () {
+    local module=$1
+    local pattern=$2
+
+    if ! process_is_running "$pattern" >/dev/null; then
+        start_$module
+    else
+        ok "$module is running"
+    fi
+}
+
+_watch_on_status () {
+    local module=$1
+
+    if ! ps_status_$module >/dev/null 2>&1; then
+        start_$module
+    else
+        ok "$module is running"
+    fi
+}
+
+process_paired () {
+    local pids=($@)
+
+    [ "${#pids[@]}" -eq 0 ] && return 1
+    [ "${#pids[@]}" -gt 2 ] && return 1
+
+    local pattern1="$(echo ${pids[1]} ${pids[0]})"
+    local pattern2="$(echo ${pids[0]} ${pids[1]})"
+
+    if ps -ef | grep "$pattern1" | grep -v grep >/dev/null 2>&1 || \
+        ps -ef | grep "$pattern2" | grep -v grep >/dev/null 2>&1 ; then
+        if ps xao pid,ppid | grep -w ${pids[0]} >/dev/null 2>&1 || \
+            ps xao pid,ppid | grep -w ${pids[1]} >/dev/null 2>&1; then
+            return 0
+        fi
+    fi
+
+    return 1
+}
+
+watch_gse () {
+    local target=$1
+    local modules_required=(gse_api gse_btsvr gse_data gse_dba gse_task gse_syncdata gse_procmgr gse_dataop)
+    local modules_optional=(gse_alarm gse_ops gse_proc gse_opts)
+    local gse_ctl=$INSTALL_PATH/gse/server/bin/gsectl
+
+    if [ "X$target" != "X" ]; then
+        modules=($target)
+    fi
+
+    for m in ${modules_required[@]} ${modules_optional[@]}; do
+        proc_pattern="${m}.*${m//_/\/}"
+        pids=( $(process_is_running "$proc_pattern") )
+        pids=( $(pidof $m) )
+
+        if ! process_paired ${pids[@]}; then
+            err "process $m is in error status, force"
+            [ ${#pids[@]} -ne 0 ] && kill -9 ${pids[@]} 2>/dev/null
+
+            # start it
+            $gse_ctl start ${m##*_}
+        fi
+    done
+}
+
+stop_process () {
+    local pattern="$*"
+
+    pids=( $(process_is_running "$pattern") )
+    [ ${#pids[@]} -ne 0 ] && kill -9 ${pids[@]}
+}
+
+watch_paas () {
+    watch_open_paas $@
+}
+
+watch_open_paas () {
+    local projects=(get_all_projects open_paas)
+
+    if ! process_is_running "supervisord.*open_paas.conf" >/dev/null; then
+        for proj in ${projects[@]}; do
+            stop_process "uwsgi.*-$proj.ini"
+        done
+
+        sleep 1
+        workon open_paas
+        supervisord -c $INSTALL_PATH/etc/supervisor-open_paas.conf
+        supervisorctl -c $INSTALL_PATH/etc/supervisor-open_paas.conf start all
+    else
+        ok "open_paas is running"
+    fi
+}
+
+watch_bkdata () {
+    _watch_on_status bkdata "$@"
+}
+
+
+watch_cmdb () {
+    _watch cmdb "supervisor-cmdb-server.conf"
+}
+
+watch_nginx () {
+    _watch nginx "nginx: master process"
+}
+
+watch_job () {
+    _watch job "job.conf.*job-exec.war"
+}
+
+watch_es () {
+    if ! $INSTALL_PATH/service/java/bin/jps -l | grep Elasticsearch; then
+        start_es
+    fi
+}
+
+watch_consul () {
+    _watch consul "supervisor-consul.conf"
+}
+
+watch_beanstalk () {
+    _watch beanstalk "beanstalkd "
+}
+
+watch_license () {
+    _watch license "license_server "
+}
+
+watch_paas_agent () {
+    _watch_on_status appo
+}
+
+watch_rabbitmq () {
+    _watch rabbitmq "rabbitmq-server "
+}
+
+watch_fta () {
+    _watch fta "supervisor-fta-fta.conf"
+}
+
+
+
+watch_etcd () {
+    _watch_on_status etcd 
+}
+
+

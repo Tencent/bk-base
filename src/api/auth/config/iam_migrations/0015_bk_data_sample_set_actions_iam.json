@@ -1,0 +1,129 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "sample_set-create",
+                "name": "样本集新增",
+                "name_en": "SampleSet Create",
+                "description": "样本集新增",
+                "description_en": "SampleSet Create",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "sample_set-copy",
+                "name": "样本集复制",
+                "name_en": "SampleSet Copy",
+                "description": "样本集复制",
+                "description_en": "SampleSet Copy",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "sample_set",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-sample_set"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "sample_set-retrieve",
+                "name": "样本集查看",
+                "name_en": "SampleSet View",
+                "description": "样本集查看",
+                "description_en": "SampleSet View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "sample_set",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-sample_set"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "sample_set-update",
+                "name": "样本集编辑",
+                "name_en": "SampleSet Edit",
+                "description": "样本集编辑",
+                "description_en": "SampleSet Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "sample_set",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-sample_set"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "sample_set-delete",
+                "name": "样本集删除",
+                "name_en": "SampleSet Delete",
+                "description": "样本集删除",
+                "description_en": "SampleSet Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "sample_set",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-sample_set"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

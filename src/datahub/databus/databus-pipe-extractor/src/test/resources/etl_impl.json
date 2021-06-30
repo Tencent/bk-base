@@ -1,0 +1,19 @@
+{
+  "extract":{
+    "type": "assign",
+    "subtype": "assign_value",
+    "assign": {
+      "key": "worldid",
+      "assign_to": "upload_time"
+    }
+  },
+  "conf": {
+    "time_field_name": "upload_time",
+    "output_field_name": "timestamp",
+    "time_format": "yyyy-MM-dd HH:mm:ss",
+    "timestamp_len": 0,
+    "time_round": 1,
+    "compressed": 1,
+    "ignore_fields": ["upload_time"]
+  }
+}

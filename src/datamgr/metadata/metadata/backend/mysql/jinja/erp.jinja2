@@ -1,0 +1,50 @@
+{% macro linked_attr_retrieve(ee_tree) %}
+    {% set sub_tree_len = get_list_length(ee_tree.linked_attributes.values()) %}
+    {% for link_key, link_value in ee_tree.linked_attributes.items() %}
+    {% set sub_tree = link_value['sub_tree'] %}
+    {#{% set sla = sub_tree.linked_attributes %}#}
+    {{ ',\n\t'.join(sub_tree.statements.attributes) }}{#{% if sla %},#}{% if loop.index < sub_tree_len %},{% endif %}
+    {#{{ linked_attr_retrieve(sub_tree) }}#}
+    {#{% endif %}#}
+    {% endfor %}
+{% endmacro %}
+
+{% macro linked_table_join(ee_tree) %}
+    {% set ee_tree_table = ee_tree.backend_partition['table_name'] %}
+    {% set ee_tree_idkey = ee_tree.typed.metadata['identifier'].name %}
+    {% for link_key, link_value in ee_tree.linked_attributes.items() %}
+    {% set sub_tree = link_value['sub_tree'] %}
+    {#{% set sla = sub_tree.linked_attributes %}#}
+    {% set sub_ee_tree_table = sub_tree.backend_partition['table_name'] %}
+    {% set sub_ee_tree_idkey = sub_tree.typed.metadata['identifier'].name %}
+    LEFT JOIN
+    (
+    SELECT * FROM {{ sub_ee_tree_table }}
+    WHERE
+        {% set i_sf = sub_tree.statements.start_filter_expression %}{% if i_sf %}{{ i_sf }} AND {% endif %}
+        {% set i_f = sub_tree.statements.filter_expressions %}{% if i_f %}{{ ' AND '.join(combine_filters(i_f)) if get_list_length(i_f) > 0 }} AND {% endif %}1=1
+    {% set i_o = sub_tree.statements.order_by %}{% if i_o %}ORDER BY {{ i_o['predicate'] }} {{ i_o['order'] }}{% endif %}
+    {% set i_p = sub_tree.statements.paging %}{% if i_p %}LIMIT {{ i_p }}{% endif %}) {{ sub_ee_tree_table }}
+    ON {{ sub_ee_tree_table }}.{{ sub_ee_tree_idkey }} = {{ ee_tree_table }}.{{ ee_tree_idkey }}
+    {#{% if sla %}#}
+    {#{{ linked_table_join(ee_tree) }}#}
+    {#{% endif %}#}
+    {% endfor %}
+{% endmacro %}
+
+SELECT
+{% set la = ee_tree.linked_attributes %}
+    {{ ',\n\t'.join(ee_tree.statements.attributes) }}{% if la %},
+    {{ linked_attr_retrieve(ee_tree) }}
+    {% endif %}
+FROM
+    (
+    SELECT * FROM {{ ee_tree.backend_partition['table_name'] }}
+    WHERE
+        {% set sf = ee_tree.statements.start_filter_expression %}{% if sf %}{{ sf }} AND {% endif %}
+        {% set f = ee_tree.statements.filter_expressions %}{% if f %}{{ ' AND '.join(combine_filters(f)) if get_list_length(f) > 0 }} AND {% endif %}1=1
+    {% set o = ee_tree.statements.order_by %}{% if o %}ORDER BY {{ o['predicate'] }} {{ o['order'] }}{% endif %}
+    {% set p = ee_tree.statements.paging %}{% if p %}LIMIT {{ p }}{% endif %}) {{ ee_tree.backend_partition['table_name'] }}
+{% if la %}
+{{ linked_table_join(ee_tree) }}
+{% endif %};

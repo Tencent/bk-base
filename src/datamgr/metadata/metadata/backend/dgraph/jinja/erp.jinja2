@@ -1,0 +1,54 @@
+{% macro extra_retrieve(ee_tree) %}
+    {% set f = ee_tree.statements.filter_expressions %}
+    {% if f %}
+    @filter({{' and '.join(combine_filters(f)) if get_list_length(f) > 0 }})
+    {% endif %}
+    {% set cascade = ee_tree.statements.cascade %}
+    {% if cascade %}
+    @cascade
+    {% endif %}
+    {% if not ee_tree.statements.start_filter_expression %}
+        {% set p = ee_tree.statements.paging %}
+        {% if p %}
+        (first: {{ p['first'] }}, offset: {{ p['offset'] }})
+        {% endif %}
+        {% set o = ee_tree.statements.order_by %}
+        {% if o %}
+        ({{ o['order'] }}: {{ o['predicate'] }})
+        {% endif %}
+    {% endif %}
+    {
+        {% set c = ee_tree.statements.count %}
+        {% if c %}
+        count: count(uid)
+        {% endif %}
+        {% for attr_expr in ee_tree.statements.attributes %}
+        {{ attr_expr }}
+        {% endfor %}
+        {% for link_key, link_value in ee_tree.linked_attributes.items() %}
+        {{ link_key }}
+            {{ extra_retrieve(link_value['sub_tree']) }}
+        {% endfor %}
+    }
+{% endmacro %}
+
+
+{
+    {% for statement in erp_tree.variables.statements %}
+    {{ statement }}
+    {% endfor %}
+
+    {% for ee_tree in erp_tree.expressions %}
+    {{ ee_tree.expression_name }}(func: {{ ee_tree.statements.start_filter_expression }}
+    {% set p = ee_tree.statements.paging %}
+    {% if p %}
+        ,first: {{ p['first'] }}, offset:{{ p['offset'] }}
+    {% endif %}
+    {% set o = ee_tree.statements.order_by %}
+    {% if o %}
+        ,{{ o['order'] }}: {{ o['predicate'] }}
+    {% endif %}
+    )
+        {{ extra_retrieve(ee_tree) }}
+    {% endfor %}
+}

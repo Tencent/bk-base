@@ -1,0 +1,163 @@
+# vim:ft=sh sts=4 ts=4 sw=4
+
+pack () {
+    local module=$1   
+    local args=$2
+
+    check_name pack ${module} || exit 1
+
+    # 若最后一个参数是1, 则先同步文件
+    check_if_sync_required ${@: -1} ${module%_*}
+
+    # 若最后一个参数是1, 且是第二个参数,则要取消掉 proj 的取值.
+    [ "$proj" == "1" ] && proj=
+
+    case $module in
+        gse*)
+            rcmd root@$GSE_IP0 "source $CTRL_DIR/render.rc; render_gse; source $CTRL_DIR/pack.rc; pack_${module} $args" || fail "packing failed."
+            transfer_to_nginxsvr $module
+            ;;
+        *) pack_${module} $args ;;
+    esac
+}
+
+_update_gse_scripts () {
+    local node_type=$1
+
+    rsync -a $CTRL_DIR/scripts/gse/$node_type/ $node_type/bin/
+}
+
+
+pack_gse_agent () {
+    cd $INSTALL_PATH/gse
+
+    ## new add. testing required
+    #for os in linux windows; do
+    #    for cpu_arch in x86 x86_64; do
+    #        emphasize "  > packing gse $os $role ($cpu_arch)"
+    #        rm -rf agent plugins
+    #        [ -d agent_{$os}_${cpu_arch} ] && _rsync -a --delete agent_${os}_${cpu_arch} agent/
+    #        [ -d plugins_{$os}_${cpu_arch} ] && _rsync -a --delete plugins_${os}_${cpu_arch} plugins/
+
+    #        _rsync -a --delete $PKG_SRC_PATH/cert/ agent/cert/
+    #        tar zcf gse_client-linux-x86.tgz agent plugins || fail " > pack failed."
+    #        rm -rf agent plugins
+    #        mv gse_client-${os}-${cpu_arch}.tgz $PKG_SRC_PATH/
+    #    done
+    #done
+
+    emphasize "  > packing gse linux agent (x86)"
+    rm -f gse_client-linux-x86.tgz \
+            gse_client-linux-x86_64.tgz \
+            gse_client-windows-x86.tgz \
+            gse_client-windows-x86_64.tgz \
+            gse_client-aix-powerpc.tgz 
+
+    _rsync -a --delete agent_linux_x86/ agent/
+    _rsync -a --delete plugins_linux_x86/ plugins/
+    cp -a "$PKG_SRC_PATH"/cert/{gseca.crt,gse_agent.crt,gse_agent.key,cert_encrypt.key} agent/cert/
+
+    #_update_gse_scripts agent
+    _update_gse_scripts plugins
+
+    tar zcf gse_client-linux-x86.tgz agent plugins || fail " > pack failed."
+    rm -rf agent plugins
+    mv gse_client-linux-x86.tgz $PKG_SRC_PATH/
+
+    emphasize "  > packing gse linux agent (x86_64)"
+    _rsync -a --delete agent_linux_x86_64/ agent/
+    _rsync -a --delete plugins_linux_x86_64/ plugins/
+    cp -a "$PKG_SRC_PATH"/cert/{gseca.crt,gse_agent.crt,gse_agent.key,cert_encrypt.key} agent/cert/
+
+    #_update_gse_scripts agent
+    _update_gse_scripts plugins
+
+    tar zcf gse_client-linux-x86_64.tgz agent plugins || fail " > pack failed."
+    rm -rf agent plugins
+    mv gse_client-linux-x86_64.tgz $PKG_SRC_PATH/
+
+    emphasize "  > packing gse windows agent (x86)"
+    _rsync -a --delete agent_win_x86/ agent/
+    _rsync -a --delete plugins_windows_x86/ plugins/
+    cp -a "$PKG_SRC_PATH"/cert/{gseca.crt,gse_agent.crt,gse_agent.key,cert_encrypt.key} agent/cert/
+    tar zcf gse_client-windows-x86.tgz agent plugins || fail " > pack failed."
+    rm -rf agent plugins
+    mv gse_client-windows-x86.tgz $PKG_SRC_PATH/
+
+    emphasize "  > packing gse windows agent (x86_64)"
+    _rsync -a --delete agent_win_x86_64/ agent/
+    _rsync -a --delete plugins_windows_x86_64/ plugins/
+    cp -a "$PKG_SRC_PATH"/cert/{gseca.crt,gse_agent.crt,gse_agent.key,cert_encrypt.key} agent/cert/
+    tar zcf gse_client-windows-x86_64.tgz agent plugins || fail " > pack failed."
+    rm -rf agent plugins
+    mv gse_client-windows-x86_64.tgz $PKG_SRC_PATH/
+
+    if [ -d agent_aix_powerpc ]; then
+        emphasize "  > packing gse aix agent (x86_64)"
+        _rsync -a --delete agent_aix_powerpc/ agent/
+        [ -d plugins_aix_powerpc ] && { _rsync -a --delete plugins_aix_powerpc/ plugins/; pack_plugins=plugins; }
+        _rsync -a $CTRL_DIR/scripts/gse/agentaix/gsectl.ksh agent/bin/gsectl
+        cp -a "$PKG_SRC_PATH"/cert/{gseca.crt,gse_agent.crt,gse_agent.key,cert_encrypt.key} agent/cert/
+        tar zcf gse_client-aix-powerpc.tgz agent $pack_plugins || fail " > pack failed."
+        rm -rf agent plugins
+        mv gse_client-aix-powerpc.tgz $PKG_SRC_PATH/
+    else
+        echo "fake file for aix" > $PKG_SRC_PATH/gse_client-aix-powerpc.tgz
+    fi
+}
+
+pack_gse_proxy () {
+    cd $INSTALL_PATH/gse
+
+    # 非直连模式, 必须设置gse server 所在的外网 IP, 企业版有两个
+    # 因此, 外网 IP 需要在中控机获取, 因为单台机器上无法获得其他机器的外网IP
+    emphasize " > packing gse proxy (x86_64)..."
+    rm -f gse_proxy-linux-x86_64.tgz
+    _rsync -a $PKG_SRC_PATH/cert/ proxy/cert/
+    _rsync -a $PKG_SRC_PATH/gse/proxy/ proxy/
+    _rsync -a --delete plugins_linux_x86_64/ plugins/
+    _update_gse_scripts proxy
+    _update_gse_scripts plugins
+    tar zcf gse_proxy-linux-x86_64.tgz proxy plugins || fail " > pack failed."
+    rm -rf proxy plugins
+    mv gse_proxy-linux-x86_64.tgz $PKG_SRC_PATH/
+}
+
+pack_gse_plugin () {
+    local args=$1
+    export PYTHONUNBUFFERED=1
+
+    _rsync -a --exclude support-files --delete $PKG_SRC_PATH/gse/ $INSTALL_PATH/gse
+    ./load_plugin_data.py -p $INSTALL_PATH -n $NGINX_IP0 -d $INSTALL_PATH/gse $args || fail "pack gse plugin failed."
+    rm -rf $INSTALL_PATH/gse/{linux,windows}
+}
+
+transfer_to_nginxsvr () {
+    local module=${1//agent/client}
+
+    rsync -a ~/.ssh/id_rsa $GSE_IP0:/root/.ssh/
+
+    case $module in
+        *client|*proxy)
+            scp root@$GSE_IP0:$PKG_SRC_PATH/${module}-* root@$NGINX_IP0:$INSTALL_PATH/miniweb/download/
+            scp root@$GSE_IP0:$PKG_SRC_PATH/${module}-* root@$NGINX_IP1:$INSTALL_PATH/miniweb/download/
+            ;;
+        #*plugin)
+        #    scp -r root@$GSE_IP0:$PKG_SRC_PATH/linux   root@$NGINX_IP0:$INSTALL_PATH/miniweb/download/
+        #    scp -r root@$GSE_IP0:$PKG_SRC_PATH/windows root@$NGINX_IP0:$INSTALL_PATH/miniweb/download/
+        #    ;;
+    esac
+
+    rcmd root@$NGINX_IP0 "cd $INSTALL_PATH/miniweb/download; find . -type f | xargs md5sum > MD5"
+}
+
+pack_bcs_cert () {
+    ssh $NGINX_IP "
+        touch ${INSTALL_PATH}/cert/bk_domain.crt;
+        rsync -a ${INSTALL_PATH}/cert/bk_domain.crt ${INSTALL_PATH}/miniweb/bcs/;
+        cd ${INSTALL_PATH}/cert/; tar czf ${INSTALL_PATH}/miniweb/bcs/bcs-cert.tar.gz bcs/bcs*.pem --exclude=bcs/bcs-ca-key.pem"
+}
+
+pack_bcs_cluster () {
+    scp -r $PKG_SRC_PATH/bcs_cluster/bcs root@$NGINX_IP0:$INSTALL_PATH/miniweb/
+}

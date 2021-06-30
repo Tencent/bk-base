@@ -1,0 +1,23 @@
+{
+    var(func: eq({{ dgraph_entity_id_field }}, {{ dgraph_entity_id }})) {
+        DS as uid
+    }
+
+    target(func: uid(DS)) @recurse(depth: {{ depth }}, loop:true) {
+        uid
+        AccessRawData.id
+        ResultTable.result_table_id
+        ResultTable.generate_type
+        ResultTable.platform
+        DataProcessing.processing_id
+        DataProcessing.generate_type
+        parents: ~lineage.descend
+    }
+
+    check_tags(func: uid(DS)) {
+        uid
+        tags: ~Tag.targets {
+            Tag.code
+        }
+    }
+}

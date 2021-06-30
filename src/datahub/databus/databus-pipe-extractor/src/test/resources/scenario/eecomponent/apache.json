@@ -1,0 +1,58 @@
+{
+    "@timestamp": "2017-10-22T23:08:49.290Z",
+    "apache": {
+        "status": {
+            "bytes_per_request": 427.537,
+            "bytes_per_sec": 7.12227,
+            "connections": {
+                "async": {}
+            },
+            "cpuload": 0.00032,
+            "hostname": "xx.xx.xx.xx:12345",
+            "requests_per_sec": 0.016659,
+            "scoreboard": {
+                "closing_connection": 0,
+                "dns_lookup": 0,
+                "gracefully_finishing": 0,
+                "idle_cleanup": 0,
+                "keepalive": 0,
+                "logging": 0,
+                "open_slot": 248,
+                "reading_request": 0,
+                "sending_reply": 1,
+                "starting_up": 0,
+                "total": 256,
+                "waiting_for_connection": 7
+            },
+            "total_accesses": 1667,
+            "total_accesses_min": 1,
+            "total_kbytes": 696,
+            "total_kbytes_min": 1,
+            "uptime": 100067,
+            "workers": {
+                "busy": 1,
+                "idle": 7
+            }
+        }
+    },
+    "beat": {
+        "address": [
+            "xx.xx.xx.xx"
+        ],
+        "hostname": "host_name",
+        "name": "host_name",
+        "version": "Vxx.xx.xx.xx"
+    },
+    "bizid": 0,
+    "cloudid": 0,
+    "dataid": 3002,
+    "gseindex": 40549,
+    "ip": "xx.xx.xx.xx",
+    "metricset": {
+        "host": "xx.xx.xx.xx:12345",
+        "module": "apache",
+        "name": "status",
+        "rtt": 655
+    },
+    "type": "metricsets"
+}

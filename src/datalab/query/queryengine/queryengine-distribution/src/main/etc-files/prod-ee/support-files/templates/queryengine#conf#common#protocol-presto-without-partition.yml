@@ -1,0 +1,51 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+presto-without-partition:
+  walker:
+    type: .SerialGroup
+    groups:
+      - type: .checker.UseOfDisabledOperationChecker
+        disabled-operation-list:
+          - ALTER
+          - ALTER VIEW
+          - CREATE INDEX
+          - CREATE TABLE
+          - CREATE VIEW
+          - DELETE
+          - DROP
+          - EXECUTE
+          - INSERT
+          - MERGE
+          - UPDATE
+      - type: .checker.DuplicatedColumnsChecker
+      - type: .optimizer.AddDefaultLimitOptimizer
+        limit: 100
+      - type: .optimizer.BlueKingTableNameOptimizer
+        urlPattern: 'http://__BKDATA_METAAPI_HOST__:__BKDATA_METAAPI_PORT__/v3/meta/result_tables/{0}/?erp={"~StorageResultTable.result_table":{"data_type":"true","physical_table_name":"true","active":"true","storage_cluster_config_id": "true","storage_cluster":{"cluster_name":"true","cluster_type": "true","connection_info":"true","expires":"true","version":"true"},"storage_channel":{"cluster_type":"true"}}}&result_format=classic'
+        target: hdfs
+      - type: com.tencent.bk.base.datalab.queryengine.validator.optimizer.PrestoMinutexOptimizer
+      - type: .optimizer.DivisionOptimizer
+      - type: .optimizer.ReservedKeyOptimizer
+        keyWords: [ ALTER,AND,AS,BETWEEN,BY,CASE,CAST,CONSTRAINT,CREATE,CROSS,CUBE,CURRENT_PATH,CURRENT_USER,DEALLOCATE,DELETE,DESCRIBE,DISTINCT,DROP,ELSE,END,ESCAPE,EXCEPT,EXECUTE,EXISTS,EXTRACT,FALSE,FOR,FROM,FULL,GROUP,GROUPING,HAVING,IN,INNER,INSERT,INTERSECT,INTO,IS,JOIN,LEFT,LIKE,LOCALTIME,LOCALTIMESTAMP,NATURAL,NORMALIZE,NOT,NULL,ON,OR,ORDER,OUTER,PREPARE,RECURSIVE,RIGHT,ROLLUP,SELECT,TABLE,THEN,TRUE,UESCAPE,UNION,UNNEST,USING,VALUES,WHEN,WHERE,WITH ]
+        quoting: '"'
+  de-parser:
+    type: .Sql

@@ -1,0 +1,15 @@
+{
+  "name":"crate-sink",
+  "config": {
+    "group.id":"crate-cluster",
+    "name":"crate-sink",
+    "rt.id": "result_table_id",
+    "connector.class":"com.tencent.bkdata.connect.crate.CrateSinkConnector",
+    "tasks.max": 10,
+    "topics":"topic_to_read",
+    "connection.url":"jdbc:crate://xx.xx.xx.xx:5432/",
+    "table.name":"dest_table",
+    "thread.num": 1,
+    "batch.size":"4000"
+  }
+}

@@ -1,0 +1,123 @@
+[
+    {
+        "cluster_type":"mysql",
+        "cluster_name":"__MYSQL_CLUSTER_NAME__",
+        "connection_info":"{\"host\": \"__MYSQL_DATA_NODE1_HOST__\", \"port\": __MYSQL_DATA_PORT__, \"user\": \"__MYSQL_DATA_USER__\", \"password\": \"__MYSQL_DATA_PASS__\"}",
+        "expires":"{\"min_expire\":1, \"max_expire\":30}",
+        "tags":[
+            "__DEFAULT_GEOG_AREA_TAG__",
+            "__DEFAULT_CLUSTER_ROLE_TAG__",
+            "__ENABLE_TAG__"
+        ],
+        "version":"__BKDATA_MYSQL_VERSION__",
+        "belongs_to":"bkdata",
+        "group":"__DEFAULT_CLUSTER_GROUP__",
+        "description":"MySQL公共集群"
+    },
+    {
+        "cluster_type":"es",
+        "cluster_name":"__ES_CLUSTER_NAME__",
+        "connection_info":"{\"user\": \"__ES_USER__\", \"enable_auth\": __BKDATA_ES_ENABLE_AUTH__, \"enable_replica\": __BKDATA_ES_ENABLE_REPLICA__, \"host\": \"__ES_HOST__\", \"password\": \"__ES_PASS__\", \"port\": __ES_REST_PORT__, \"transport\": __ES_TRANSPORT_PORT__}",
+        "expires":"{\"min_expire\":1, \"max_expire\":30}",
+        "tags":[
+            "__DEFAULT_GEOG_AREA_TAG__",
+            "__DEFAULT_CLUSTER_ROLE_TAG__",
+            "__ENABLE_TAG__"
+        ],
+        "version":"__BKDATA_ES_VERSION__",
+        "belongs_to":"bkdata",
+        "group":"__DEFAULT_CLUSTER_GROUP__",
+        "description":"ES公共集群"
+    },
+    {
+        "cluster_type":"tsdb",
+        "cluster_name":"__INFLUXDB_CLUSTER_NAME__",
+        "connection_info":"{\"host\": \"__BKDATA_INFLUXDB_PROXY_HOST__\", \"port\": __BKDATA_INFLUXDB_PROXY_PORT__, \"user\": \"__INFLUXDB_BKDATA_USER__\", \"password\": \"__INFLUXDB_BKDATA_PASS__\"}",
+        "expires":"{\"min_expire\":1, \"max_expire\":30}",
+        "tags":[
+            "__DEFAULT_GEOG_AREA_TAG__",
+            "__DEFAULT_CLUSTER_ROLE_TAG__",
+            "__OP_ROLE_TAG__",
+            "__ENABLE_TAG__"
+        ],
+        "version":"__BKDATA_INFLUXDB_VERSION__",
+        "belongs_to":"bkdata",
+        "group":"__DEFAULT_CLUSTER_GROUP__",
+        "description":"tsdb公共集群"
+    },
+    {
+        "cluster_type":"tredis",
+        "cluster_name":"__TREDIS_CLUSTER_NAME__",
+        "connection_info":"{\"enable_sentinel\":false, \"host\":\"__TREDIS_HOST__\", \"port\":__TREDIS_PORT__, \"password\":\"__TREDIS_PASS__\", \"name_sentinel\":\"\", \"host_sentinel\":\"\", \"port_sentinel\":0}",
+        "expires":"{\"min_expire\":1, \"max_expire\":-1}",
+        "tags":[
+            "__DEFAULT_GEOG_AREA_TAG__",
+            "__COMPUTE_ROLE_TAG__",
+            "__ENABLE_TAG__"
+        ],
+        "version":"__BKDATA_TREDIS_VERSION__",
+        "belongs_to":"bkdata",
+        "group":"__DEFAULT_CLUSTER_GROUP__",
+        "description":"tredis集群"
+    },
+    {
+        "cluster_type":"queue",
+        "cluster_name":"__KAFKA_QUEUE_CLUSTER_NAME__",
+        "connection_info":"{\"host\": \"__KAFKA_QUEUE_HOST__\", \"port\": __KAFKA_PORT__, \"auto_create_topic\": __BKDATA_STORAGE_AUTO_CREATE_TOPIC__, \"sasl.user\": \"__BKDATA_STORAGE_SASL_USER__\", \"use.sasl\": __BKDATA_STORAGE_USE_SASL__, \"sasl.pass\": \"__BKDATA_STORAGE_SASL_PASS__\"}",
+        "expires":"{\"min_expire\":3, \"max_expire\":3}",
+        "tags":[
+            "__DEFAULT_GEOG_AREA_TAG__",
+            "__DEFAULT_CLUSTER_ROLE_TAG__",
+            "__ENABLE_TAG__"
+        ],
+        "version":"__BKDATA_QUEUE_VERSION__",
+        "belongs_to":"bkdata",
+        "group":"__DEFAULT_CLUSTER_GROUP__",
+        "description":"queue公共集群"
+    },
+    {
+        "cluster_type":"ignite",
+        "cluster_name":"__BKDATA_IGNITE_CLUSTER_NAME__",
+        "connection_info":"{\"zk.port\": __BKDATA_IGNITE_ZK_PORT__, \"session.timeout\": 300000, \"thin.client.threshold\": 200000, \"host\": \"__BKDATA_IGNITE_HOST__\", \"zk.root.path\": \"__BKDATA_IGNITE_ZK_ROOT_PATH__\", \"cache_records_limit\": 2000000, \"join.timeout\": 300000, \"zk.domain\": \"__BKDATA_IGNITE_ZK_DOMAIN__\", \"user\": \"__BKDATA_IGNITE_USER__\", \"cluster.name\": \"__BKDATA_IGNITE_CLUSTER_NAME__\", \"password\": \"__BKDATA_IGNITE_PASSWORD__\", \"port\": __BKDATA_IGNITE_PORT__}",
+        "expires":"{\"min_expire\":-1, \"max_expire\":-1}",
+        "tags":[
+            "__DEFAULT_GEOG_AREA_TAG__",
+            "__DEFAULT_CLUSTER_ROLE_TAG__",
+            "__ENABLE_TAG__"
+        ],
+        "version":"__BKDATA_IGNITE_VERSION__",
+        "belongs_to":"bkdata",
+        "group":"__DEFAULT_CLUSTER_GROUP__",
+        "description":"ignite公共集群"
+    },
+    {
+        "cluster_type":"druid",
+        "cluster_name":"__BKDATA_DRUID_CLUSTER_NAME__",
+        "connection_info":"{\"host\": \"__BKDATA_DRUID_HOST__\", \"zookeeper.connect\": \"__BKDATA_DRUID_ZK_ADDRESS__\", \"port\":__BKDATA_DRUID_PORT__}",
+        "expires":"{\"min_expire\":1, \"max_expire\":30}",
+        "tags":[
+            "__DEFAULT_GEOG_AREA_TAG__",
+            "__DEFAULT_CLUSTER_ROLE_TAG__",
+            "__ENABLE_TAG__"
+        ],
+        "version":"__BKDATA_DRUID_VERSION__",
+        "belongs_to":"bkdata",
+        "group":"__DEFAULT_CLUSTER_GROUP__",
+        "description":"druid公共集群"
+    },
+    {
+        "cluster_type":"clickhouse",
+        "cluster_name":"__BKDATA_CLICKHOUSE_CLUSTER_NAME__",
+        "connection_info":"{\"http_port\": __BKDATA_CLICKHOUSE_HTTP_PORT__, \"tcp_tgw\": \"__BKDATA_CLICKHOUSE_TCP_TGW__\", \"zk_address\": \"__BKDATA_CLICKHOUSE_ZK_ADDRESS__\", \"http_tgw\": \"__BKDATA_CLICKHOUSE_HTTP_TGW__\", \"shipper_flush_interval\": 60, \"shipper_flush_size\": 200000, \"flush_size\": 10000, \"user\": \"__BKDATA_CLICKHOUSE_USER__\", \"tcp_port\": __BKDATA_CLICKHOUSE_TCP_PORT__, \"flush_interval\": 5, \"inner_cluster\": \"default_cluster\", \"password\": \"__BKDATA_CLICKHOUSE_PASSWORD__\"}",
+        "expires":"{\"min_expire\":1, \"max_expire\":30}",
+        "tags":[
+            "__DEFAULT_GEOG_AREA_TAG__",
+            "__DEFAULT_CLUSTER_ROLE_TAG__",
+            "__ENABLE_TAG__"
+        ],
+        "version":"__BKDATA_CLICKHOUSE_VERSION__",
+        "belongs_to":"bkdata",
+        "group":"__DEFAULT_CLUSTER_GROUP__",
+        "description":"clickhouse公共集群"
+    }
+]

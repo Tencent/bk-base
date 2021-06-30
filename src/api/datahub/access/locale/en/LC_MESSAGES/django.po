@@ -1,0 +1,1871 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-05 16:31+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: collectors/base_collector.py:35
+msgid "开始接入{}数据"
+msgstr "Start access to {} data"
+
+#: collectors/base_collector.py:50 collectors/base_collector.py:52
+#: collectors/base_collector.py:54 collectors/base_collector.py:90
+msgid "部署过程出现非预期异常,{}"
+msgstr "Unexpected exception in the deployment process,{}"
+
+#: collectors/base_collector.py:60
+msgid "成功接入{}数据"
+msgstr "Successful access to {}data"
+
+#: collectors/base_collector.py:64 collectors/base_collector.py:100
+msgid "由于host非法没有处理"
+msgstr "No processing since the host is illegal"
+
+#: collectors/base_collector.py:72
+msgid "开始停止{}进程任务"
+msgstr "Start stopping {} process tasks"
+
+#: collectors/base_collector.py:86 collectors/base_collector.py:88
+msgid "停止过程出现非预期异常,{}"
+msgstr "Unexpected exception in the stopping process,{}"
+
+#: collectors/base_collector.py:96
+msgid "成功停止{}采集进程"
+msgstr "Successfully stopped the {} collection process"
+
+#: collectors/base_collector.py:182
+msgid "{}接入场景-任务部署:{},task_id:{}"
+msgstr "{}access scenario - task deployment: {}, task_id:{}"
+
+#: collectors/base_collector.py:262
+msgid "{}接入场景:{},raw_data_id={}"
+msgstr "{}access scenario: {}, raw_data_id={}"
+
+#: collectors/base_collector.py:574
+msgid "队列任务等待中"
+msgstr "Queue task waiting"
+
+#: collectors/beacon_collector/access.py:54
+msgid "生成配置"
+msgstr "Generate configuration"
+
+#: collectors/beacon_collector/access.py:56
+#: collectors/db_collector/access.py:94 collectors/http_collector/access.py:87
+#: collectors/log_collector/access.py:349
+#: collectors/script_collector/access.py:103
+msgid "下发配置"
+msgstr "Deliver configuration"
+
+#: collectors/beacon_collector/access.py:64
+#: collectors/beacon_collector/access.py:65
+msgid "同步配置"
+msgstr "Synchronize configuration"
+
+#: collectors/beacon_collector/access.py:73
+msgid "同步ZK异常:{}"
+msgstr "Synchronous ZK exception:{}"
+
+#: collectors/beacon_collector/serializers.py:21
+msgid "appkey"
+msgstr "appkey"
+
+#: collectors/beacon_collector/serializers.py:22
+msgid "事件类型"
+msgstr "Event type"
+
+#: collectors/beacon_collector/serializers.py:28 serializers.py:530
+msgid "event_code不能填写*"
+msgstr "Event_code cannot be filled in *"
+
+#: collectors/beacon_collector/serializers.py:44
+msgid "appkey已存在该事件接入记录，appkey:{}, event_code:{}"
+msgstr "Appkey already exists the event access record.appkey:{}, event_code:{}"
+
+#: collectors/beacon_collector/serializers.py:48
+#: collectors/db_collector/serializers.py:94
+#: collectors/file_collector/serializers.py:39
+#: collectors/http_collector/serializers.py:64
+#: collectors/log_collector/serializers.py:108
+#: collectors/script_collector/serializers.py:55
+#: collectors/tdw_collector/serializers.py:19
+#: collectors/tglog_collector/serializers.py:22
+#: collectors/tqos_collector/serializers.py:53
+#: collectors/tube_collector/serializers.py:23
+msgid "接入对象"
+msgstr "Access object"
+
+#: collectors/beacon_collector/serializers.py:50
+#: collectors/db_collector/serializers.py:30
+#: collectors/db_collector/serializers.py:118
+#: collectors/file_collector/serializers.py:16
+#: collectors/file_collector/serializers.py:41
+#: collectors/http_collector/serializers.py:17
+#: collectors/http_collector/serializers.py:66
+#: collectors/log_collector/serializers.py:18
+#: collectors/log_collector/serializers.py:110
+#: collectors/script_collector/serializers.py:57
+#: collectors/tdw_collector/serializers.py:21
+#: collectors/tglog_collector/serializers.py:24
+#: collectors/tqos_collector/serializers.py:55
+#: collectors/tube_collector/serializers.py:25
+msgid "采集方式"
+msgstr "Collection method"
+
+#: collectors/beacon_collector/serializers.py:51
+#: collectors/db_collector/serializers.py:119
+#: collectors/file_collector/serializers.py:42
+#: collectors/http_collector/serializers.py:67
+#: collectors/log_collector/serializers.py:111
+#: collectors/script_collector/serializers.py:58
+#: collectors/tdw_collector/serializers.py:22
+#: collectors/tglog_collector/serializers.py:25
+#: collectors/tqos_collector/serializers.py:56
+#: collectors/tube_collector/serializers.py:26
+msgid "接入信息"
+msgstr "Access information"
+
+#: collectors/beacon_collector/serializers.py:52
+#: collectors/db_collector/serializers.py:120
+#: collectors/file_collector/serializers.py:43
+#: collectors/http_collector/serializers.py:68
+#: collectors/log_collector/serializers.py:65
+#: collectors/log_collector/serializers.py:112
+#: collectors/script_collector/serializers.py:59
+#: collectors/tdw_collector/serializers.py:23
+#: collectors/tglog_collector/serializers.py:26
+#: collectors/tqos_collector/serializers.py:45
+#: collectors/tqos_collector/serializers.py:57
+#: collectors/tube_collector/serializers.py:27
+msgid "过滤条件"
+msgstr "Filter condition"
+
+#: collectors/beacon_collector/serializers.py:53
+#: collectors/db_collector/serializers.py:71
+#: collectors/file_collector/serializers.py:29
+#: collectors/http_collector/serializers.py:43
+#: collectors/log_collector/serializers.py:94
+#: collectors/script_collector/serializers.py:43
+#: collectors/tdw_collector/serializers.py:24
+#: collectors/tglog_collector/serializers.py:27
+#: collectors/tqos_collector/serializers.py:49
+#: collectors/tube_collector/serializers.py:28 serializers.py:330
+msgid "部署计划id"
+msgstr "Deployment plan id"
+
+#: collectors/beacon_collector/serializers.py:55
+#: collectors/db_collector/serializers.py:122
+#: collectors/file_collector/serializers.py:45
+#: collectors/http_collector/serializers.py:70
+#: collectors/log_collector/serializers.py:114
+#: collectors/script_collector/serializers.py:61
+#: collectors/tdw_collector/serializers.py:26
+#: collectors/tglog_collector/serializers.py:29
+#: collectors/tqos_collector/serializers.py:59
+#: collectors/tube_collector/serializers.py:30 serializers.py:505
+msgid "接入配置信息"
+msgstr "Access configuration information"
+
+#: collectors/beacon_collector/serializers.py:69 serializers.py:538
+msgid "非管理员，appkey不能填写*"
+msgstr "Non-administrator, appkey can't fill in *"
+
+#: collectors/beacon_collector/serializers.py:75
+#: collectors/beacon_collector/serializers.py:85 serializers.py:186
+#: serializers.py:192 serializers.py:196 serializers.py:200 serializers.py:222
+#: serializers.py:256 serializers.py:431 serializers.py:455 serializers.py:467
+#: serializers.py:491
+msgid "源数据ID"
+msgstr "Source data ID"
+
+#: collectors/beacon_collector/serializers.py:76
+#: collectors/beacon_collector/serializers.py:86
+msgid "业务key"
+msgstr "Business key"
+
+#: collectors/beacon_collector/serializers.py:77
+#: collectors/beacon_collector/serializers.py:87
+msgid "灯塔事件代号"
+msgstr "Lighthouse event code"
+
+#: collectors/beacon_collector/serializers.py:78
+#: collectors/beacon_collector/serializers.py:88
+msgid "记录是否有效"
+msgstr "Record validity"
+
+#: collectors/beacon_collector/serializers.py:79
+#: collectors/beacon_collector/serializers.py:90 models.py:339
+msgid "创建人"
+msgstr "Creator"
+
+#: collectors/beacon_collector/serializers.py:80
+#: collectors/beacon_collector/serializers.py:91 models.py:341
+msgid "更新人"
+msgstr "Updator"
+
+#: collectors/beacon_collector/serializers.py:81
+#: collectors/beacon_collector/serializers.py:92 models.py:343
+msgid "备注信息"
+msgstr "Remarks"
+
+#: collectors/beacon_collector/serializers.py:89 serializers.py:350
+msgid "操作人"
+msgstr "Operator"
+
+# msgid "生成并下发配置中"
+#: collectors/db_collector/access.py:57
+msgid "生成并下发配置中"
+msgstr "Deliver configuration"
+
+#: collectors/db_collector/access.py:62 collectors/http_collector/access.py:56
+#: collectors/log_collector/access.py:100
+#: collectors/script_collector/access.py:55
+msgid "操作系统未知,无法安装部署"
+msgstr "The operation system is unknown, unable to install and deploy."
+
+#: collectors/db_collector/access.py:76
+msgid "db开始生成配置下发,host列表:{}"
+msgstr "db starts generating configuration and deliver, host list:{}"
+
+# msgid "下发配置失败"
+#: collectors/db_collector/access.py:80 collectors/http_collector/access.py:73
+#: collectors/log_collector/access.py:206
+#: collectors/script_collector/access.py:73
+msgid "下发配置失败"
+msgstr "Deliver configuration"
+
+#: collectors/db_collector/access.py:81 collectors/http_collector/access.py:74
+#: collectors/log_collector/access.py:207
+msgid "重启采集器进程中"
+msgstr "Restart the collector process"
+
+#: collectors/db_collector/access.py:89 collectors/http_collector/access.py:82
+msgid "重启采集器进程失败"
+msgstr "Restart the collector process"
+
+#: collectors/db_collector/access.py:99 collectors/http_collector/access.py:92
+msgid "重启采集器进程"
+msgstr "Restart the collector process"
+
+#: collectors/db_collector/access.py:104
+#: collectors/http_collector/access.py:97
+#: collectors/log_collector/access.py:232
+#: collectors/script_collector/access.py:187
+msgid "deploy_plans状态:{}"
+msgstr "deploy_plans status: {}"
+
+#: collectors/db_collector/access.py:151
+#: collectors/http_collector/access.py:109
+#: collectors/log_collector/access.py:94
+#: collectors/log_collector/access.py:249
+#: collectors/log_collector/access.py:449
+msgid "检查采集进程是否存在"
+msgstr "Check if the process exists"
+
+#: collectors/db_collector/access.py:156
+#: collectors/http_collector/access.py:114
+#: collectors/log_collector/access.py:455
+msgid "操作系统未知,无法停止采集器"
+msgstr "The operation system is unknown, and the collector cannot be stopped."
+
+#: collectors/db_collector/access.py:165
+#: collectors/http_collector/access.py:123
+#: collectors/log_collector/access.py:111
+#: collectors/log_collector/access.py:259
+#: collectors/log_collector/access.py:465
+msgid "检查采集器进程操作失败"
+msgstr "Failed to check collector process operation"
+
+#: collectors/db_collector/access.py:166
+#: collectors/http_collector/access.py:124
+#: collectors/log_collector/access.py:260
+#: collectors/log_collector/access.py:466
+msgid "检查是否存在采集器进程操作成功,停止采集器中"
+msgstr ""
+"Check whether there is a successful operation of the collector process and "
+"stop the collector."
+
+#: collectors/db_collector/access.py:170
+#: collectors/http_collector/access.py:128
+#: collectors/log_collector/access.py:265
+#: collectors/log_collector/access.py:470
+msgid "检查属否存在采集器进程,操作完成,停止采集器失败"
+msgstr ""
+"Check whether there is a successful operation of the collector process and "
+"stop the collector."
+
+#: collectors/db_collector/access.py:179
+#: collectors/http_collector/access.py:137
+#: collectors/log_collector/access.py:335 handlers/clouds/gse.py:53
+#: handlers/ee/gse.py:47 handlers/tencent/gse.py:63
+msgid "检查进程是否存在"
+msgstr "Check if the process exists"
+
+#: collectors/db_collector/access.py:183
+#: collectors/http_collector/access.py:141
+#: collectors/log_collector/access.py:370
+msgid "停止采集进程"
+msgstr "Stop the collection process"
+
+#: collectors/db_collector/access.py:214
+msgid "generate_dbbeat_config"
+msgstr "generate_dbbeat_config"
+
+#: collectors/db_collector/serializers.py:35
+#: collectors/log_collector/serializers.py:22
+msgid "是否接入存量数据"
+msgstr "Access the data on stock or not"
+
+#: collectors/db_collector/serializers.py:36
+#: collectors/http_collector/serializers.py:21
+#: collectors/http_collector/serializers.py:81
+msgid "时间格式"
+msgstr "Time format"
+
+#: collectors/db_collector/serializers.py:37
+#: collectors/file_collector/serializers.py:15
+#: collectors/http_collector/serializers.py:22
+#: collectors/log_collector/serializers.py:23
+#: collectors/script_collector/serializers.py:16
+msgid "采集周期"
+msgstr "Collection cycle"
+
+#: collectors/db_collector/serializers.py:38
+#: collectors/http_collector/serializers.py:23
+msgid "时间字段"
+msgstr "Time field"
+
+#: collectors/db_collector/serializers.py:39
+msgid "数据延迟时间"
+msgstr "Data delay time"
+
+#: collectors/db_collector/serializers.py:46
+msgid "before_time:延时时间不能小于0"
+msgstr "Before_time: delay time should not be less than 0"
+
+#: collectors/db_collector/serializers.py:49
+msgid "period采集周期目前只支持周期性拉取"
+msgstr "period:The acquisition cycle currently only supports periodic pull-out"
+
+#: collectors/db_collector/serializers.py:52
+#: collectors/file_collector/serializers.py:24
+#: collectors/http_collector/serializers.py:32
+#: collectors/log_collector/serializers.py:28
+#: collectors/script_collector/serializers.py:21
+msgid "period采集周期不能高于30天"
+msgstr "period:collection period should not exceed 30 days"
+
+#: collectors/db_collector/serializers.py:58
+msgid "主键类型时，increment_field必须含有主键"
+msgstr ""
+"When the primary key type is used, increment_field must contain the primary "
+"key"
+
+#: collectors/db_collector/serializers.py:63
+msgid "时间范围类型时，increment_field,time_forma必须填写"
+msgstr ""
+"When the time range type is used, increment_field, time_form must be filled "
+"in"
+
+#: collectors/db_collector/serializers.py:72
+msgid "接入db的host"
+msgstr "Access the host of db"
+
+#: collectors/db_collector/serializers.py:73
+msgid "接入db的post"
+msgstr "Access the post of db"
+
+#: collectors/db_collector/serializers.py:74
+msgid "接入db的user"
+msgstr "Access the user of db"
+
+#: collectors/db_collector/serializers.py:75
+msgid "接入db的pass"
+msgstr "Access the pass of db"
+
+#: collectors/db_collector/serializers.py:76
+msgid "接入db的dbnmae"
+msgstr "Access the dbnmae of db"
+
+#: collectors/db_collector/serializers.py:77
+msgid "接入db的tablename"
+msgstr "Access the tablename of db"
+
+#: collectors/db_collector/serializers.py:78
+msgid "数据库类型id"
+msgstr "Database type id"
+
+#: collectors/db_collector/serializers.py:83
+msgid "db_host不符合域名和ip规范"
+msgstr "Db_host does not conform to domain name and IP specifications"
+
+#: collectors/db_collector/serializers.py:90
+msgid "DB类型中无可用的数据库类型"
+msgstr "No database type is available in DB type"
+
+#: collectors/db_collector/serializers.py:97
+msgid "key"
+msgstr "Key"
+
+#: collectors/db_collector/serializers.py:98
+#: collectors/log_collector/serializers.py:38
+#: collectors/tqos_collector/serializers.py:18
+msgid "逻辑关系"
+msgstr "Logical relationship"
+
+#: collectors/db_collector/serializers.py:99
+#: collectors/log_collector/serializers.py:39
+#: collectors/tqos_collector/serializers.py:19
+msgid "操作"
+msgstr "Operation"
+
+#: collectors/db_collector/serializers.py:100
+#: collectors/log_collector/serializers.py:40
+#: collectors/tqos_collector/serializers.py:20
+msgid "值"
+msgstr "Value"
+
+#: collectors/db_collector/serializers.py:107
+#: collectors/log_collector/serializers.py:50
+#: collectors/tqos_collector/serializers.py:30
+msgid "参数错误:logic_op 只支持与,或"
+msgstr "Parametric error: logic_op only supports AND, or"
+
+#: collectors/db_collector/serializers.py:114
+msgid "参数错误:op 只支持等于或者不等于"
+msgstr "Parametric error: OP only supports equal or not equal"
+
+#: collectors/db_collector/serializers.py:181
+msgid "time_format时间格式与数据不匹配,请重新选择"
+msgstr "The time_format time format does not match the data. Please re-select"
+
+#: collectors/db_collector/serializers.py:186
+#: collectors/http_collector/serializers.py:78 models.py:332
+#: serializers.py:349
+msgid "业务id"
+msgstr "Business id"
+
+#: collectors/db_collector/serializers.py:187
+#: collectors/db_collector/serializers.py:190
+#: collectors/http_collector/serializers.py:79 serializers.py:430
+#: serializers.py:454 serializers.py:466 serializers.py:483 serializers.py:490
+msgid "用户名"
+msgstr "Username"
+
+#: collectors/db_collector/serializers.py:188
+msgid "数据库地址"
+msgstr "Database address"
+
+#: collectors/db_collector/serializers.py:189
+msgid "数据库端口"
+msgstr "Database port"
+
+#: collectors/db_collector/serializers.py:191
+msgid "密码"
+msgstr "Password"
+
+#: collectors/db_collector/serializers.py:192
+msgid "数据库名称"
+msgstr "Database name"
+
+#: collectors/db_collector/serializers.py:193
+msgid "数据库表"
+msgstr "Database table"
+
+#: collectors/db_collector/serializers.py:194
+msgid "条数"
+msgstr "Number of pieces"
+
+#: collectors/db_collector/serializers.py:195
+msgid "探测类型"
+msgstr "Probe type"
+
+#: collectors/db_collector/serializers.py:209
+#: collectors/db_collector/serializers.py:213
+msgid "请选择db"
+msgstr "Please select dB."
+
+#: collectors/db_collector/serializers.py:217
+msgid "请选择表"
+msgstr "Please select table"
+
+#: collectors/db_collector/serializers.py:222
+msgid "数据条数必须大于0"
+msgstr "The number of data bars must be greater than 0"
+
+#: collectors/file_collector/access.py:51 exceptions.py:56
+msgid "不存在部署资源源配置信息"
+msgstr "No source configuration information of deployment resource"
+
+#: collectors/file_collector/access.py:56
+msgid "开始解析文件"
+msgstr "Start parsing file"
+
+#: collectors/file_collector/access.py:70
+msgid "暂时不支持该文件类型"
+msgstr "This file type is not supported for the time being"
+
+#: collectors/file_collector/access.py:72
+#: collectors/file_collector/serializers.py:36 serializers.py:405
+msgid "目前只支持.csv,.xls,.xlsx 文件"
+msgstr "Currently only support .csv,.xls,.xlsx"
+
+#: collectors/file_collector/access.py:75
+msgid "开始上报数据"
+msgstr "Start reporting data"
+
+#: collectors/file_collector/access.py:85
+msgid "上报数据完成"
+msgstr "Reporting data completed"
+
+#: collectors/file_collector/access.py:88
+msgid "文件上传接入异常:{}"
+msgstr "File upload access failed:{}"
+
+#: collectors/file_collector/serializers.py:30
+msgid "文件名称"
+msgstr "File name"
+
+#: collectors/http_collector/access.py:53
+#: collectors/log_collector/access.py:108
+#: collectors/log_collector/access.py:178
+#: collectors/log_collector/access.py:187
+#: collectors/script_collector/access.py:50
+msgid "下发配置中"
+msgstr "Deliver configuration"
+
+#: collectors/http_collector/access.py:69
+msgid "http开始生成配置下发,host列表:{}"
+msgstr "Http starts generating configuration and delivers, host list: {}"
+
+#: collectors/http_collector/access.py:169
+msgid "generate_httpbeat_config"
+msgstr "Generate_httpbeat_config"
+
+#: collectors/http_collector/serializers.py:30
+msgid "period采集周期不小于0"
+msgstr "period:collection period should not exceed 30 days"
+
+#: collectors/http_collector/serializers.py:37
+msgid "increment_field时间参数存在时,time_format不能为空"
+msgstr "increment_field:time parameter exists. time_format not be null"
+
+#: collectors/http_collector/serializers.py:44
+msgid "接入url"
+msgstr "Access url"
+
+#: collectors/http_collector/serializers.py:45
+msgid "接入方法"
+msgstr "Access method"
+
+#: collectors/http_collector/serializers.py:46
+msgid "接入body"
+msgstr "Access body"
+
+#: collectors/http_collector/serializers.py:60
+#: collectors/http_collector/serializers.py:98
+msgid "请求方式为post,body必须填写"
+msgstr "The request is post, and body must fill in."
+
+#: collectors/http_collector/serializers.py:80
+msgid "url"
+msgstr "Url"
+
+#: collectors/http_collector/serializers.py:82
+msgid "method"
+msgstr "Method"
+
+#: collectors/http_collector/serializers.py:83
+msgid "body"
+msgstr "Body"
+
+#: collectors/log_collector/access.py:108
+msgid "安装采集器操作中"
+msgstr "Install collector"
+
+#: collectors/log_collector/access.py:131
+msgid "取消unifyTlogc托管进程失败"
+msgstr "Cancel hosting process"
+
+#: collectors/log_collector/access.py:132
+msgid "取消unifyTlogc托管进程中"
+msgstr "Cancel unifyTlogc process"
+
+#: collectors/log_collector/access.py:142
+msgid "取消unifyTlogc_common_log托管进程失败"
+msgstr "Cancel unifyTlogc_common_log  process failed"
+
+#: collectors/log_collector/access.py:143
+msgid "取消unifyTlogc_common_log托管进程中"
+msgstr "Cancel hosting process"
+
+#: collectors/log_collector/access.py:160
+#: collectors/log_collector/access.py:168
+msgid "下发安装包失败"
+msgstr "Deliver the installation package"
+
+#: collectors/log_collector/access.py:161
+#: collectors/log_collector/access.py:169
+msgid "执行脚本解压关联操作中"
+msgstr "Perform script decompression related operations"
+
+#: collectors/log_collector/access.py:177
+msgid "执行脚本解压关联失败"
+msgstr "Execution script decompression Association failed"
+
+#: collectors/log_collector/access.py:186
+msgid "检查是否存在采集器进程操作失败"
+msgstr "Check whether there is a failure in the collector process operation."
+
+#: collectors/log_collector/access.py:202
+#: collectors/script_collector/access.py:69
+msgid "开始下发配置,host列表:{}"
+msgstr "Start delivering the configuration, host list: {}"
+
+#: collectors/log_collector/access.py:221
+msgid "重启采集器进程操作失败"
+msgstr "Restart the collector process"
+
+#: collectors/log_collector/access.py:270
+#: collectors/log_collector/access.py:274
+msgid "下发安装包"
+msgstr "Deliver the installation package"
+
+#: collectors/log_collector/access.py:301
+msgid "安装采集器"
+msgstr "Install collector"
+
+#: collectors/log_collector/access.py:359
+msgid "启动采集进程"
+msgstr "Start the collection process"
+
+#: collectors/log_collector/access.py:408
+#: collectors/log_collector/access.py:425
+msgid "取消进程托管"
+msgstr "Cancel process hosting"
+
+#: collectors/log_collector/access.py:534
+msgid "开始生成log采集器配置,config:{}"
+msgstr "Start generating log collector configuration, config:{}"
+
+#: collectors/log_collector/access.py:552
+#: collectors/log_collector/access.py:673
+msgid "获取resource过滤条件配置,resource.conditions:{},deploy_plan_id:{}"
+msgstr ""
+"Get the resource filter conditions configuration, resource.conditions:{},"
+"deploy_plan_id:{}"
+
+#: collectors/log_collector/access.py:568
+#: collectors/log_collector/access.py:685
+msgid "files配置,files:{}"
+msgstr "Files configuration, files:{}"
+
+#: collectors/log_collector/access.py:600
+#: collectors/log_collector/access.py:695
+msgid "cond_group配置,cond_group:{}"
+msgstr "Cond_group configuration, cond_group:{}"
+
+#: collectors/log_collector/access.py:644
+msgid "开始生成win_log采集器配置,config:{}"
+msgstr "Start generating win_log collector configuration, config:{}"
+
+#: collectors/log_collector/serializers.py:31
+msgid "暂时不支持全量拉取日志数据"
+msgstr "Temporary support for full volume pull log data is not supported."
+
+#: collectors/log_collector/serializers.py:37
+#: collectors/tqos_collector/serializers.py:17
+msgid "索引"
+msgstr "Index"
+
+#: collectors/log_collector/serializers.py:46
+#: collectors/tqos_collector/serializers.py:26
+msgid "参数错误:logic_op 不能为none"
+msgstr "Parametric error: logic_op only supports AND, or"
+
+#: collectors/log_collector/serializers.py:56
+#: collectors/tqos_collector/serializers.py:36
+msgid "参数错误:op 只支持等于"
+msgstr "Parametric error: OP only supports equal or not equal"
+
+#: collectors/log_collector/serializers.py:60
+#: collectors/tqos_collector/serializers.py:40
+#: collectors/tube_collector/serializers.py:20
+msgid "分隔符"
+msgstr "Separator"
+
+#: collectors/log_collector/serializers.py:61
+#: collectors/tqos_collector/serializers.py:41
+msgid "首字符是否为分隔符"
+msgstr "Is the first character a separator?"
+
+#: collectors/log_collector/serializers.py:71
+#: collectors/script_collector/serializers.py:28
+#: collectors/script_collector/serializers.py:71
+msgid "接入对象id"
+msgstr "Access object id"
+
+#: collectors/log_collector/serializers.py:72
+#: collectors/script_collector/serializers.py:29
+#: collectors/script_collector/serializers.py:72
+msgid "inst_id"
+msgstr "Inst_id"
+
+#: collectors/log_collector/serializers.py:77 serializers.py:343
+msgid "操作系统"
+msgstr "Operating system"
+
+#: collectors/log_collector/serializers.py:81
+msgid "文件路径"
+msgstr "File path"
+
+#: collectors/log_collector/serializers.py:83
+msgid "文件路径配置"
+msgstr "File path configuration"
+
+#: collectors/log_collector/serializers.py:86
+#: collectors/script_collector/serializers.py:35
+#: collectors/script_collector/serializers.py:75 serializers.py:333
+#: serializers.py:413
+msgid "云区域id"
+msgstr "Cloud area id"
+
+#: collectors/log_collector/serializers.py:87
+#: collectors/script_collector/serializers.py:36
+#: collectors/script_collector/serializers.py:76 serializers.py:334
+#: serializers.py:414 serializers.py:456 serializers.py:468 serializers.py:492
+msgid "ip"
+msgstr "Ip"
+
+#: collectors/log_collector/serializers.py:92
+#: collectors/script_collector/serializers.py:41
+#: collectors/script_collector/serializers.py:81 serializers.py:339
+#: serializers.py:419 serializers.py:462 serializers.py:479 serializers.py:498
+msgid "ip格式错误"
+msgstr "IP format error"
+
+#: collectors/log_collector/serializers.py:95
+#: collectors/script_collector/serializers.py:44
+#: collectors/script_collector/serializers.py:88
+msgid "module_scope配置"
+msgstr "Module_scope configuration"
+
+#: collectors/log_collector/serializers.py:96
+#: collectors/script_collector/serializers.py:45
+#: collectors/script_collector/serializers.py:87 serializers.py:426
+msgid "host_scope配置"
+msgstr "Host_scope configuration"
+
+#: collectors/log_collector/serializers.py:97
+#: collectors/script_collector/serializers.py:46
+msgid "scope_config配置"
+msgstr "Scope_config configuration"
+
+#: collectors/log_collector/serializers.py:98
+msgid "odm"
+msgstr "Odm"
+
+#: collectors/log_collector/serializers.py:99
+msgid "struct_name"
+msgstr "Struct_name"
+
+#: collectors/log_collector/serializers.py:105
+#: collectors/script_collector/serializers.py:52
+#: collectors/script_collector/serializers.py:99
+msgid "module_scope与host_scope 不能同时为空"
+msgstr "Module_scope and host_scope can not be empty at the same time."
+
+#: collectors/log_collector/serializers.py:137
+#: collectors/tglog_collector/serializers.py:49
+msgid "{}场景下已经接入该odm下的表，odm:{}, struct_name:{}"
+msgstr ""
+"current scenario:{}. The table under the odm has been connected to the scene,"
+"odm:{}, struct_name:{}"
+
+#: collectors/script_collector/access.py:74
+msgid "下发配置文件执行成功,托管进程中"
+msgstr ""
+"The successful execution of the configuration file is in the hosting process."
+
+#: collectors/script_collector/access.py:80
+msgid "此次下发配置没有成功的host列表"
+msgstr "host list failed to deliver configuration this time"
+
+#: collectors/script_collector/access.py:86
+msgid "开始逐个托管进程，配置：{}"
+msgstr "Start hosting processes one by one, configuration:{}"
+
+#: collectors/script_collector/access.py:91
+msgid "托管进程失败"
+msgstr "Hosting process"
+
+#: collectors/script_collector/access.py:92
+msgid "托管进程中"
+msgstr "Hosting process"
+
+#: collectors/script_collector/access.py:97
+msgid "此次托管进程没有成功的host列表"
+msgstr "host list failed in process hosting this time"
+
+#: collectors/script_collector/access.py:123
+msgid "托管进程"
+msgstr "Hosting process"
+
+#: collectors/script_collector/access.py:158
+msgid "取消托管进程"
+msgstr "Cancel hosting process"
+
+#: collectors/script_collector/access.py:199
+msgid "取消托管进程操作中"
+msgstr "Cancel hosting process"
+
+#: collectors/script_collector/access.py:207
+msgid "开始逐个取消托管进程，配置：{}"
+msgstr "Start canceling hosting processes one by one, configure:{}"
+
+#: collectors/script_collector/access.py:211
+msgid "取消托管进程失败"
+msgstr "Cancel hosting process"
+
+#: collectors/script_collector/access.py:212
+msgid "取消托管进程中"
+msgstr "Cancel hosting process"
+
+#: collectors/script_collector/access.py:325
+msgid "未知操作系统"
+msgstr "Operating system"
+
+#: collectors/script_collector/access.py:388
+msgid "执行探测脚本失败,原因:{},{}"
+msgstr "Failure to execute detection script:{},{}"
+
+#: collectors/script_collector/access.py:394
+msgid "执行探测脚本失败,原因:{}"
+msgstr "Failure to execute detection script:{}"
+
+#: collectors/script_collector/access.py:430
+msgid "下发配置失败,原因{}"
+msgstr "Failure to deliver configuration,reason:{}"
+
+#: collectors/script_collector/access.py:433
+msgid "探测脚本上报中"
+msgstr "Detection script reporting failed"
+
+#: collectors/script_collector/access.py:445
+msgid "开始生成script脚本配置,config:{}"
+msgstr "Start generating script configuration, config:{}"
+
+#: collectors/script_collector/serializers.py:32
+msgid "脚本内容"
+msgstr "Script content"
+
+#: collectors/script_collector/serializers.py:83 serializers.py:82
+#: serializers.py:216 serializers.py:250 serializers.py:299
+msgid "业务"
+msgstr "Business"
+
+#: collectors/script_collector/serializers.py:84 serializers.py:102
+#: serializers.py:301 serializers.py:507
+msgid "创建者"
+msgstr "Creator"
+
+#: collectors/script_collector/serializers.py:85 serializers.py:83
+#: serializers.py:220 serializers.py:254 serializers.py:288 serializers.py:289
+msgid "源数据名称"
+msgstr "Source data name"
+
+#: collectors/script_collector/serializers.py:86
+msgid "接入脚本"
+msgstr "Access script"
+
+#: collectors/tdw_collector/access.py:44
+msgid "拉起puller任务异常:{}"
+msgstr "Pull up puller task exception:{}"
+
+#: collectors/tdw_collector/access.py:49
+msgid "成功拉起puller任务"
+msgstr "Successfully pull up puller mission"
+
+#: collectors/tdw_collector/serializers.py:15
+msgid "hdfs的集群地址"
+msgstr "hdfs cluster address"
+
+#: collectors/tdw_collector/serializers.py:16
+msgid "数据文件所在目录"
+msgstr "Directory of data files"
+
+#: collectors/tdw_collector/serializers.py:17
+msgid "访问hadoop的参数信息"
+msgstr "Access the parameters of hadoop"
+
+#: collectors/tglog_collector/access.py:56
+msgid "发送邮件失败,查询biz详情job接口失败,原因:{}"
+msgstr ""
+"Failed to send mail, failed to query biz details job interface, reason:{}"
+
+#: collectors/tglog_collector/access.py:88
+msgid "发送邮件失败,参数:{}"
+msgstr "Failed to send mail, parameter: {}"
+
+#: collectors/tglog_collector/access.py:89
+msgid "发送邮件失败"
+msgstr "Failed to send mail"
+
+#: collectors/tglog_collector/access.py:93
+msgid "成功发送邮件"
+msgstr "Sending mail successfully"
+
+#: collectors/tglog_collector/access.py:95
+msgid "TGLOG接入异常:{}"
+msgstr "TGLOG access exception:{}"
+
+#: collectors/tglog_collector/serializers.py:19
+msgid "odm名称"
+msgstr "odm name"
+
+#: collectors/tglog_collector/serializers.py:20 serializers.py:573
+msgid "表名"
+msgstr "Table name"
+
+#: collectors/tqos_collector/serializers.py:50
+msgid "tqos_id"
+msgstr "Tqos_id"
+
+#: collectors/tqos_collector/serializers.py:51
+msgid "tqos大区id"
+msgstr "Tqos large zone id"
+
+#: collectors/tube_collector/serializers.py:15
+msgid "master地址"
+msgstr "Master address"
+
+#: collectors/tube_collector/serializers.py:16
+msgid "消费Topic"
+msgstr "Consumption Topic"
+
+#: collectors/tube_collector/serializers.py:17
+msgid "消费组"
+msgstr "Consumer group"
+
+#: collectors/tube_collector/serializers.py:18
+msgid "接口名称"
+msgstr "Interface name"
+
+#: collectors/tube_collector/serializers.py:19
+msgid "是否是混合数据源"
+msgstr "Is it a mixed data source?"
+
+#: collectors/tube_collector/serializers.py:21
+msgid "ascii码"
+msgstr "ascii code"
+
+#: collectors/utils/deploy_plans.py:209 collectors/utils/deploy_plans.py:210
+#: exceptions.py:51
+msgid "没有获取到任务的退出码,无法获取任务执行结果"
+msgstr "Get no exit code of the task, failed to get the task execution result"
+
+#: collectors/utils/deploy_plans.py:211
+msgid "{},步骤中job结果状态status-----exit_code_status:{},hosts_status:{}"
+msgstr ""
+"{}, result status of job in the step-----exit_code_status:{},hosts_status:{}"
+
+#: collectors/utils/deploy_plans.py:218
+msgid "host错误信息:job返回的ip信息错误，ip:{}"
+msgstr "Host error message: ip information returned by job error, ip:{}"
+
+#: collectors/utils/deploy_plans.py:224
+msgid "成功"
+msgstr "Execute succeeded"
+
+#: collectors/utils/language.py:73
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: collectors/utils/language.py:77
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: exceptions.py:15
+msgid "ACCESS出现未知异常"
+msgstr "Unknown exception in ACCESS"
+
+#: exceptions.py:16 exceptions.py:33
+msgid "同步zk失败"
+msgstr "Synchronizing zk failed"
+
+#: exceptions.py:17
+msgid "不存在该数据"
+msgstr "The data does not exist"
+
+#: exceptions.py:21
+msgid "参数校验错误"
+msgstr "Parameter check error"
+
+#: exceptions.py:22
+msgid "模块请求异常"
+msgstr "Module request exception"
+
+#: exceptions.py:23
+msgid "API返回异常"
+msgstr "API return exception"
+
+#: exceptions.py:25
+msgid "正常响应"
+msgstr "Normal response"
+
+#: exceptions.py:26
+msgid "API不存在"
+msgstr "API does not exist"
+
+#: exceptions.py:27
+msgid "系统异常"
+msgstr "System exception"
+
+#: exceptions.py:29
+msgid "数据格式异常"
+msgstr "Data format exception"
+
+#: exceptions.py:30
+msgid "查询超时异常"
+msgstr "Query timeout exception"
+
+#: exceptions.py:32
+msgid "COLLECTOR出现未知异常"
+msgstr "Unknown exception in COLLECTOR"
+
+#: exceptions.py:34
+msgid "不存在部署成功的host列表"
+msgstr "Successfully deployed host list does not exist"
+
+#: exceptions.py:36
+msgid "部署范围不存在，请检查前面流程是否正确"
+msgstr ""
+"Deployment scope does not exist. Please check if the previous process is "
+"correct."
+
+#: exceptions.py:37
+msgid "下发配置失败或者暂时没有成功"
+msgstr "Configuration delivery fails or does not succeed for this time"
+
+#: exceptions.py:39
+msgid "尝试获取http请求数据错误,请检查主机授权,url以及返回数据格式合法性"
+msgstr ""
+"Try to get http request data error. Please check host authorization, url and "
+"return data format legality"
+
+#: exceptions.py:40
+msgid "拉取数据库列表失败，请检查主机、端口和授权"
+msgstr ""
+"Failed to pull database list. Please check host, port and authorization"
+
+#: exceptions.py:41
+msgid "不存在这个DB拉取类型"
+msgstr "There is no such DB pull type"
+
+#: exceptions.py:43
+msgid "工厂没有注册采集器"
+msgstr "Factory has no registered collector"
+
+#: exceptions.py:44
+msgid "工厂没有注册task"
+msgstr "Factory has no registered task"
+
+#: exceptions.py:45
+msgid "方法未实现"
+msgstr "Not implement now"
+
+#: exceptions.py:46
+msgid "检测出不存在进程"
+msgstr "Detect that there is no process"
+
+#: exceptions.py:47
+msgid "调用job失败"
+msgstr "Call job failed"
+
+#: exceptions.py:48
+msgid "调用job超时"
+msgstr "Call job timeout"
+
+#: exceptions.py:49
+msgid "不存在host的配置信息"
+msgstr "No host configuration information"
+
+#: exceptions.py:50
+msgid "没有操作进程类型"
+msgstr "No operation process type"
+
+#: exceptions.py:52
+msgid "存在部署失败的host列表"
+msgstr "There is a list of hosts that failed to be deployed"
+
+#: exceptions.py:53
+msgid "错误的host信息"
+msgstr "Incorrect host information"
+
+#: exceptions.py:54
+msgid "过滤条件格式错误"
+msgstr "Filter condition format error"
+
+#: exceptions.py:57
+msgid "读取xml文件失败"
+msgstr "Failed to read xml file"
+
+#: exceptions.py:58
+msgid "检测脚本上报失败"
+msgstr "Detection script reporting failed"
+
+#: exceptions.py:59
+msgid "检测HTTP失败:时间格式错误"
+msgstr "HTTP detection failed: time format error"
+
+#: exceptions.py:60
+msgid "上传文件失败"
+msgstr "Upload file failed"
+
+#: exceptions.py:61
+msgid "文件上传接入失败"
+msgstr "File upload access failed"
+
+#: exceptions.py:62
+msgid "方法请求超时"
+msgstr "Method request timeout"
+
+#: exceptions.py:63
+msgid "暂不支持该操作系统的采集器部署"
+msgstr ""
+"Collector deployment for this operating system is not supported at this time"
+
+#: exceptions.py:64
+msgid "不存在可以采集的path路径"
+msgstr "Collectable path does not exist"
+
+#: exceptions.py:65
+msgid "生成配置文件失败"
+msgstr "Failed to generate configuration file"
+
+#: exceptions.py:66
+msgid "不存在数据分类"
+msgstr "No data classification"
+
+#: exceptions.py:67
+msgid "不存在源数据"
+msgstr "No source data"
+
+#: exceptions.py:68
+msgid "拉取数据库数据失败"
+msgstr "Failed to pull database data"
+
+#: exceptions.py:69
+msgid "HTTP探测暂不支持post"
+msgstr "HTTP probe does not support post"
+
+#: exceptions.py:71
+msgid "配置列表不存在"
+msgstr "No configuration list"
+
+#: exceptions.py:72
+msgid "启停任务超时"
+msgstr "Start and stop task timeout"
+
+#: exceptions.py:73
+msgid "部署任务出现异常，请查看执行历史"
+msgstr "Deployment task exception. Please check the execution history"
+
+#: exceptions.py:74
+msgid "不存在manager的配置信息"
+msgstr "No configuration information for the manager"
+
+#: exceptions.py:75
+msgid "puller任务拉起失败"
+msgstr "Tdw-puller task failed to pull up"
+
+#: exceptions.py:76
+msgid "不存在取消老采集器任务进程托管成功的host列表"
+msgstr ""
+"No host list where hosting of previous collector task process has been "
+"successfully canceled"
+
+#: exceptions.py:77
+msgid "不存在kafka集群信息"
+msgstr "No kafka cluster information"
+
+#: exceptions.py:78
+msgid "tglog接入失败"
+msgstr "Tglog access failure"
+
+#: exceptions.py:79
+msgid "已存在topic和接口名称"
+msgstr "Topic and interface name already exist."
+
+#: exceptions.py:81
+msgid "调用cc失败:不存在data"
+msgstr "Call cc failed: no data"
+
+#: exceptions.py:82
+msgid "调用paas失败:不存在data"
+msgstr "Calling paas failed: no data"
+
+#: exceptions.py:84
+msgid "不存在host列表"
+msgstr "No host list"
+
+#: exceptions.py:86
+msgid "不存在该业务"
+msgstr "No such business"
+
+#: exceptions.py:88
+msgid "数据库中找不到对应的表"
+msgstr "Corresponding table could not be found in the database"
+
+#: handlers/clouds/cc.py:50 handlers/ee/cc.py:53 handlers/tencent/cc.py:71
+#: handlers/tencent/cc.py:100
+msgid "查询业务信息"
+msgstr "Query business information"
+
+#: handlers/clouds/gse.py:95
+msgid "调用post:sync_gse_proc_operate 请求超时,请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:sync_gse_proc_operate request timeout, request parameters: {}, "
+"task_id:{}"
+
+#: handlers/clouds/gse.py:153 handlers/ee/gse.py:236
+#: handlers/tencent/gse.py:306
+msgid "开始推送文件到目标机器"
+msgstr "Start pushing files to the target machine"
+
+#: handlers/clouds/gse.py:175
+msgid "调用post:sync_gse_push_file 请求超时,请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:sync_gse_push_file request timeout, request parameters: {}, "
+"task_id:{}"
+
+#: handlers/clouds/gse.py:215
+msgid "调用post:sync_fast_push_file 请求超时,请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:sync_fast_push_file request timeout, request parameters: {}, "
+"task_id:{}"
+
+#: handlers/clouds/gse.py:250
+msgid "调用post:sync_gse_push_file_patch 请求超时,请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:sync_gse_push_file_patch request timeout, request parameters: {}, "
+"task_id:{}"
+
+#: handlers/clouds/gse.py:273
+msgid "调用post:fast_execute_script 请求超时,请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:fast_execute_script request timeout, request parameters: {}, "
+"task_id:{}"
+
+#: handlers/clouds/gse.py:329
+msgid "调用post:do_proc_manage 请求超时,请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:do_proc_manage request timed out, request parameters: {}, task_id:"
+"{}"
+
+#: handlers/clouds/gse.py:345 handlers/ee/gse.py:528
+#: handlers/tencent/gse.py:717
+msgid "{}:路径 {}非绝对路径，请调整"
+msgstr "{}:path {} is not an absolute path. Please adjust"
+
+#: handlers/ee/cc.py:24 handlers/tencent/cc.py:26
+msgid "查询所有业务"
+msgstr "Query all business"
+
+#: handlers/ee/cc.py:119 handlers/tencent/cc.py:124
+msgid "根据module_id查询host信息"
+msgstr "Query host information according to module_id"
+
+#: handlers/ee/cc.py:167
+msgid "根据biz_id查询host信息"
+msgstr "Query host information according to biz_id"
+
+#: handlers/ee/cc.py:215 handlers/tencent/cc.py:149
+msgid "根据set_id查询host信息"
+msgstr "Query host information according to set_id"
+
+#: handlers/ee/cc.py:263 handlers/tencent/cc.py:171
+msgid "根据ip列表查询host信息"
+msgstr "Query host information according to the ip list"
+
+#: handlers/ee/gse.py:88
+msgid "调用post:gse_proc_operate:{},请求参数:{}, task_id:{}"
+msgstr "Call post:gse_proc_operate:{}, request parameters: {}, task_id:{}"
+
+#: handlers/ee/gse.py:91 handlers/tencent/gse.py:175
+msgid "调用post:gse_proc_operate失败:{},请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:gse_proc_operate failed: {}, request parameter: {}, task_id:{}"
+
+#: handlers/ee/gse.py:185 handlers/tencent/gse.py:276
+msgid "调用get:get_proc_result失败:{},请求参数:{}, task_id:{}"
+msgstr "Call get:get_proc_result failed: {}, request parameter: {}, task_id:{}"
+
+#: handlers/ee/gse.py:255 handlers/ee/gse.py:291 handlers/tencent/gse.py:328
+#: handlers/tencent/gse.py:369
+msgid "调用post:gse_push_file失败:{},请求参数:{}, task_id:{}"
+msgstr "Call post:gse_push_file failed: {}, request parameter: {}, task_id:{}"
+
+#: handlers/ee/gse.py:321 handlers/tencent/gse.py:445
+msgid "调用post:fast_execute_script失败:{},请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:fast_execute_script failed: {}, request parameter: {}, task_id:{}"
+
+#: handlers/ee/gse.py:390 handlers/tencent/gse.py:152
+msgid "调用post:gse_process_manage失败:{},请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:gse_process_manage failed: {}, request parameter: {}, task_id:{}"
+
+#: handlers/ee/gse.py:392 handlers/tencent/gse.py:154
+msgid "托管进程失败:{}"
+msgstr "Hosted process failed:{}"
+
+#: handlers/ee/gse.py:477 handlers/tencent/gse.py:667
+msgid "get_task_ip_log  result:{} , task_id:{}"
+msgstr "Get_task_ip_log result:{} , task_id:{}"
+
+#: handlers/ee/gse.py:479 handlers/tencent/gse.py:669
+msgid "调用post:get_task_ip_log:{},请求参数:{}, task_id:{}"
+msgstr "Call post:get_task_ip_log:{}, request parameters: {}, task_id:{}"
+
+#: handlers/ee/gse.py:489 handlers/tencent/gse.py:679
+msgid "调用post:get_task_ip_log超时:{},请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:get_task_ip_log timeout: {}, request parameters: {}, task_id:{}"
+
+#: handlers/ee/gse.py:490 handlers/tencent/gse.py:680
+msgid "任务超时,原因:{}"
+msgstr "Task timeout, reason:{}"
+
+#: handlers/ee/gse.py:505 handlers/tencent/gse.py:693
+msgid "调用post:get_task_ip_log失败:{},请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:get_task_ip_log failed: {}, request parameter: {}, task_id:{}"
+
+#: handlers/ee/gse.py:506 handlers/tencent/gse.py:694
+msgid "get_task_ip_log,获取任务结果日志失败"
+msgstr "Get_task_ip_log, failed to get the task result log"
+
+#: handlers/ee/gse.py:516 handlers/tencent/gse.py:704
+msgid "下发配置任务超时"
+msgstr "Configuration task delivery timeout"
+
+#: handlers/tencent/cc.py:41
+msgid "查询业务下的appkey"
+msgstr "Query the appkey under the business"
+
+#: handlers/tencent/gse.py:177
+msgid "检查采集器进程失败:{}"
+msgstr "Failed to check collector process operation:{}"
+
+#: handlers/tencent/gse.py:273
+msgid "get_proc_result result:{}, task_id:{}"
+msgstr "Get_proc_result result:{}, task_id:{}"
+
+#: handlers/tencent/gse.py:278 handlers/tencent/gse.py:289
+msgid "获取进程操作类执行的结果失败:{}"
+msgstr "Failed to get result of process operation class execution:{}"
+
+#: handlers/tencent/gse.py:330 handlers/tencent/gse.py:371
+msgid "下发配置失败:{}"
+msgstr "Faild to deliver configuration:{}"
+
+#: handlers/tencent/gse.py:345
+msgid "开始批量推送文件到目标机器"
+msgstr "Start pushing files in batch to the target machine"
+
+#: handlers/tencent/gse.py:378
+msgid "开始下载安装包"
+msgstr "Start downloading the installation package"
+
+#: handlers/tencent/gse.py:414
+msgid "调用post:fast_push_file失败:{},请求参数:{}, task_id:{}"
+msgstr "Call post:fast_push_file failed: {}, request parameter: {}, task_id:{}"
+
+#: handlers/tencent/gse.py:416
+msgid "下载安装包失败:{}"
+msgstr "Faild to deliver the installation package:{}"
+
+#: handlers/tencent/gse.py:427
+msgid "开始执行脚本"
+msgstr "Start executing the script"
+
+#: handlers/tencent/gse.py:447
+msgid "执行脚本失败:{}"
+msgstr "Failure to execute detection script:{}"
+
+#: handlers/tencent/gse.py:470
+msgid "调用post:gse_get_file失败:{},请求参数:{}, task_id:{}"
+msgstr "Call post:gse_get_file failed: {}, request parameter: {}, task_id:{}"
+
+#: handlers/tencent/gse.py:472
+msgid "获取文件失败:{}"
+msgstr "Failed to read xml file:{}"
+
+#: handlers/tencent/gse.py:484
+msgid "获取文件结果超时"
+msgstr "Get file result timeout"
+
+#: handlers/tencent/gse.py:503
+msgid "调用post:get_file_result失败:{},请求参数:{}, task_id:{}"
+msgstr ""
+"Call post:get_file_result failed: {}, request parameter: {}, task_id:{}"
+
+#: handlers/tencent/gse.py:505
+msgid "获取文件结果失败:{}"
+msgstr "Get file result timeout:{}"
+
+#: handlers/tencent/gse.py:533
+msgid "开始重启进程"
+msgstr "Start the restart process"
+
+#: handlers/tencent/gse.py:541
+msgid "开始启动进程"
+msgstr "Start the boot process"
+
+#: handlers/tencent/gse.py:549
+msgid "开始停止进程"
+msgstr "Start the stop process"
+
+#: handlers/tencent/gse.py:670
+msgid "获取任务结果失败:{}"
+msgstr "Get_task_ip_log, failed to get the task result log:{}"
+
+#: handlers/tencent/gse.py:680
+msgid "任务超时"
+msgstr "Start and stop task timeout"
+
+#: handlers/tencent/gse.py:694
+msgid "获取任务结果日志失败:{}"
+msgstr "Get_task_ip_log, failed to get the task result log:{}"
+
+#: handlers/tlog.py:118
+msgid "参数错误:bk_biz_id找不到对应的数据结构配置信息"
+msgstr ""
+"Parametric error: bk_biz_id cannot find the corresponding data structure "
+"configuration information"
+
+#: handlers/tlog.py:128
+msgid "xml_path错误:找不到对应的数据结构配置信息"
+msgstr ""
+"Xml_path error: no corresponding data structure configuration information "
+"was found"
+
+#: handlers/tlog.py:141
+msgid "xml_path错误:该目录下无配置文件"
+msgstr "Xml_path error: no configuration files in this directory"
+
+#: models.py:326
+msgid "执行成功"
+msgstr "Execute succeeded"
+
+#: models.py:327
+msgid "执行失败"
+msgstr "Execute failed"
+
+#: models.py:328
+msgid "运行中"
+msgstr "Running"
+
+#: models.py:329
+msgid "等待执行"
+msgstr "Waiting for execution"
+
+#: models.py:331 serializers.py:85 serializers.py:205 serializers.py:225
+#: serializers.py:259 serializers.py:302 serializers.py:429 serializers.py:504
+msgid "接入场景"
+msgstr "Access scenario"
+
+#: models.py:333
+msgid "部署计划"
+msgstr "Deployment plan"
+
+#: models.py:334
+msgid "执行日志"
+msgstr "Execution log"
+
+#: models.py:335
+msgid "执行日志_en"
+msgstr "Execution log_en"
+
+#: models.py:336
+msgid "全局上下文，参数，json格式"
+msgstr "Global context, parameters, json format"
+
+#: models.py:340 serializers.py:103
+msgid "创建时间"
+msgstr "Creation time"
+
+#: models.py:342 serializers.py:105
+msgid "更新时间"
+msgstr "Update time"
+
+#: models.py:425
+msgid "时间过长，强制中止部署流程"
+msgstr "Time is too long. Force to suspend the deployment process"
+
+#: models.py:450 models.py:451
+msgid "【接入】接入任务"
+msgstr "[Access] access task"
+
+#: serializers.py:84
+msgid "源数据中文名称"
+msgstr "Source data Chinese name"
+
+#: serializers.py:86 serializers.py:227 serializers.py:261 serializers.py:290
+msgid "数据来源"
+msgstr "Data source"
+
+#: serializers.py:87 serializers.py:300
+msgid "接入来源APP"
+msgstr "Access source APP"
+
+#: serializers.py:88 serializers.py:296 serializers.py:303
+msgid "描述"
+msgstr "Description"
+
+#: serializers.py:91 serializers.py:291
+msgid "是否为敏感数据"
+msgstr "Is it sensitive data?"
+
+#: serializers.py:98 serializers.py:292
+msgid "字符编码"
+msgstr "Character encoding"
+
+#: serializers.py:99 serializers.py:230 serializers.py:264 serializers.py:293
+msgid "数据分类"
+msgstr "Data classification"
+
+#: serializers.py:100 serializers.py:294
+msgid "存储渠道"
+msgstr "Storage channel"
+
+#: serializers.py:104
+msgid "更新者"
+msgstr "Updater"
+
+#: serializers.py:107 serializers.py:295
+msgid "维护者"
+msgstr "Maintainer"
+
+#: serializers.py:116
+msgid "参数校验异常:业务不存在"
+msgstr "Parametric Check Exceptions: Business does not exist"
+
+#: serializers.py:123
+msgid "参数校验不通过:不是合法的命名({})"
+msgstr "Parametric verification failed: raw_data_id is not valid ({})"
+
+#: serializers.py:130 serializers.py:210
+msgid "参数校验不通过:接入场景类型不存在({})"
+msgstr ""
+"Parametric verification failed: access scenario type does not exist ({})"
+
+#: serializers.py:134
+msgid "参数校验不通过:接入场景类型不存在存储配置({})"
+msgstr ""
+"Parametric verification failed: no storage configuration exists for access "
+"scenario type ({})"
+
+#: serializers.py:142
+msgid "参数校验不通过:数据来源不存在({})"
+msgstr "Parametric verification failed: data sources did not exist ({})"
+
+#: serializers.py:160
+msgid "参数校验不通过:数据分类不存在({})"
+msgstr ""
+"Parametric verification failed: data classification does not exist ({})"
+
+#: serializers.py:167
+msgid "参数校验不通过:字符编码不存在({})"
+msgstr "Parametric verification failed: Character encoding does not exist({})"
+
+#: serializers.py:181
+msgid "参数校验不通过:数据源名称已存在,请忽重复提交"
+msgstr ""
+"Parametric validation failed: Data source name already exists, please "
+"duplicate submission"
+
+#: serializers.py:187
+msgid "是否显示源数据"
+msgstr "Display source data or not"
+
+#: serializers.py:188
+msgid "访问用户"
+msgstr "Access user"
+
+#: serializers.py:201
+msgid "kafka集群ID"
+msgstr "Kafka cluster ID"
+
+#: serializers.py:218 serializers.py:252
+msgid "是否显示"
+msgstr "Display or not"
+
+#: serializers.py:232 serializers.py:266
+msgid "当前页"
+msgstr "Current page"
+
+#: serializers.py:233 serializers.py:267
+msgid "页数"
+msgstr "Number of pages"
+
+#: serializers.py:239 serializers.py:273
+msgid "参数校验不通过:page_size必须小于100,({})"
+msgstr "Parametric verification failed: page_size must be less than 100 ({})"
+
+#: serializers.py:242
+msgid "参数校验不通过:page必须大于0,({})"
+msgstr "Parametric verification failed: page must be greater than 0({})"
+
+#: serializers.py:276
+msgid "参数校验不通过:page必须大于0,({}))"
+msgstr "Parametric verification failed: page must be greater than 0({})"
+
+#: serializers.py:298 serializers.py:329 serializers.py:503
+msgid "源数据id"
+msgstr "Source data id"
+
+#: serializers.py:304 serializers.py:352
+msgid "deploy_plans配置"
+msgstr "Deploy_plans configuration"
+
+#: serializers.py:305
+msgid "接入环境"
+msgstr "Access environment"
+
+#: serializers.py:341
+msgid "配置"
+msgstr "Configuration"
+
+#: serializers.py:342
+msgid "host对象"
+msgstr "Host object"
+
+#: serializers.py:351
+msgid "采集器版本"
+msgstr "Collector version"
+
+#: serializers.py:366
+msgid "部署host列表"
+msgstr "Deploy the host list"
+
+#: serializers.py:367
+msgid "部署计划ID列表"
+msgstr "Deployment plan ID list"
+
+#: serializers.py:380
+msgid "({}):该部署计划不存在"
+msgstr "{}:The deployment plan does not exist"
+
+#: serializers.py:391 serializers.py:395 serializers.py:432
+msgid "业务ID"
+msgstr "Business ID"
+
+#: serializers.py:396
+msgid "文件"
+msgstr "File"
+
+#: serializers.py:397
+msgid "bk_username"
+msgstr "Bk_username"
+
+#: serializers.py:422
+msgid "接入对象ID"
+msgstr "Access object ID"
+
+#: serializers.py:423
+msgid "bk_inst_id"
+msgstr "bk_inst_id"
+
+#: serializers.py:425 serializers.py:484
+msgid "部署计划ID"
+msgstr "Deployment plan ID"
+
+#: serializers.py:427
+msgid "modules配置"
+msgstr "Module configuration"
+
+#: serializers.py:433
+msgid "配置方式"
+msgstr "Configuration method"
+
+#: serializers.py:437
+msgid "scope配置"
+msgstr "Scope configuration"
+
+#: serializers.py:457 serializers.py:469 serializers.py:493
+msgid "云平台ID"
+msgstr "Cloud platform ID"
+
+#: serializers.py:470
+msgid "按照关键字排序"
+msgstr "Sort by keywords"
+
+#: serializers.py:471
+msgid "排序"
+msgstr "Sort"
+
+#: serializers.py:472
+msgid "部署状态"
+msgstr "Deployment status"
+
+#: serializers.py:473 serializers.py:474
+msgid "页码"
+msgstr "Page number"
+
+#: serializers.py:485
+msgid "配置平台对象ID"
+msgstr "Configuration system object ID"
+
+#: serializers.py:486
+msgid "配置平台实例ID"
+msgstr "Configuration system instance ID"
+
+#: serializers.py:506
+msgid "scope验证"
+msgstr "Scope Verification"
+
+#: serializers.py:516
+msgid "数据只可读，暂不支持升级部署"
+msgstr ""
+"Data is readable and upgrade deployment is not supported for the time being"
+
+#: serializers.py:563
+msgid "{}:场景下无资源配置信息"
+msgstr "Current scenario:{},No resource allocation information"
+
+#: serializers.py:567
+msgid "{}:场景下odm,table不能被修改"
+msgstr "Current scenario:{},odm,table cannot be modified"
+
+#: serializers.py:574 serializers.py:575
+msgid "tlog业务ID"
+msgstr "Tlog business id"
+
+#: serializers.py:579
+msgid "tdw topic"
+msgstr "tdw topic"
+
+#: views.py:247
+msgid "参数校验不通过:raw_data_id,show_display必须为整型"
+msgstr ""
+"Parametric verification failed: raw_data_id, show_display must be integer"
+
+#: views.py:357 views.py:434
+msgid "参数校验不通过:raw_data_id不合法({})"
+msgstr "Parametric verification failed: raw_data_id is not valid({})"
+
+#: views.py:626 views.py:627 views.py:628 views.py:629
+msgid "未知"
+msgstr "Unknown"
+
+#: views.py:2520
+msgid "参数校验不通过:raw_data_id,show_display,bk_username校验不通过"
+msgstr ""
+"Parametric checking failed: raw_data_id, show_display, bk_username checking "
+"failed"
+
+#: views.py:3675 views.py:3719
+msgid "参数校验不通过:bk_biz_id为必填参数"
+msgstr "Failure to verify parameters: bk_biz_id is a required parameter"
+
+#: views.py:3844 views.py:3902
+msgid "参数校验不通过:bk_biz_id({})"
+msgstr "Parametric checking failed:({})"
+
+msgid "数据表"
+msgstr "Data sheet"
+
+msgid "更新源数据"
+msgstr "update source data"
+
+msgid "接入源数据"
+msgstr "create source data"
+
+msgid "停止采集，当数据源对应机器全部停止采集将停止分发任务"
+msgstr ""
+"stop acquisition, when the data source corresponding to the machine all "
+"stop acquisition and will stop shipper tasks"
+
+msgid "启动采集和数据分发任务"
+msgstr "start the acquisition and data shipper tasks"
+
+msgid "异常"
+msgstr "Abnormal"
+
+msgid "完成"
+msgstr "Finish"
+
+msgid "正常"
+msgstr "Normal"
+
+msgid "成功接入自定义数据源"
+msgstr "Successful access to custom data sources"
+
+msgid "创建数据源失败，原因: {}"
+msgstr "Failed to create data source, reason: {}"
+
+msgid "更新数据源失败，原因: {}"
+msgstr "Failed to update data source, reason: {}"
+
+msgid "参数校验异常: 校验业务信息合法性异常{}"
+msgstr "Parametric Check Exceptions: Check Business Exceptions {}"
+
+msgid "参数校验不通过:业务id不合法,内部版中CC3.0业务接入场景目前只支持自定义"
+msgstr "Parametric verification failed: business ID is illegal, and CC3.0 business access scenario in internal version only supports customization at present."
+
+msgid "查询meta标签实体关联信息异常,{message}"
+msgstr "Query meta tag entity association information exception, {message}"
+
+msgid "查询地域标签信息异常,{message}"
+msgstr "Query for Exceptions in Territorial Label Information, {message}"
+
+msgid "非法tag"
+msgstr "Illegal tag"
+
+msgid "{geog_areas}关联地理区域错误"
+msgstr "{geog_areas} Relevant Geographical Area Errors"
+
+msgid "参数校验不通过:允许多区域则数据区域为必填项"
+msgstr "parameter check failed: data area is mandatory if multi-area is allowed"
+
+msgid "请先停止采集"
+msgstr "Please stop collector first"
+
+msgid "暂不支持删除存在清洗的数据源"
+msgstr "Delete source data with cleaning configuration is not support now"
+
+msgid "调用collectorhub失败"
+msgstr "Call collectorhub failed"
+
+msgid "操作kafka失败"
+msgstr "Kafka operation failed"
+
+msgid "调用节点管理失败"
+msgstr "Call bknode failed"

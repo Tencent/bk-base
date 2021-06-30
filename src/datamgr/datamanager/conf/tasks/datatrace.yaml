@@ -1,0 +1,8 @@
+plans:
+  - task_code: datamanage_subscribe_data_trace_event
+    task_name: 订阅数据足迹事件
+    task_category: datatrace
+    task_loader: import
+    task_entry: datatrace.tasks.subscribe_data_trace_event
+    task_status: 'on'
+    work_type: long

@@ -1,0 +1,1319 @@
+# vim: ft=sh sts=4 sw=4 expandtab
+#
+
+cd ${BASH_SOURCE%/*} 2>/dev/null
+
+export CTRL_DIR=$(pwd)
+
+source ./functions
+source ./errors.env
+source ./globals.env
+source ./ports.env
+source ./config.env
+
+export sign_file=$INSTALL_PATH/.installed_module
+export LAN_IP=$(get_lan_ip | head -1)
+export bksoconf=/etc/ld.so.conf.d/bk.conf
+
+load_enterprise_env () {
+    if [ -f $PKG_SRC_PATH/ENTERPRISE ]; then
+        company=$(cat $PKG_SRC_PATH/ENTERPRISE)
+        source $PKG_SRC_PATH/${company}.env
+    elif [ -f ENTERPRISE ]; then
+        company=$(cat ENTERPRISE)
+        source ./${company}.env
+    else
+        fail "file ENTERPRISE not found"
+    fi
+}
+
+add_env_settings () {
+    local env_file=$HOME/.bashrc
+
+    if ! grep -q '/.bkrc' $env_file 2>/dev/null; then
+        echo "[ -f $HOME/.bkrc ] && source $HOME/.bkrc" >> $env_file
+    fi
+}
+
+fixlocation_libmysqlclient_r () {
+    local _myconfig=$(which mysql_config) || fail "mysql_config was not found, probably mysql-devel was not installed"
+    local path_libs_r=$($_myconfig --libs_r \
+        | grep -Po '(?<=-L).+mysqlclient[^ ]+ ' \
+        | sed 's# .*-lmysql#/libmysql#;s# *$#.so#')
+
+    local file_lib_r=(
+        $(find /usr/lib64 -name "libmysqlclient_r.so" 2>/dev/null)
+        $(find /usr/lib -name "libmysqlclient_r.so" 2>/dev/null)
+        $(find /lib64 -name "libmysqlclient_r.so" 2>/dev/null)
+        $(find /lib -name "libmysqlclient_r.so" 2>/dev/null)
+        $(find $INSTALL_PATH/service/mysql -name "libmysqlclient_r.so" 2>/dev/null)
+    )
+
+    local file_lib=(
+        $(find /usr/lib64 -name "libmysqlclient.so" 2>/dev/null)
+        $(find /usr/lib -name "libmysqlclient.so" 2>/dev/null)
+        $(find /lib64 -name "libmysqlclient.so" 2>/dev/null)
+        $(find /lib -name "libmysqlclient.so" 2>/dev/null)
+        $(find $INSTALL_PATH/service/mysql -name "libmysqlclient.so" 2>/dev/null)
+    )
+
+    if [ "${#file_lib_r[@]}" -eq 0 ]; then
+        warn "libmysqlclient_r.so was not found."
+        if [ ${#file_lib[@]} -eq 0 ]; then
+            fail "libmysqlclient.so was not found."
+        fi
+    fi
+
+    if [ "${path_libs_r/_r/}" != "${path_libs_r}" ]; then
+        # mysql_config 输出正确
+        if [ -f $path_libs_r ]; then
+            log "$($_myconfig --libs_r) <=> $path_libs_r"
+            # 而且文件也在
+            return 0
+        elif [ -f ${file_lib_r[0]} ]; then
+            # 但对应的文件不在
+            log "creaet symbolic link: $path_libs_r -> ${file_lib_r[0]}"
+            ln -sf ${file_lib_r[0]} $path_libs_r
+            return 0
+        elif [ -f ${file_lib[0]} ]; then
+            log "creaet symbolic link: $path_libs_r -> ${file_lib[0]}"
+            ln -sf ${file_lib[0]} $path_libs_r
+            return 0
+        fi
+    else
+        # mysql_config 输出不正确
+        log "old: $($_myconfig --libs_r)"
+        log "   update mysql_config to correct the argument of --libs_r option"
+        sed -i '/libs_r=" $ldflags -L$pkglibdir *-lmysqlclient /s/-lmysqlclient/-lmysqlclient_r/' $_myconfig
+        log "new: $($_myconfig --libs_r)"
+        if [ -f ${path_libs_r/.so/_r.so} ]; then
+            :
+        elif [ -f ${file_lib[0]} ]; then
+            ln -sf ${file_lib[0]} ${path_libs_r}
+        fi
+    fi
+}
+
+gen_nfs_conf () {
+    local o=$1; shift
+
+    for ip in "$@"; do
+        echo -n " $ip($o)"
+    done
+}
+
+auto_generate_consul_config () {
+    (
+        cd $CTRL_DIR
+        #./parse_config -c install.config -o -s -p $INSTALL_PATH -a $LAN_IP
+        ./pxs -c install.config -o -e -s -p $INSTALL_PATH -a $LAN_IP
+    )
+}
+
+set_hostname () {
+    local mod id
+
+    [ "$UPDATE_HOST_NAME" == "0" ] && return 0
+    
+    if [ "${HOSTNAME//rbtnode/}" == "${HOSTNAME}" ]; then
+        mod=$(grep -P "$LAN_IP[ \t]" $CTRL_DIR/install.config | grep -Po '(?<=[ \t])\w+')
+        log "current module: $mod  ip:$LAN_IP"
+        id=$(_lookup_id ${mod})
+
+        hostname ${mod}-${id}
+        echo ${mod}-${id} >/etc/hostname
+        log "update hostname to $mod-$id"
+    else
+        hostname >/etc/hostname
+        log "update hostname to $(hostname)"
+    fi
+
+    log "set hostname to $(hostname)"
+}
+
+_install_pypkgs () {
+    local module=$1
+    local project=$2
+    local local_pip_src=$PKG_SRC_PATH/$module/support-files/pkgs
+    local pip_options="--no-cache-dir "
+
+    local _ordered_requirement_files=( $( shopt -s nullglob; echo 0[0-9]_requirements*.txt) )
+
+    if [ "${#_ordered_requirement_files[@]}" -eq 0 ]; then
+        _ordered_requirement_files=( requirements.txt )
+    fi
+
+    for reqr_file in ${_ordered_requirement_files[@]}; do
+        if [ "${reqr_file//_local/}" != "$reqr_file" -o -f SELF_CONTAINED_PIP_PKG ]; then
+            pip_options="--no-cache-dir --no-index --find-links=$local_pip_src"
+        fi
+
+        log "exec: pip install $pip_options -r $reqr_file ($PWD)"
+        http_proxy=$BK_PROXY https_proxy=$BK_PROXY \
+            pip install $pip_options -r $reqr_file
+
+        nassert "pip install ($pip_options) for $venv_name"
+    done
+    #shopt -s nullglob
+}
+
+init_runtime () {
+    local module=$1
+    local project=$2
+    local interpreter=$3
+
+    case ${interpreter} in
+        *python*)
+            init_virtualenv $module $project $(get_python_path ${interpreter##*/})
+            ;;
+        *openresty*)
+            _yum -y install lua lua-devel
+            rpm -Uvfh $PKG_SRC_PATH/service/openresty/openresty*.rpm
+            mkdir -p $INSTALL_PATH/logs/nginx
+            ;;
+        *java*)
+            _install_java
+            ;;
+    esac
+}
+
+get_python_path () {
+    local version=$1
+
+    case $version in
+        3.6) echo /opt/py36/bin/python ;;
+        2.7) echo /opt/py27/bin/python ;;
+        2.7.9) echo /usr/local/bin/python ;;
+    esac
+}
+
+get_venv_name () {
+    local module=$1
+    local project=$2
+
+    case $project in
+        paas_agent|log_alert) venv_name=$project ;;
+        *) venv_name=$module-$project ;;
+    esac
+
+    echo $venv_name
+}
+
+init_virtualenv () {
+    # 为产品创建虚拟环境
+    local module=$1 project=$2 PYTHON_EXE=${3:-/opt/py27/bin/python}
+
+    source <(/opt/py27/bin/python $CTRL_DIR/qq.py $PKG_SRC_PATH/$module/projects.yaml)
+    local _PROJECT_HOME=$INSTALL_PATH/${_project_dir["$module,$project"]}
+    local pip_options="--no-cache-dir --no-index --find-links $CTRL_DIR/pip"
+    local venv_option="-a $_PROJECT_HOME --extra-search-dir=$CTRL_DIR/pip --no-download"
+
+    if [ ! -d $_PROJECT_HOME ]; then
+        warn "$_PROJECT_HOME does not exists, skip creating virtualenv"
+        return 0
+    fi
+
+    ${PYTHON_EXE%/*}/pip install $pip_options pbr || fail "pip:install pbr from pip failed."
+    ${PYTHON_EXE%/*}/pip install $pip_options virtualenvwrapper || fail "pip:install virtualenvwrapper failed."
+
+    source $(which virtualenvwrapper.sh)
+    export WORKON_HOME=$INSTALL_PATH/.envs
+    export VIRTUALENVWRAPPER_HOOK_DIR=$WORKON_HOME
+
+    venv_name=$(get_venv_name $module $project)
+    log "mkvirtualenv $venv_option -p ${PYTHON_EXE} $venv_name"
+    mkvirtualenv $venv_option -p ${PYTHON_EXE} $venv_name
+    workon $venv_name || fail "virtualenv for $venv_name does not created."
+
+    pip install $pip_options pbr
+    pip install $pip_options virtualenvwrapper
+    if [ "$PYTHON_EXE" == "/opt/py36/bin/python" ];then
+        pip install $pip_options six supervisor==4.0.0
+    else
+        pip install $pip_options supervisor six
+    fi
+
+    # 生成 workon 之后需要加载的东西
+    log "generate env variable settings."
+    gen_common_postscripts $module $project
+
+    _install_pypkgs $module $project; ret=$?
+    deactivate
+    return $ret
+}
+
+grant_db_privileges () {
+    export PATH=$INSTALL_PATH/service/mysql/bin:$PATH
+
+    for ip in $(awk '{print $1}' $CTRL_DIR/install.config); do
+        optargs="with grant option"
+        MYSQL_HOST="" mysql -uroot --socket $INSTALL_PATH/logs/mysql/mysql.sock \
+            -e "GRANT ALL ON *.* TO $MYSQL_USER@$ip IDENTIFIED BY '$MYSQL_PASS' $optargs" || fail "grant privileges for $ip failed."
+        ok "grant privileges for $ip,  mysql server:$LAN_IP. done"
+    done
+}
+
+_init_pipconf () {
+    log "init pip settings."
+    rsync -a $PKG_SRC_PATH/service/.pip/ $HOME/.pip/
+}
+
+init_dirtree () {
+    # 初始化安装路径目录树
+    # 参数: $1: 产品名称
+    local module=$1
+
+    umask 022
+    mkdir -p $INSTALL_PATH/{etc,logs,public,cert}
+    chmod 1777 $INSTALL_PATH/{logs,public}
+
+    log "create directories ..."
+    install -d $INSTALL_PATH/public/$module
+    install -d $INSTALL_PATH/logs/$module
+    install -d $INSTALL_PATH/bin
+
+    touch /var/spool/cron/root
+    chmod 600 /var/spool/cron/root
+
+    case $module in
+        bkdata)
+        if [[ $project == "modelweb" ]];then
+            install -d $INSTALL_PATH/logs/$module/$project
+        fi
+        ;;
+        rabbitmq)
+            install -o rabbitmq -g rabbitmq -d $INSTALL_PATH/etc/$module
+            install -o rabbitmq -g rabbitmq -d $INSTALL_PATH/public/$module/mnesia
+            ;;
+        mysql) chown mysql.mysql $INSTALL_PATH/{public,logs}/$module;;
+        open_paas)
+            mkdir -p $INSTALL_PATH/public/open_paas/media
+            mkdir -p $INSTALL_PATH/open_paas/paas/media ;;
+        zk|kafka)
+            install -d $INSTALL_PATH/service
+            ;;
+        es)
+            install -d $INSTALL_PATH/service
+            install -o es -g es -d $INSTALL_PATH/{public,logs}/$module
+            ;;
+        ceph)
+            install -m 0750 -o ceph -g ceph -d $INSTALL_PATH/{public,logs}/$module
+            ;;
+    esac
+}
+
+_lookup_id () {
+    local svc=$1 i=1
+
+    for ip in $(value_of "${svc^^}_IP[@]"); do
+        if [ "$ip" == "$LAN_IP" ]; then
+            echo $i
+            return
+        fi
+        (( i++ ))
+    done
+}
+
+add_sumarize () {
+    local module=$1
+    local proj=$2
+    local service_id=$3
+    local tag_file=$INSTALL_PATH/.installed_sumary
+
+    if ! grep -Eq "^$module\b" $tag_file >/dev/null 2>&1; then
+        echo $module $proj $service_id >>$tag_file
+    fi
+}
+
+sign_host_as_module () {
+    # 参数, 标记本机安装的服务
+    local module=$1
+    local proj=$2
+    local service_id=$3
+    shift 3
+    local extra_kv="$@"
+
+    if [ "$1" == "" ]; then
+        warn "$FUNCNAME: nothing going to add, need more arguments"
+        warn ""
+        return 0
+    fi
+
+    mkdir -p ${sign_file%/*}
+    if [ ! -f $sign_file ]; then
+        echo $module $proj $service_id $extra_kv >$sign_file
+    else
+        if ! grep -Eq "^$module\b" $sign_file; then
+            echo $module >>$sign_file
+        fi
+    fi
+
+    return $?
+}
+
+_add_user () {
+    local name=$1
+    local home=$2
+
+    [ -z "$home" ] || opt="-d $home"
+    if ! id $name 1>/dev/null 2>&1; then
+        log "add user: $name"
+        useradd -m $name $opt
+    else
+        usermod -s /bin/bash $opt $name
+    fi
+
+    unset opt
+    return
+}
+
+grant_replication_priv () {
+    local slave=$1
+
+    export PATH=$INSTALL_PATH/service/mysql/bin:$PATH
+    mysql -h $LAN_IP -u$MYSQL_USER -p"$MYSQL_PASS" -e \
+        "GRANT REPLICATION SLAVE ON *.* to 'repl'@'$slave' IDENTIFIED BY '$MYSQL_PASS'; flush privileges; flush tables with read lock"
+}
+
+create_mysql_slave () {
+    local master=${1:-$MYSQL_IP0}
+    local slave=${2:-$MYSQL_IP1}
+
+    local dbbakfile=$PKG_SRC_PATH/backup/db_${master}_forslave.sql
+    ##
+    mkdir -p ${dbbakfile%/*}
+
+    if [ ! -f .mysql_slave_created_$master ]; then
+        log "grant privileges ..."
+        mysql -h $master -u$MYSQL_USER -p"$MYSQL_PASS" -e \
+            "GRANT REPLICATION SLAVE ON *.* to 'repl'@'$slave' IDENTIFIED BY '$MYSQL_PASS'; flush privileges; flush tables with read lock"
+        read binlog_file bin_pos ignore < <(mysql -h $master -u$MYSQL_USER -p"$MYSQL_PASS" -e "show master status" | tail -n +2)
+
+        log "grant replication slave privileges ..."
+        rcmd root@$master "grant_replication_priv $slave"
+        read binlog_file bin_pos ignore < <(mysql -h $master -u$MYSQL_USER -p"$MYSQL_PASS" -e "show master status" | tail -n +2)
+
+        log "backing up mysql master to slave"
+        mysqldump -h $master -u$MYSQL_USER -p"$MYSQL_PASS" --opt --all-databases >$dbbakfile || \
+            fail "backing up mysql failed. create mysql slave failed at first step."
+
+        log "restore to mysql slave"
+        mysql -h $slave -u$MYSQL_USER -p"$MYSQL_PASS" <$dbbakfile || fail "restore mysql to slave fail."
+
+        log "build mysql replication"
+        mysql -h $slave -u$MYSQL_USER -p"$MYSQL_PASS" -e "
+        unlock tables;
+        CHANGE MASTER TO MASTER_HOST='$master',
+        MASTER_USER='repl',
+        MASTER_PASSWORD='$MYSQL_PASS',
+        MASTER_LOG_FILE='$binlog_file',
+        MASTER_LOG_POS=$bin_pos;
+        start slave; " || fail "create slave failed."
+    else
+        warn "mysql slave has bean already created successfully".
+        warn "do not repeat operation"
+    fi
+
+    if mysql_slave_ok $slave; then
+        ok "create mysql slave for $master(master)->$slave(slave) done"
+        touch .mysql_slave_created_$master
+    fi
+}
+
+mysql_slave_ok () {
+    local slave=$1
+
+    rm -f /tmp/bk_create_mysql_slave.log
+    mysql -h $slave -u$MYSQL_USER -p"$MYSQL_PASS" -e "show slave status\G" > /tmp/bk_create_mysql_slave.log
+
+    grep -qP 'Slave_IO_Running: Yes' /tmp/bk_create_mysql_slave.log; let ret+=$?
+    grep -qP 'Slave_SQL_Running: Yes' /tmp/bk_create_mysql_slave.log; let ret+=$?
+
+    return $ret
+}
+
+_install_java () {
+    local module=service
+
+    _rsync -aL $PKG_SRC_PATH/service/java $INSTALL_PATH/service/
+
+    add_env_settings
+
+    export INSTALL_PATH=$INSTALL_PATH
+    export JAVA_HOME=$INSTALL_PATH/service/java
+    export CLASS_PATH=$JAVA_HOME/lib
+    export PATH=$JAVA_HOME/bin:$PATH
+
+    if ! grep -q 'JAVA_HOME=' $HOME/.bkrc 2>/dev/null; then
+        echo "export INSTALL_PATH=$INSTALL_PATH" >>$HOME/.bkrc
+        echo 'export JAVA_HOME=$INSTALL_PATH/service/java'   >> $HOME/.bkrc
+        echo 'export CLASS_PATH=$JAVA_HOME/lib' >> $HOME/.bkrc
+        echo 'export PATH=$JAVA_HOME/bin:$PATH' >> $HOME/.bkrc
+    fi
+
+}
+
+_install_localpython () {
+    local tpath=/usr/local/bin/
+
+    _init_pipconf
+
+    if rpm -q python27; then
+        log "remove old one"
+        rpm -e python27 python27-devel
+        rm -rf /usr/local/bin/python* \
+            /usr/local/bin/easy_install* \
+            /usr/local/bin/pip* \
+            /usr/local/lib/python2.7 \
+            /usr/local/lib/libpython2.7.a \
+            /usr/local/lib/pkgconfig
+    fi
+    rm -rf setuptools-36.0.1 pip/setuptools-36.0.1
+
+    rpm -ivh --prefix=${tpath%/bin*} $PKG_SRC_PATH/$module/support-files/pkgs/python27*.rpm \
+        || fail "install blueking modified python27 failed."
+
+    ln -sf $tpath/python2.7 $tpath/python
+    export PATH=$tpath:$PATH
+    export VIRTUALENVWRAPPER_PYTHON=$tpath/python
+
+    if [ ! -f $tpath/easy_install ]; then
+        log "installing setuptools"
+        rm -rf pip/setuptools-36.0.1
+        unzip pip/setuptools-36.0.1.zip >/dev/null && \
+            (cd setuptools-36.0.1; $tpath/python setup.py install >/dev/null)
+    fi
+
+    [ $? -ne 0 ] && fail "setuptools install failed."
+
+    (
+        cd pip; rm -rf pip-9.0.?/
+        tar xf pip-9.0.?.tar.gz
+        cd pip-9.0.?/
+        $tpath/python setup.py install >/dev/null
+    ) || fail "install pip for new python failed."
+
+    local pip_options="--no-cache-dir --no-index --find-links $CTRL_DIR/pip"
+
+    $tpath/pip install $pip_options pbr || fail "install pbr failed."
+    $tpath/pip install $pip_options virtualenvwrapper || fail "install virtualenvwrapper failed."
+    $tpath/pip install $pip_options supervisor six
+    source $tpath/virtualenvwrapper.sh
+}
+
+create_dockerenv () {
+    local module=$1
+    local project=$2
+    local image_dir=$3
+
+    echo "docker" >$INSTALL_PATH/.appo.mode
+    log "apps management with docker image mode"
+
+    #if ! which docker >/dev/null 2>&1; then
+    #    yum -y install docker
+    #fi
+
+    if [ -f $image_dir/bk_docker.tar.gz ]; then
+        log "extract files from bk_docker.tar.gz"
+        tar xf $image_dir/bk_docker.tar.gz -C $INSTALL_PATH/$module/$project
+        mkdir -p $INSTALL_PATH/$module/apps
+    else
+        fail "no docker files found."
+    fi
+
+    source $CTRL_DIR/control.rc
+    export PATH=$INSTALL_PATH/$module/$project/bin:$PATH
+    _start_proc_if_not_running docker || fail "start docker daemon failed."
+    sleep 3
+    if [ -f $image_dir/baseimage.tar ]; then
+        log "copy image: baseimage.tar"
+        docker load <$image_dir/baseimage.tar
+        assert "load docker image done" "load docker image failed."
+    else
+        fail "docker base-image file not found."
+    fi
+}
+
+create_virtualenv () {
+    local module=$1
+    local project=$2
+}
+
+get_setname () {
+    local module="$1"
+    local set_name
+
+    case $module in
+        fta) set_name="故障自愈" ;;
+        job) set_name="作业平台" ;;
+        gse_*|license) set_name="管控平台" ;;
+        datacollection|*server|*controller) set_name="配置平台" ;;
+        paas|open_paas|esb|login|console|appengine|apigw|appo|appt|paas_agent) set_name="集成平台" ;;
+        dataapi|databus|monitor) set_name="数据服务模块" ;;
+        mongodb|nginx|etcd|influxdb|redis|redis_cluster|consul|mysql|kafka|zk|beanstalk|zookeeper|rabbitmq|es|elasticsearch) set_name="公共组件"
+    esac
+
+    echo $set_name
+}
+
+get_full_name() {
+    local module=$1
+    local full_module_name
+
+    case $module in
+        es) full_module_name="elasticsearch" ;;
+        zk) full_module_name="zookeeper" ;;
+        paas_agent)
+            if grep -qP "$LAN_IP[ \t].*appo" $CTRL_DIR/install.config 2>/dev/null; then
+                full_module_name="appo"
+            elif grep -qP "$LAN_IP[ \t].*appt" $CTRL_DIR/install.config 2>/dev/null; then
+                full_module_name="appt"
+            fi
+            ;;
+        *)  full_module_name="$module" ;;
+    esac
+
+    echo $full_module_name
+}
+
+get_os_type () {
+    local os_type
+
+    case $(uname -s) in
+        *Linux) os_type=linux ;;
+        *CYGWIN*) os_type=windows ;;
+        *) os_type=unkown ;;
+    esac
+
+    echo $os_type
+}
+
+allocate_host_to_module () {
+    local addr=$1
+    local module=$2
+
+    case $module in
+        tsdb*|paas_plugins|plugin) echo "skip"; return 0;;
+    esac
+
+    curl -s -X POST \
+        -H 'cache-control: no-cache' \
+        -H 'content-type: application/x-www-form-urlencoded' \
+        -H 'BK_USER: admin' \
+        -H 'HTTP_BLUEKING_SUPPLIER_ID: 0' \
+        -H 'HTTP_BLUEKING_LANGUAGE: zh-cn' \
+        -d ip=$addr \
+        -d appName="蓝鲸" \
+        -d moduleName=$module \
+        -d setName=$(get_setname $module) \
+        -d platId=0 \
+        http://$CMDB_HOST:$CMDB_HTTP_PORT/api/host/addhost
+}
+
+gen_module_env () {
+    local module=$1
+    local module_env_file=$INSTALL_PATH/bin/bksuite-${module}.env
+
+    echo > $module_env_file
+    if ! grep -q '/.bkrc' $HOME/.bashrc 2>/dev/null; then
+        echo "[ -f $HOME/.bkrc ] && source $HOME/.bkrc" >> $HOME/.bashrc
+    fi
+
+    cat >$HOME/.bkrc <<_OO_
+export RUN_MODE=$RUN_MODE
+export JAVA_HOME=$INSTALL_PATH/service/java
+export CLASS_PATH=$JAVA_HOME/lib
+export INSTALL_PATH=$INSTALL_PATH
+export PKG_SRC_PATH=$PKG_SRC_PATH
+export CTRL_DIR=$CTRL_DIR
+export PATH=\$INSTALL_PATH/paas_agent/paas_agent/bin:/usr/local/bin:/opt/py27/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=\$INSTALL_PATH/service/consul/bin:\$PATH
+export PATH=\$JAVA_HOME/bin:\$PATH
+export PATH=\$INSTALL_PATH/service/mongodb/bin:\$PATH
+export PATH=\$PKG_SRC_PATH/service/mysql/bin:\$PATH
+export PATH=\$INSTALL_PATH/ci/docker/bin:\$PATH
+export WORKON_HOME=$INSTALL_PATH/.envs
+export BK_PROXY=$BK_PROXY
+ulimit -n 102400
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+elif [ -f /opt/py27/bin/virtualenvwrapper.sh ]; then
+    source /opt/py27/bin/virtualenvwrapper.sh
+fi
+
+export BK_HOME=\$INSTALL_PATH
+export CONF_HOME=\$BK_HOME/etc
+export CERT_PATH=\$BK_HOME/cert
+export CERT_HOME=\$BK_HOME/cert
+export DATA_HOME=\$BK_HOME/public
+export LOGS_PATH=\$BK_HOME/logs
+_OO_
+}
+
+gen_common_postscripts () {
+    local module=$1
+    local project=$2
+    local venv_name=$(get_venv_name $module $project)
+    local workon_file=$INSTALL_PATH/.envs/$venv_name/bin/postactivate
+    local workoff_file=$INSTALL_PATH/.envs/$venv_name/bin/postdeactivate
+
+    [ ! -d $INSTALL_PATH/.envs/$venv_name ] && return 0 
+
+    cat >>$workon_file <<_OO_
+_CURRDIR=\$(cd \${BASH_SOURCE%/*} 2>/dev/null; pwd)
+export PYTHON_HOME=\${_CURRDIR%/bin*}
+export BK_HOME=\${PYTHON_HOME%/.envs*}
+export MODULE_NAME=$module
+export PROJECT_NAME=$project
+export CERT_PATH=\$BK_HOME/cert
+export CERT_HOME=\$BK_HOME/cert
+export CONF_HOME=\$BK_HOME/etc
+export LOGS_HOME=\$BK_HOME/logs/\$MODULE_NAME
+export PROJECT_LOGHOME=\$LOGS_HOME/\$PROJECT_NAME
+export MODULE_HOME=\$BK_HOME/\$MODULE_NAME
+export PROJECT_HOME=\$BK_HOME/\$MODULE_NAME/\$PROJECT_NAME
+
+if [ -f \$BK_HOME/bin/bksuite-\${MODULE_NAME}.env ]; then
+    source \$BK_HOME/bin/bksuite-\${MODULE_NAME}.env
+fi
+
+alias cdbkhome='cd \$BK_HOME'
+alias cdloghome='cd \$LOGS_HOME'
+alias cdlogproj='cd \$PROJECT_LOGHOME'
+_OO_
+
+    cat >>$workoff_file <<_OO_
+unset _CURRDIR
+unset PYTHON_HOME
+unset MODULE_NAME
+unset MODULE_HOME
+unset PROJECT_NAME
+unset PROJECT_HOME
+_OO_
+
+}
+
+gen_project_postscripts () {
+    local module=$1
+    local project=$2
+    local venv_name=$(get_venv_name $module $project)
+    local workon_file=$INSTALL_PATH/.envs/$venv_name/bin/postactivate
+    local workoff_file=$INSTALL_PATH/.envs/$venv_name/bin/postdeactivate
+
+    [ ! -d $INSTALL_PATH/.envs/$venv_name ] && return 0 
+
+    case $module in
+        bkdata|datahub|dataflow)
+            cat >>$workon_file <<_OO_
+export KAFKA_HOME=\$BK_HOME/service/kafka
+export ES_HOME=\$BK_HOME/server/es
+export JAVA_HOME=\$BK_HOME/service/java
+export CLASSPATH=.:\$JAVA_HOME/lib:\$JAVA_HOME/jre/lib:\$ES_HOME/lib:\$KAFKA_HOME/lib
+export PATH=\$JAVA_HOME/bin:\$PATH
+export KAFKA_HOST=$KAFKA_HOST
+export KAFKA_PORT=$KAFKA_PORT
+export ES_HOST=$ES_HOST
+export ES_PORT=$ES_REST_PORT
+
+# alias
+alias cdkafka="cd \$KAFKA_HOME"
+alias cdes="cd \$ES_HOME"
+alias cdkafkalog="cd \$BK_HOME/logs/kafka"
+alias cdeslog="cd \$BK_HOME/logs/es"
+_OO_
+        ;;
+        fta) ;;
+        paas)
+            cat >>$workon_file <<-_OO_
+alias cdopenpaas='workon open_paas'
+alias cdpaasagent='workon paas_agent'
+_OO_
+        ;;
+    esac
+
+    return $?
+
+}
+
+init_bkdata_snapshot () {
+    read dataapi_version <$INSTALL_PATH/bkdata/dataapi/VERSION 2>/dev/null || return 0
+    [ -f $INSTALL_PATH/.dataapi_snaphost ] && mv $INSTALL_PATH/.dataapi_snaphost $INSTALL_PATH/.dataapi_snapshot
+    if [ ! -f "$INSTALL_PATH/.dataapi_snapshot" ]; then
+        source /opt/py27/bin/virtualenvwrapper.sh
+        export WORKON_HOME=$INSTALL_PATH/.envs
+        chenv bkdata dataapi
+        python -u manage.py test databus.tests.DatabusHealthTestCase.init_snapshot_config \
+            --settings='pizza.settings_no_db' && touch "$INSTALL_PATH/.dataapi_snapshot"
+    fi
+
+    return $?
+}
+
+load_env () {
+    if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+        source /usr/local/bin/virtualenvwrapper.sh
+    elif [ -f /opt/py27/bin/virtualenvwrapper.sh ];then
+        source /opt/py27/bin/virtualenvwrapper.sh
+    fi
+
+    export WORKON_HOME=$INSTALL_PATH/.envs
+}
+
+mount_nfs_partition () {
+    local module=$1
+    local export_dir=$2
+    local mount_point=$3
+
+    log "create user for nfs client"
+    userdel nfs 2>/dev/null
+    groupadd -g $NFS_GID nfs 2>/dev/null
+    useradd -u $NFS_UID -g $NFS_GID nfs 2>/dev/null
+
+    log "mount nfs shared directory: $mount_point"
+    mkdir -p $mount_point
+
+    if ! ps -ef | grep rpc.statd | grep -v grep >/dev/null 2>&1; then
+        rpc.statd
+    fi
+
+    if ! df -P -T | grep "$NFS_IP:$export_dir *nfs. " >/dev/null 2>&1; then
+        mount -t nfs -o rw,nolock,nocto,actimeo=3600 $NFS_IP:$export_dir $mount_point || \
+            fail "mount NFS directory failed. this may cause error while deploy apps."
+    fi
+
+    log "mount nfs director for $module, this may take a while"
+    if ! df -P -T | grep "$NFS_IP:$export_dir *nfs. " >/dev/null 2>&1; then
+        mount -t nfs -o rw,nolock,actimeo=3600 $NFS_IP0:$export_dir $mount_point || \
+            fail "mount NFS directory failed. this may cause error while deploy apps."
+    fi
+
+    log "add entry to /etc/fstab: $NFS_IP0:$export_dir -> $mount_point"
+    sed -i "/${mount_point//\//\\/}/d" /etc/fstab
+    echo "$NFS_IP0:$export_dir $mount_point nfs rw,nolock,actimeo=3600 0 0" >>/etc/fstab
+}
+
+mount_cephfs_partition () {
+    local module=$1
+    local cephfs_mdir=$2
+    local mount_point=$3
+    local timestamp=$(date +%Y%m%d%H%M%S)
+
+    MODULE_IPS=( $(map_name2ip $module) )
+    if [ "${#MODULE_IPS[@]}" -lt 2 ]; then
+        warn "less than two host installed ${module^^}, skip mounting cephfs partition"
+        return 0
+    fi
+
+    log "mount cephfs shared directory: $mount_point"
+    mkdir -p $mount_point
+
+    log "mount cephfs director for $module"
+    [[ -f /root/.client.admin.secret ]] || fail "client key not found"
+
+    cephfs_node=$( echo ${CEPH_IP[@]} | sed "s/ /:$CEPH_MON_PORT,/g" ):$CEPH_MON_PORT:$cephfs_mdir/
+    
+    mount -t ceph $cephfs_node $mount_point -o name=admin,secret=$(cat /root/.client.admin.secret) || \
+        fail "mount CephFS directory failed. this may cause error while deploy apps."
+
+    warn "add entry to /etc/fstab: $cephfs_node -> $mount_point"
+    sed -i".$timestamp" "/${mount_point//\//\\/}/d" /etc/fstab
+    echo "$cephfs_node $mount_point ceph name=admin,secret=$(cat /root/.client.admin.secret),_netdev,noatime 0 0" | tee -a /etc/fstab
+}
+
+_app_token () {
+    local app_code="$1"
+    local apptoken_file=$CTRL_DIR/.app.token
+
+    if [[ -z "$app_code" ]]; then
+        echo "Usage: _app_token <app_code>" >&2
+        return 1
+    fi
+
+    if grep -q "${app_code}\b " $apptoken_file 2>/dev/null; then
+        app_token="$(awk -v APP=$app_code '$1 == APP {print $2}' $apptoken_file)"
+        if [ ! -z "$app_token" ]; then
+            echo $app_token
+            return 0
+        else
+            sed -i "/^${app_code}\b/d" $apptoken_file
+        fi
+    fi
+
+    load_enterprise_env
+
+    case $app_code in
+        consul) app_token=$( $PKG_SRC_PATH/service/consul/bin/consul keygen ) ;;
+        bk_paas|bk_console|bk_paas_log_alert) app_token="$ESB_TOKEN" ;;
+        *) app_token=$(uuid -v4) ;;
+    esac
+
+    #echo $app_code $app_token >>$apptoken_file
+    echo $app_token
+    unset app_token
+}
+
+add_app_token () {
+    local app_code="$1"
+    local app_token="$2"
+    local app_desc="$3"
+    local tstr="$(date +%Y-%m-%d\ %H:%M:%S)"
+
+    source $CTRL_DIR/globals.env
+    export PATH=$INSTALL_PATH/service/mysql/bin:$PATH
+    mysqlcmd="mysql --default-character-set=utf8 -h$MYSQL_IP0 -u$MYSQL_USER -P$MYSQL_PORT"
+
+    MYSQL_PWD="$MYSQL_PASS" $mysqlcmd open_paas -e "delete from esb_app_account where app_code='$app_code'"
+    MYSQL_PWD="$MYSQL_PASS" $mysqlcmd open_paas -e "insert into esb_app_account (app_code, app_token, introduction, created_time) values ('$app_code', '$app_token', '$app_desc', '$tstr')"
+    MYSQL_PWD="$MYSQL_PASS" $mysqlcmd open_paas -e "update esb_function_controller set wlist=concat(wlist, ',$app_code') where func_code = 'user_auth::skip_user_auth'"
+    nassert "add app token: $app_code($app_token)"
+}
+
+add_hosts_paas () {
+
+    [ "$HAS_DNS_SERVER" == 1 ] && return
+
+    sed -i "/$PAAS_FQDN/d" /etc/hosts
+    sed -i "/$CMDB_FQDN/d" /etc/hosts
+    sed -i "/$JOB_FQDN/d" /etc/hosts
+
+    for ip in ${NGINX_IP[@]}; do
+        echo "$ip $PAAS_FQDN" >>/etc/hosts
+        echo "$ip $CMDB_FQDN" >>/etc/hosts
+        echo "$ip $JOB_FQDN" >>/etc/hosts
+    done
+}
+
+add_hosts_bcs () {
+    local ip
+
+    [ "$HAS_DNS_SERVER" == 1 ] && return
+
+    sed -i "/$DEVOPS_NAVIGATOR_FQDN/d" /etc/hosts
+    sed -i "/$HARBOR_SERVER_FQDN/d" /etc/hosts
+
+    echo "$HARBOR_SERVER_IP $HARBOR_SERVER_FQDN" >> /etc/hosts
+    for ip in ${DEVOPS_NAVIGATOR_IP[@]}
+    do
+        echo "$ip $DEVOPS_NAVIGATOR_FQDN" >> /etc/hosts
+        echo "$ip api-${DEVOPS_NAVIGATOR_FQDN}" >> /etc/hosts
+    done
+}
+
+add_hosts_ci () {
+    local ip
+    [ "$HAS_DNS_SERVER" == 1 ] && return
+
+    [ -z "$BKCI_FQDN" ] && { source "$CTRL_DIR/ci/ci.env" || fail "add_hosts_ci: source ci.env failed."; }
+    sed -i "/$BKCI_FQDN/d" /etc/hosts
+    sed -i "/$CODECC_FQDN/d" /etc/hosts
+    sed -i "/$JFROG_FQDN/d" /etc/hosts
+    sed -i "/$BKCI_OP_FQDN/d" /etc/hosts
+    sed -i "/build-ci-/d" /etc/hosts
+
+    # 在paas及ci节点添加主机名.
+    for ip in ${CI_WEB_IP[@]}; do
+        echo "$ip $BKCI_FQDN" >> /etc/hosts
+        echo "$ip $BKCI_OP_FQDN" >> /etc/hosts
+        echo "$ip $CODECC_FQDN" >> /etc/hosts
+        echo "$ip $JFROG_FQDN" >> /etc/hosts
+    done
+    # 考虑到ci-build节点也一般用作codecc客户端. 所以预先配置hosts文件.
+    for ip in ${CI_BUILD_IP[@]}; do
+        echo "$ip build-ci-${ip//./-}" >> /etc/hosts
+    done
+}
+
+build_docker () {
+    local env=$1
+    local build_tag
+
+    if ! which docker >/dev/null 2>&1; then
+        if [ "$LIVE_INSTALL" == 1 ]; then
+            http_proxy=$BK_PROXY yum -y install docker
+        else
+            tar xf $PKG_SRC_PATH/paas_agent/support-files/images/bk_docker.tgz -C $INSTALL_PATH/paas_agent/paas_agent/
+            tar xf $PKG_SRC_PATH/paas_agent/support-files/images/bk_docker.tgz -C /usr/local
+            export PATH=$INSTALL_PATH/paas_agent/paas_agent/bin:$PATH
+        fi
+    fi
+
+    if docker info >/dev/null 2>&1; then
+        dockerctl start
+        docker version >/dev/null 2>&1
+        assert "start docker done" "start docker failed"
+    fi
+
+}
+
+build_image_python () {
+    #local base_image=$1
+    #local target_module=$2
+
+    (
+        cd $PKG_SRC_PATH/paas_agent/support-files
+        cp images/Dockerfile ./
+        docker build -t $IMAGE_NAME . || exit 1
+    )
+
+    return $?
+}
+
+build_image_python3 () { 
+    local BUILD_DIR=$PKG_SRC_PATH/paas_agent/support-files
+
+    if [ "$PYTHON3_DOCKER_ENABLED" == 1 ]; then 
+        if [ -f $BUILD_DIR/images/Dockerfile4python3 ]; then 
+            cd $BUILD_DIR
+            cp -f images/Dockerfile4python3 ./ || return 1
+            docker build -f Dockerfile4python3 -t $PYTHON3_IMAGE_NAME . || return 1
+        fi   
+    else 
+        warn "PYTHON3 DOCKER IMAGE is diabled. please enable and rebuild."
+        return 1
+    fi   
+}
+
+build_image_java () {
+    local BUILD_DIR=$PKG_SRC_PATH/paas_agent/support-files
+
+    #docker build -f $target_module.Dockerfile -t $base_image .
+    if [ "$JAVA_DOCKER_ENABLED" == 1 ]; then
+        if [ -f $BUILD_DIR/images/Dockerfile4java ]; then
+            cd $BUILD_DIR
+            cp -f images/Dockerfile4java ./ || return 1
+            docker build -f Dockerfile4java -t $JAVA_IMAGE_NAME . || return 1
+            mkdir -p $BK_HOME/paas_agent/apps/JavaEnvs || return 1
+            tar zxf pkgs/javalib.tar.gz -C $BK_HOME/paas_agent/apps/JavaEnvs/ || return 1
+        fi
+    else
+        warn "JAVA DOCKER IMAGE is diabled. please enable and rebuild."
+        return 1
+    fi
+}
+
+_update_paas_agent_yaml () {
+    local conf=$INSTALL_PATH/etc/paas_agent_config.yaml
+    local sid="$1"
+    local token="$2"
+
+    if [ -f $conf ]; then
+        sed -i "s#sid: .*#sid: '$sid'#" $conf
+        sed -i "s#token: .*#token: '$token'#" $conf
+    else
+        err "update failed. $conf: no such file."
+    fi
+    return $?
+}
+
+update_rclocal () {
+    local module=$1
+    local rcfile=/etc/rc.d/bkrc.local
+
+    if ! grep "$rcfile" /etc/rc.local >/dev/null 2>&1; then
+        echo "[ -f $rcfile ] && bash $rcfile" >>/etc/rc.local
+    fi
+
+    if [ ! -f $rcfile ]; then
+
+        echo "if ! grep 'nameserver 127.0.0.1' /etc/resolv.conf >/dev/null 2>&1; then" >>$rcfile
+        echo "   sed -i '1i nameserver 127.0.0.1' /etc/resolv.conf" >>$rcfile
+        echo "fi" >>$rcfile
+
+        echo "umask 022" >>$rcfile
+        echo "export HASTTY=1" >>$rcfile
+        echo "export LC_ALL=en_US.UTF-8" >>$rcfile
+        echo "export PATH=/usr/local/sbin:/usr/local/bin:/opt/py27/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin"
+        echo "export CTRL_DIR=$CTRL_DIR" >>$rcfile
+        echo "export INSTALL_PATH=$INSTALL_PATH" >>$rcfile
+        echo "export PKG_SRC_PATH=$PKG_SRC_PATH" >>$rcfile
+        echo "export BK_HOME=\$INSTALL_PATH" >>$rcfile
+        echo "export JAVA_HOME=\$INSTALL_PATH/service/java" >>$rcfile
+        echo "export DOCKER_BIN=\$INSTALL_PATH/paas_agent/paas_agent/bin" >>$rcfile
+        echo "export PATH=\$JAVA_HOME/bin:\$DOCKER_BIN:$PATH" >>$rcfile
+        echo "export WORKON_HOME=$INSTALL_PATH/.envs" >>$rcfile
+        echo "source \$CTRL_DIR/utils.fc" >>$rcfile
+        echo "ulimit -n 102400" >>$rcfile
+        echo "read CTRL_IP ignore <\$CTRL_DIR/.controller_ip" >>$rcfile
+        echo "export CTRL_IP" >>$rcfile
+    fi
+}
+
+power_on () {
+    local module=$1
+    local rcfile=/etc/rc.d/bkrc.local
+
+    if ! grep -q "start $module" $rcfile 2>&1; then
+        echo "start $module" >>$rcfile
+    fi
+}
+
+add_hosts () {
+    local mod MOD id
+
+    log "mapping '$LAN_IP $(hostname)' to /etc/hosts"
+    sed -i "/ $(hostname)/d" /etc/hosts
+    echo "$LAN_IP   $(hostname)" >>/etc/hosts
+}
+
+check_name () {
+    local action=$1
+    local name=$2
+    
+    if ! type ${action}_${name%0*} >/dev/null 2>&1; then
+        echo "$(red_echo ${action} ${name}): module '${name}' not supported"
+        echo "the following names are supported by command $(blue_echo ${action}):"
+        set | grep ^${action}_ | sed 's/_/ /; s/ ()//;s/^/   /'
+        echo 
+        exit 1
+     fi
+}
+
+load_module () {
+    local module=$1
+    local f
+
+    shopt -s nullglob
+    if [ -d $CTRL_DIR/$module ]; then
+        for f in $CTRL_DIR/$module/*.rc; do
+            source $f
+        done
+    fi
+    shopt -u nullglob
+}
+
+load_functions () {
+    local action=$1
+    local box=$2
+
+    shopt -s nullglob
+    if [ -d $CTRL_DIR/$box ]; then
+        for f in $CTRL_DIR/$box/${action}_*.rc; do
+            source $f
+        done
+    fi
+    shopt -u nullglob
+}
+
+value_of () {
+    [ $# -eq 0 ] && return 
+
+    shopt -u nullglob
+    eval echo \${${1}}
+    shopt -s nullglob
+}
+
+
+check_if_sync_required () {
+    local last_arg=$1
+    local module=$2
+    shift 2
+
+    source ./deliver.rc
+    if [ "$last_arg" == 1 ]; then
+        deliver common || fail "sync common files failed."
+        deliver $module $@ || fail "sync module files failed."
+    fi
+}
+
+upload_gse_package_to_miniweb () {
+    shopt -u nullglob
+    if [ "$GSE_IP0" != "$LAN_IP" ]; then
+        log "fetch agent packages to local"
+        _rsync -a root@$GSE_IP0:$PKG_SRC_PATH/gse_*.tgz $PKG_SRC_PATH/
+    fi
+
+    log "upload gse agent package to miniweb..."
+    for ngxip in ${NGINX_IP[@]}; do
+        _rsync -a $PKG_SRC_PATH/gse_*.tgz root@$ngxip:$INSTALL_PATH/miniweb/download/
+        rcmd root@$ngxip "cd $INSTALL_PATH/miniweb/download;
+            find . -type f | sed 's/^..//' | xargs md5sum * >MD5"
+    done
+}
+
+check_if_match_config () {
+    local name=$1
+    local project=$2
+
+    [[ "$name" == "open_paas" ]] && name=paas 
+    if [ -z "$project" ]; then
+        grep -qP "$LAN_IP\s.*\b$name\b[^\(\w]" $CTRL_DIR/install.config
+    else
+        if ! grep -qP "$LAN_IP\s.*\b$name\($project\)" $CTRL_DIR/install.config; then
+            grep -qP "$LAN_IP\s.*\b$name(,|$)" $CTRL_DIR/install.config
+        fi
+    fi
+}
+
+selected_projects () {
+    local m=$1
+    local p=$2
+
+    if  [ -z "$p" ]; then
+        assigned_projects $m
+    else
+        check_if_match_config $module $p && echo $p
+    fi
+}
+
+assigned_projects () {
+    local module=$1
+    local projects_yaml=$PKG_SRC_PATH/$module/projects.yaml
+
+    if [ -f $projects_yaml ]; then
+        for p in $(awk '/name: /{print $NF}' $projects_yaml ); do
+            check_if_match_config $module $p || continue
+            echo $p
+        done
+    fi
+}
+
+get_all_projects () {
+    local module=$1
+    local projects_yaml=$PKG_SRC_PATH/$module/projects.yaml
+
+    if [ -f $projects_yaml ]; then
+        awk '/name: /{print $NF}' $projects_yaml
+    else
+        default_projects $module
+    fi
+}
+
+default_projects () {
+    local module=$1 
+
+    case $module in
+        bkdata) echo dataapi databus monitor ;;
+        paas | open_paas) echo paas login esb appengine console ;;
+    esac
+}
+
+_install_interpreter () {
+    local lang=${1%/*}
+    local args="$2"
+
+    _install_$lang ${1#*/} $args
+
+    # 创建虚拟环境
+}
+
+_install_python () {
+    local version=$1
+
+    if [ "${version%.*}" == 3 ]; then
+        _install_py36
+    else
+        _install_py27 $@
+    fi
+}
+
+_install_py27 () {
+    local version=${1:-py27}
+
+    #_rsync -a $PKG_SRC_PATH
+}
+
+_install_py36 () {
+    tar xf $PKG_SRC_PATH/service/py36.tgz -C /opt/ || fail "install python 3 failed"
+}
+
+_install_python27 () {
+    local version=$1
+    local prefix=$2
+
+    rpm -e python27 python27-devel
+    rpm -ivh --prefix=$prefix $PKG_SRC_PATH
+}
+
+pop_items () {
+    local m=$1
+    local p=$2
+
+    source <(/opt/py27/bin/python $CTRL_DIR/qq.py $PKG_SRC_PATH/$m/projects.yaml)
+
+    interpreter=${_language["$m,$p"]}
+    project_dir=${_project_dir["$m,$p"]}
+}
+
+chenv () {
+    local m=$1
+    local p=$2
+    
+    venv_name=$(get_venv_name $m $p)
+    workon | grep -q "^${venv_name}$"
+    
+    source <(/opt/py27/bin/python $CTRL_DIR/qq.py $PKG_SRC_PATH/$m/projects.yaml)
+    interpreter=${_language["$m,$p"]}
+    
+    # python工程如果进入virtualenv失败则退出。
+    # 非python工程尝试进入，失败可以忽略 
+    if [ "${interpreter//python}" != "$interpreter" ]; then
+        workon $venv_name || fail "activate virtuaenv $venv_name failed."
+    else
+        workon $venv_name >/dev/null 2>&1
+    fi
+}
+
+gen_nginx_cert () {
+    openssl req -x509 -days 365 -out $PKG_SRC_PATH/cert/bk_domain.crt -keyout $PKG_SRC_PATH/cert/bk_domain.key \
+        -newkey rsa:2048 -nodes -sha256 \
+        -subj "/CN=*.$BK_DOMAIN" -extensions EXT -config <( \
+        printf "[dn]\nCN=*.$BK_DOMAIN\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:*.$BK_DOMAIN\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+}
+
+check_https_cert () {
+    local schema=${HTTP_SCHEMA:-http}
+    if [[ "${schema,,}" = "https" ]]; then
+        [[ -e $PKG_SRC_PATH/cert/bk_domain.crt ]] || gen_nginx_cert 
+    fi
+}
+
+create_user () {
+    local args=$1
+
+    local user=${args%/*}
+    local group=${args#*/}
+    local password=$(random_string 10)
+    local grp_opt
+
+    if [ ! -z "$group" ]; then
+        if grep -q "^$group:" /etc/group 2>/dev/null; then
+            groupadd $group
+        fi
+    else
+        grp_opt="-g $group"
+    fi
+
+    if ! id $user 2>/dev/null; then
+        useradd -m $user $grp_opt
+        light "set new passwd for $user: $password"
+        passwd <<<"$user:$password"
+    fi
+
+}
+
+_create_ca_files () {
+    local target=$1
+    local cls=$2
+
+    #local name=$(grep "$LAN_IP\s" $CTRL_DIR/install.config | grep -Po "\b${target}[0-9]{0,5}")
+    #local NODEID=$(_lookup_id ${name^^})
+
+    $CTRL_DIR/cfssl gencert -ca=$target-ca.pem \
+                  -ca-key=$target-ca-key.pem \
+                  -config=ca-config.json \
+                  -profile=${cls##*-} \
+                  $target-ca-csr.json \
+            | $CTRL_DIR/cfssljson -bare $cls || \
+      fail "generate $target.pem/$target-key.pem failed."
+}
+
+get_image_version () {
+    local name=${1}
+
+    [ -f $PKG_SRC_PATH/bcs/support-files/images/$name/VERSION ] && cat $PKG_SRC_PATH/bcs/support-files/images/$name/VERSION
+    #echo "export ${var_name^^}_VERSION=$(< $PKG_SRC_PATH/bcs/support-files/images/$name/VERSION)" >> config.env 2>/dev/null
+}
+
+load_module bcs
+[[ -f $CTRL_DIR/bkbase.env ]] && source $CTRL_DIR/bkbase.env

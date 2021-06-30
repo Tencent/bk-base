@@ -1,0 +1,16 @@
+{
+    "正则表达式": "Regular Expression",
+    "请输入正确的正则表达式": "Please enter the correct regex, eg:a(?P<name1>\\d+)",
+    "json列表反序列化": "json list deserialization",
+    "正则提取": "regex extract",
+    "请确认是否删除清洗任务": "Please confirm whether to delete the cleaning task",
+    "批量导入": "Batch Import",
+    "查看最近丢弃数据": "View recently discarded data",
+    "清洗时间": "Cleaning time",
+    "原始记录": "Original record",
+    "清洗错误信息": "Cleaning error message",
+    "分区": "Partition",
+    "消息key值": "Message key value",
+    "是否更新当前清洗表对应的入库配置": "Whether to update the storage configuration corresponding to the current cleaning table",
+    "清洗表已更新": "The cleaning table has been updated"
+}

@@ -1,0 +1,282 @@
+{
+  "beat": {
+    "address": [
+      "xx.xx.xx.xx",
+      "xx.xx.xx.xx"
+    ],
+    "hostname": "test_host_name",
+    "name": "test_host_name",
+    "version": "5.4.2"
+  },
+  "container": {
+    "aliases": [
+      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    ],
+    "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "labels": {
+      "io.tencent.bcs.app.appid": "123456",
+      "io.tencent.bcs.app.moduleid": "123456",
+      "io.tencent.bcs.app.setid": "123456",
+      "io.tencent.bcs.cluster": "test_cluster",
+      "io.tencent.bkdata.baseall.dataid": "123456",
+      "io.tencent.bkdata.container.log.cfgfile": "/log.json",
+      "io.tencent.bkdata.container.stdlog.dataid": "123456",
+      "podname": "test_pod"
+    },
+    "name": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "namespace": "test"
+  },
+  "containerstorage": {
+    "filesystemstats": [
+      {
+        "available": 0,
+        "base_usage": 149749760,
+        "capacity": 250221031424,
+        "device": "/dev/test",
+        "has_inodes": false,
+        "inodes": 204,
+        "inodes_free": 0,
+        "io_in_progress": 0,
+        "io_time": 0,
+        "read_time": 0,
+        "reads_completed": 0,
+        "reads_merged": 0,
+        "sectors_read": 0,
+        "sectors_written": 0,
+        "type": "vfs",
+        "usage": 149782528,
+        "weighted_io_time": 0,
+        "write_time": 0,
+        "writes_completed": 0,
+        "writes_merged": 0
+      }
+    ]
+  },
+  "cpu": {
+    "cfs": {
+      "periods": 0,
+      "throttled_periods": 0,
+      "throttled_time": 0
+    },
+    "load_average": 0,
+    "usage": {
+      "per_cpu_usage": [
+        0.0010624716025851336,
+        0.001512574662993514,
+        0.01152954265841482,
+        0.00503426596105904,
+        0.0018842736069646737,
+        0.006974231808145322,
+        0.002357793002536868,
+        0.004030575143065361,
+        0.007690546483425763,
+        0.025039805184968233,
+        0.009047186565566186,
+        0.003768784084371756,
+        0.04306198512723771,
+        0.04551017035158928,
+        0.0577760663094644,
+        0.058004449407059865,
+        0.033918459968880516,
+        0.03268143330767737,
+        0.0415300916801101,
+        0.04604876451779407,
+        0.039061003408275854,
+        0.03812379935485068,
+        0.04061371376817981,
+        0.05166484273395916,
+        0,
+        0.002779865368513736,
+        0.0016930760925878312,
+        0.0009855871484667415,
+        0.001082208755292836,
+        0,
+        0,
+        0,
+        0,
+        0.00043829337692258405,
+        0.0004558925431695861,
+        0,
+        0,
+        0.005762095000832144,
+        0.0009052173149814813,
+        0.0005595556622381883,
+        0.00031556680159936353,
+        0,
+        0.000949601298657717,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "system": 0.24609916094391884,
+      "total": 0.6238537900624377,
+      "user": 0.12304958047195942
+    }
+  },
+  "dataid": "123456",
+  "diskio": {
+    "sda": {
+      "io_merged": {
+        "major": 8,
+        "minor": 0,
+        "stats": {
+          "Async": 0,
+          "Read": 0,
+          "Sync": 0,
+          "Total": 0,
+          "Write": 0
+        }
+      },
+      "io_queued": {
+        "major": 8,
+        "minor": 0,
+        "stats": {
+          "Async": 0,
+          "Read": 0,
+          "Sync": 0,
+          "Total": 0,
+          "Write": 0
+        }
+      },
+      "io_service_bytes": {
+        "major": 8,
+        "minor": 0,
+        "stats": {
+          "Async": 4096,
+          "Read": 4096,
+          "Sync": 0,
+          "Total": 4096,
+          "Write": 0
+        }
+      },
+      "io_service_time": {
+        "major": 8,
+        "minor": 0,
+        "stats": {
+          "Async": 66952383,
+          "Read": 66952383,
+          "Sync": 0,
+          "Total": 66952383,
+          "Write": 0
+        }
+      },
+      "io_serviced": {
+        "major": 8,
+        "minor": 0,
+        "stats": {
+          "Async": 1,
+          "Read": 1,
+          "Sync": 0,
+          "Total": 1,
+          "Write": 0
+        }
+      },
+      "io_time": {
+        "major": 8,
+        "minor": 0,
+        "stats": {
+          "Count": 2
+        }
+      },
+      "io_wait_time": {
+        "major": 8,
+        "minor": 0,
+        "stats": {
+          "Async": 77735,
+          "Read": 77735,
+          "Sync": 0,
+          "Total": 77735,
+          "Write": 0
+        }
+      },
+      "sectors": {
+        "major": 8,
+        "minor": 0,
+        "stats": {
+          "Count": 8
+        }
+      }
+    }
+  },
+  "gseindex": 68245,
+  "memory": {
+    "cache": 150589440,
+    "container_data": {
+      "pgfault": 16601723,
+      "pgmajfault": 0
+    },
+    "failcnt": 0,
+    "hierarchical_data": {
+      "pgfault": 16601723,
+      "pgmajfault": 0
+    },
+    "limit": 8589934592,
+    "rss": 86626304,
+    "swap": 0,
+    "usage": 237457408,
+    "working_set": 196820992
+  },
+  "network": {
+    "interfaces": [
+      {
+        "name": "test1",
+        "rx_bytes": 13.658503432387496,
+        "rx_dropped": 0,
+        "rx_errors": 0,
+        "rx_packets": 0.09228718535396957,
+        "tx_bytes": 40.60636155574661,
+        "tx_dropped": 0,
+        "tx_errors": 0,
+        "tx_packets": 0.1538119755899493
+      },
+      {
+        "name": "test2",
+        "rx_bytes": 0,
+        "rx_dropped": 0,
+        "rx_errors": 0,
+        "rx_packets": 0,
+        "tx_bytes": 0,
+        "tx_dropped": 0,
+        "tx_errors": 0,
+        "tx_packets": 0
+      }
+    ],
+    "tcp": {
+      "Close": 0,
+      "CloseWait": 0,
+      "Closing": 0,
+      "Established": 0,
+      "FinWait1": 0,
+      "FinWait2": 0,
+      "LastAck": 0,
+      "Listen": 0,
+      "SynRecv": 0,
+      "SynSent": 0,
+      "TimeWait": 0
+    },
+    "tcp6": {
+      "Close": 0,
+      "CloseWait": 0,
+      "Closing": 0,
+      "Established": 0,
+      "FinWait1": 0,
+      "FinWait2": 0,
+      "LastAck": 0,
+      "Listen": 0,
+      "SynRecv": 0,
+      "SynSent": 0,
+      "TimeWait": 0
+    }
+  },
+  "taskstats": {
+    "nr_io_wait": 0,
+    "nr_running": 0,
+    "nr_sleeping": 0,
+    "nr_stopped": 0,
+    "nr_uninterruptible": 0
+  },
+  "timestamp": "2017-07-22T21:23:16.484923648+08:00"
+}

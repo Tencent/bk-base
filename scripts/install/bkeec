@@ -1,0 +1,113 @@
+#!/bin/bash
+
+main_usage () {
+    echo "Usage: ${0##*/} ACTION MODULE_NAME [ project ]"
+    echo "  ACTION: sync,install,start,stop,status,initdata,upgrade,render,clean"
+    echo "  "
+    echo "  sync { module | all }           synchronize files to target hosts."
+    echo "  install module [ project ]      installing module"
+    echo "  stop { module | all }           stop process for module xxx or all modules."
+    echo "  start { module | all }          stop process for module xxx or all modules."
+    echo "  status { module | all }         get process running status for module xxx, xxx"
+    echo "  initdata module                 init module after install. such as database, sample data etc."
+    echo "  upgrade module                 upgrade module xxx to new version"
+    echo "  render module                  generater configuration files from templates"
+
+    exit 0
+}
+
+cd ${BASH_SOURCE%/*} 2>/dev/null
+[ -z "$CTRL_DIR" ] && export CTRL_DIR=$(pwd)
+
+source ./functions
+source ./base.rc
+
+log "$@" >/dev/null
+
+# 检查是否能正确获取内网 IP
+check_lanip
+
+# 检查本机是否为中控机, 不是中控机则退出
+check_if_is_controller
+
+# 设置安装路径, 社区版默认为/data/bkce, 企业版默认为 /data/bkee
+check_install_path ${0##*/}
+
+# 检查基础路径: 产品包解压略经, 安装路径. 两路径不能相同.
+# INSTALL_PATH, PKG_SRC_PATH, CTRL_DIR
+check_base_var
+
+# 安装中控机所需的资源
+_install_controller
+
+action=$1
+module=$2
+shift 2
+
+# 设置公共环境变量
+# BK_HOME, CONF_HOME, CERT_PATH, DATA_HOME, PATH, LD_LIBRARY_PATH, OBJC_INCLUDE_PATH LC_ALL
+set_global_var
+
+# 给所有服务生成token 和白名单
+source ./utils.fc
+gen_app_token >/dev/null 
+
+case $action in
+    help) usage_$module ;;
+    sync)
+        source ./deliver.rc 
+        deliver $module $@
+        ;;
+    install)
+        source ./install.rc
+        deploy $module $@
+        ;;
+    upgrade)
+        source ./upgrade.rc
+        upgrade $module $@
+        ;;
+    register)
+        source ./register.rc
+        register_$module $@
+        ;;
+    activate)
+        source ./activate.rc
+        activate $module $@
+        ;;
+    build)
+        source build/build.rc
+        build $module $@
+        ;;
+    rebuild)
+        source build/rebuild.rc
+        rebuild $module $@
+        ;;
+    render)
+        source ./render.rc
+        render $module $@
+        ;;
+    initdata)
+        source ./initdata.rc
+        initdata $module $@
+        ;;
+    start|stop)
+        source ./control.rc
+        ${action} $module $@
+        ;;
+    status)
+        source ./status.rc
+        status $module $@
+        ;;
+    update)
+        source ./update.rc
+        update $module $@
+        ;;
+    pack)
+        source ./pack.rc
+        pack $module $@
+        ;;
+    *)
+        main_usage
+        exit 0
+        ;;
+esac

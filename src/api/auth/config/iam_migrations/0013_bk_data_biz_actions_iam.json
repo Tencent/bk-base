@@ -1,0 +1,29 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "biz-manage",
+                "name": "业务数据接入",
+                "name_en": "Business Data Access",
+                "description": "业务数据接入",
+                "description_en": "Business DataAccess",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "biz",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

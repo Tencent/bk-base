@@ -1,0 +1,1 @@
+{ "server": "xx.xx.xx.xx", "time": "2016-08-12 15:06:03", "type": "json", "value": [ { "_db_": "test", "_host_": "xx.xx", "_os_": "unknown", "_platform_": "xx", "_table_": "test", "_timediff_": "63", "dtEventTime": "2016-08-12 15:05:00", "gameappid": "xxx", "gsid": "xxx", "onlinecntandroid": "1272", "onlinecntios": "0", "timekey": "1470985500", "zoneareaid": "1" } ] }

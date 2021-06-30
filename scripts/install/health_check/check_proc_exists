@@ -1,0 +1,34 @@
+#!/bin/bash
+
+usage () {
+    echo "${0##*/} -m module_name -h"
+    echo 
+    echo "for example:"
+    echo "  ${0##*/} -m paas"
+    echo "  ${0##*/} -m bkdata -p dataapi"
+
+    exit 0
+}
+
+
+while getopts m:p:h arg; do
+    case $arg in
+        m)  module=$OPTARG ;;
+        p)  proj=$OPTARG ;;
+        *|h)  usage ;;
+    esac
+done
+
+source /root/.bkrc
+
+cd $CTRL_DIR
+source ./status.rc
+export LOG_FILE=/tmp/health_check.log
+
+if get_status $module $proj; then
+    log "consul health checking: $module-${proj:-COMMON}: ok"
+    exit 0
+else
+    log "consul health checking: $module-${proj:-COMMON}: critical"
+    exit 2
+fi

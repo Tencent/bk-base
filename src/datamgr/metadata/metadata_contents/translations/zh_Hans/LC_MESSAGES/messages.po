@@ -1,0 +1,5181 @@
+# Chinese (Simplified) translations for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-06-08 12:07+0800\n"
+"PO-Revision-Date: 2019-06-02 17:42+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans\n"
+"Language-Team: zh_Hans <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: metadata/exc.py:92
+msgid "MetaData System Error: {}."
+msgstr ""
+
+#: metadata/exc.py:97
+msgid "Function {} is not implemented in backend {}."
+msgstr ""
+
+#: metadata/exc.py:102
+msgid "Invalid metadata type {}."
+msgstr ""
+
+#: metadata/exc.py:107
+msgid "Error metadata converter."
+msgstr ""
+
+#: metadata/exc.py:112 metadata/exc.py:117
+msgid "Error in system state: {}."
+msgstr ""
+
+#: metadata/exc.py:122
+msgid "Error in state manager: {}."
+msgstr ""
+
+#: metadata/exc.py:131
+msgid "MySQL Backend Error: {}."
+msgstr ""
+
+#: metadata/exc.py:136
+msgid "Dgraph Backend Error: {}."
+msgstr ""
+
+#: metadata/exc.py:141
+msgid "Error occurred in Dgraph Client: {}."
+msgstr ""
+
+#: metadata/exc.py:146
+msgid "Error occurred in Dgraph Server: {error}."
+msgstr ""
+
+#: metadata/exc.py:151
+msgid "Error in Dgraph type Converter."
+msgstr ""
+
+#: metadata/exc.py:156
+msgid "Error in Dgraph instance Converter."
+msgstr ""
+
+#: metadata/exc.py:161 metadata/exc.py:201
+msgid "Fail to parse retrieve protocol content."
+msgstr ""
+
+#: metadata/exc.py:166
+msgid "Error in shunt strategy."
+msgstr ""
+
+#: metadata/exc.py:171
+msgid "filter request cause service is unhealthy."
+msgstr ""
+
+#: metadata/exc.py:176
+msgid "Error in interactor."
+msgstr ""
+
+#: metadata/exc.py:181
+msgid "Dispatch timeout in {timeout}."
+msgstr ""
+
+#: metadata/exc.py:186
+msgid "Error during interactor execute."
+msgstr ""
+
+#: metadata/exc.py:191
+msgid "Error in interactor operator."
+msgstr ""
+
+#: metadata/exc.py:196
+msgid "Error in record replaying."
+msgstr ""
+
+#: metadata/exc.py:206
+msgid "Invalid params in erp input."
+msgstr ""
+
+#: metadata/exc.py:211
+msgid "Error in data quality process."
+msgstr ""
+
+#: metadata/exc.py:216
+msgid "Error in target search criterion."
+msgstr ""
+
+#: metadata/exc.py:221 metadata/exc.py:226
+msgid "Error in metadata analyse."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:341
+msgid "Predicate is declaring with different type."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:526
+msgid "The identifier of metadata can not be found"
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:623
+msgid "The content to commit now is larger than the chunked size limitation."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:649
+msgid "The count of one node's edge is more than MUTATE_CHUNKED_SIZE."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:847
+msgid "Not standard metadata type."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:881
+msgid "Can't find dgraph type in mapping."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:978
+msgid "Not standard metadata instance."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v1.py:47
+msgid "Fail to get md type in ERP expression."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v1.py:126
+#: metadata/backend/dgraph/erp_v2/parser.py:122
+#: metadata/backend/dgraph/lineage.py:484 metadata/backend/erp/parser.py:157
+msgid "Not existed attr name {}"
+msgstr ""
+
+#: metadata/backend/dgraph/lineage.py:166
+msgid "Fail to get md type in extra retrieve protocol content."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v2/functions.py:62
+#: metadata/backend/dgraph/erp_v2/functions.py:182
+#: metadata/backend/erp/compiler.py:245 metadata/backend/erp/compiler.py:363
+#: metadata/backend/erp/functions.py:286 metadata/backend/erp/functions.py:299
+msgid "The attribute {} is not found on type."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v2/functions.py:75
+#: metadata/backend/erp/compiler.py:258 metadata/backend/erp/compiler.py:376
+msgid "Invalid condition expression."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v2/parser.py:90
+#: metadata/backend/erp/parser.py:113
+msgid "Md type is not existed."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v2/service.py:138
+#: metadata/backend/erp/service.py:192
+msgid "Not existed Metadata type."
+msgstr ""
+
+#: metadata/backend/erp/parser.py:98
+msgid "{} type is not a valid backend_type."
+msgstr ""
+
+#: metadata/backend/erp/service.py:129
+msgid "Can not find valid target_backend."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:23
+msgid "hashchk"
+msgstr "哈希克"
+
+#: metadata/backend/mysql/errors.py:24
+msgid "isamchk"
+msgstr "伊萨姆奇克"
+
+#: metadata/backend/mysql/errors.py:25
+msgid "NO"
+msgstr "没有"
+
+#: metadata/backend/mysql/errors.py:26
+msgid "YES"
+msgstr "是"
+
+#: metadata/backend/mysql/errors.py:27
+msgid "Can't create file '{}' (errno: {})"
+msgstr "无法创建文件“ {}”（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:28
+msgid "Can't create table '{}' (errno: {})"
+msgstr "无法创建表“ {}”（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:29
+msgid "Can't create database '{}' (errno: {}"
+msgstr "无法创建数据库“ {}”（错误号：{}"
+
+#: metadata/backend/mysql/errors.py:30
+msgid "Can't create database '{}'; database exists"
+msgstr "无法创建数据库“ {}”；数据库存在"
+
+#: metadata/backend/mysql/errors.py:31
+msgid "Can't drop database '{}'; database doesn't exist"
+msgstr "无法删除数据库“ {}”；数据库不存在"
+
+#: metadata/backend/mysql/errors.py:32
+msgid "Error dropping database (can't delete '{}', errno: {})"
+msgstr "删除数据库时出错（无法删除“ {}”，错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:33
+msgid "Error dropping database (can't rmdir '{}', errno: {})"
+msgstr "删除数据库时出错（无法rmdir'{}'，errno：{}）"
+
+#: metadata/backend/mysql/errors.py:34
+msgid "Error on delete of '{}' (errno: {})"
+msgstr "删除“ {}”时出错（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:35
+msgid "Can't read record in system table"
+msgstr "无法读取系统表中的记录"
+
+#: metadata/backend/mysql/errors.py:36
+msgid "Can't get status of '{}' (errno: {})"
+msgstr "无法获得状态“ {}”（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:37
+msgid "Can't get working directory (errno: {})"
+msgstr "无法获得工作目录（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:38
+msgid "Can't lock file (errno: {})"
+msgstr "无法锁定文件（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:39
+msgid "Can't open file: '{}' (errno: {})"
+msgstr "无法打开文件：“ {}”（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:40
+msgid "Can't find file: '{}' (errno: {})"
+msgstr "找不到文件：“ {}”（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:41
+msgid "Can't read dir of '{}' (errno: {})"
+msgstr "无法读取目录“ {}”（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:42
+msgid "Can't change dir to '{}' (errno: {})"
+msgstr "无法将目录更改为“ {}”（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:43
+msgid "Record has changed since last read in table '{}'"
+msgstr "自上次读取表“ {}”以来，记录已更改"
+
+#: metadata/backend/mysql/errors.py:44
+msgid "Disk full ({}); waiting for someone to free some space..."
+msgstr "磁盘已满 （{}）;等待某人释放一些空间..."
+
+#: metadata/backend/mysql/errors.py:45
+msgid "Can't write; duplicate key in table '{}'"
+msgstr "不会写表'{}'中的重复键"
+
+#: metadata/backend/mysql/errors.py:46
+msgid "Error on close of '{}' (errno: {})"
+msgstr "关闭“ {}”时出错（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:47
+msgid "Error reading file '{}' (errno: {})"
+msgstr "读取文件“ {}”时出错（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:48
+msgid "Error on rename of '{}' to '{}' (errno: {})"
+msgstr "将“ {}”重命名为“ {}”时出错（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:49
+msgid "Error writing file '{}' (errno: {})"
+msgstr "写入文件“ {}”时出错（错误号：{}）"
+
+#: metadata/backend/mysql/errors.py:50
+msgid "'{}' is locked against change"
+msgstr "“ {}”已锁定，无法更改"
+
+#: metadata/backend/mysql/errors.py:51
+msgid "Sort aborted"
+msgstr "排序中止"
+
+#: metadata/backend/mysql/errors.py:52
+msgid "View '{}' doesn't exist for '{}'"
+msgstr "“ {}”的视图“ {}”不存在"
+
+#: metadata/backend/mysql/errors.py:53
+msgid "Got error {} from storage engine"
+msgstr "存储引擎出现错误{}"
+
+#: metadata/backend/mysql/errors.py:54
+msgid "Table storage engine for '{}' doesn't have this option"
+msgstr "“ {}”的表存储引擎没有此选项"
+
+#: metadata/backend/mysql/errors.py:55
+msgid "Can't find record in '{}'"
+msgstr "在“ {}”中找不到记录"
+
+#: metadata/backend/mysql/errors.py:56
+msgid "Incorrect information in file: '{}'"
+msgstr "文件中的信息不正确：“ {}”"
+
+#: metadata/backend/mysql/errors.py:57
+msgid "Incorrect key file for table '{}'; try to repair it"
+msgstr "表'{}'的密钥文件不正确；尝试修复它"
+
+#: metadata/backend/mysql/errors.py:58
+msgid "Old key file for table '{}'; repair it!"
+msgstr "表'{}'的旧密钥文件；修复它！"
+
+#: metadata/backend/mysql/errors.py:59
+msgid "Table '{}' is read only"
+msgstr "表“ {}”为只读"
+
+#: metadata/backend/mysql/errors.py:60
+msgid "Out of memory; restart server and try again (needed {} bytes)"
+msgstr "内存不足;重新启动服务器，然后重试（需要{}个字节）"
+
+#: metadata/backend/mysql/errors.py:61
+msgid "Out of sort memory, consider increasing server sort buffer size"
+msgstr "内存不足，请考虑增加服务器排序缓冲区的大小"
+
+#: metadata/backend/mysql/errors.py:62
+msgid "Unexpected EOF found when reading file '{}' (Errno: {})"
+msgstr "读取文件'{}'时发现意外的EOF（Errno：{}）"
+
+#: metadata/backend/mysql/errors.py:63
+msgid "Too many connections"
+msgstr "太多联系"
+
+#: metadata/backend/mysql/errors.py:67
+msgid ""
+"Out of memory; check if mysqld or some other process uses all available "
+"memory; if not, you may have to use 'ulimit' to allow mysqld to use more "
+"memory or you can add more swap space"
+msgstr ""
+"内存不足;检查mysqld或其他进程是否使用了所有可用内存；如果不是，则可能必须使用“ "
+"ulimit”来允许mysqld使用更多的内存，或者可以添加更多的交换空间"
+
+#: metadata/backend/mysql/errors.py:72
+msgid "Can't get hostname for your address"
+msgstr "无法获取您的地址的主机名"
+
+#: metadata/backend/mysql/errors.py:73
+msgid "Bad handshake"
+msgstr "握手不好"
+
+#: metadata/backend/mysql/errors.py:74
+msgid "Access denied for user '{}'@'{}' to database '{}'"
+msgstr "用户'{}'@'{}'对数据库'{}'的访问被拒绝"
+
+#: metadata/backend/mysql/errors.py:75
+msgid "Access denied for user '{}'@'{}' (using password: {})"
+msgstr "用户'{}'@'{}'的访问被拒绝（使用密码：{}）"
+
+#: metadata/backend/mysql/errors.py:76
+msgid "No database selected"
+msgstr "没有选择数据库"
+
+#: metadata/backend/mysql/errors.py:77
+msgid "Unknown command"
+msgstr "未知的命令"
+
+#: metadata/backend/mysql/errors.py:78
+msgid "Column '{}' cannot be null"
+msgstr "列“ {}”不能为空"
+
+#: metadata/backend/mysql/errors.py:79
+msgid "Unknown database '{}'"
+msgstr "未知的数据库“ {}”"
+
+#: metadata/backend/mysql/errors.py:80
+msgid "Table '{}' already exists"
+msgstr "表“ {}”已存在"
+
+#: metadata/backend/mysql/errors.py:81
+msgid "Unknown table '{}'"
+msgstr "未知表“ {}”"
+
+#: metadata/backend/mysql/errors.py:82
+msgid "Column '{}' in {} is ambiguous"
+msgstr "{}中的列“ {}”不明确"
+
+#: metadata/backend/mysql/errors.py:83
+msgid "Server shutdown in progress"
+msgstr "服务器正在关闭"
+
+#: metadata/backend/mysql/errors.py:84
+msgid "Unknown column '{}' in '{}'"
+msgstr "“ {}”中的未知列“ {}”"
+
+#: metadata/backend/mysql/errors.py:85
+msgid "'{}' isn't in GROUP BY"
+msgstr "“ {}”不在GROUP BY中"
+
+#: metadata/backend/mysql/errors.py:86
+msgid "Can't group on '{}'"
+msgstr "无法在“ {}”上分组"
+
+#: metadata/backend/mysql/errors.py:87
+msgid "Statement has sum functions and columns in same statement"
+msgstr "语句在同一条语句中具有求和函数和列"
+
+#: metadata/backend/mysql/errors.py:88
+msgid "Column count doesn't match value count"
+msgstr "列数与值数不匹配"
+
+#: metadata/backend/mysql/errors.py:89
+msgid "Identifier name '{}' is too long"
+msgstr "标识符名称“ {}”太长"
+
+#: metadata/backend/mysql/errors.py:90
+msgid "Duplicate column name '{}'"
+msgstr "列名“ {}”重复"
+
+#: metadata/backend/mysql/errors.py:91
+msgid "Duplicate key name '{}'"
+msgstr "重复的键名“ {}”"
+
+#: metadata/backend/mysql/errors.py:92
+msgid "Duplicate entry '{}' for key {}"
+msgstr "键{}的条目“ {}”重复"
+
+#: metadata/backend/mysql/errors.py:93
+msgid "Incorrect column specifier for column '{}'"
+msgstr "列“ {}”的列说明符不正确"
+
+#: metadata/backend/mysql/errors.py:94
+msgid "{} near '{}' at line {}"
+msgstr "{}在{}行的“ {}”附近"
+
+#: metadata/backend/mysql/errors.py:95
+msgid "Query was empty"
+msgstr "查询为空"
+
+#: metadata/backend/mysql/errors.py:96
+msgid "Not unique table/alias: '{}'"
+msgstr "不是唯一的表格/别名：“ {}”"
+
+#: metadata/backend/mysql/errors.py:97
+msgid "Invalid default value for '{}'"
+msgstr "“ {}”的默认值无效"
+
+#: metadata/backend/mysql/errors.py:98
+msgid "Multiple primary key defined"
+msgstr "定义了多个主键"
+
+#: metadata/backend/mysql/errors.py:99
+msgid "Too many keys specified; max {} keys allowed"
+msgstr "指定的密钥太多；最多允许{}个键"
+
+#: metadata/backend/mysql/errors.py:100
+msgid "Too many key parts specified; max {} parts allowed"
+msgstr "指定的关键部分过多；最多允许{}个零件"
+
+#: metadata/backend/mysql/errors.py:101
+msgid "Specified key was too long; max key length is {} bytes"
+msgstr "指定的密钥太长；最大密钥长度为{}个字节"
+
+#: metadata/backend/mysql/errors.py:102
+msgid "Key column '{}' doesn't exist in table"
+msgstr "表中不存在键列“ {}”"
+
+#: metadata/backend/mysql/errors.py:103
+msgid ""
+"BLOB column '{}' can't be used in key specification with the used table "
+"type"
+msgstr "BLOB列“ {}”不能用于已使用表类型的键规范中"
+
+#: metadata/backend/mysql/errors.py:104
+msgid "Column length too big for column '{}' (max = {}); use BLOB or TEXT instead"
+msgstr "列长度对于列“ {}”而言太大（最大值= {}）；使用BLOB或TEXT代替"
+
+#: metadata/backend/mysql/errors.py:108
+msgid ""
+"Incorrect table definition; there can be only one auto column and it must"
+" be defined as a key"
+msgstr "表定义不正确；只能有一个自动列，并且必须将其定义为键"
+
+#: metadata/backend/mysql/errors.py:110
+msgid "{}: ready for connections. Version: '{}' socket: '{}' port: {}"
+msgstr "{}：准备连接。版本：“ {}”套接字：“ {}”端口：{}"
+
+#: metadata/backend/mysql/errors.py:111
+msgid "{}: Normal shutdown"
+msgstr "{}：正常关闭"
+
+#: metadata/backend/mysql/errors.py:112
+msgid "{}: Got signal {}. Aborting!"
+msgstr "{}：收到信号{}。流产！"
+
+#: metadata/backend/mysql/errors.py:113
+msgid "{}: Shutdown complete"
+msgstr "{}：关机完成"
+
+#: metadata/backend/mysql/errors.py:114
+msgid "{}: Forcing close of thread {} user: '{}'"
+msgstr "{}：强制关闭线程{}用户：'{}'"
+
+#: metadata/backend/mysql/errors.py:115
+msgid "Can't create IP socket"
+msgstr "无法创建IP套接字"
+
+#: metadata/backend/mysql/errors.py:116
+msgid ""
+"Table '{}' has no index like the one used in CREATE INDEX; recreate the "
+"table"
+msgstr "表'{}'没有像CREATE INDEX中使用的索引。重新创建表"
+
+#: metadata/backend/mysql/errors.py:117
+msgid "Field separator argument is not what is expected; check the manual"
+msgstr "字段分隔符参数不是预期的；查看手册"
+
+#: metadata/backend/mysql/errors.py:121
+msgid ""
+"You can't use fixed rowlength with BLOBs; please use 'fields terminated "
+"by'"
+msgstr "您不能对BLOB使用固定的行长；请使用“字段终止于”"
+
+#: metadata/backend/mysql/errors.py:123
+msgid "The file '{}' must be in the database directory or be readable by all"
+msgstr "文件“ {}”必须位于数据库目录中，或者所有人都可以读取"
+
+#: metadata/backend/mysql/errors.py:124
+msgid "File '{}' already exists"
+msgstr "文件已存在"
+
+#: metadata/backend/mysql/errors.py:125
+msgid "Records: {} Deleted: {} Skipped: {} Warnings: {}"
+msgstr "记录：{}删除：{}跳过：{}警告：{}"
+
+#: metadata/backend/mysql/errors.py:126
+msgid "Records: {} Duplicates: {}"
+msgstr "记录：{}重复项：{}"
+
+#: metadata/backend/mysql/errors.py:130
+msgid ""
+"Incorrect prefix key; the used key part isn't a string, the used length "
+"is longer than the key part, or the storage engine doesn't support unique"
+" prefix keys"
+msgstr "前缀键不正确；使用的密钥部分不是字符串，使用的长度比密钥部分长，或者存储引擎不支持唯一的前缀密钥"
+
+#: metadata/backend/mysql/errors.py:135
+msgid "You can't delete all columns with ALTER TABLE; use DROP TABLE instead"
+msgstr "您不能使用ALTER TABLE删除所有列；改用DROP TABLE"
+
+#: metadata/backend/mysql/errors.py:136
+msgid "Can't DROP '{}'; check that column/key exists"
+msgstr "无法删除'{}';检查列/键是否存在"
+
+#: metadata/backend/mysql/errors.py:137
+msgid "Records: {} Duplicates: {} Warnings: {}"
+msgstr "记录：{}重复项：{}警告：{}"
+
+#: metadata/backend/mysql/errors.py:138
+msgid "You can't specify target table '{}' for update in FROM clause"
+msgstr "您无法在FROM子句中指定目标表“ {}”进行更新"
+
+#: metadata/backend/mysql/errors.py:139
+msgid "Unknown thread id: {}"
+msgstr "未知线程ID：{}"
+
+#: metadata/backend/mysql/errors.py:140
+msgid "You are not owner of thread {}"
+msgstr "您不是线程{}的所有者"
+
+#: metadata/backend/mysql/errors.py:141
+msgid "No tables used"
+msgstr "没有使用表格"
+
+#: metadata/backend/mysql/errors.py:142
+msgid "Too many strings for column {} and SET"
+msgstr "{}和SET列的字符串过多"
+
+#: metadata/backend/mysql/errors.py:143
+msgid "Can't generate a unique log-filename {}.(1-999)"
+msgstr "无法生成唯一的日志文件名{}。（1-999）"
+
+#: metadata/backend/mysql/errors.py:144
+msgid "Table '{}' was locked with a READ lock and can't be updated"
+msgstr "表“ {}”已被READ锁锁定，无法更新"
+
+#: metadata/backend/mysql/errors.py:145
+msgid "Table '{}' was not locked with LOCK TABLES"
+msgstr "表“ {}”未使用LOCK TABLES锁定"
+
+#: metadata/backend/mysql/errors.py:146
+msgid "BLOB/TEXT column '{}' can't have a default value"
+msgstr "BLOB / TEXT列“ {}”不能具有默认值"
+
+#: metadata/backend/mysql/errors.py:147
+msgid "Incorrect database name '{}'"
+msgstr "错误的数据库名称“ {}”"
+
+#: metadata/backend/mysql/errors.py:148
+msgid "Incorrect table name '{}'"
+msgstr "表名“ {}”不正确"
+
+#: metadata/backend/mysql/errors.py:152
+msgid ""
+"The SELECT would examine more than MAX_JOIN_SIZE rows; check your WHERE "
+"and use SET SQL_BIG_SELECTS=1 or SET MAX_JOIN_SIZE=# if the SELECT is "
+"okay"
+msgstr ""
+"SELECT将检查超过MAX_JOIN_SIZE行；检查您的WHERE并使用SET SQL_BIG_SELECTS = 1或SET "
+"MAX_JOIN_SIZE =＃（如果SELECT可以）"
+
+#: metadata/backend/mysql/errors.py:157
+msgid "Unknown error"
+msgstr "未知错误"
+
+#: metadata/backend/mysql/errors.py:158
+msgid "Unknown procedure '{}'"
+msgstr "未知过程“ {}”"
+
+#: metadata/backend/mysql/errors.py:159
+msgid "Incorrect parameter count to procedure '{}'"
+msgstr "过程'{}'的参数计数不正确"
+
+#: metadata/backend/mysql/errors.py:160
+msgid "Incorrect parameters to procedure '{}'"
+msgstr "过程“ {}”的参数不正确"
+
+#: metadata/backend/mysql/errors.py:161
+msgid "Unknown table '{}' in {}"
+msgstr "{}中的未知表“ {}”"
+
+#: metadata/backend/mysql/errors.py:162
+msgid "Column '{}' specified twice"
+msgstr "列“ {}”指定了两次"
+
+#: metadata/backend/mysql/errors.py:163
+msgid "Invalid use of group function"
+msgstr "无效使用组功能"
+
+#: metadata/backend/mysql/errors.py:164
+msgid "Table '{}' uses an extension that doesn't exist in this MariaDB version"
+msgstr "表“ {}”使用此MariaDB版本中不存在的扩展名"
+
+#: metadata/backend/mysql/errors.py:165
+msgid "A table must have at least 1 column"
+msgstr "一个表必须至少有1列"
+
+#: metadata/backend/mysql/errors.py:166
+msgid "The table '{}' is full"
+msgstr "表“ {}”已满"
+
+#: metadata/backend/mysql/errors.py:167
+msgid "Unknown character set: '{}'"
+msgstr "未知字符集：“ {}”"
+
+#: metadata/backend/mysql/errors.py:168
+msgid "Too many tables; MariaDB can only use {} tables in a join"
+msgstr "桌子太多； MariaDB只能在联接中使用{}表"
+
+#: metadata/backend/mysql/errors.py:169
+msgid "Too many columns"
+msgstr "列过多"
+
+#: metadata/backend/mysql/errors.py:173
+msgid ""
+"Row size too large. The maximum row size for the used table type, not "
+"counting BLOBs, is {}. You have to change some columns to TEXT or BLOBs"
+msgstr "行大小太大。使用的表类型（不计算BLOB）的最大行大小为{}。您必须将某些列更改为TEXT或BLOB"
+
+#: metadata/backend/mysql/errors.py:181
+msgid ""
+"Thread stack overrun: Used: {} of a {} stack. Use 'mysqld "
+"--thread_stack=#' to specify a bigger stack if needed"
+msgstr "线程堆栈溢出：已使用：{}个堆栈中的{}个。如果需要，使用'mysqld --thread_stack =＃'指定更大的堆栈"
+
+#: metadata/backend/mysql/errors.py:186
+msgid "Cross dependency found in OUTER JOIN; examine your ON conditions"
+msgstr "在OUTER JOIN中找到交叉依赖；检查您的开机条件"
+
+#: metadata/backend/mysql/errors.py:190
+msgid ""
+"Table handler doesn't support NULL in given index. Please change column "
+"'{}' to be NOT NULL or use another handler"
+msgstr "表处理程序在给定索引中不支持NULL。请更改列“ {}”为非空或使用其他处理程序"
+
+#: metadata/backend/mysql/errors.py:195
+msgid "Can't load function '{}'"
+msgstr "无法加载函数“ {}”"
+
+#: metadata/backend/mysql/errors.py:196
+msgid "Can't initialize function '{}'; {}"
+msgstr "无法初始化函数“ {}”； {}"
+
+#: metadata/backend/mysql/errors.py:197
+msgid "No paths allowed for shared library"
+msgstr "共享库不允许使用任何路径"
+
+#: metadata/backend/mysql/errors.py:198
+msgid "Function '{}' already exists"
+msgstr "功能“ {}”已存在"
+
+#: metadata/backend/mysql/errors.py:199
+msgid "Can't open shared library '{}' (Errno: {} {})"
+msgstr "无法打开共享库“ {}”（错误号：{} {}）"
+
+#: metadata/backend/mysql/errors.py:200
+msgid "Can't find symbol '{}' in library"
+msgstr "在库中找不到符号“ {}”"
+
+#: metadata/backend/mysql/errors.py:201
+msgid "Function '{}' is not defined"
+msgstr "未定义函数“ {}”"
+
+#: metadata/backend/mysql/errors.py:205
+msgid ""
+"Host '{}' is blocked because of many connection errors; unblock with "
+"'mysqladmin flush-hosts'"
+msgstr "由于许多连接错误，主机“ {}”被阻止；用'mysqladmin flush-hosts'解锁"
+
+#: metadata/backend/mysql/errors.py:207
+msgid "Host '{}' is not allowed to connect to this MariaDB server"
+msgstr "主机“ {}”不允许连接到此MariaDB服务器"
+
+#: metadata/backend/mysql/errors.py:211
+msgid ""
+"You are using MariaDB as an anonymous user and anonymous users are not "
+"allowed to change passwords"
+msgstr "您正在使用MariaDB作为匿名用户，并且不允许匿名用户更改密码"
+
+#: metadata/backend/mysql/errors.py:216
+msgid ""
+"You must have privileges to update tables in the mysql database to be "
+"able to change passwords for others"
+msgstr "您必须具有更新mysql数据库中的表的权限，才能更改其他用户的密码"
+
+#: metadata/backend/mysql/errors.py:218
+msgid "Can't find any matching row in the user table"
+msgstr "在用户表中找不到任何匹配的行"
+
+#: metadata/backend/mysql/errors.py:219
+msgid "Rows matched: {} Changed: {} Warnings: {}"
+msgstr "匹配的行：{}已更改：{}警告：{}"
+
+#: metadata/backend/mysql/errors.py:223
+msgid ""
+"Can't create a new thread (Errno {}); if you are not out of available "
+"memory, you can consult the manual for a possible OS-dependent bug"
+msgstr "无法创建新线程（Errno {}）；如果您没有足够的可用内存，则可以查阅手册以获取可能的操作系统相关错误"
+
+#: metadata/backend/mysql/errors.py:228
+msgid "Column count doesn't match value count at row {}"
+msgstr "列数与第{}行的值数不匹配"
+
+#: metadata/backend/mysql/errors.py:229
+msgid "Can't reopen table: '{}'"
+msgstr "无法重新打开表：“ {}”"
+
+#: metadata/backend/mysql/errors.py:230
+msgid "Invalid use of NULL value"
+msgstr "无效使用NULL值"
+
+#: metadata/backend/mysql/errors.py:231
+msgid "Got error '{}' from regexp"
+msgstr "从正则表达式中得到错误“ {}”"
+
+#: metadata/backend/mysql/errors.py:235
+msgid ""
+"Mixing of GROUP columns (MIN(),MAX(),COUNT(),...) with no GROUP columns "
+"is illegal if there is no GROUP BY clause"
+msgstr "如果没有GROUP BY子句，则将GROUP列（MIN（），MAX（），COUNT（），...）与GROUP列混合使用是非法的"
+
+#: metadata/backend/mysql/errors.py:240
+msgid "There is no such grant defined for user '{}' on host '{}'"
+msgstr "在主机“ {}”上没有为用户“ {}”定义此类授予"
+
+#: metadata/backend/mysql/errors.py:241
+msgid "{} command denied to user '{}'@'{}' for table '{}'"
+msgstr "表'{}'的用户'{}'@'{}'的{}命令被拒绝"
+
+#: metadata/backend/mysql/errors.py:242
+msgid "{} command denied to user '{}'@'{}' for column '{}' in table '{}'"
+msgstr "对表'{}'中列'{}'的用户'{}'@'{}'发出{}命令"
+
+#: metadata/backend/mysql/errors.py:246
+msgid ""
+"Illegal GRANT/REVOKE command; please consult the manual to see which "
+"privileges can be used"
+msgstr "非法的GRANT / REVOKE命令；请查阅手册以查看可以使用哪些特权"
+
+#: metadata/backend/mysql/errors.py:248
+msgid "The host or user argument to GRANT is too long"
+msgstr "GRANT的主机或用户参数过长"
+
+#: metadata/backend/mysql/errors.py:249
+msgid "Table '{}.{}' doesn't exist"
+msgstr "表'{}。{}'不存在"
+
+#: metadata/backend/mysql/errors.py:253
+msgid "There is no such grant defined for user '{}' on host '{}' on table '{}'"
+msgstr "在表“ {}”的主机“ {}”上没有为用户“ {}”定义此类授予"
+
+#: metadata/backend/mysql/errors.py:255
+msgid "The used command is not allowed with this MariaDB version"
+msgstr "此MariaDB版本不允许使用命令"
+
+#: metadata/backend/mysql/errors.py:259
+msgid ""
+"You have an error in your SQL syntax; check the manual that corresponds "
+"to your MariaDB server version for the right syntax to use"
+msgstr "您的SQL语法有误。检查与您的MariaDB服务器版本相对应的手册以使用正确的语法"
+
+#: metadata/backend/mysql/errors.py:264
+msgid "Delayed insert thread couldn't get requested lock for table {}"
+msgstr "延迟的插入线程无法获取表{}的请求锁定"
+
+#: metadata/backend/mysql/errors.py:265
+msgid "Too many delayed threads in use"
+msgstr "正在使用的延迟线程太多"
+
+#: metadata/backend/mysql/errors.py:266
+msgid "Aborted connection {} to db: '{}' user: '{}' ({})"
+msgstr "{}与数据库的连接中断：{{}'用户：'{}'（{}）"
+
+#: metadata/backend/mysql/errors.py:267
+msgid "Got a packet bigger than 'max_allowed_packet' bytes"
+msgstr "得到了大于“ max_allowed_packet”字节的数据包"
+
+#: metadata/backend/mysql/errors.py:268
+msgid "Got a read error from the connection pipe"
+msgstr "从连接管道读取错误"
+
+#: metadata/backend/mysql/errors.py:269
+msgid "Got an error from fcntl()"
+msgstr "从fcntl（）获得错误"
+
+#: metadata/backend/mysql/errors.py:270
+msgid "Got packets out of order"
+msgstr "数据包混乱"
+
+#: metadata/backend/mysql/errors.py:271
+msgid "Couldn't uncompress communication packet"
+msgstr "无法解压缩通信数据包"
+
+#: metadata/backend/mysql/errors.py:272
+msgid "Got an error reading communication packets"
+msgstr "读取通讯数据包时出错"
+
+#: metadata/backend/mysql/errors.py:273
+msgid "Got timeout reading communication packets"
+msgstr "读取通讯数据包超时"
+
+#: metadata/backend/mysql/errors.py:274
+msgid "Got an error writing communication packets"
+msgstr "写入通信数据包时出错"
+
+#: metadata/backend/mysql/errors.py:275
+msgid "Got timeout writing communication packets"
+msgstr "写入通讯数据包超时"
+
+#: metadata/backend/mysql/errors.py:276
+msgid "Result string is longer than 'max_allowed_packet' bytes"
+msgstr "结果字符串长于“ max_allowed_packet”字节"
+
+#: metadata/backend/mysql/errors.py:277
+msgid "The used table type doesn't support BLOB/TEXT columns"
+msgstr "使用的表类型不支持BLOB / TEXT列"
+
+#: metadata/backend/mysql/errors.py:278
+msgid "The used table type doesn't support AUTO_INCREMENT columns"
+msgstr "使用的表格类型不支持AUTO_INCREMENT列"
+
+#: metadata/backend/mysql/errors.py:282
+msgid ""
+"INSERT DELAYED can't be used with table '{}' because it is locked with "
+"LOCK TABLES"
+msgstr "INSERT DELAYED不能与表'{}'一起使用，因为它已被LOCK TABLES锁定"
+
+#: metadata/backend/mysql/errors.py:284
+msgid "Incorrect column name '{}'"
+msgstr "列名“ {}”不正确"
+
+#: metadata/backend/mysql/errors.py:285
+msgid "The used storage engine can't index column '{}'"
+msgstr "使用的存储引擎无法索引列“ {}”"
+
+#: metadata/backend/mysql/errors.py:289
+msgid ""
+"Unable to open underlying table which is differently defined or of non-"
+"MyISAM type or doesn't exist"
+msgstr "无法打开定义不同或非MyISAM类型或不存在的基础表"
+
+#: metadata/backend/mysql/errors.py:291
+msgid "Can't write, because of unique constraint, to table '{}'"
+msgstr "由于存在唯一约束，因此无法写入表“ {}”"
+
+#: metadata/backend/mysql/errors.py:292
+msgid "BLOB/TEXT column '{}' used in key specification without a key length"
+msgstr "在密钥规范中使用的BLOB / TEXT列“ {}”，没有密钥长度"
+
+#: metadata/backend/mysql/errors.py:296
+msgid ""
+"All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, "
+"use UNIQUE instead"
+msgstr "主键的所有部分必须不为空；如果键中需要NULL，请改用UNIQUE"
+
+#: metadata/backend/mysql/errors.py:298
+msgid "Result consisted of more than one row"
+msgstr "结果包含多于一行"
+
+#: metadata/backend/mysql/errors.py:299
+msgid "This table type requires a primary key"
+msgstr "此表类型需要主键"
+
+#: metadata/backend/mysql/errors.py:300
+msgid "This version of MariaDB is not compiled with RAID support"
+msgstr "此版本的MariaDB未使用RAID支持进行编译"
+
+#: metadata/backend/mysql/errors.py:304
+msgid ""
+"You are using safe update mode and you tried to update a table without a "
+"WHERE that uses a KEY column"
+msgstr "您正在使用安全更新模式，并且试图在没有使用KEY列的WHERE的情况下更新表"
+
+#: metadata/backend/mysql/errors.py:306
+msgid "Key '{}' doesn't exist in table '{}'"
+msgstr "表'{}'中不存在键'{}'"
+
+#: metadata/backend/mysql/errors.py:307
+msgid "Can't open table"
+msgstr "无法打开桌子"
+
+#: metadata/backend/mysql/errors.py:308
+msgid "The storage engine for the table doesn't support {}"
+msgstr "该表的存储引擎不支持{}"
+
+#: metadata/backend/mysql/errors.py:312
+msgid "You are not allowed to execute this command in a transaction"
+msgstr "您不允许在事务中执行此命令"
+
+#: metadata/backend/mysql/errors.py:314
+msgid "Got error {} during COMMIT"
+msgstr "在COMMIT期间收到错误{}"
+
+#: metadata/backend/mysql/errors.py:315
+msgid "Got error {} during ROLLBACK"
+msgstr "ROLLBACK期间发生错误{}"
+
+#: metadata/backend/mysql/errors.py:316
+msgid "Got error {} during FLUSH_LOGS"
+msgstr "在FLUSH_LOGS期间收到错误{}"
+
+#: metadata/backend/mysql/errors.py:317
+msgid "Got error {} during CHECKPOINT"
+msgstr "CHECKPOINT期间发生错误{}"
+
+#: metadata/backend/mysql/errors.py:318
+msgid "Aborted connection {} to db: '{}' user: '{}' host: '{}' ({})"
+msgstr "{}与数据库：{{}'用户：'{}'主机的连接中断：'{}'（{}）"
+
+#: metadata/backend/mysql/errors.py:319
+msgid "The storage engine for the table does not support binary table dump"
+msgstr "该表的存储引擎不支持二进制表转储"
+
+#: metadata/backend/mysql/errors.py:320
+msgid "Binlog closed, cannot RESET MASTER"
+msgstr "Binlog已关闭，无法重设主机"
+
+#: metadata/backend/mysql/errors.py:321
+msgid "Failed rebuilding the index of dumped table '{}'"
+msgstr "重建转储表“ {}”的索引失败"
+
+#: metadata/backend/mysql/errors.py:322
+msgid "Error from master: '{}'"
+msgstr "来自主站的错误：“ {}”"
+
+#: metadata/backend/mysql/errors.py:323
+msgid "Net error reading from master"
+msgstr "从主站读取净错误"
+
+#: metadata/backend/mysql/errors.py:324
+msgid "Net error writing to master"
+msgstr "净错误写入主机"
+
+#: metadata/backend/mysql/errors.py:325
+msgid "Can't find FULLTEXT index matching the column list"
+msgstr "找不到与列列表匹配的FULLTEXT索引"
+
+#: metadata/backend/mysql/errors.py:329
+msgid ""
+"Can't execute the given command because you have active locked tables or "
+"an active transaction"
+msgstr "由于您有活动的锁定表或活动的事务，因此无法执行给定命令"
+
+#: metadata/backend/mysql/errors.py:331
+msgid "Unknown system variable '{}'"
+msgstr "未知的系统变量“ {}”"
+
+#: metadata/backend/mysql/errors.py:332
+msgid "Table '{}' is marked as crashed and should be repaired"
+msgstr "表'{}'被标记为已崩溃，应进行修复"
+
+#: metadata/backend/mysql/errors.py:333
+msgid "Table '{}' is marked as crashed and last (automatic?) repair failed"
+msgstr "表'{}'被标记为已崩溃，并且上次（自动？）修复失败"
+
+#: metadata/backend/mysql/errors.py:334
+msgid "Some non-transactional changed tables couldn't be rolled back"
+msgstr "某些非事务性更改表无法回滚"
+
+#: metadata/backend/mysql/errors.py:338
+msgid ""
+"Multi-statement transaction required more than 'max_binlog_cache_size' "
+"bytes of storage; increase this mysqld variable and try again"
+msgstr "多语句事务需要超过“ max_binlog_cache_size”个字节的存储空间；增加此mysqld变量，然后重试"
+
+#: metadata/backend/mysql/errors.py:343
+msgid ""
+"This operation cannot be performed with a running slave; run STOP SLAVE "
+"first"
+msgstr "不能在运行中的从站上执行该操作。首先运行STOP SLAVE"
+
+#: metadata/backend/mysql/errors.py:344
+msgid ""
+"This operation requires a running slave; configure slave and do START "
+"SLAVE"
+msgstr "该操作需要一个正在运行的从站；配置从站并开始从站"
+
+#: metadata/backend/mysql/errors.py:345
+msgid ""
+"The server is not configured as slave; fix in config file or with CHANGE "
+"MASTER TO"
+msgstr "服务器未配置为从服务器；修复配置文件或使用CHANGE MASTER TO"
+
+#: metadata/backend/mysql/errors.py:349
+msgid ""
+"Could not initialize master info structure; more error messages can be "
+"found in the MariaDB error log"
+msgstr "无法初始化主信息结构；更多错误消息可以在MariaDB错误日志中找到"
+
+#: metadata/backend/mysql/errors.py:351
+msgid "Could not create slave thread; check system resources"
+msgstr "无法创建从属线程；检查系统资源"
+
+#: metadata/backend/mysql/errors.py:355
+msgid "User {} already has more than 'max_user_connections' active connections"
+msgstr "用户{}已具有多个“ max_user_connections”活动连接"
+
+#: metadata/backend/mysql/errors.py:357
+msgid "You may only use constant expressions with SET"
+msgstr "您只能将常量表达式与SET一起使用"
+
+#: metadata/backend/mysql/errors.py:358
+msgid "Lock wait timeout exceeded; try restarting transaction"
+msgstr "超过了锁定等待超时；尝试重新启动事务"
+
+#: metadata/backend/mysql/errors.py:359
+msgid "The total number of locks exceeds the lock table size"
+msgstr "锁的总数超过了锁表的大小"
+
+#: metadata/backend/mysql/errors.py:360
+msgid "Update locks cannot be acquired during a READ UNCOMMITTED transaction"
+msgstr "READ UNCOMMITTED事务期间无法获取更新锁"
+
+#: metadata/backend/mysql/errors.py:361
+msgid "DROP DATABASE not allowed while thread is holding global read lock"
+msgstr "线程持有全局读取锁定时不允许DROP DATABASE"
+
+#: metadata/backend/mysql/errors.py:362
+msgid "CREATE DATABASE not allowed while thread is holding global read lock"
+msgstr "线程持有全局读取锁定时不允许CREATE DATABASE"
+
+#: metadata/backend/mysql/errors.py:363
+msgid "Incorrect arguments to {}"
+msgstr "{}的参数不正确"
+
+#: metadata/backend/mysql/errors.py:364
+msgid "'{}'@'{}' is not allowed to create new users"
+msgstr "'{}'@'{}'不允许创建新用户"
+
+#: metadata/backend/mysql/errors.py:368
+msgid "Incorrect table definition; all MERGE tables must be in the same database"
+msgstr "表定义不正确；所有MERGE表必须位于同一数据库中"
+
+#: metadata/backend/mysql/errors.py:370
+msgid "Deadlock found when trying to get lock; try restarting transaction"
+msgstr "尝试获取锁时发现死锁；尝试重新启动事务"
+
+#: metadata/backend/mysql/errors.py:371
+msgid "The used table type doesn't support FULLTEXT indexes"
+msgstr "使用的表类型不支持FULLTEXT索引"
+
+#: metadata/backend/mysql/errors.py:372
+msgid "Cannot add foreign key constraint"
+msgstr "无法添加外键约束"
+
+#: metadata/backend/mysql/errors.py:373
+msgid "Cannot add or update a child row: a foreign key constraint fails"
+msgstr "无法添加或更新子行：外键约束失败"
+
+#: metadata/backend/mysql/errors.py:374
+msgid "Cannot delete or update a parent row: a foreign key constraint fails"
+msgstr "无法删除或更新父行：外键约束失败"
+
+#: metadata/backend/mysql/errors.py:375
+msgid "Error connecting to master: {}"
+msgstr "连接至主服务器时出错：{}"
+
+#: metadata/backend/mysql/errors.py:376
+msgid "Error running query on master: {}"
+msgstr "在主服务器上运行查询时出错：{}"
+
+#: metadata/backend/mysql/errors.py:377
+msgid "Error when executing command {}: {}"
+msgstr "执行命令{}时出错：{}"
+
+#: metadata/backend/mysql/errors.py:378
+msgid "Incorrect usage of {} and {}"
+msgstr "{}和{}的使用不正确"
+
+#: metadata/backend/mysql/errors.py:382
+msgid "The used SELECT statements have a different number of columns"
+msgstr "所使用的SELECT语句的列数不同"
+
+#: metadata/backend/mysql/errors.py:384
+msgid "Can't execute the query because you have a conflicting read lock"
+msgstr "您的读取锁冲突，因此无法执行查询"
+
+#: metadata/backend/mysql/errors.py:385
+msgid "Mixing of transactional and non-transactional tables is disabled"
+msgstr "禁用事务表和非事务表的混合"
+
+#: metadata/backend/mysql/errors.py:386
+msgid "Option '{}' used twice in statement"
+msgstr "选项“ {}”在语句中使用了两次"
+
+#: metadata/backend/mysql/errors.py:387
+msgid "User '{}' has exceeded the '{}' resource (current value: {})"
+msgstr "用户“ {}”已超出“ {}”资源（当前值：{}）"
+
+#: metadata/backend/mysql/errors.py:391
+msgid ""
+"Access denied; you need (at least one of) the {} privilege(s) for this "
+"operation"
+msgstr "拒绝访问;您需要（至少一种）{}权限才能执行此操作"
+
+#: metadata/backend/mysql/errors.py:393
+msgid "Variable '{}' is a SESSION variable and can't be used with SET GLOBAL"
+msgstr "变量'{}'是SESSION变量，不能与SET GLOBAL一起使用"
+
+#: metadata/backend/mysql/errors.py:394
+msgid "Variable '{}' is a GLOBAL variable and should be set with SET GLOBAL"
+msgstr "变量“ {}”是GLOBAL变量，应使用SET GLOBAL进行设置"
+
+#: metadata/backend/mysql/errors.py:395
+msgid "Variable '{}' doesn't have a default value"
+msgstr "变量“ {}”没有默认值"
+
+#: metadata/backend/mysql/errors.py:396
+msgid "Variable '{}' can't be set to the value of '{}'"
+msgstr "变量“ {}”不能设置为“ {}”的值"
+
+#: metadata/backend/mysql/errors.py:397
+msgid "Incorrect argument type to variable '{}'"
+msgstr "变量'{}'的参数类型不正确"
+
+#: metadata/backend/mysql/errors.py:398
+msgid "Variable '{}' can only be set, not read"
+msgstr "只能设置变量“ {}”，不能读取"
+
+#: metadata/backend/mysql/errors.py:399
+msgid "Incorrect usage/placement of '{}'"
+msgstr "“ {}”的错误使用/放置"
+
+#: metadata/backend/mysql/errors.py:400
+msgid "This version of MariaDB doesn't yet support '{}'"
+msgstr "此版本的MariaDB尚不支持“ {}”"
+
+#: metadata/backend/mysql/errors.py:404
+msgid "Got fatal error {} from master when reading data from binary log: '{}'"
+msgstr "从二进制日志“ {}”读取数据时，主机出现致命错误{}"
+
+#: metadata/backend/mysql/errors.py:406
+msgid "Slave SQL thread ignored the query because of replicate-*-table rules"
+msgstr "从SQL线程由于复制表规则而忽略了查询"
+
+#: metadata/backend/mysql/errors.py:407
+msgid "Variable '{}' is a {} variable"
+msgstr "变量'{}'是{}变量"
+
+#: metadata/backend/mysql/errors.py:408
+msgid "Incorrect foreign key definition for '{}': {}"
+msgstr "“ {}”的外键定义不正确：{}"
+
+#: metadata/backend/mysql/errors.py:409
+msgid "Key reference and table reference don't match"
+msgstr "键参考和表参考不匹配"
+
+#: metadata/backend/mysql/errors.py:410
+msgid "Operand should contain {} column(s)"
+msgstr "操作数应包含{}列"
+
+#: metadata/backend/mysql/errors.py:411
+msgid "Subquery returns more than 1 row"
+msgstr "子查询返回1行以上"
+
+#: metadata/backend/mysql/errors.py:412
+msgid "Unknown prepared statement handler ({}) given to {}"
+msgstr "赋予{}的未知预准备语句处理程序（{}）"
+
+#: metadata/backend/mysql/errors.py:413
+msgid "Help database is corrupt or does not exist"
+msgstr "帮助数据库已损坏或不存在"
+
+#: metadata/backend/mysql/errors.py:414
+msgid "Cyclic reference on subqueries"
+msgstr "子查询的循环参考"
+
+#: metadata/backend/mysql/errors.py:415
+msgid "Converting column '{}' from {} to {}"
+msgstr "将列“ {}”从{}转换为{}"
+
+#: metadata/backend/mysql/errors.py:416
+msgid "Reference '{}' not supported ({})"
+msgstr "不支持参考“ {}”（{}）"
+
+#: metadata/backend/mysql/errors.py:417
+msgid "Every derived table must have its own alias"
+msgstr "每个派生表必须具有自己的别名"
+
+#: metadata/backend/mysql/errors.py:418
+msgid "Select {} was reduced during optimization"
+msgstr "选择{}在优化过程中被减少"
+
+#: metadata/backend/mysql/errors.py:419
+msgid "Table '{}' from one of the SELECTs cannot be used in {}"
+msgstr "SELECT之一中的表“ {}”不能在{}中使用"
+
+#: metadata/backend/mysql/errors.py:423
+msgid ""
+"Client does not support authentication protocol requested by server; "
+"consider upgrading MariaDB client"
+msgstr "客户端不支持服务器请求的身份验证协议；考虑升级MariaDB客户端"
+
+#: metadata/backend/mysql/errors.py:425
+msgid "All parts of a SPATIAL index must be NOT NULL"
+msgstr "SPATIAL索引的所有部分都必须为NOT NULL"
+
+#: metadata/backend/mysql/errors.py:426
+msgid "COLLATION '{}' is not valid for CHARACTER SET '{}'"
+msgstr "COLLATION'{}'不适用于CHARACTER SET'{}'"
+
+#: metadata/backend/mysql/errors.py:427
+msgid "Slave is already running"
+msgstr "从站已经在运行"
+
+#: metadata/backend/mysql/errors.py:428
+msgid "Slave already has been stopped"
+msgstr "从站已经停止"
+
+#: metadata/backend/mysql/errors.py:432
+msgid ""
+"Uncompressed data size too large; the maximum size is {} (probably, "
+"length of uncompressed data was corrupted)"
+msgstr "未压缩的数据大小太大；最大大小为{}（可能是未压缩数据的长度已损坏）"
+
+#: metadata/backend/mysql/errors.py:437
+msgid "ZLIB: Not enough memory"
+msgstr "ZLIB：内存不足"
+
+#: metadata/backend/mysql/errors.py:441
+msgid ""
+"ZLIB: Not enough room in the output buffer (probably, length of "
+"uncompressed data was corrupted)"
+msgstr "ZLIB：输出缓冲区中的空间不足（可能未压缩数据的长度已损坏）"
+
+#: metadata/backend/mysql/errors.py:443
+msgid "ZLIB: Input data corrupted"
+msgstr "ZLIB：输入数据已损坏"
+
+#: metadata/backend/mysql/errors.py:444
+msgid "Row {} was cut by GROUP_CONCAT()"
+msgstr "第{}行被GROUP_CONCAT（）剪切"
+
+#: metadata/backend/mysql/errors.py:445
+msgid "Row {} doesn't contain data for all columns"
+msgstr "第{}行未包含所有列的数据"
+
+#: metadata/backend/mysql/errors.py:449
+msgid "Row {} was truncated; it contained more data than there were input columns"
+msgstr "第{}行被截断；它包含的数据多于输入列"
+
+#: metadata/backend/mysql/errors.py:454
+msgid ""
+"Column set to default value; NULL supplied to NOT NULL column '{}' at row"
+" {}"
+msgstr "列设置为默认值；向第{}行的NOT NULL列“ {}”提供了NULL"
+
+#: metadata/backend/mysql/errors.py:456
+msgid "Out of range value for column '{}' at row {}"
+msgstr "第{}行的列'{}'超出范围值"
+
+#: metadata/backend/mysql/errors.py:457
+msgid "Data truncated for column '{}' at row {}"
+msgstr "行{}的列'{}'的数据被截断"
+
+#: metadata/backend/mysql/errors.py:458
+msgid "Using storage engine {} for table '{}'"
+msgstr "对表“ {}”使用存储引擎{}"
+
+#: metadata/backend/mysql/errors.py:459
+msgid "Illegal mix of collations ({},{}) and ({},{}) for operation '{}'"
+msgstr "操作'{}'的归类（{}，{}）和（{}，{}）的非法混合"
+
+#: metadata/backend/mysql/errors.py:460
+msgid "Cannot drop one or more of the requested users"
+msgstr "无法删除一个或多个请求的用户"
+
+#: metadata/backend/mysql/errors.py:461
+msgid "Can't revoke all privileges for one or more of the requested users"
+msgstr "无法撤消一个或多个请求用户的所有特权"
+
+#: metadata/backend/mysql/errors.py:465
+msgid "Illegal mix of collations ({},{}), ({},{}), ({},{}) for operation '{}'"
+msgstr "操作'{}'的排序规则（{}，{}），（{}，{}），（{}，{}）的非法混合"
+
+#: metadata/backend/mysql/errors.py:467
+msgid "Illegal mix of collations for operation '{}'"
+msgstr "操作'{}'的排序规则的非法混合"
+
+#: metadata/backend/mysql/errors.py:471
+msgid ""
+"Variable '{}' is not a variable component (can't be used as "
+"XXXX.variable_name)"
+msgstr "变量“ {}”不是变量组件（不能用作XXXX.variable_name）"
+
+#: metadata/backend/mysql/errors.py:473
+msgid "Unknown collation: '{}'"
+msgstr "未知归类：“ {}”"
+
+#: metadata/backend/mysql/errors.py:477
+msgid ""
+"SSL parameters in CHANGE MASTER are ignored because this MariaDB slave "
+"was compiled without SSL support; they can be used later if MariaDB slave"
+" with SSL is started"
+msgstr ""
+"CHANGE "
+"MASTER中的SSL参数将被忽略，因为此MariaDB从站是在没有SSL支持的情况下编译的；如果启动具有SSL的MariaDB从属服务器，则可以在以后使用它们"
+
+#: metadata/backend/mysql/errors.py:485
+msgid ""
+"Server is running in --secure-auth mode, but '{}'@'{}' has a password in "
+"the old format; please change the password to the new format"
+msgstr "服务器以--secure-auth模式运行，但是'{}'@'{}'的密码为旧格式；请更改密码为新格式"
+
+#: metadata/backend/mysql/errors.py:490
+msgid "Field or reference '{}{}{}{}{}' of SELECT #{} was resolved in SELECT #{}"
+msgstr "SELECT＃{}的字段或引用'{} {} {} {} {}'在SELECT＃{}中已解析"
+
+#: metadata/backend/mysql/errors.py:491
+msgid "Incorrect parameter or combination of parameters for START SLAVE UNTIL"
+msgstr "START SLAVE UNTIL的参数不正确或参数组合"
+
+#: metadata/backend/mysql/errors.py:495
+msgid ""
+"It is recommended to use --skip-slave-start when doing step-by-step "
+"replication with START SLAVE UNTIL; otherwise, you will get problems if "
+"you get an unexpected slave's mysqld restart"
+msgstr ""
+"在使用START SLAVE UNTIL进行逐步复制时，建议使用--skip-slave-"
+"start；否则，如果意外从属的mysqld重新启动，将会遇到问题"
+
+#: metadata/backend/mysql/errors.py:500
+msgid "SQL thread is not to be started so UNTIL options are ignored"
+msgstr "不启动SQL线程，因此将忽略UNTIL选项"
+
+#: metadata/backend/mysql/errors.py:501
+msgid "Incorrect index name '{}'"
+msgstr "索引名称“ {}”不正确"
+
+#: metadata/backend/mysql/errors.py:502
+msgid "Incorrect catalog name '{}'"
+msgstr "目录名称“ {}”不正确"
+
+#: metadata/backend/mysql/errors.py:503
+msgid "Query cache failed to set size {}; new query cache size is {}"
+msgstr "查询缓存无法设置大小{}；新的查询缓存大小为{}"
+
+#: metadata/backend/mysql/errors.py:504
+msgid "Column '{}' cannot be part of FULLTEXT index"
+msgstr "列“ {}”不能为FULLTEXT索引的一部分"
+
+#: metadata/backend/mysql/errors.py:505
+msgid "Unknown key cache '{}'"
+msgstr "未知密钥缓存'{}'"
+
+#: metadata/backend/mysql/errors.py:509
+msgid ""
+"MariaDB is started in --skip-name-resolve mode; you must restart it "
+"without this switch for this grant to work"
+msgstr "MariaDB以--skip-name-resolve模式启动；您必须在没有此开关的情况下重新启动它，此授权才能起作用"
+
+#: metadata/backend/mysql/errors.py:514
+msgid "Unknown storage engine '{}'"
+msgstr "未知的存储引擎“ {}”"
+
+#: metadata/backend/mysql/errors.py:518
+msgid ""
+"'{}' is deprecated and will be removed in a future release. Please use {}"
+" instead"
+msgstr "'{}'已过时，将在以后的版本中删除。请改用{}"
+
+#: metadata/backend/mysql/errors.py:520
+msgid "The target table {} of the {} is not updatable"
+msgstr "{}中的目标表{}不可更新"
+
+#: metadata/backend/mysql/errors.py:524
+msgid ""
+"The '{}' feature is disabled; you need MariaDB built with '{}' to have it"
+" working"
+msgstr "“ {}”功能已禁用；您需要使用“ {}”构建的MariaDB才能正常运行"
+
+#: metadata/backend/mysql/errors.py:529
+msgid ""
+"The MariaDB server is running with the {} option so it cannot execute "
+"this statement"
+msgstr "MariaDB服务器正在使用{}选项运行，因此它无法执行此语句"
+
+#: metadata/backend/mysql/errors.py:531
+msgid "Column '{}' has duplicated value '{}' in {}"
+msgstr "列“ {}”在{}中具有重复的值“ {}”"
+
+#: metadata/backend/mysql/errors.py:532
+msgid "Truncated incorrect {} value: '{}'"
+msgstr "截断了错误的{}值：“ {}”"
+
+#: metadata/backend/mysql/errors.py:536
+msgid ""
+"Incorrect table definition; there can be only one TIMESTAMP column with "
+"CURRENT_TIMESTAMP in DEFAULT or ON UPDATE clause"
+msgstr "表定义不正确；在DEFAULT或ON UPDATE子句中只能有一个带有CURRENT_TIMESTAMP的TIMESTAMP列"
+
+#: metadata/backend/mysql/errors.py:541
+msgid "Invalid ON UPDATE clause for '{}' column"
+msgstr "“ {}”列的ON UPDATE子句无效"
+
+#: metadata/backend/mysql/errors.py:542
+msgid "This command is not supported in the prepared statement protocol yet"
+msgstr "准备语句协议尚不支持此命令"
+
+#: metadata/backend/mysql/errors.py:543
+msgid "Got error {} '{}' from {}"
+msgstr "从{}得到了错误{}'{}'"
+
+#: metadata/backend/mysql/errors.py:544
+msgid "Got temporary error {} '{}' from {}"
+msgstr "从{}获得了临时错误{}'{}'"
+
+#: metadata/backend/mysql/errors.py:545
+msgid "Unknown or incorrect time zone: '{}'"
+msgstr "时区未知或不正确：“ {}”"
+
+#: metadata/backend/mysql/errors.py:546
+msgid "Invalid TIMESTAMP value in column '{}' at row {}"
+msgstr "第{}行的“ {}”列中的TIMESTAMP值无效"
+
+#: metadata/backend/mysql/errors.py:547
+msgid "Invalid {} character string: '{}'"
+msgstr "无效的{}字符串：“ {}”"
+
+#: metadata/backend/mysql/errors.py:551
+msgid "Result of {}() was larger than max_allowed_packet ({}) - truncated"
+msgstr "{}（）的结果大于max_allowed_packet（{}）-被截断"
+
+#: metadata/backend/mysql/errors.py:553
+msgid "Conflicting declarations: '{}{}' and '{}{}'"
+msgstr "声明冲突：“ {} {}”和“ {} {}”"
+
+#: metadata/backend/mysql/errors.py:554
+msgid "Can't create a {} from within another stored routine"
+msgstr "无法在另一个存储例程中创建{}"
+
+#: metadata/backend/mysql/errors.py:555
+msgid "{} {} already exists"
+msgstr "{} {} 已经存在"
+
+#: metadata/backend/mysql/errors.py:556
+msgid "{} {} does not exist"
+msgstr "{} {} 不存在"
+
+#: metadata/backend/mysql/errors.py:557
+msgid "Failed to DROP {} {}"
+msgstr "无法删除{} {}"
+
+#: metadata/backend/mysql/errors.py:558
+msgid "Failed to CREATE {} {}"
+msgstr "无法创建{} {}"
+
+#: metadata/backend/mysql/errors.py:559
+msgid "{} with no matching label: {}"
+msgstr "{}没有匹配的标签：{}"
+
+#: metadata/backend/mysql/errors.py:560
+msgid "Redefining label {}"
+msgstr "重新定义标签{}"
+
+#: metadata/backend/mysql/errors.py:561
+msgid "End-label {} without match"
+msgstr "结束标签{}不匹配"
+
+#: metadata/backend/mysql/errors.py:562
+msgid "Referring to uninitialized variable {}"
+msgstr "引用未初始化的变量{}"
+
+#: metadata/backend/mysql/errors.py:563
+msgid "PROCEDURE {} can't return a result set in the given context"
+msgstr "PROCEDURE {}无法在给定的上下文中返回结果集"
+
+#: metadata/backend/mysql/errors.py:564
+msgid "RETURN is only allowed in a FUNCTION"
+msgstr "仅在FUNCTION中允许返回"
+
+#: metadata/backend/mysql/errors.py:565
+msgid "{} is not allowed in stored procedures"
+msgstr "存储过程中不允许{}"
+
+#: metadata/backend/mysql/errors.py:569
+msgid ""
+"The update log is deprecated and replaced by the binary log; SET "
+"SQL_LOG_UPDATE has been ignored. This option will be removed in MariaDB "
+"5.6."
+msgstr "不推荐使用更新日志，并由二进制日志代替； SET SQL_LOG_UPDATE已被忽略。此选项将在MariaDB 5.6中删除。"
+
+#: metadata/backend/mysql/errors.py:577
+msgid ""
+"The update log is deprecated and replaced by the binary log; SET "
+"SQL_LOG_UPDATE has been translated to SET SQL_LOG_BIN. This option will "
+"be removed in MariaDB 5.6."
+msgstr ""
+"不推荐使用更新日志，并由二进制日志代替； SET SQL_LOG_UPDATE已转换为SET SQL_LOG_BIN。此选项将在MariaDB "
+"5.6中删除。"
+
+#: metadata/backend/mysql/errors.py:582
+msgid "Query execution was interrupted"
+msgstr "查询执行被中断"
+
+#: metadata/backend/mysql/errors.py:583
+msgid "Incorrect number of arguments for {} {}; expected {}, got {}"
+msgstr "{} {}的参数数目不正确；预期{}，得到{}"
+
+#: metadata/backend/mysql/errors.py:584
+msgid "Undefined CONDITION: {}"
+msgstr "未定义条件：{}"
+
+#: metadata/backend/mysql/errors.py:585
+msgid "No RETURN found in FUNCTION {}"
+msgstr "在FUNCTION {}中找不到RETURN"
+
+#: metadata/backend/mysql/errors.py:586
+msgid "FUNCTION {} ended without RETURN"
+msgstr "FUNCTION {}结束但未返回"
+
+#: metadata/backend/mysql/errors.py:587
+msgid "Cursor statement must be a SELECT"
+msgstr "游标语句必须是SELECT"
+
+#: metadata/backend/mysql/errors.py:588
+msgid "Cursor SELECT must not have INTO"
+msgstr "游标SELECT不能具有INTO"
+
+#: metadata/backend/mysql/errors.py:589
+msgid "Undefined CURSOR: {}"
+msgstr "未定义的游标：{}"
+
+#: metadata/backend/mysql/errors.py:590
+msgid "Cursor is already open"
+msgstr "游标已经打开"
+
+#: metadata/backend/mysql/errors.py:591
+msgid "Cursor is not open"
+msgstr "游标未打开"
+
+#: metadata/backend/mysql/errors.py:592
+msgid "Undeclared variable: {}"
+msgstr "未声明的变量：{}"
+
+#: metadata/backend/mysql/errors.py:593
+msgid "Incorrect number of FETCH variables"
+msgstr "FETCH变量数不正确"
+
+#: metadata/backend/mysql/errors.py:594
+msgid "No data - zero rows fetched, selected, or processed"
+msgstr "无数据-提取，选择或处理了零行"
+
+#: metadata/backend/mysql/errors.py:595
+msgid "Duplicate parameter: {}"
+msgstr "参数重复：{}"
+
+#: metadata/backend/mysql/errors.py:596
+msgid "Duplicate variable: {}"
+msgstr "重复变量：{}"
+
+#: metadata/backend/mysql/errors.py:597
+msgid "Duplicate condition: {}"
+msgstr "条件重复：{}"
+
+#: metadata/backend/mysql/errors.py:598
+msgid "Duplicate cursor: {}"
+msgstr "重复的游标：{}"
+
+#: metadata/backend/mysql/errors.py:599
+msgid "Failed to ALTER {} {}"
+msgstr "无法更改{} {}"
+
+#: metadata/backend/mysql/errors.py:600
+msgid "Subquery value not supported"
+msgstr "不支持子查询值"
+
+#: metadata/backend/mysql/errors.py:601
+msgid "{} is not allowed in stored function or trigger"
+msgstr "存储的函数或触发器中不允许使用{}"
+
+#: metadata/backend/mysql/errors.py:605
+msgid "Variable or condition declaration after cursor or handler declaration"
+msgstr "游标或处理程序声明后的变量或条件声明"
+
+#: metadata/backend/mysql/errors.py:607
+msgid "Cursor declaration after handler declaration"
+msgstr "处理程序声明后的游标声明"
+
+#: metadata/backend/mysql/errors.py:608
+msgid "Case not found for CASE statement"
+msgstr "找不到CASE陈述式的案例"
+
+#: metadata/backend/mysql/errors.py:609
+msgid "Configuration file '{}' is too big"
+msgstr "配置文件“ {}”太大"
+
+#: metadata/backend/mysql/errors.py:610
+msgid "Malformed file type header in file '{}'"
+msgstr "文件'{}'中格式错误的文件类型标题"
+
+#: metadata/backend/mysql/errors.py:611
+msgid "Unexpected end of file while parsing comment '{}'"
+msgstr "解析注释“ {}”时文件意外结束"
+
+#: metadata/backend/mysql/errors.py:612
+msgid "Error while parsing parameter '{}' (line: '{}')"
+msgstr "解析参数“ {}”时出错（行：“ {}”）"
+
+#: metadata/backend/mysql/errors.py:613
+msgid "Unexpected end of file while skipping unknown parameter '{}'"
+msgstr "跳过未知参数“ {}”时文件意外结束"
+
+#: metadata/backend/mysql/errors.py:614
+msgid "EXPLAIN/SHOW can not be issued; lacking privileges for underlying table"
+msgstr "不能发布解释/显示；缺乏基础表的特权"
+
+#: metadata/backend/mysql/errors.py:615
+msgid "File '{}' has unknown type '{}' in its header"
+msgstr "文件“ {}”的标头中具有未知类型“ {}”"
+
+#: metadata/backend/mysql/errors.py:616
+msgid "'{}.{}' is not {}"
+msgstr "'{}。{}' 不是 {}"
+
+#: metadata/backend/mysql/errors.py:617
+msgid "Column '{}' is not updatable"
+msgstr "列“ {}”不可更新"
+
+#: metadata/backend/mysql/errors.py:618
+msgid "View's SELECT contains a subquery in the FROM clause"
+msgstr "View的SELECT在FROM子句中包含一个子查询"
+
+#: metadata/backend/mysql/errors.py:619
+msgid "View's SELECT contains a '{}' clause"
+msgstr "View的SELECT包含一个'{}'子句"
+
+#: metadata/backend/mysql/errors.py:620
+msgid "View's SELECT contains a variable or parameter"
+msgstr "视图的SELECT包含变量或参数"
+
+#: metadata/backend/mysql/errors.py:621
+msgid "View's SELECT refers to a temporary table '{}'"
+msgstr "View的SELECT引用一个临时表'{}'"
+
+#: metadata/backend/mysql/errors.py:622
+msgid "View's SELECT and view's field list have different column counts"
+msgstr "视图的SELECT和视图的字段列表具有不同的列数"
+
+#: metadata/backend/mysql/errors.py:623
+msgid ""
+"View merge algorithm can't be used here for now (assumed undefined "
+"algorithm)"
+msgstr "视图合并算法暂时无法在此使用（假设未定义算法）"
+
+#: metadata/backend/mysql/errors.py:624
+msgid "View being updated does not have complete key of underlying table in it"
+msgstr "正在更新的视图中没有基础表的完整密钥"
+
+#: metadata/backend/mysql/errors.py:628
+msgid ""
+"View '{}.{}' references invalid table(s) or column(s) or function(s) or "
+"definer/invoker of view lack rights to use them"
+msgstr "视图'{}。{}'引用无效的表或列或函数或视图的定义者/调用者，缺乏使用它们的权利"
+
+#: metadata/backend/mysql/errors.py:633
+msgid "Can't drop or alter a {} from within another stored routine"
+msgstr "无法从另一个存储例程中删除或更改{}"
+
+#: metadata/backend/mysql/errors.py:634
+msgid "GOTO is not allowed in a stored procedure handler"
+msgstr "存储过程处理程序中不允许GOTO"
+
+#: metadata/backend/mysql/errors.py:635
+msgid "Trigger already exists"
+msgstr "触发器已存在"
+
+#: metadata/backend/mysql/errors.py:636
+msgid "Trigger does not exist"
+msgstr "触发器不存在"
+
+#: metadata/backend/mysql/errors.py:637
+msgid "Trigger's '{}' is view or temporary table"
+msgstr "触发器的“ {}”是视图或临时表"
+
+#: metadata/backend/mysql/errors.py:638
+msgid "Updating of {} row is not allowed in {}trigger"
+msgstr "{}触发中不允许更新{}行"
+
+#: metadata/backend/mysql/errors.py:639
+msgid "There is no {} row in {} trigger"
+msgstr "{}触发器中没有{}行"
+
+#: metadata/backend/mysql/errors.py:640
+msgid "Field '{}' doesn't have a default value"
+msgstr "字段“ {}”没有默认值"
+
+#: metadata/backend/mysql/errors.py:641
+msgid "Division by 0"
+msgstr "被0除"
+
+#: metadata/backend/mysql/errors.py:642
+msgid "Incorrect {} value: '{}' for column '{}' at row {}"
+msgstr "{}值的{}值不正确：第{}行的“ {}”列为“ {}”"
+
+#: metadata/backend/mysql/errors.py:643
+msgid "Illegal {} '{}' value found during parsing"
+msgstr "解析期间发现非法的{}'{}'值"
+
+#: metadata/backend/mysql/errors.py:644
+msgid "CHECK OPTION on non-updatable view '{}.{}'"
+msgstr "在不可更新的视图“ {}。{}”上检查选项"
+
+#: metadata/backend/mysql/errors.py:645
+msgid "CHECK OPTION failed '{}.{}'"
+msgstr "检查选项失败'{}。{}'"
+
+#: metadata/backend/mysql/errors.py:646
+msgid "{} command denied to user '{}'@'{}' for routine '{}'"
+msgstr "常规'{}'的用户{{}'@'{}'的{}命令被拒绝"
+
+#: metadata/backend/mysql/errors.py:647
+msgid "Failed purging old relay logs: {}"
+msgstr "清除旧中继日志失败：{}"
+
+#: metadata/backend/mysql/errors.py:648
+msgid "Password hash should be a {}-digit hexadecimal number"
+msgstr "密码哈希应为{}位十六进制数字"
+
+#: metadata/backend/mysql/errors.py:649
+msgid "Target log not found in binlog index"
+msgstr "在binlog索引中找不到目标日志"
+
+#: metadata/backend/mysql/errors.py:650
+msgid "I/O error reading log index file"
+msgstr "I / O错误读取日志索引文件"
+
+#: metadata/backend/mysql/errors.py:651
+msgid "Server configuration does not permit binlog purge"
+msgstr "服务器配置不允许清除二进制日志"
+
+#: metadata/backend/mysql/errors.py:652
+msgid "Failed on fseek()"
+msgstr "在fseek（）上失败"
+
+#: metadata/backend/mysql/errors.py:653
+msgid "Fatal error during log purge"
+msgstr "清除日志时发生致命错误"
+
+#: metadata/backend/mysql/errors.py:654
+msgid "A purgeable log is in use, will not purge"
+msgstr "正在使用可清除日志，不会清除"
+
+#: metadata/backend/mysql/errors.py:655
+msgid "Unknown error during log purge"
+msgstr "清除日志期间发生未知错误"
+
+#: metadata/backend/mysql/errors.py:656
+msgid "Failed initializing relay log position: {}"
+msgstr "初始化中继日志位置失败：{}"
+
+#: metadata/backend/mysql/errors.py:657
+msgid "You are not using binary logging"
+msgstr "您没有使用二进制日志记录"
+
+#: metadata/backend/mysql/errors.py:658
+msgid "The '{}' syntax is reserved for purposes internal to the MariaDB server"
+msgstr "保留'{}'语法是出于MariaDB服务器内部的目的"
+
+#: metadata/backend/mysql/errors.py:659
+msgid "WSAStartup Failed"
+msgstr "WSA启动失败"
+
+#: metadata/backend/mysql/errors.py:660
+msgid "Can't handle procedures with different groups yet"
+msgstr "目前尚无法处理与不同小组的程序"
+
+#: metadata/backend/mysql/errors.py:661
+msgid "Select must have a group with this procedure"
+msgstr "选择必须与该过程分组"
+
+#: metadata/backend/mysql/errors.py:662
+msgid "Can't use ORDER clause with this procedure"
+msgstr "不能在此过程中使用ORDER子句"
+
+#: metadata/backend/mysql/errors.py:666
+msgid "Binary logging and replication forbid changing the global server {}"
+msgstr "二进制日志记录和复制禁止更改全局服务器{}"
+
+#: metadata/backend/mysql/errors.py:668
+msgid "Can't map file: {}, errno: {}"
+msgstr "无法映射文件：{}，错误号：{}"
+
+#: metadata/backend/mysql/errors.py:669
+msgid "Wrong magic in {}"
+msgstr "{}中的魔术错误"
+
+#: metadata/backend/mysql/errors.py:670
+msgid "Prepared statement contains too many placeholders"
+msgstr "准备好的语句包含太多占位符"
+
+#: metadata/backend/mysql/errors.py:671
+msgid "Key part '{}' length cannot be 0"
+msgstr "关键部分“ {}”的长度不能为0"
+
+#: metadata/backend/mysql/errors.py:672
+msgid "View text checksum failed"
+msgstr "查看文本校验和失败"
+
+#: metadata/backend/mysql/errors.py:673
+msgid "Can not modify more than one base table through a join view '{}.{}'"
+msgstr "不能通过联接视图'{}。{}'修改多个基表。"
+
+#: metadata/backend/mysql/errors.py:674
+msgid "Can not insert into join view '{}.{}' without fields list"
+msgstr "没有字段列表，无法插入联接视图“ {}。{}”"
+
+#: metadata/backend/mysql/errors.py:675
+msgid "Can not delete from join view '{}.{}'"
+msgstr "无法从联接视图“ {}。{}”中删除"
+
+#: metadata/backend/mysql/errors.py:676
+msgid "Operation {} failed for {}"
+msgstr "{}的{}操作失败"
+
+#: metadata/backend/mysql/errors.py:677
+msgid "XAER_NOTA: Unknown XID"
+msgstr "XAER_NOTA：未知的XID"
+
+#: metadata/backend/mysql/errors.py:678
+msgid "XAER_INVAL: Invalid arguments (or unsupported command)"
+msgstr "XAER_INVAL：无效的参数（或不受支持的命令）"
+
+#: metadata/backend/mysql/errors.py:682
+msgid ""
+"XAER_RMFAIL: The command cannot be executed when global transaction is in"
+" the {} state"
+msgstr "XAER_RMFAIL：当全局事务处于{}状态时，该命令无法执行"
+
+#: metadata/backend/mysql/errors.py:684
+msgid "XAER_OUTSIDE: Some work is done outside global transaction"
+msgstr "XAER_OUTSIDE：在全球交易之外完成了一些工作"
+
+#: metadata/backend/mysql/errors.py:688
+msgid ""
+"XAER_RMERR: Fatal error occurred in the transaction branch - check your "
+"data for consistency"
+msgstr "XAER_RMERR：事务分支中发生致命错误-检查数据的一致性"
+
+#: metadata/backend/mysql/errors.py:690
+msgid "XA_RBROLLBACK: Transaction branch was rolled back"
+msgstr "XA_RBROLLBACK：事务分支已回滚"
+
+#: metadata/backend/mysql/errors.py:694
+msgid "There is no such grant defined for user '{}' on host '{}' on routine '{}'"
+msgstr "在例程“ {}”上没有为主机“ {}”上的用户“ {}”定义此类授予"
+
+#: metadata/backend/mysql/errors.py:696
+msgid "Failed to grant EXECUTE and ALTER ROUTINE privileges"
+msgstr "无法授予EXECUTE和ALTER ROUTINE特权"
+
+#: metadata/backend/mysql/errors.py:697
+msgid "Failed to revoke all privileges to dropped routine"
+msgstr "无法撤消已删除例程的所有特权"
+
+#: metadata/backend/mysql/errors.py:698
+msgid "Data too long for column '{}' at row {}"
+msgstr "第{}行的数据太长，无法容纳“ {}”列"
+
+#: metadata/backend/mysql/errors.py:699
+msgid "Bad SQLSTATE: '{}'"
+msgstr "错误的SQLSTATE：“ {}”"
+
+#: metadata/backend/mysql/errors.py:700
+msgid "{}: ready for connections. Version: '{}' socket: '{}' port: {} {}"
+msgstr "{}：准备连接。版本：“ {}”套接字：“ {}”端口：{} {}"
+
+#: metadata/backend/mysql/errors.py:701
+msgid "Can't load value from file with fixed size rows to variable"
+msgstr "无法将具有固定大小的行的文件中的值加载到变量"
+
+#: metadata/backend/mysql/errors.py:702
+msgid "You are not allowed to create a user with GRANT"
+msgstr "不允许使用GRANT创建用户"
+
+#: metadata/backend/mysql/errors.py:703
+msgid "Incorrect {} value: '{}' for function {}"
+msgstr "{}值不正确：函数{}的'{}'"
+
+#: metadata/backend/mysql/errors.py:704
+msgid "Table definition has changed, please retry transaction"
+msgstr "表格定义已更改，请重试交易"
+
+#: metadata/backend/mysql/errors.py:705
+msgid "Duplicate handler declared in the same block"
+msgstr "在同一块中声明重复的处理程序"
+
+#: metadata/backend/mysql/errors.py:709
+msgid ""
+"OUT or INOUT argument {} for routine {} is not a variable or NEW pseudo-"
+"variable in BEFORE trigger"
+msgstr "例程{}的OUT或INOUT参数{}在触发器之前不是变量或NEW伪变量"
+
+#: metadata/backend/mysql/errors.py:711
+msgid "Not allowed to return a result set from a {}"
+msgstr "不允许从{}返回结果集"
+
+#: metadata/backend/mysql/errors.py:715
+msgid "Cannot get geometry object from data you send to the GEOMETRY field"
+msgstr "无法从发送到GEOMETRY字段的数据中获取几何对象"
+
+#: metadata/backend/mysql/errors.py:720
+msgid ""
+"A routine failed and has neither NO SQL nor READS SQL DATA in its "
+"declaration and binary logging is enabled; if non-transactional tables "
+"were updated, the binary log will miss their changes"
+msgstr "例程失败，并且其声明中没有SQL或READS SQL DATA，并且启用了二进制日志记录；如果非事务表已更新，则二进制日志将丢失其更改"
+
+#: metadata/backend/mysql/errors.py:729
+msgid ""
+"This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its"
+" declaration and binary logging is enabled (you *might* want to use the "
+"less safe log_bin_trust_function_creators variable)"
+msgstr ""
+"此函数的声明中没有DETERMINISTIC，NO SQL或READS SQL "
+"DATA，并且启用了二进制日志记录（您*可能*希望使用不太安全的log_bin_trust_function_creators变量）"
+
+#: metadata/backend/mysql/errors.py:738
+msgid ""
+"You do not have the SUPER privilege and binary logging is enabled (you "
+"*might* want to use the less safe log_bin_trust_function_creators "
+"variable)"
+msgstr "您没有SUPER特权，并且启用了二进制日志记录（您*可能*想使用不太安全的log_bin_trust_function_creators变量）"
+
+#: metadata/backend/mysql/errors.py:746
+msgid ""
+"You can't execute a prepared statement which has an open cursor "
+"associated with it. Reset the statement to re-execute it."
+msgstr "您无法执行带有关联的打开游标的准备好的语句。重置该语句以重新执行它。"
+
+#: metadata/backend/mysql/errors.py:751
+msgid "The statement ({}) has no open cursor."
+msgstr "语句（{}）没有打开的游标。"
+
+#: metadata/backend/mysql/errors.py:755
+msgid "Explicit or implicit commit is not allowed in stored function or trigger."
+msgstr "存储的函数或触发器中不允许显式或隐式提交。"
+
+#: metadata/backend/mysql/errors.py:757
+msgid "Field of view '{}.{}' underlying table doesn't have a default value"
+msgstr "视场“ {}。{}”的基础表没有默认值"
+
+#: metadata/backend/mysql/errors.py:758
+msgid "Recursive stored functions and triggers are not allowed."
+msgstr "不允许递归存储的函数和触发器。"
+
+#: metadata/backend/mysql/errors.py:759
+msgid "Too big scale {} specified for column '{}'. Maximum is {}."
+msgstr "为列“ {}”指定的比例{}过大。最大值为{}。"
+
+#: metadata/backend/mysql/errors.py:760
+msgid "Too big precision {} specified for column '{}'. Maximum is {}."
+msgstr "为列“ {}”指定的精度{}太大。最大值为{}。"
+
+#: metadata/backend/mysql/errors.py:761
+msgid "For float(M,D, double(M,D or decimal(M,D, M must be >= D (column '{}')."
+msgstr "对于float（M，D，double（M，D或decimal（M，D，M，M，D，M必须为&gt; = D（列'{}'））。"
+
+#: metadata/backend/mysql/errors.py:765
+msgid ""
+"You can't combine write-locking of system tables with other tables or "
+"lock types"
+msgstr "您不能将系统表的写锁定与其他表或锁类型结合使用"
+
+#: metadata/backend/mysql/errors.py:767
+msgid "Unable to connect to foreign data source: {}"
+msgstr "无法连接到外部数据源：{}"
+
+#: metadata/backend/mysql/errors.py:771
+msgid ""
+"There was a problem processing the query on the foreign data source. Data"
+" source error: {}"
+msgstr "处理外部数据源上的查询时出现问题。数据源错误：{}"
+
+#: metadata/backend/mysql/errors.py:776
+msgid ""
+"The foreign data source you are trying to reference does not exist. Data "
+"source error: {}"
+msgstr "您要引用的外部数据源不存在。数据源错误：{}"
+
+#: metadata/backend/mysql/errors.py:781
+msgid ""
+"Can't create federated table. The data source connection string '{}' is "
+"not in the correct format"
+msgstr "无法创建联合表。数据源连接字符串“ {}”的格式不正确"
+
+#: metadata/backend/mysql/errors.py:786
+msgid "The data source connection string '{}' is not in the correct format"
+msgstr "数据源连接字符串“ {}”的格式不正确"
+
+#: metadata/backend/mysql/errors.py:788
+msgid "Can't create federated table. Foreign data src error: {}"
+msgstr "无法创建联合表。外部数据src错误：{}"
+
+#: metadata/backend/mysql/errors.py:789
+msgid "Trigger in wrong schema"
+msgstr "以错误的模式触发"
+
+#: metadata/backend/mysql/errors.py:793
+msgid ""
+"Thread stack overrun: {} bytes used of a {} byte stack, and {} bytes "
+"needed. Use 'mysqld --thread_stack=#' to specify a bigger stack."
+msgstr "线程堆栈溢出：{}个字节使用了{}个字节堆栈，并且需要{}个字节。使用“ mysqld --thread_stack =＃”指定更大的堆栈。"
+
+#: metadata/backend/mysql/errors.py:798
+msgid "Routine body for '{}' is too long"
+msgstr "“ {}”的常规正文太长"
+
+#: metadata/backend/mysql/errors.py:799
+msgid "Cannot drop default keycache"
+msgstr "无法删除默认密钥缓存"
+
+#: metadata/backend/mysql/errors.py:800
+msgid "Display width out of range for column '{}' (max = {})"
+msgstr "显示宽度超出列“ {}”的范围（最大值= {}）"
+
+#: metadata/backend/mysql/errors.py:801
+msgid "XAER_DUPID: The XID already exists"
+msgstr "XAER_DUPID：XID已经存在"
+
+#: metadata/backend/mysql/errors.py:802
+msgid "Datetime function: {} field overflow"
+msgstr "日期时间函数：{}字段溢出"
+
+#: metadata/backend/mysql/errors.py:806
+msgid ""
+"Can't update table '{}' in stored function/trigger because it is already "
+"used by statement which invoked this stored function/trigger."
+msgstr "无法更新存储函数/触发器中的表“ {}”，因为调用该存储函数/触发器的语句已使用该表。"
+
+#: metadata/backend/mysql/errors.py:811
+msgid "The definition of table '{}' prevents operation {} on table '{}'."
+msgstr "表'{}'的定义阻止对表'{}'的操作{}。"
+
+#: metadata/backend/mysql/errors.py:815
+msgid ""
+"The prepared statement contains a stored routine call that refers to that"
+" same statement. It's not allowed to execute a prepared statement in such"
+" a recursive manner"
+msgstr "准备好的语句包含一个引用该相同语句的存储例程调用。不允许以这种递归方式执行准备好的语句"
+
+#: metadata/backend/mysql/errors.py:820
+msgid "Not allowed to set autocommit from a stored function or trigger"
+msgstr "不允许通过存储的函数或触发器设置自动提交"
+
+#: metadata/backend/mysql/errors.py:821
+msgid "Definer is not fully qualified"
+msgstr "定义者不完全合格"
+
+#: metadata/backend/mysql/errors.py:825
+msgid ""
+"View '{}'.'{}' has no definer information (old table format). Current "
+"user is used as definer. Please recreate the view!"
+msgstr "视图'{}'。'{}'没有定义程序信息（旧表格式）。当前用户用作定义者。请重新创建视图！"
+
+#: metadata/backend/mysql/errors.py:830
+msgid "You need the SUPER privilege for creation view with '{}'@'{}' definer"
+msgstr "您需要使用'{}'@'{}'定义程序创建视图的SUPER特权"
+
+#: metadata/backend/mysql/errors.py:831
+msgid "The user specified as a definer ('{}'@'{}') does not exist"
+msgstr "指定为定义者（'{}'@'{}'）的用户不存在"
+
+#: metadata/backend/mysql/errors.py:832
+msgid "Changing schema from '{}' to '{}' is not allowed."
+msgstr "不允许将架构从“ {}”更改为“ {}”。"
+
+#: metadata/backend/mysql/errors.py:833
+msgid "Cannot delete or update a parent row: a foreign key constraint fails ({})"
+msgstr "无法删除或更新父行：外键约束失败（{}）"
+
+#: metadata/backend/mysql/errors.py:834
+msgid "Cannot add or update a child row: a foreign key constraint fails ({})"
+msgstr "无法添加或更新子行：外键约束失败（{}）"
+
+#: metadata/backend/mysql/errors.py:835
+msgid "Variable '{}' must be quoted with `...`, or renamed"
+msgstr "变量'{}'必须用`...'引号或重命名"
+
+#: metadata/backend/mysql/errors.py:839
+msgid ""
+"No definer attribute for trigger '{}'.'{}'. The trigger will be activated"
+" under the authorization of the invoker, which may have insufficient "
+"privileges. Please recreate the trigger."
+msgstr "触发器'{}'。'{}'没有定义程序属性。触发器将在调用者的授权下被激活，而调用者的权限可能不足。请重新创建触发器。"
+
+#: metadata/backend/mysql/errors.py:845
+msgid "'{}' has an old format, you should re-create the '{}' object(s)"
+msgstr "'{}'具有旧格式，您应该重新创建'{}'对象"
+
+#: metadata/backend/mysql/errors.py:849
+msgid ""
+"Recursive limit {} (as set by the max_sp_recursion_depth variable) was "
+"exceeded for routine {}"
+msgstr "例程{}超出了递归限制{}（由max_sp_recursion_depth变量设置）"
+
+#: metadata/backend/mysql/errors.py:854
+msgid ""
+"Failed to load routine {}. The table mysql.proc is missing, corrupt, or "
+"contains bad data (internal code {})"
+msgstr "无法加载例程{}。表mysql.proc丢失，损坏或包含错误的数据（内部代码{}）"
+
+#: metadata/backend/mysql/errors.py:859
+msgid "Incorrect routine name '{}'"
+msgstr "常规名称“ {}”不正确"
+
+#: metadata/backend/mysql/errors.py:863
+msgid ""
+"Table upgrade required. Please do 'REPAIR TABLE `{}`' or dump/reload to "
+"fix it!"
+msgstr "需要表升级。请执行'REPAIR TABLE`{}`'或转储/重新加载以解决该问题！"
+
+#: metadata/backend/mysql/errors.py:865
+msgid "AGGREGATE is not supported for stored functions"
+msgstr "存储功能不支持AGGREGATE"
+
+#: metadata/backend/mysql/errors.py:869
+msgid ""
+"Can't create more than max_prepared_stmt_count statements (current value:"
+" {})"
+msgstr "不能创建超过max_prepared_stmt_count条语句（当前值：{}）"
+
+#: metadata/backend/mysql/errors.py:871
+msgid "`{}`.`{}` contains view recursion"
+msgstr "{} .` {}`包含视图递归"
+
+#: metadata/backend/mysql/errors.py:872
+msgid "Non-grouping field '{}' is used in {} clause"
+msgstr "{}子句中使用了非分组字段“ {}”"
+
+#: metadata/backend/mysql/errors.py:873
+msgid "The used table type doesn't support SPATIAL indexes"
+msgstr "使用的表类型不支持SPATIAL索引"
+
+#: metadata/backend/mysql/errors.py:874
+msgid "Triggers can not be created on system tables"
+msgstr "无法在系统表上创建触发器"
+
+#: metadata/backend/mysql/errors.py:875
+msgid "Leading spaces are removed from name '{}'"
+msgstr "前导空格已从名称“ {}”中删除"
+
+#: metadata/backend/mysql/errors.py:876
+msgid "Failed to read auto-increment value from storage engine"
+msgstr "无法从存储引擎读取自动增量值"
+
+#: metadata/backend/mysql/errors.py:877
+msgid "user name"
+msgstr "用户名"
+
+#: metadata/backend/mysql/errors.py:878
+msgid "host name"
+msgstr "主机名"
+
+#: metadata/backend/mysql/errors.py:879
+msgid "String '{}' is too long for {} (should be no longer than {})"
+msgstr "字符串'{}'对于{}来说太长（不应超过{}）"
+
+#: metadata/backend/mysql/errors.py:880
+msgid "The target table {} of the {} is not insertable-into"
+msgstr "{}的目标表{}不可插入"
+
+#: metadata/backend/mysql/errors.py:881
+msgid "Table '{}' is differently defined or of non-MyISAM type or doesn't exist"
+msgstr "表'{}'的定义不同或不是MyISAM类型，或者不存在"
+
+#: metadata/backend/mysql/errors.py:882
+msgid "Too high level of nesting for select"
+msgstr "选择的嵌套层次太高"
+
+#: metadata/backend/mysql/errors.py:883
+msgid "Name '{}' has become ''"
+msgstr "名称“ {}”已变为“"
+
+#: metadata/backend/mysql/errors.py:887
+msgid ""
+"First character of the FIELDS TERMINATED string is ambiguous; please use "
+"non-optional and non-empty FIELDS ENCLOSED BY"
+msgstr "FIELDS TERMINATED字符串的第一个字符不明确；请使用非可选和非空的字段"
+
+#: metadata/backend/mysql/errors.py:892
+msgid "The foreign server, {}, you are trying to create already exists."
+msgstr "您尝试创建的外部服务器{}已存在。"
+
+#: metadata/backend/mysql/errors.py:896
+msgid ""
+"The foreign server name you are trying to reference does not exist. Data "
+"source error: {}"
+msgstr "您尝试引用的外部服务器名称不存在。数据源错误：{}"
+
+#: metadata/backend/mysql/errors.py:898
+msgid "Table storage engine '{}' does not support the create option '{}'"
+msgstr "表存储引擎“ {}”不支持创建选项“ {}”"
+
+#: metadata/backend/mysql/errors.py:902
+msgid ""
+"Syntax error: {} PARTITIONING requires definition of VALUES {} for each "
+"partition"
+msgstr "语法错误：{}分区要求为每个分区定义值{}"
+
+#: metadata/backend/mysql/errors.py:904
+msgid "Only {} PARTITIONING can use VALUES {} in partition definition"
+msgstr "在分区定义中，只有{}分区可以使用值{}"
+
+#: metadata/backend/mysql/errors.py:905
+msgid "MAXVALUE can only be used in last partition definition"
+msgstr "MAXVALUE只能在最后一个分区定义中使用"
+
+#: metadata/backend/mysql/errors.py:906
+msgid "Subpartitions can only be hash partitions and by key"
+msgstr "子分区只能是哈希分区，并且只能按键"
+
+#: metadata/backend/mysql/errors.py:907
+msgid "Must define subpartitions on all partitions if on one partition"
+msgstr "如果在一个分区上，则必须在所有分区上定义子分区"
+
+#: metadata/backend/mysql/errors.py:911
+msgid "Wrong number of partitions defined, mismatch with previous setting"
+msgstr "定义的分区数量错误，与先前的设置不匹配"
+
+#: metadata/backend/mysql/errors.py:916
+msgid "Wrong number of subpartitions defined, mismatch with previous setting"
+msgstr "定义的子分区数量错误，与先前的设置不匹配"
+
+#: metadata/backend/mysql/errors.py:921
+msgid "Constant/Random expression in (sub)partitioning function is not allowed"
+msgstr "（子）分区函数中不允许常量/随机表达式"
+
+#: metadata/backend/mysql/errors.py:926
+msgid ""
+"Constant, random or timezone-dependent expressions in (sub)partitioning "
+"function are not allowed"
+msgstr "（子）分区函数中不允许常量，随机或时区相关的表达式"
+
+#: metadata/backend/mysql/errors.py:928
+msgid "Expression in RANGE/LIST VALUES must be constant"
+msgstr "RANGE / LIST VALUES中的表达式必须是常数"
+
+#: metadata/backend/mysql/errors.py:929
+msgid "Field in list of fields for partition function not found in table"
+msgstr "在表中找不到分区功能的字段列表中的字段"
+
+#: metadata/backend/mysql/errors.py:930
+msgid "List of fields is only allowed in KEY partitions"
+msgstr "字段列表仅在KEY分区中允许"
+
+#: metadata/backend/mysql/errors.py:934
+msgid ""
+"The partition info in the frm file is not consistent with what can be "
+"written into the frm file"
+msgstr "frm文件中的分区信息与可写入frm文件的内容不一致"
+
+#: metadata/backend/mysql/errors.py:936
+msgid "The {} function returns the wrong type"
+msgstr "{}函数返回错误的类型"
+
+#: metadata/backend/mysql/errors.py:937
+msgid "For {} partitions each partition must be defined"
+msgstr "对于{}分区，必须定义每个分区"
+
+#: metadata/backend/mysql/errors.py:941
+msgid "VALUES LESS THAN value must be strictly increasing for each partition"
+msgstr "每个分区必须小于VALUES的值"
+
+#: metadata/backend/mysql/errors.py:943
+msgid "VALUES value must be of same type as partition function"
+msgstr "VALUES值必须与分区函数具有相同的类型"
+
+#: metadata/backend/mysql/errors.py:947
+msgid "Multiple definition of same constant in list partitioning"
+msgstr "列表分区中相同常量的多个定义"
+
+#: metadata/backend/mysql/errors.py:949
+msgid "Partitioning can not be used stand-alone in query"
+msgstr "不能在查询中独立使用分区"
+
+#: metadata/backend/mysql/errors.py:953
+msgid ""
+"The mix of handlers in the partitions is not allowed in this version of "
+"MariaDB"
+msgstr "此版本的MariaDB不允许在分区中混合使用处理程序"
+
+#: metadata/backend/mysql/errors.py:955
+msgid "For the partitioned engine it is necessary to define all {}"
+msgstr "对于分区引擎，必须定义所有{}"
+
+#: metadata/backend/mysql/errors.py:956
+msgid "Too many partitions (including subpartitions) were defined"
+msgstr "定义的分区（包括子分区）过多"
+
+#: metadata/backend/mysql/errors.py:960
+msgid ""
+"It is only possible to mix RANGE/LIST partitioning with HASH/KEY "
+"partitioning for subpartitioning"
+msgstr "只能将RANGE / LIST分区与HASH / KEY分区混合以进行子分区"
+
+#: metadata/backend/mysql/errors.py:962
+msgid "Failed to create specific handler file"
+msgstr "无法创建特定的处理程序文件"
+
+#: metadata/backend/mysql/errors.py:963
+msgid "A BLOB field is not allowed in partition function"
+msgstr "分区功能中不允许BLOB字段"
+
+#: metadata/backend/mysql/errors.py:967
+msgid "A {} must include all columns in the table's partitioning function"
+msgstr "{}必须在表的分区功能中包含所有列"
+
+#: metadata/backend/mysql/errors.py:969
+msgid "Number of {} = 0 is not an allowed value"
+msgstr "{} = 0的数量是不允许的值"
+
+#: metadata/backend/mysql/errors.py:973
+msgid "Partition management on a not partitioned table is not possible"
+msgstr "无法对未分区的表进行分区管理"
+
+#: metadata/backend/mysql/errors.py:978
+msgid "Foreign key clause is not yet supported in conjunction with partitioning"
+msgstr "结合分区尚不支持外键子句"
+
+#: metadata/backend/mysql/errors.py:980
+msgid "Error in list of partitions to {}"
+msgstr "{}分区列表中的错误"
+
+#: metadata/backend/mysql/errors.py:981
+msgid "Cannot remove all partitions, use DROP TABLE instead"
+msgstr "无法删除所有分区，请改用DROP TABLE"
+
+#: metadata/backend/mysql/errors.py:982
+msgid "COALESCE PARTITION can only be used on HASH/KEY partitions"
+msgstr "COALESCE PARTITION仅可用于HASH / KEY分区"
+
+#: metadata/backend/mysql/errors.py:986
+msgid ""
+"REORGANIZE PARTITION can only be used to reorganize partitions not to "
+"change their numbers"
+msgstr "REORGANIZE PARTITION仅可用于重组分区，而不能更改其编号"
+
+#: metadata/backend/mysql/errors.py:991
+msgid ""
+"REORGANIZE PARTITION without parameters can only be used on auto-"
+"partitioned tables using HASH PARTITIONs"
+msgstr "没有参数的REORGANIZE PARTITION只能在使用HASH PARTITIONs进行自动分区的表上使用"
+
+#: metadata/backend/mysql/errors.py:993
+msgid "{} PARTITION can only be used on RANGE/LIST partitions"
+msgstr "{} PARTITION仅可用于RANGE / LIST分区"
+
+#: metadata/backend/mysql/errors.py:994
+msgid "Trying to Add partition(s) with wrong number of subpartitions"
+msgstr "尝试添加具有错误子分区数的分区"
+
+#: metadata/backend/mysql/errors.py:995
+msgid "At least one partition must be added"
+msgstr "至少必须添加一个分区"
+
+#: metadata/backend/mysql/errors.py:996
+msgid "At least one partition must be coalesced"
+msgstr "必须合并至少一个分区"
+
+#: metadata/backend/mysql/errors.py:997
+msgid "More partitions to reorganize than there are partitions"
+msgstr "要重组的分区多于分区"
+
+#: metadata/backend/mysql/errors.py:998
+msgid "Duplicate partition name {}"
+msgstr "重复的分区名称{}"
+
+#: metadata/backend/mysql/errors.py:999
+msgid "It is not allowed to shut off binlog on this command"
+msgstr "不允许在此命令上关闭binlog"
+
+#: metadata/backend/mysql/errors.py:1003
+msgid "When reorganizing a set of partitions they must be in consecutive order"
+msgstr "重新组织一组分区时，它们必须按连续顺序排列"
+
+#: metadata/backend/mysql/errors.py:1008
+msgid ""
+"Reorganize of range partitions cannot change total ranges except for last"
+" partition where it can extend the range"
+msgstr "重新组织范围分区不能更改总范围，但可以扩展范围的最后一个分区除外"
+
+#: metadata/backend/mysql/errors.py:1013
+msgid "Partition function not supported in this version for this handler"
+msgstr "此处理程序的此版本不支持分区功能"
+
+#: metadata/backend/mysql/errors.py:1014
+msgid "Partition state cannot be defined from CREATE/ALTER TABLE"
+msgstr "无法从CREATE / ALTER TABLE定义分区状态"
+
+#: metadata/backend/mysql/errors.py:1015
+msgid "The {} handler only supports 32 bit integers in VALUES"
+msgstr "{}处理程序仅支持VALUES中的32位整数"
+
+#: metadata/backend/mysql/errors.py:1016
+msgid "Plugin '{}' is not loaded"
+msgstr "插件“ {}”未加载"
+
+#: metadata/backend/mysql/errors.py:1017
+msgid "Incorrect {} value: '{}'"
+msgstr "{}值不正确：“ {}”"
+
+#: metadata/backend/mysql/errors.py:1018
+msgid "Table has no partition for value {}"
+msgstr "表没有分区{}"
+
+#: metadata/backend/mysql/errors.py:1019
+msgid "It is not allowed to specify {} more than once"
+msgstr "不能多次指定{}"
+
+#: metadata/backend/mysql/errors.py:1020 metadata/backend/mysql/errors.py:1167
+msgid "Failed to create {}"
+msgstr "无法创建{}"
+
+#: metadata/backend/mysql/errors.py:1021 metadata/backend/mysql/errors.py:1044
+msgid "Failed to drop {}"
+msgstr "无法删除{}"
+
+#: metadata/backend/mysql/errors.py:1022
+msgid "The handler doesn't support autoextend of tablespaces"
+msgstr "处理程序不支持表空间的自动扩展"
+
+#: metadata/backend/mysql/errors.py:1023
+msgid ""
+"A size parameter was incorrectly specified, either number or on the form "
+"10M"
+msgstr "错误地指定了大小参数，无论是数字还是格式为10M"
+
+#: metadata/backend/mysql/errors.py:1027
+msgid ""
+"The size number was correct but we don't allow the digit part to be more "
+"than 2 billion"
+msgstr "大小数字是正确的，但我们不允许数字部分超过20亿"
+
+#: metadata/backend/mysql/errors.py:1029
+msgid "Failed to alter: {}"
+msgstr "更改失败：{}"
+
+#: metadata/backend/mysql/errors.py:1030
+msgid "Writing one row to the row-based binary log failed"
+msgstr "将一行写入基于行的二进制日志失败"
+
+#: metadata/backend/mysql/errors.py:1031
+msgid "Table definition on master and slave does not match: {}"
+msgstr "主服务器和从服务器上的表定义不匹配：{}"
+
+#: metadata/backend/mysql/errors.py:1035
+msgid ""
+"Slave running with --log-slave-updates must use row-based binary logging "
+"to be able to replicate row-based binary log events"
+msgstr "以--log-slave-updates运行的从站必须使用基于行的二进制日志记录才能复制基于行的二进制日志事件"
+
+#: metadata/backend/mysql/errors.py:1040
+msgid "Event '{}' already exists"
+msgstr "事件“ {}”已存在"
+
+#: metadata/backend/mysql/errors.py:1041
+msgid "Failed to store event {}. Error code {} from storage engine."
+msgstr "无法存储事件{}。来自存储引擎的错误代码{}。"
+
+#: metadata/backend/mysql/errors.py:1042
+msgid "Unknown event '{}'"
+msgstr "未知事件“ {}”"
+
+#: metadata/backend/mysql/errors.py:1043
+msgid "Failed to alter event '{}'"
+msgstr "无法更改事件“ {}”"
+
+#: metadata/backend/mysql/errors.py:1045
+msgid "INTERVAL is either not positive or too big"
+msgstr "间隔不是正数或太大"
+
+#: metadata/backend/mysql/errors.py:1046
+msgid "ENDS is either invalid or before STARTS"
+msgstr "ENDS无效或在STARTS之前"
+
+#: metadata/backend/mysql/errors.py:1047
+msgid "Event execution time is in the past. Event has been disabled"
+msgstr "事件执行时间是过去的时间。活动已被禁用"
+
+#: metadata/backend/mysql/errors.py:1048
+msgid "Failed to open mysql.event"
+msgstr "无法打开mysql.event"
+
+#: metadata/backend/mysql/errors.py:1049
+msgid "No datetime expression provided"
+msgstr "没有提供日期时间表达式"
+
+#: metadata/backend/mysql/errors.py:1053
+msgid ""
+"Column count of mysql.{} is wrong. Expected {}, found {}. The table is "
+"probably corrupted"
+msgstr "mysql。{}的列数是错误的。预期{}，找到{}。该表可能已损坏"
+
+#: metadata/backend/mysql/errors.py:1055
+msgid "Cannot load from mysql.{}. The table is probably corrupted"
+msgstr "无法从mysql加载。{}。该表可能已损坏"
+
+#: metadata/backend/mysql/errors.py:1056
+msgid "Failed to delete the event from mysql.event"
+msgstr "无法从mysql.event中删除事件"
+
+#: metadata/backend/mysql/errors.py:1057
+msgid "Error during compilation of event's body"
+msgstr "编写事件正文时发生错误"
+
+#: metadata/backend/mysql/errors.py:1058
+msgid "Same old and new event name"
+msgstr "新旧事件名称相同"
+
+#: metadata/backend/mysql/errors.py:1059 metadata/backend/mysql/errors.py:1623
+msgid "Data for column '{}' too long"
+msgstr "列“ {}”的数据太长"
+
+#: metadata/backend/mysql/errors.py:1060
+msgid "Cannot drop index '{}': needed in a foreign key constraint"
+msgstr "无法删除索引“ {}”：在外键约束中需要"
+
+#: metadata/backend/mysql/errors.py:1064
+msgid ""
+"The syntax '{}' is deprecated and will be removed in MariaDB {}. Please "
+"use {} instead"
+msgstr "语法'{}'已过时，并将在MariaDB {}中删除。请改用{}"
+
+#: metadata/backend/mysql/errors.py:1066
+msgid "You can't write-lock a log table. Only read access is possible"
+msgstr "您不能写锁定日志表。只能进行读取访问"
+
+#: metadata/backend/mysql/errors.py:1067
+msgid "You can't use locks with log tables."
+msgstr "您不能对日志表使用锁。"
+
+#: metadata/backend/mysql/errors.py:1071
+msgid ""
+"Upholding foreign key constraints for table '{}', entry '{}', key {} "
+"would lead to a duplicate entry"
+msgstr "维持表“ {}”，条目“ {}”，键{}的外键约束将导致条目重复"
+
+#: metadata/backend/mysql/errors.py:1076
+msgid ""
+"Column count of mysql.{} is wrong. Expected {}, found {}. Created with "
+"MariaDB {}, now running {}. Please use mysql_upgrade to fix this error."
+msgstr "mysql。{}的列数是错误的。预期{}，找到{}。使用MariaDB {}创建，现在运行{}。请使用mysql_upgrade修复此错误。"
+
+#: metadata/backend/mysql/errors.py:1084
+msgid ""
+"Cannot switch out of the row-based binary log format when the session has"
+" open temporary tables"
+msgstr "会话具有打开的临时表时，无法切换出基于行的二进制日志格式"
+
+#: metadata/backend/mysql/errors.py:1089
+msgid ""
+"Cannot change the binary logging format inside a stored function or "
+"trigger"
+msgstr "无法更改存储函数或触发器内部的二进制日志记录格式"
+
+#: metadata/backend/mysql/errors.py:1094
+msgid ""
+"The NDB cluster engine does not support changing the binlog format on the"
+" fly yet"
+msgstr "NDB群集引擎尚不支持即时更改binlog格式"
+
+#: metadata/backend/mysql/errors.py:1096
+msgid "Cannot create temporary table with partitions"
+msgstr "无法使用分区创建临时表"
+
+#: metadata/backend/mysql/errors.py:1097
+msgid "Partition constant is out of partition function domain"
+msgstr "分区常数不在分区函数域中"
+
+#: metadata/backend/mysql/errors.py:1098
+msgid "This partition function is not allowed"
+msgstr "不允许使用此分区功能"
+
+#: metadata/backend/mysql/errors.py:1099
+msgid "Error in DDL log"
+msgstr "DDL日志中的错误"
+
+#: metadata/backend/mysql/errors.py:1100
+msgid "Not allowed to use NULL value in VALUES LESS THAN"
+msgstr "不允许使用小于VALUES的NULL值"
+
+#: metadata/backend/mysql/errors.py:1101
+msgid "Incorrect partition name"
+msgstr "不正确的分区名称"
+
+#: metadata/backend/mysql/errors.py:1105
+msgid ""
+"Transaction isolation level can't be changed while a transaction is in "
+"progress"
+msgstr "进行交易时无法更改交易隔离级别"
+
+#: metadata/backend/mysql/errors.py:1110
+msgid ""
+"ALTER TABLE causes auto_increment resequencing, resulting in duplicate "
+"entry '{}' for key '{}'"
+msgstr "ALTER TABLE导致auto_increment重新排序，导致键“ {}”的条目“ {}”重复"
+
+#: metadata/backend/mysql/errors.py:1112
+msgid "Internal scheduler error {}"
+msgstr "内部调度程序错误{}"
+
+#: metadata/backend/mysql/errors.py:1113
+msgid "Error during starting/stopping of the scheduler. Error code {}"
+msgstr "启动/停止调度程序时出错。错误代码 {}"
+
+#: metadata/backend/mysql/errors.py:1114
+msgid "Engine cannot be used in partitioned tables"
+msgstr "无法在分区表中使用引擎"
+
+#: metadata/backend/mysql/errors.py:1115
+msgid "Cannot activate '{}' log"
+msgstr "无法激活“ {}”日志"
+
+#: metadata/backend/mysql/errors.py:1116
+msgid "The server was not built with row-based replication"
+msgstr "该服务器不是使用基于行的复制构建的"
+
+#: metadata/backend/mysql/errors.py:1117
+msgid "Decoding of base64 string failed"
+msgstr "解码base64字符串失败"
+
+#: metadata/backend/mysql/errors.py:1118
+msgid "Recursion of EVENT DDL statements is forbidden when body is present"
+msgstr "当正文存在时，EVENT DDL语句的递归被禁止"
+
+#: metadata/backend/mysql/errors.py:1122
+msgid ""
+"Cannot proceed because system tables used by Event Scheduler were found "
+"damaged at server start"
+msgstr "由于服务器启动时发现Event Scheduler使用的系统表已损坏，因此无法继续"
+
+#: metadata/backend/mysql/errors.py:1124
+msgid "Only integers allowed as number here"
+msgstr "此处仅允许整数作为数字"
+
+#: metadata/backend/mysql/errors.py:1125
+msgid "This storage engine cannot be used for log tables"
+msgstr "该存储引擎不能用于日志表"
+
+#: metadata/backend/mysql/errors.py:1126
+msgid "You cannot '{}' a log table if logging is enabled"
+msgstr "如果启用了日志记录，则不能“ {}”一个日志表"
+
+#: metadata/backend/mysql/errors.py:1130
+msgid ""
+"Cannot rename '{}'. When logging enabled, rename to/from log table must "
+"rename two tables: the log table to an archive table and another table "
+"back to '{}'"
+msgstr "无法重命名“ {}”。启用日志记录后，重命名为日志表或从日志表重命名必须重命名两个表：将日志表重命名为存档表，将另一个表重命名为“ {}”"
+
+#: metadata/backend/mysql/errors.py:1135
+msgid "Incorrect parameter count in the call to native function '{}'"
+msgstr "调用本机函数“ {}”时参数计数不正确"
+
+#: metadata/backend/mysql/errors.py:1136
+msgid "Incorrect parameters in the call to native function '{}'"
+msgstr "调用本机函数“ {}”时参数不正确"
+
+#: metadata/backend/mysql/errors.py:1137
+msgid "Incorrect parameters in the call to stored function '{}'"
+msgstr "调用存储函数“ {}”时参数不正确"
+
+#: metadata/backend/mysql/errors.py:1138
+msgid "This function '{}' has the same name as a native function"
+msgstr "函数“ {}”的名称与本机函数的名称相同"
+
+#: metadata/backend/mysql/errors.py:1139
+msgid "Duplicate entry '{}' for key '{}'"
+msgstr "键“ {}”的条目“ {}”重复"
+
+#: metadata/backend/mysql/errors.py:1140
+msgid "Too many files opened, please execute the command again"
+msgstr "打开的文件太多，请再次执行命令"
+
+#: metadata/backend/mysql/errors.py:1144 metadata/backend/mysql/errors.py:1152
+msgid ""
+"Event execution time is in the past and ON COMPLETION NOT PRESERVE is "
+"set. The event was dropped immediately after creation."
+msgstr "事件执行时间已过去，并且设置了ON COMPLETION NOT PRESERVE。该事件在创建后立即被删除。"
+
+#: metadata/backend/mysql/errors.py:1157
+msgid "The incident {} occured on the master. Message: {}"
+msgstr "事件{}发生在主服务器上。信息： {}"
+
+#: metadata/backend/mysql/errors.py:1158
+msgid "Table has no partition for some existing values"
+msgstr "该表没有为某些现有值分区"
+
+#: metadata/backend/mysql/errors.py:1162
+msgid ""
+"Unsafe statement written to the binary log using statement format since "
+"BINLOG_FORMAT = STATEMENT. {}"
+msgstr "由于BINLOG_FORMAT = STATEMENT，所以使用语句格式将不安全的语句写入二进制日志。 {}"
+
+#: metadata/backend/mysql/errors.py:1164
+msgid "Fatal error: {}"
+msgstr "致命错误： {}"
+
+#: metadata/backend/mysql/errors.py:1165
+msgid "Relay log read failure: {}"
+msgstr "中继日志读取失败：{}"
+
+#: metadata/backend/mysql/errors.py:1166
+msgid "Relay log write failure: {}"
+msgstr "中继日志写入失败：{}"
+
+#: metadata/backend/mysql/errors.py:1168
+msgid "Master command {} failed: {}"
+msgstr "主命令{}失败：{}"
+
+#: metadata/backend/mysql/errors.py:1169
+msgid "Binary logging not possible. Message: {}"
+msgstr "不能进行二进制日志记录。信息： {}"
+
+#: metadata/backend/mysql/errors.py:1170
+msgid "View `{}`.`{}` has no creation context"
+msgstr "视图`{}`.` {}`没有创建上下文"
+
+#: metadata/backend/mysql/errors.py:1171
+msgid "Creation context of view `{}`.`{}' is invalid"
+msgstr "视图`{}`.` {}'的创建上下文无效"
+
+#: metadata/backend/mysql/errors.py:1172
+msgid "Creation context of stored routine `{}`.`{}` is invalid"
+msgstr "存储的例程“ {}”的创建上下文。“ {}”无效"
+
+#: metadata/backend/mysql/errors.py:1173
+msgid "Corrupted TRG file for table `{}`.`{}`"
+msgstr "表`{}`.` {}`的TRG文件已损坏"
+
+#: metadata/backend/mysql/errors.py:1174
+msgid "Triggers for table `{}`.`{}` have no creation context"
+msgstr "表{{} .` {}`的触发器没有创建上下文"
+
+#: metadata/backend/mysql/errors.py:1175
+msgid "Trigger creation context of table `{}`.`{}` is invalid"
+msgstr "表“ {}”的触发器创建上下文。“ {}”无效"
+
+#: metadata/backend/mysql/errors.py:1176
+msgid "Creation context of event `{}`.`{}` is invalid"
+msgstr "事件`{}`.` {}`的创建上下文无效"
+
+#: metadata/backend/mysql/errors.py:1177
+msgid "Cannot open table for trigger `{}`.`{}`"
+msgstr "无法打开触发器“ {}”的表。{}"
+
+#: metadata/backend/mysql/errors.py:1178
+msgid "Cannot create stored routine `{}`. Check warnings"
+msgstr "无法创建存储的例程“ {}”。检查警告"
+
+#: metadata/backend/mysql/errors.py:1182
+msgid ""
+"The BINLOG statement of type `{}` was not preceded by a format "
+"description BINLOG statement."
+msgstr "类型为{{}`的BINLOG语句之前没有格式描述BINLOG语句。"
+
+#: metadata/backend/mysql/errors.py:1184
+msgid "Corrupted replication event was detected"
+msgstr "检测到损坏的复制事件"
+
+#: metadata/backend/mysql/errors.py:1185
+msgid "Invalid column reference ({}) in LOAD DATA"
+msgstr "LOAD DATA中的列引用（{}）无效"
+
+#: metadata/backend/mysql/errors.py:1186
+msgid "Being purged log {} was not found"
+msgstr "找不到正在清除的日志{}"
+
+#: metadata/backend/mysql/errors.py:1187
+msgid "XA_RBTIMEOUT: Transaction branch was rolled back: took too long"
+msgstr "XA_RBTIMEOUT：事务分支已回退：花了太长时间"
+
+#: metadata/backend/mysql/errors.py:1188
+msgid "XA_RBDEADLOCK: Transaction branch was rolled back: deadlock was detected"
+msgstr "XA_RBDEADLOCK：事务分支已回退：检测到死锁"
+
+#: metadata/backend/mysql/errors.py:1189
+msgid "Prepared statement needs to be re-prepared"
+msgstr "准备好的语句需要重新准备"
+
+#: metadata/backend/mysql/errors.py:1190
+msgid "DELAYED option not supported for table '{}'"
+msgstr "表'{}'不支持DELAYED选项"
+
+#: metadata/backend/mysql/errors.py:1191
+msgid "The master info structure does not exist"
+msgstr "主信息结构不存在"
+
+#: metadata/backend/mysql/errors.py:1192
+msgid "<{}> option ignored"
+msgstr "&lt;{}&gt;选项被忽略"
+
+#: metadata/backend/mysql/errors.py:1193
+msgid "Built-in plugins cannot be deleted"
+msgstr "内置插件无法删除"
+
+#: metadata/backend/mysql/errors.py:1194
+msgid "Plugin is busy and will be uninstalled on shutdown"
+msgstr "插件忙，将在关机时被卸载"
+
+#: metadata/backend/mysql/errors.py:1195
+msgid "{} variable '{}' is read-only. Use SET {} to assign the value"
+msgstr "{}变量“ {}”为只读。使用SET {}分配值"
+
+#: metadata/backend/mysql/errors.py:1199
+msgid ""
+"Storage engine {} does not support rollback for this statement. "
+"Transaction rolled back and must be restarted"
+msgstr "存储引擎{}不支持该语句的回滚。事务回滚，必须重新启动"
+
+#: metadata/backend/mysql/errors.py:1204
+msgid "Unexpected master's heartbeat data: {}"
+msgstr "意外的主设备的心跳数据：{}"
+
+#: metadata/backend/mysql/errors.py:1208
+msgid ""
+"The requested value for the heartbeat period is either negative or "
+"exceeds the maximum allowed ({} seconds)."
+msgstr "心跳周期的请求值是负值或超过允许的最大值（{}秒）。"
+
+#: metadata/backend/mysql/errors.py:1213
+msgid "Bad schema for mysql.ndb_replication table. Message: {}"
+msgstr "mysql.ndb_replication表的架构错误。信息： {}"
+
+#: metadata/backend/mysql/errors.py:1214
+msgid "Error in parsing conflict function. Message: {}"
+msgstr "解析冲突函数时出错。信息： {}"
+
+#: metadata/backend/mysql/errors.py:1215
+msgid "Write to exceptions table failed. Message: {}"
+msgstr "写入例外表失败。信息： {}"
+
+#: metadata/backend/mysql/errors.py:1216
+msgid "Comment for table '{}' is too long (max = {})"
+msgstr "表'{}'的注释过长（max = {}）"
+
+#: metadata/backend/mysql/errors.py:1217
+msgid "Comment for field '{}' is too long (max = {})"
+msgstr "字段“ {}”的注释过长（最大值= {}）"
+
+#: metadata/backend/mysql/errors.py:1221
+msgid ""
+"FUNCTION {} does not exist. Check the 'Function Name Parsing and "
+"Resolution' section in the Reference Manual"
+msgstr "FUNCTION {}不存在。检查参考手册中的“函数名称解析和解析”部分"
+
+#: metadata/backend/mysql/errors.py:1226
+msgid "Database"
+msgstr "数据库"
+
+#: metadata/backend/mysql/errors.py:1227
+msgid "Table"
+msgstr "表"
+
+#: metadata/backend/mysql/errors.py:1228
+msgid "Partition"
+msgstr "划分"
+
+#: metadata/backend/mysql/errors.py:1229
+msgid "Subpartition"
+msgstr "子分区"
+
+#: metadata/backend/mysql/errors.py:1230
+msgid "Temporary"
+msgstr "临时"
+
+#: metadata/backend/mysql/errors.py:1231
+msgid "Renamed"
+msgstr "更名"
+
+#: metadata/backend/mysql/errors.py:1232
+msgid "Too many active concurrent transactions"
+msgstr "活动的并发事务太多"
+
+#: metadata/backend/mysql/errors.py:1233
+msgid "Non-ASCII separator arguments are not fully supported"
+msgstr "不完全支持非ASCII分隔符参数"
+
+#: metadata/backend/mysql/errors.py:1234
+msgid "debug sync point wait timed out"
+msgstr "调试同步点等待超时"
+
+#: metadata/backend/mysql/errors.py:1235
+msgid "debug sync point hit limit reached"
+msgstr "达到调试同步点命中限制"
+
+#: metadata/backend/mysql/errors.py:1236
+msgid "Duplicate condition information item '{}'"
+msgstr "条件信息项“ {}”重复"
+
+#: metadata/backend/mysql/errors.py:1237
+msgid "Unhandled user-defined warning condition"
+msgstr "未处理的用户定义警告条件"
+
+#: metadata/backend/mysql/errors.py:1238
+msgid "Unhandled user-defined not found condition"
+msgstr "未处理的未定义用户定义条件"
+
+#: metadata/backend/mysql/errors.py:1239
+msgid "Unhandled user-defined exception condition"
+msgstr "未处理的用户定义的异常条件"
+
+#: metadata/backend/mysql/errors.py:1240
+msgid "RESIGNAL when handler not active"
+msgstr "处理程序不活动时重新发送信号"
+
+#: metadata/backend/mysql/errors.py:1241
+msgid "SIGNAL/RESIGNAL can only use a CONDITION defined with SQLSTATE"
+msgstr "SIGNAL / RESIGNAL只能使用SQLSTATE定义的CONDITION"
+
+#: metadata/backend/mysql/errors.py:1242
+msgid "Data truncated for condition item '{}'"
+msgstr "条件项目“ {}”的数据被截断"
+
+#: metadata/backend/mysql/errors.py:1243
+msgid "Data too long for condition item '{}'"
+msgstr "条件项目“ {}”的数据太长"
+
+#: metadata/backend/mysql/errors.py:1244
+msgid "Unknown locale: '{}'"
+msgstr "未知语言环境：“ {}”"
+
+#: metadata/backend/mysql/errors.py:1248
+msgid ""
+"The requested server id {} clashes with the slave startup option "
+"--replicate-same-server-id"
+msgstr "请求的服务器ID {}与从属启动选项--replicate-same-server-id冲突"
+
+#: metadata/backend/mysql/errors.py:1253
+msgid ""
+"Query cache is disabled; restart the server with query_cache_type=1 to "
+"enable it"
+msgstr "查询缓存已禁用；使用query_cache_type = 1重新启动服务器以启用它"
+
+#: metadata/backend/mysql/errors.py:1255
+msgid "Duplicate partition field name '{}'"
+msgstr "重复的分区字段名称“ {}”"
+
+#: metadata/backend/mysql/errors.py:1256
+msgid "Inconsistency in usage of column lists for partitioning"
+msgstr "使用列列表进行分区时不一致"
+
+#: metadata/backend/mysql/errors.py:1257
+msgid "Partition column values of incorrect type"
+msgstr "类型不正确的分区列值"
+
+#: metadata/backend/mysql/errors.py:1258
+msgid "Too many fields in '{}'"
+msgstr "“ {}”中的字段过多"
+
+#: metadata/backend/mysql/errors.py:1259
+msgid "Cannot use MAXVALUE as value in VALUES IN"
+msgstr "无法将MAXVALUE用作VALUES IN中的值"
+
+#: metadata/backend/mysql/errors.py:1260
+msgid "Cannot have more than one value for this type of {} partitioning"
+msgstr "此类型的{}分区不能有多个值"
+
+#: metadata/backend/mysql/errors.py:1264
+msgid ""
+"Row expressions in VALUES IN only allowed for multi-field column "
+"partitioning"
+msgstr "VALUES IN中的行表达式仅用于多字段列分区"
+
+#: metadata/backend/mysql/errors.py:1269
+msgid "Field '{}' is of a not allowed type for this type of partitioning"
+msgstr "此分区类型的字段“ {}”是不允许的类型"
+
+#: metadata/backend/mysql/errors.py:1271
+msgid "The total length of the partitioning fields is too large"
+msgstr "分区字段的总长度太大"
+
+#: metadata/backend/mysql/errors.py:1275
+msgid ""
+"Cannot execute statement: impossible to write to binary log since both "
+"row-incapable engines and statement-incapable engines are involved."
+msgstr "无法执行语句：由于无法使用行的引擎和无法使用语句的引擎，因此无法写入二进制日志。"
+
+#: metadata/backend/mysql/errors.py:1283
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"BINLOG_FORMAT = ROW and at least one table uses a storage engine limited "
+"to statement-based logging."
+msgstr "无法执行语句：由于BINLOG_FORMAT = ROW并且至少一个表使用了仅限于基于语句的日志记录的存储引擎，因此无法写入二进制日志。"
+
+#: metadata/backend/mysql/errors.py:1291
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"statement is unsafe, storage engine is limited to statement-based "
+"logging, and BINLOG_FORMAT = MIXED. {}"
+msgstr "无法执行语句：由于语句不安全，存储引擎仅限于基于语句的日志记录，并且BINLOG_FORMAT = MIXED，因此无法写入二进制日志。 {}"
+
+#: metadata/backend/mysql/errors.py:1299
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"statement is in row format and at least one table uses a storage engine "
+"limited to statement-based logging."
+msgstr "无法执行语句：由于语句为行格式，并且至少一个表使用仅限于基于语句的日志记录的存储引擎，因此无法写入二进制日志。"
+
+#: metadata/backend/mysql/errors.py:1307
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"BINLOG_FORMAT = STATEMENT and at least one table uses a storage engine "
+"limited to row-based logging.{}"
+msgstr ""
+"无法执行语句：由于BINLOG_FORMAT = "
+"STATEMENT，并且至少一个表使用了仅限于基于行的日志记录的存储引擎，因此无法写入二进制日志。{}"
+
+#: metadata/backend/mysql/errors.py:1315
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"statement is in row format and BINLOG_FORMAT = STATEMENT."
+msgstr "无法执行语句：由于语句为行格式且BINLOG_FORMAT = STATEMENT，因此无法写入二进制日志。"
+
+#: metadata/backend/mysql/errors.py:1323
+msgid ""
+"Cannot execute statement: impossible to write to binary log since more "
+"than one engine is involved and at least one engine is self-logging."
+msgstr "无法执行语句：由于涉及多个引擎并且至少一个引擎是自记录的，因此无法写入二进制日志。"
+
+#: metadata/backend/mysql/errors.py:1331
+msgid ""
+"The statement is unsafe because it uses a LIMIT clause. This is unsafe "
+"because the set of rows included cannot be predicted."
+msgstr "该语句不安全，因为它使用LIMIT子句。这是不安全的，因为无法预测其中包含的行集。"
+
+#: metadata/backend/mysql/errors.py:1339
+msgid ""
+"The statement is unsafe because it uses INSERT DELAYED. This is unsafe "
+"because the times when rows are inserted cannot be predicted."
+msgstr "该语句不安全，因为它使用INSERT DELAYED。这是不安全的，因为无法预测插入行的时间。"
+
+#: metadata/backend/mysql/errors.py:1347
+msgid ""
+"The statement is unsafe because it uses the general log, slow query log, "
+"or performance_schema table(s). This is unsafe because system tables may "
+"differ on slaves."
+msgstr "该语句是不安全的，因为它使用常规日志，慢查询日志或Performance_schema表。这是不安全的，因为系统表在从站上可能有所不同。"
+
+#: metadata/backend/mysql/errors.py:1355
+msgid ""
+"Statement is unsafe because it invokes a trigger or a stored function "
+"that inserts into an AUTO_INCREMENT column. Inserted values cannot be "
+"logged correctly."
+msgstr "语句不安全，因为它调用插入到AUTO_INCREMENT列中的触发器或存储函数。插入值无法正确记录。"
+
+#: metadata/backend/mysql/errors.py:1363
+msgid ""
+"Statement is unsafe because it uses a UDF which may not return the same "
+"value on the slave."
+msgstr "语句是不安全的，因为它使用的UDF可能在从站上不能返回相同的值。"
+
+#: metadata/backend/mysql/errors.py:1368
+msgid ""
+"Statement is unsafe because it uses a system variable that may have a "
+"different value on the slave."
+msgstr "语句不安全，因为它使用的系统变量在从站上可能具有不同的值。"
+
+#: metadata/backend/mysql/errors.py:1373
+msgid ""
+"Statement is unsafe because it uses a system function that may return a "
+"different value on the slave."
+msgstr "语句不安全，因为它使用系统函数，该函数可能在从站上返回不同的值。"
+
+#: metadata/backend/mysql/errors.py:1378
+msgid ""
+"Statement is unsafe because it accesses a non-transactional table after "
+"accessing a transactional table within the same transaction."
+msgstr "语句是不安全的，因为它在访问同一事务中的事务表之后访问了非事务表。"
+
+#: metadata/backend/mysql/errors.py:1383
+msgid "{} Statement: {}"
+msgstr "{}声明：{}"
+
+#: metadata/backend/mysql/errors.py:1387
+msgid "Column {} of table '{}.{}' cannot be converted from type '{}' to type '{}'"
+msgstr "表'{}。{}'的列{}无法从类型'{}'转换为类型'{}'"
+
+#: metadata/backend/mysql/errors.py:1389
+msgid "Can't create conversion table for table '{}.{}'"
+msgstr "无法为表“ {}。{}”创建转换表"
+
+#: metadata/backend/mysql/errors.py:1393
+msgid "Cannot modify @@session.binlog_format inside a transaction"
+msgstr "无法在事务内修改@@ session.binlog_format"
+
+#: metadata/backend/mysql/errors.py:1395
+msgid "The path specified for {} is too long."
+msgstr "为{}指定的路径太长。"
+
+#: metadata/backend/mysql/errors.py:1399
+msgid "'{}' is deprecated and will be removed in a future release."
+msgstr "'{}'已过时，将在以后的版本中删除。"
+
+#: metadata/backend/mysql/errors.py:1401
+msgid "Native table '{}'.'{}' has the wrong structure"
+msgstr "本机表'{}'。'{}'结构错误"
+
+#: metadata/backend/mysql/errors.py:1402
+msgid "Invalid performance_schema usage."
+msgstr "无效的performance_schema用法。"
+
+#: metadata/backend/mysql/errors.py:1406
+msgid ""
+"Table '{}'.'{}' was skipped since its definition is being modified by "
+"concurrent DDL statement"
+msgstr "表'{}'。'{}'被跳过，因为其定义被并发DDL语句修改"
+
+#: metadata/backend/mysql/errors.py:1411
+msgid ""
+"Cannot modify @@session.binlog_direct_non_transactional_updates inside a "
+"transaction"
+msgstr "无法修改事务内的@@ session.binlog_direct_non_transactional_updates"
+
+#: metadata/backend/mysql/errors.py:1416
+msgid "Cannot change the binlog direct flag inside a stored function or trigger"
+msgstr "无法更改已存储函数或触发器中的binlog直接标志"
+
+#: metadata/backend/mysql/errors.py:1418
+msgid "A SPATIAL index may only contain a geometrical type column"
+msgstr "一个空间索引只能包含一个几何类型列"
+
+#: metadata/backend/mysql/errors.py:1419
+msgid "Comment for index '{}' is too long (max = {})"
+msgstr "索引“ {}”的注释过长（最大值= {}）"
+
+#: metadata/backend/mysql/errors.py:1420
+msgid "Wait on a lock was aborted due to a pending exclusive lock"
+msgstr "由于等待的排他锁，等待锁被中止"
+
+#: metadata/backend/mysql/errors.py:1421
+msgid "{} value is out of range in '{}'"
+msgstr "{}值超出“ {}”的范围"
+
+#: metadata/backend/mysql/errors.py:1422
+msgid "A variable of a non-integer based type in LIMIT clause"
+msgstr "LIMIT子句中基于非整数类型的变量"
+
+#: metadata/backend/mysql/errors.py:1426
+msgid "Mixing self-logging and non-self-logging engines in a statement is unsafe."
+msgstr "在语句中混合使用自记录引擎和非自记录引擎是不安全的。"
+
+#: metadata/backend/mysql/errors.py:1431
+msgid ""
+"Statement accesses nontransactional table as well as transactional or "
+"temporary table, and writes to any of them."
+msgstr "语句访问非事务表以及事务表或临时表，并写入其中的任何一个。"
+
+#: metadata/backend/mysql/errors.py:1439
+msgid "Cannot modify @@session.sql_log_bin inside a transaction"
+msgstr "无法在事务内修改@@ session.sql_log_bin"
+
+#: metadata/backend/mysql/errors.py:1444
+msgid "Cannot change the sql_log_bin inside a stored function or trigger"
+msgstr "无法在存储的函数或触发器中更改sql_log_bin"
+
+#: metadata/backend/mysql/errors.py:1446
+msgid "Failed to read from the .par file"
+msgstr "无法读取.par文件"
+
+#: metadata/backend/mysql/errors.py:1447
+msgid "VALUES value for partition '{}' must have type INT"
+msgstr "分区“ {}”的VALUES值必须为INT类型"
+
+#: metadata/backend/mysql/errors.py:1448
+msgid "Access denied for user '{}'@'{}'"
+msgstr "用户'{}'@'{}'的访问被拒绝"
+
+#: metadata/backend/mysql/errors.py:1449
+msgid "SET PASSWORD has no significance for users authenticating via plugins"
+msgstr "SET PASSWORD对于用户通过插件进行身份验证没有意义"
+
+#: metadata/backend/mysql/errors.py:1453
+msgid "GRANT with IDENTIFIED WITH is illegal because the user {} already exists"
+msgstr "具有IDENTIFIED WITH的GRANT是非法的，因为用户{}已经存在"
+
+#: metadata/backend/mysql/errors.py:1455
+msgid "Cannot truncate a table referenced in a foreign key constraint ({})"
+msgstr "无法截断外键约束（{}）中引用的表"
+
+#: metadata/backend/mysql/errors.py:1456
+msgid "Plugin '{}' is force_plus_permanent and can not be unloaded"
+msgstr "插件'{}'是force_plus_permanent，无法卸载"
+
+#: metadata/backend/mysql/errors.py:1460
+msgid ""
+"The requested value for the heartbeat period is less than 1 millisecond. "
+"The value is reset to 0, meaning that heartbeating will effectively be "
+"disabled."
+msgstr "心跳周期的请求值小于1毫秒。将该值重置为0，这意味着将有效禁用心跳。"
+
+#: metadata/backend/mysql/errors.py:1468
+msgid ""
+"The requested value for the heartbeat period exceeds the value of "
+"slave_net_timeout seconds. A sensible value for the period should be less"
+" than the timeout."
+msgstr "心跳周期的请求值超过slave_net_timeout秒的值。该时间段的合理值应小于超时值。"
+
+#: metadata/backend/mysql/errors.py:1476
+msgid ""
+"Multi-row statements required more than 'max_binlog_stmt_cache_size' "
+"bytes of storage; increase this mysqld variable and try again"
+msgstr "多行语句需要超过“ max_binlog_stmt_cache_size”个字节的存储空间；增加此mysqld变量，然后重试"
+
+#: metadata/backend/mysql/errors.py:1484
+msgid ""
+"Primary key/partition key update is not allowed since the table is "
+"updated both as '{}' and '{}'."
+msgstr "不允许更新主键/分区键，因为表被同时更新为“ {}”和“ {}”。"
+
+#: metadata/backend/mysql/errors.py:1489
+msgid ""
+"Table rebuild required. Please do 'ALTER TABLE `{}` FORCE' or dump/reload"
+" to fix it!"
+msgstr "需要重建表。请执行'ALTER TABLE`{}`FORCE'或转储/重新加载以解决该问题！"
+
+#: metadata/backend/mysql/errors.py:1491
+msgid "The value of '{}' should be no less than the value of '{}'"
+msgstr "“ {}”的值应不小于“ {}”的值"
+
+#: metadata/backend/mysql/errors.py:1492
+msgid "Index column size too large. The maximum column size is {} bytes."
+msgstr "索引列大小太大。最大列大小为{}个字节。"
+
+#: metadata/backend/mysql/errors.py:1493
+msgid "Trigger '{}' has an error in its body: '{}'"
+msgstr "触发器“ {}”的主体有错误：“ {}”"
+
+#: metadata/backend/mysql/errors.py:1494
+msgid "Unknown trigger has an error in its body: '{}'"
+msgstr "未知触发器的主体存在错误：“ {}”"
+
+#: metadata/backend/mysql/errors.py:1495
+msgid "Index {} is corrupted"
+msgstr "索引{}已损坏"
+
+#: metadata/backend/mysql/errors.py:1496
+msgid "Undo log record is too big."
+msgstr "撤消日志记录太大。"
+
+#: metadata/backend/mysql/errors.py:1500
+msgid ""
+"INSERT IGNORE... SELECT is unsafe because the order in which rows are "
+"retrieved by the SELECT determines which (if any) rows are ignored. This "
+"order cannot be predicted and may differ on master and the slave."
+msgstr ""
+"INSERT IGNORE ... "
+"SELECT是不安全的，因为SELECT检索行的顺序决定了忽略哪些行（如果有）。该顺序无法预测，并且在主机和从机上可能会有所不同。"
+
+#: metadata/backend/mysql/errors.py:1508
+msgid ""
+"INSERT... SELECT... ON DUPLICATE KEY UPDATE is unsafe because the order "
+"in which rows are retrieved by the SELECT determines which (if any) rows "
+"are updated. This order cannot be predicted and may differ on master and "
+"the slave."
+msgstr ""
+"INSERT ... SELECT ... ON DUPLICATE KEY "
+"UPDATE是不安全的，因为SELECT检索行的顺序决定了要更新的行（如果有）。该顺序无法预测，并且在主机和从机上可能会有所不同。"
+
+#: metadata/backend/mysql/errors.py:1517
+msgid ""
+"REPLACE... SELECT is unsafe because the order in which rows are retrieved"
+" by the SELECT determines which (if any) rows are replaced. This order "
+"cannot be predicted and may differ on master and the slave."
+msgstr ""
+"REPLACE ... "
+"SELECT是不安全的，因为SELECT检索行的顺序决定了要替换的行（如果有）。该顺序无法预测，并且在主机和从机上可能会有所不同。"
+
+#: metadata/backend/mysql/errors.py:1525
+msgid ""
+"CREATE... IGNORE SELECT is unsafe because the order in which rows are "
+"retrieved by the SELECT determines which (if any) rows are ignored. This "
+"order cannot be predicted and may differ on master and the slave."
+msgstr ""
+"CREATE ... IGNORE "
+"SELECT是不安全的，因为SELECT检索行的顺序决定了忽略哪些行（如果有）。该顺序无法预测，并且在主机和从机上可能会有所不同。"
+
+#: metadata/backend/mysql/errors.py:1533
+msgid ""
+"CREATE... REPLACE SELECT is unsafe because the order in which rows are "
+"retrieved by the SELECT determines which (if any) rows are replaced. This"
+" order cannot be predicted and may differ on master and the slave."
+msgstr ""
+"CREATE ... REPLACE "
+"SELECT是不安全的，因为SELECT检索行的顺序决定了要替换的行（如果有）。该顺序无法预测，并且在主机和从机上可能会有所不同。"
+
+#: metadata/backend/mysql/errors.py:1541
+msgid ""
+"UPDATE IGNORE is unsafe because the order in which rows are updated "
+"determines which (if any) rows are ignored. This order cannot be "
+"predicted and may differ on master and the slave."
+msgstr "UPDATE IGNORE是不安全的，因为更新行的顺序决定了忽略哪些行（如果有）。该顺序无法预测，并且在主机和从机上可能会有所不同。"
+
+#: metadata/backend/mysql/errors.py:1549
+msgid ""
+"Plugin '{}' is marked as not dynamically uninstallable. You have to stop "
+"the server to uninstall it."
+msgstr "插件“ {}”被标记为不可动态卸载。您必须停止服务器才能将其卸载。"
+
+#: metadata/backend/mysql/errors.py:1554
+msgid ""
+"Plugin '{}' is marked as not dynamically installable. You have to stop "
+"the server to install it."
+msgstr "插件“ {}”被标记为不可动态安装。您必须停止服务器才能安装它。"
+
+#: metadata/backend/mysql/errors.py:1559
+msgid ""
+"Statements writing to a table with an auto-increment column after "
+"selecting from another table are unsafe because the order in which rows "
+"are retrieved determines what (if any) rows will be written. This order "
+"cannot be predicted and may differ on master and the slave."
+msgstr "从另一个表中进行选择后，使用自动递增列写入表的语句是不安全的，因为检索行的顺序决定了要写入的行（如果有）。该顺序无法预测，并且在主机和从机上可能会有所不同。"
+
+#: metadata/backend/mysql/errors.py:1568
+msgid ""
+"CREATE TABLE... SELECT... on a table with an auto-increment column is "
+"unsafe because the order in which rows are retrieved by the SELECT "
+"determines which (if any) rows are inserted. This order cannot be "
+"predicted and may differ on master and the slave."
+msgstr "在具有自动增量列的表上创建表...选择...是不安全的，因为SELECT检索行的顺序决定了要插入的行（如果有）。该顺序无法预测，并且在主机和从机上可能会有所不同。"
+
+#: metadata/backend/mysql/errors.py:1577
+msgid ""
+"INSERT... ON DUPLICATE KEY UPDATE on a table with more than one UNIQUE "
+"KEY is unsafe"
+msgstr "INSERT ...在具有多个UNIQUE KEY的表上执行DUPLICATE KEY UPDATE不安全"
+
+#: metadata/backend/mysql/errors.py:1579
+msgid "Table is being used in foreign key check."
+msgstr "表正在外键检查中使用。"
+
+#: metadata/backend/mysql/errors.py:1580
+msgid "Storage engine '{}' does not support system tables. [{}.{}]"
+msgstr "存储引擎“ {}”不支持系统表。 [{}。{}]"
+
+#: metadata/backend/mysql/errors.py:1584
+msgid ""
+"INSERT into autoincrement field which is not the first part in the "
+"composed primary key is unsafe."
+msgstr "插入到不是自动组合字段的第一部分的自动增量字段中是不安全的。"
+
+#: metadata/backend/mysql/errors.py:1586
+msgid "Cannot load from {}.{}. The table is probably corrupted"
+msgstr "无法从{}。{}加载。该表可能已损坏"
+
+#: metadata/backend/mysql/errors.py:1590
+msgid "The requested value {} for the master delay exceeds the maximum {}"
+msgstr "主延迟请求的值{}超过了最大值{}"
+
+#: metadata/backend/mysql/errors.py:1595
+msgid ""
+"Only Format_description_log_event and row events are allowed in BINLOG "
+"statements (but {} was provided"
+msgstr "BINLOG语句中仅允许Format_description_log_event和row事件（但提供了{}"
+
+#: metadata/backend/mysql/errors.py:1597
+msgid "Non matching attribute '{}' between partition and table"
+msgstr "分区和表之间的属性“ {}”不匹配"
+
+#: metadata/backend/mysql/errors.py:1598
+msgid "Table to exchange with partition is partitioned: '{}'"
+msgstr "与分区交换的表已分区：“ {}”"
+
+#: metadata/backend/mysql/errors.py:1599
+msgid "Table to exchange with partition is temporary: '{}'"
+msgstr "与分区交换的表是临时的：“ {}”"
+
+#: metadata/backend/mysql/errors.py:1600
+msgid "Subpartitioned table, use subpartition instead of partition"
+msgstr "分区表，使用分区代替分区"
+
+#: metadata/backend/mysql/errors.py:1601
+msgid "Unknown partition '{}' in table '{}'"
+msgstr "表“ {}”中的未知分区“ {}”"
+
+#: metadata/backend/mysql/errors.py:1602
+msgid "Tables have different definitions"
+msgstr "表格有不同的定义"
+
+#: metadata/backend/mysql/errors.py:1603
+msgid "Found a row that does not match the partition"
+msgstr "找到与分区不匹配的行"
+
+#: metadata/backend/mysql/errors.py:1607
+msgid ""
+"Option binlog_cache_size ({}) is greater than max_binlog_cache_size ({});"
+" setting binlog_cache_size equal to max_binlog_cache_size."
+msgstr "选项binlog_cache_size（{}）大于max_binlog_cache_size（{}）;设置binlog_cache_size等于max_binlog_cache_size。"
+
+#: metadata/backend/mysql/errors.py:1615
+msgid ""
+"Cannot use {} access on index '{}' due to type or collation conversion on"
+" field '{}'"
+msgstr "由于字段“ {}”上的类型或排序规则转换，因此无法对索引“ {}”使用{}访问"
+
+#: metadata/backend/mysql/errors.py:1620
+msgid "Table to exchange with partition has foreign key references: '{}'"
+msgstr "与分区交换的表具有外键引用：“ {}”"
+
+#: metadata/backend/mysql/errors.py:1622
+msgid "Key value '{}' was not found in table '{}.{}'"
+msgstr "在表“ {}”中找不到键值“ {}”。{}”"
+
+#: metadata/backend/mysql/errors.py:1627
+msgid "Replication event checksum verification failed while reading from network."
+msgstr "从网络读取时，复制事件校验和验证失败。"
+
+#: metadata/backend/mysql/errors.py:1632
+msgid ""
+"Replication event checksum verification failed while reading from a log "
+"file."
+msgstr "从日志文件读取时，复制事件校验和验证失败。"
+
+#: metadata/backend/mysql/errors.py:1637
+msgid ""
+"Option binlog_stmt_cache_size ({}) is greater than "
+"max_binlog_stmt_cache_size ({}); setting binlog_stmt_cache_size equal to "
+"max_binlog_stmt_cache_size."
+msgstr "选项binlog_stmt_cache_size（{}）大于max_binlog_stmt_cache_size（{}）；设置binlog_stmt_cache_size等于max_binlog_stmt_cache_size。"
+
+#: metadata/backend/mysql/errors.py:1642
+msgid "Can't update table '{}' while '{}' is being created."
+msgstr "创建“ {}”时无法更新表“ {}”。"
+
+#: metadata/backend/mysql/errors.py:1643
+msgid "PARTITION () clause on non partitioned table"
+msgstr "非分区表上的PARTITION（）子句"
+
+#: metadata/backend/mysql/errors.py:1644
+msgid "Found a row not matching the given partition set"
+msgstr "找到与给定分区集不匹配的行"
+
+#: metadata/backend/mysql/errors.py:1645
+msgid "partition '{}' doesn't exist"
+msgstr "分区“ {}”不存在"
+
+#: metadata/backend/mysql/errors.py:1649
+msgid "Failure while changing the type of replication repository: {}."
+msgstr "更改复制存储库类型时失败：{}。"
+
+#: metadata/backend/mysql/errors.py:1654
+msgid "The creation of some temporary tables could not be rolled back."
+msgstr "某些临时表的创建无法回滚。"
+
+#: metadata/backend/mysql/errors.py:1659
+msgid ""
+"Some temporary tables were dropped, but these operations could not be "
+"rolled back."
+msgstr "删除了一些临时表，但是这些操作无法回滚。"
+
+#: metadata/backend/mysql/errors.py:1661
+msgid "{} is not supported in multi-threaded slave mode. {}"
+msgstr "多线程从属模式不支持{}。 {}"
+
+#: metadata/backend/mysql/errors.py:1665
+msgid ""
+"The number of modified databases exceeds the maximum {}; the database "
+"names will not be included in the replication event metadata."
+msgstr "已修改的数据库数超过了最大数量{}；数据库名称将不包含在复制事件元数据中。"
+
+#: metadata/backend/mysql/errors.py:1673
+msgid ""
+"Cannot execute the current event group in the parallel mode. Encountered "
+"event {}, relay-log name {}, position {} which prevents execution of this"
+" event group in parallel mode. Reason: {}."
+msgstr "无法在并行模式下执行当前事件组。遇到事件{}，中继日志名称{}，位置{}，这会阻止在并行模式下执行此事件组。原因：{}。"
+
+#: metadata/backend/mysql/errors.py:1678
+msgid "{}"
+msgstr "{}"
+
+#: metadata/backend/mysql/errors.py:1682
+msgid "FULLTEXT index is not supported for partitioned tables."
+msgstr "分区表不支持FULLTEXT索引。"
+
+#: metadata/backend/mysql/errors.py:1684
+msgid "Invalid condition number"
+msgstr "条件编号无效"
+
+#: metadata/backend/mysql/errors.py:1685
+msgid "Sending passwords in plain text without SSL/TLS is extremely insecure."
+msgstr "在不使用SSL / TLS的情况下以纯文本格式发送密码是非常不安全的。"
+
+#: metadata/backend/mysql/errors.py:1689
+msgid ""
+"Storing MySQL user name or password information in the master info "
+"repository is not secure and is therefore not recommended. Please "
+"consider using the USER and PASSWORD connection options for START SLAVE; "
+"see the 'START SLAVE Syntax' in the MySQL Manual for more information."
+msgstr ""
+"在主信息存储库中存储MySQL用户名或密码信息是不安全的，因此不建议这样做。请考虑将USER和PASSWORD连接选项用于START "
+"SLAVE；有关更多信息，请参见MySQL手册中的“ START SLAVE语法”。"
+
+#: metadata/backend/mysql/errors.py:1699
+msgid ""
+"Foreign key constraint for table '{}', record '{}' would lead to a "
+"duplicate entry in table '{}', key '{}'"
+msgstr "表“ {}”的外键约束，记录“ {}”将导致表“ {}”，键“ {}”中的条目重复"
+
+#: metadata/backend/mysql/errors.py:1704
+msgid ""
+"Foreign key constraint for table '{}', record '{}' would lead to a "
+"duplicate entry in a child table"
+msgstr "表“ {}”的外键约束，记录“ {}”将导致子表中的条目重复"
+
+#: metadata/backend/mysql/errors.py:1709
+msgid ""
+"Setting authentication options is not possible when only the Slave SQL "
+"Thread is being started."
+msgstr "仅从属SQL线程正在启动时，无法设置身份验证选项。"
+
+#: metadata/backend/mysql/errors.py:1711
+msgid "The table does not have FULLTEXT index to support this query"
+msgstr "该表没有FULLTEXT索引来支持此查询"
+
+#: metadata/backend/mysql/errors.py:1715
+msgid "The system variable {} cannot be set in stored functions or triggers."
+msgstr "无法在存储的函数或触发器中设置系统变量{}。"
+
+#: metadata/backend/mysql/errors.py:1720
+msgid "The system variable {} cannot be set when there is an ongoing transaction."
+msgstr "正在进行交易时，无法设置系统变量{}。"
+
+#: metadata/backend/mysql/errors.py:1725
+msgid ""
+"The system variable @@SESSION.GTID_NEXT has the value {}, which is not "
+"listed in @@SESSION.GTID_NEXT_LIST."
+msgstr "系统变量@@ SESSION.GTID_NEXT的值为{}，未在@@ SESSION.GTID_NEXT_LIST中列出。"
+
+#: metadata/backend/mysql/errors.py:1730
+msgid ""
+"The system variable @@SESSION.GTID_NEXT cannot change inside a "
+"transaction."
+msgstr "系统变量@@ SESSION.GTID_NEXT不能在事务内更改。"
+
+#: metadata/backend/mysql/errors.py:1732
+msgid "The statement 'SET {}' cannot invoke a stored function."
+msgstr "语句“ SET {}”不能调用存储的函数。"
+
+#: metadata/backend/mysql/errors.py:1736
+msgid ""
+"The system variable @@SESSION.GTID_NEXT cannot be 'AUTOMATIC' when "
+"@@SESSION.GTID_NEXT_LIST is non-NULL."
+msgstr "当@@ SESSION.GTID_NEXT_LIST为非NULL时，系统变量@@ SESSION.GTID_NEXT不能为“ AUTOMATIC”。"
+
+#: metadata/backend/mysql/errors.py:1741
+msgid "Skipping transaction {} because it has already been executed and logged."
+msgstr "跳过事务{}，因为它已经执行并记录了。"
+
+#: metadata/backend/mysql/errors.py:1743
+msgid "Malformed GTID set specification '{}'."
+msgstr "格式错误的GTID集规范“ {}”。"
+
+#: metadata/backend/mysql/errors.py:1744
+msgid "Malformed GTID set encoding."
+msgstr "GTID集编码格式错误。"
+
+#: metadata/backend/mysql/errors.py:1745
+msgid "Malformed GTID specification '{}'."
+msgstr "格式错误的GTID规范“ {}”。"
+
+#: metadata/backend/mysql/errors.py:1749
+msgid ""
+"Impossible to generate Global Transaction Identifier: the integer "
+"component reached the maximal value. Restart the server with a new "
+"server_uuid."
+msgstr "不可能生成全局事务标识符：整数部分达到最大值。使用新的server_uuid重新启动服务器。"
+
+#: metadata/backend/mysql/errors.py:1757
+msgid ""
+"Parameters MASTER_LOG_FILE, MASTER_LOG_POS, RELAY_LOG_FILE and "
+"RELAY_LOG_POS cannot be set when MASTER_AUTO_POSITION is active."
+msgstr "当MASTER_AUTO_POSITION处于活动状态时，无法设置参数MASTER_LOG_FILE，MASTER_LOG_POS，RELAY_LOG_FILE和RELAY_LOG_POS。"
+
+#: metadata/backend/mysql/errors.py:1765
+msgid ""
+"CHANGE MASTER TO MASTER_AUTO_POSITION = 1 can only be executed when "
+"@@GLOBAL.GTID_MODE = ON."
+msgstr "仅当@@ GLOBAL.GTID_MODE = ON时才能执行将MASTER更改为MASTER_AUTO_POSITION = 1。"
+
+#: metadata/backend/mysql/errors.py:1770
+msgid ""
+"Cannot execute statements with implicit commit inside a transaction when "
+"@@SESSION.GTID_NEXT != AUTOMATIC."
+msgstr "当@@ SESSION.GTID_NEXT！= AUTOMATIC时，无法在事务内执行带有隐式提交的语句。"
+
+#: metadata/backend/mysql/errors.py:1775
+msgid ""
+"GTID_MODE = ON or GTID_MODE = UPGRADE_STEP_2 requires "
+"DISABLE_GTID_UNSAFE_STATEMENTS = 1."
+msgstr ""
+"GTID_MODE = ON或GTID_MODE = UPGRADE_STEP_2需要DISABLE_GTID_UNSAFE_STATEMENTS"
+" = 1。"
+
+#: metadata/backend/mysql/errors.py:1780
+msgid ""
+"@@GLOBAL.GTID_MODE = ON or UPGRADE_STEP_2 requires "
+"@@GLOBAL.ENFORCE_GTID_CONSISTENCY = 1."
+msgstr ""
+"@@ GLOBAL.GTID_MODE = ON或UPGRADE_STEP_2需要@@ "
+"GLOBAL.ENFORCE_GTID_CONSISTENCY = 1。"
+
+#: metadata/backend/mysql/errors.py:1785
+msgid ""
+"@@GLOBAL.GTID_MODE = ON or UPGRADE_STEP_1 or UPGRADE_STEP_2 requires "
+"--log-bin and --log-slave-updates."
+msgstr ""
+"@@ GLOBAL.GTID_MODE = ON或UPGRADE_STEP_1或UPGRADE_STEP_2需要--log-bin和--log-"
+"slave-updates。"
+
+#: metadata/backend/mysql/errors.py:1790
+msgid ""
+"@@SESSION.GTID_NEXT cannot be set to UUID:NUMBER when @@GLOBAL.GTID_MODE "
+"= OFF."
+msgstr "@@ GLOBAL.GTID_MODE = OFF时，不能将@@ SESSION.GTID_NEXT设置为UUID：NUMBER。"
+
+#: metadata/backend/mysql/errors.py:1795
+msgid ""
+"@@SESSION.GTID_NEXT cannot be set to ANONYMOUS when @@GLOBAL.GTID_MODE = "
+"ON."
+msgstr "当@@ GLOBAL.GTID_MODE = ON时，不能将@@ SESSION.GTID_NEXT设置为ANONYMOUS。"
+
+#: metadata/backend/mysql/errors.py:1800
+msgid ""
+"@@SESSION.GTID_NEXT_LIST cannot be set to a non-NULL value when "
+"@@GLOBAL.GTID_MODE = OFF."
+msgstr "@@ GLOBAL.GTID_MODE = OFF时，不能将@@ SESSION.GTID_NEXT_LIST设置为非NULL值。"
+
+#: metadata/backend/mysql/errors.py:1805
+msgid ""
+"Found a Gtid_log_event or Previous_gtids_log_event when "
+"@@GLOBAL.GTID_MODE = OFF."
+msgstr "@@ GLOBAL.GTID_MODE = OFF时发现一个Gtid_log_event或Previous_gtids_log_event。"
+
+#: metadata/backend/mysql/errors.py:1810
+msgid ""
+"When @@GLOBAL.ENFORCE_GTID_CONSISTENCY = 1, updates to non-transactional "
+"tables can only be done in either autocommitted statements or single-"
+"statement transactions, and never in the same statement as updates to "
+"transactional tables."
+msgstr ""
+"@@ GLOBAL.ENFORCE_GTID_CONSISTENCY = "
+"1时，只能在自动提交的语句或单语句事务中完成对非事务表的更新，而不能在与事务表更新相同的语句中进行。"
+
+#: metadata/backend/mysql/errors.py:1819
+msgid ""
+"CREATE TABLE ... SELECT is forbidden when "
+"@@GLOBAL.ENFORCE_GTID_CONSISTENCY = 1."
+msgstr "当@@ GLOBAL.ENFORCE_GTID_CONSISTENCY = 1时，CREATE TABLE ... SELECT被禁止。"
+
+#: metadata/backend/mysql/errors.py:1824
+msgid ""
+"When @@GLOBAL.ENFORCE_GTID_CONSISTENCY = 1, the statements CREATE "
+"TEMPORARY TABLE and DROP TEMPORARY TABLE can be executed in a non-"
+"transactional context only, and require that AUTOCOMMIT = 1."
+msgstr ""
+"当@@ GLOBAL.ENFORCE_GTID_CONSISTENCY = 1时，语句CREATE TEMPORARY TABLE和DROP "
+"TEMPORARY TABLE只能在非事务上下文中执行，并且要求AUTOCOMMIT = 1。"
+
+#: metadata/backend/mysql/errors.py:1833
+msgid ""
+"The value of @@GLOBAL.GTID_MODE can only change one step at a time: OFF "
+"<-> UPGRADE_STEP_1 <-> UPGRADE_STEP_2 <-> ON. Also note that this value "
+"must be stepped up or down simultaneously on all servers; see the Manual "
+"for instructions."
+msgstr ""
+"@@ GLOBAL.GTID_MODE的值一次只能更改一个步骤：OFF &lt;-&gt; UPGRADE_STEP_1 &lt;-&gt; "
+"UPGRADE_STEP_2 &lt;-&gt; ON。还要注意，该值必须在所有服务器上同时提高或降低。有关说明，请参见手册。"
+
+#: metadata/backend/mysql/errors.py:1843
+msgid ""
+"The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1, "
+"but the master has purged binary logs containing GTIDs that the slave "
+"requires."
+msgstr ""
+"从站正在使用CHANGE MASTER TO MASTER_AUTO_POSITION = "
+"1进行连接，但是主站已清除了包含从站所需的GTID的二进制日志。"
+
+#: metadata/backend/mysql/errors.py:1851
+msgid ""
+"@@SESSION.GTID_NEXT cannot be changed by a client that owns a GTID. The "
+"client owns {}. Ownership is released on COMMIT or ROLLBACK."
+msgstr "拥有GTID的客户端不能更改@@ SESSION.GTID_NEXT。客户拥有{}。所有权在COMMIT或ROLLBACK上释放。"
+
+#: metadata/backend/mysql/errors.py:1856
+msgid "Unknown EXPLAIN format name: '{}'"
+msgstr "未知的EXPLAIN格式名称：“ {}”"
+
+#: metadata/backend/mysql/errors.py:1857
+msgid "Cannot execute statement in a READ ONLY transaction."
+msgstr "无法在只读事务中执行语句。"
+
+#: metadata/backend/mysql/errors.py:1858
+msgid "Comment for table partition '{}' is too long (max = {}"
+msgstr "表分区“ {}”的注释太长（最大值= {}"
+
+#: metadata/backend/mysql/errors.py:1862
+msgid ""
+"Slave is not configured or failed to initialize properly. You must at "
+"least set --server-id to enable either a master or a slave. Additional "
+"error messages can be found in the MySQL error log."
+msgstr "从站未配置或无法正确初始化。您必须至少设置--server-id才能启用主服务器或从服务器。其他错误消息可以在MySQL错误日志中找到。"
+
+#: metadata/backend/mysql/errors.py:1868
+msgid "InnoDB presently supports one FULLTEXT index creation at a time"
+msgstr "InnoDB目前一次支持一次创建FULLTEXT索引"
+
+#: metadata/backend/mysql/errors.py:1869
+msgid "Cannot create FULLTEXT index on temporary InnoDB table"
+msgstr "无法在临时InnoDB表上创建FULLTEXT索引"
+
+#: metadata/backend/mysql/errors.py:1870
+msgid "Column '{}' is of wrong type for an InnoDB FULLTEXT index"
+msgstr "InnoDB FULLTEXT索引的列“ {}”类型错误"
+
+#: metadata/backend/mysql/errors.py:1871
+msgid "Index '{}' is of wrong type for an InnoDB FULLTEXT index"
+msgstr "对于InnoDB FULLTEXT索引，索引“ {}”的类型错误"
+
+#: metadata/backend/mysql/errors.py:1875
+msgid ""
+"Creating index '{}' required more than 'innodb_online_alter_log_max_size'"
+" bytes of modification log. Please try again."
+msgstr "创建索引“ {}”所需的修改日志的字节数超过“ innodb_online_alter_log_max_size”字节。请再试一遍。"
+
+#: metadata/backend/mysql/errors.py:1880
+msgid "Unknown ALGORITHM '{}'"
+msgstr "未知算法'{}'"
+
+#: metadata/backend/mysql/errors.py:1881
+msgid "Unknown LOCK type '{}'"
+msgstr "未知的锁定类型“ {}”"
+
+#: metadata/backend/mysql/errors.py:1885
+msgid ""
+"CHANGE MASTER cannot be executed when the slave was stopped with an error"
+" or killed in MTS mode. Consider using RESET SLAVE or START SLAVE UNTIL."
+msgstr "当从站因错误而停止或在MTS模式下被杀死时，无法执行CHANGE MASTER。考虑使用RESET SLAVE或START SLAVE UNTIL。"
+
+#: metadata/backend/mysql/errors.py:1893
+msgid ""
+"Cannot recover after SLAVE errored out in parallel execution mode. "
+"Additional error messages can be found in the MySQL error log."
+msgstr "SLAVE在并行执行模式下出错后无法恢复。其他错误消息可以在MySQL错误日志中找到。"
+
+#: metadata/backend/mysql/errors.py:1901
+msgid ""
+"Cannot clean up worker info tables. Additional error messages can be "
+"found in the MySQL error log."
+msgstr "无法清理工作人员信息表。其他错误消息可以在MySQL错误日志中找到。"
+
+#: metadata/backend/mysql/errors.py:1906
+msgid ""
+"Column count of {}.{} is wrong. Expected {}, found {}. The table is "
+"probably corrupted"
+msgstr "{}。{}的列数是错误的。预期{}，找到{}。该表可能已损坏"
+
+#: metadata/backend/mysql/errors.py:1908
+msgid "Slave must silently retry current transaction"
+msgstr "从站必须静默重试当前事务"
+
+#: metadata/backend/mysql/errors.py:1912
+msgid ""
+"There is a foreign key check running on table '{}'. Cannot discard the "
+"table."
+msgstr "表'{}'上正在运行外键检查。无法丢弃该表。"
+
+#: metadata/backend/mysql/errors.py:1914
+msgid "Schema mismatch ({}"
+msgstr "架构不匹配（{}"
+
+#: metadata/backend/mysql/errors.py:1915
+msgid "Table '{}' in system tablespace"
+msgstr "系统表空间中的表“ {}”"
+
+#: metadata/backend/mysql/errors.py:1916
+msgid "IO Read error: ({}, {}) {}"
+msgstr "IO读取错误：（{}，{}）{}"
+
+#: metadata/backend/mysql/errors.py:1917
+msgid "IO Write error: ({}, {}) {}"
+msgstr "IO写入错误：（{}，{}）{}"
+
+#: metadata/backend/mysql/errors.py:1918
+msgid "Tablespace is missing for table '{}'"
+msgstr "表“ {}”缺少表空间"
+
+#: metadata/backend/mysql/errors.py:1922
+msgid ""
+"Tablespace for table '{}' exists. Please DISCARD the tablespace before "
+"IMPORT."
+msgstr "表“ {}”的表空间存在。请在导入前丢弃表空间。"
+
+#: metadata/backend/mysql/errors.py:1924
+msgid "Tablespace has been discarded for table '{}'"
+msgstr "表'{}'的表空间已被丢弃"
+
+#: metadata/backend/mysql/errors.py:1925
+msgid "Internal error: {}"
+msgstr "内部错误： {}"
+
+#: metadata/backend/mysql/errors.py:1926
+msgid "ALTER TABLE '{}' IMPORT TABLESPACE failed with error {} : '{}'"
+msgstr "ALTER TABLE'{}'导入表空间失败，错误为{}：'{}'"
+
+#: metadata/backend/mysql/errors.py:1927
+msgid "Index corrupt: {}"
+msgstr "索引已损坏：{}"
+
+#: metadata/backend/mysql/errors.py:1931
+msgid "YEAR({}) column type is deprecated. Creating YEAR(4) column instead."
+msgstr "不建议使用YEAR（{}）列类型。而是创建YEAR（4）列。"
+
+#: metadata/backend/mysql/errors.py:1933
+msgid "Your password does not satisfy the current policy requirements"
+msgstr "您的密码不符合当前的政策要求"
+
+#: metadata/backend/mysql/errors.py:1934
+msgid "You must SET PASSWORD before executing this statement"
+msgstr "您必须在执行此语句之前设置密码"
+
+#: metadata/backend/mysql/errors.py:1938
+msgid ""
+"Failed to add the foreign key constaint. Missing index for constraint "
+"'{}' in the foreign table '{}'"
+msgstr "添加外键约束失败。外部表“ {}”中约束“ {}”的索引缺失"
+
+#: metadata/backend/mysql/errors.py:1943
+msgid ""
+"Failed to add the foreign key constaint. Missing index for constraint "
+"'{}' in the referenced table '{}'"
+msgstr "添加外键约束失败。在参考表“ {}”中缺少约束“ {}”的索引"
+
+#: metadata/backend/mysql/errors.py:1945
+msgid "Failed to add the foreign key constraint '{}' to system tables"
+msgstr "无法将外键约束“ {}”添加到系统表"
+
+#: metadata/backend/mysql/errors.py:1946
+msgid "Failed to open the referenced table '{}'"
+msgstr "无法打开引用表“ {}”"
+
+#: metadata/backend/mysql/errors.py:1950
+msgid ""
+"Failed to add the foreign key constraint on table '{}'. Incorrect options"
+" in FOREIGN KEY constraint '{}'"
+msgstr "无法在表“ {}”上添加外键约束。 FOREIGN KEY约束'{}'中的选项不正确"
+
+#: metadata/backend/mysql/errors.py:1952
+msgid "Duplicate foreign key constraint name '{}'"
+msgstr "重复的外键约束名称“ {}”"
+
+#: metadata/backend/mysql/errors.py:1956
+msgid ""
+"The password hash doesn't have the expected format. Check if the correct "
+"password algorithm is being used with the PASSWORD() function."
+msgstr "密码哈希没有预期的格式。检查PASSWORD（）函数是否使用了正确的密码算法。"
+
+#: metadata/backend/mysql/errors.py:1961
+msgid "Cannot drop column '{}': needed in a foreign key constraint '{}'"
+msgstr "无法删除列“ {}”：外键约束“ {}”中需要"
+
+#: metadata/backend/mysql/errors.py:1965
+msgid ""
+"Cannot drop column '{}': needed in a foreign key constraint '{}' of table"
+" '{}'"
+msgstr "无法删除列“ {}”：在表“ {}”的外键约束“ {}”中需要"
+
+#: metadata/backend/mysql/errors.py:1970
+msgid ""
+"Column '{}' cannot be NOT NULL: needed in a foreign key constraint '{}' "
+"SET NULL"
+msgstr "列'{}'不能为空：外键约束'{}'中需要SET NULL"
+
+#: metadata/backend/mysql/errors.py:1975
+msgid ""
+"Duplicate index '{}' defined on the table '{}.{}'. This is deprecated and"
+" will be disallowed in a future release."
+msgstr "在表“ {}。{}”上定义的重复索引“ {}”。不建议使用此功能，在以后的版本中将不允许使用。"
+
+#: metadata/backend/mysql/errors.py:1980
+msgid "Cannot change column '{}': used in a foreign key constraint '{}'"
+msgstr "无法更改列“ {}”：用于外键约束“ {}”"
+
+#: metadata/backend/mysql/errors.py:1984
+msgid ""
+"Cannot change column '{}': used in a foreign key constraint '{}' of table"
+" '{}'"
+msgstr "无法更改列“ {}”：用于表“ {}”的外键约束“ {}”"
+
+#: metadata/backend/mysql/errors.py:1989
+msgid ""
+"Cannot delete rows from table which is parent in a foreign key constraint"
+" '{}' of table '{}'"
+msgstr "无法从表“ {}”的外键约束“ {}”的父表中删除行"
+
+#: metadata/backend/mysql/errors.py:1991
+msgid "Malformed communication packet."
+msgstr "通讯包格式错误。"
+
+#: metadata/backend/mysql/errors.py:1992
+msgid "Running in read-only mode"
+msgstr "以只读模式运行"
+
+#: metadata/backend/mysql/errors.py:1996
+msgid ""
+"When @@SESSION.GTID_NEXT is set to a GTID, you must explicitly set it to "
+"a different value after a COMMIT or ROLLBACK. Please check GTID_NEXT "
+"variable manual page for detailed explanation. Current "
+"@@SESSION.GTID_NEXT is '{}'."
+msgstr ""
+"当@@ "
+"SESSION.GTID_NEXT设置为GTID时，必须在COMMIT或ROLLBACK之后将其显式设置为其他值。请查看GTID_NEXT变量手册页以获取详细说明。当前@@"
+" SESSION.GTID_NEXT为'{}'。"
+
+#: metadata/backend/mysql/errors.py:2002
+msgid "The system variable {} cannot be set in stored procedures."
+msgstr "无法在存储过程中设置系统变量{}。"
+
+#: metadata/backend/mysql/errors.py:2006
+msgid "@@GLOBAL.GTID_PURGED can only be set when @@GLOBAL.GTID_MODE = ON."
+msgstr "仅当@@ GLOBAL.GTID_MODE = ON时才能设置@@ GLOBAL.GTID_PURGED。"
+
+#: metadata/backend/mysql/errors.py:2011
+msgid "@@GLOBAL.GTID_PURGED can only be set when @@GLOBAL.GTID_EXECUTED is empty."
+msgstr "仅当@@ GLOBAL.GTID_EXECUTED为空时才能设置@@ GLOBAL.GTID_PURGED。"
+
+#: metadata/backend/mysql/errors.py:2016
+msgid ""
+"@@GLOBAL.GTID_PURGED can only be set when there are no ongoing "
+"transactions (not even in other clients)."
+msgstr "@@ GLOBAL.GTID_PURGED只能在没有正在进行的交易时设置（甚至在其他客户端中也不能）。"
+
+#: metadata/backend/mysql/errors.py:2018
+msgid "@@GLOBAL.GTID_PURGED was changed from '{}' to '{}'."
+msgstr "@@ GLOBAL.GTID_PURGED已从“ {}”更改为“ {}”。"
+
+#: metadata/backend/mysql/errors.py:2019
+msgid "@@GLOBAL.GTID_EXECUTED was changed from '{}' to '{}'."
+msgstr "@@ GLOBAL.GTID_EXECUTED已从“ {}”更改为“ {}”。"
+
+#: metadata/backend/mysql/errors.py:2023
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"BINLOG_FORMAT = STATEMENT, and both replicated and non replicated tables "
+"are written to."
+msgstr "无法执行语句：由于BINLOG_FORMAT = STATEMENT，因此无法写入二进制日志，并且复制表和非复制表都被写入。"
+
+#: metadata/backend/mysql/errors.py:2028
+msgid "{} is not supported for this operation. Try {}."
+msgstr "此操作不支持{}。尝试{}。"
+
+#: metadata/backend/mysql/errors.py:2029
+msgid "{} is not supported. Reason: {}. Try {}."
+msgstr "不支持{}。原因：{}。尝试{}。"
+
+#: metadata/backend/mysql/errors.py:2030
+msgid "COPY algorithm requires a lock"
+msgstr "COPY算法需要锁"
+
+#: metadata/backend/mysql/errors.py:2034
+msgid "Partition specific operations do not yet support LOCK/ALGORITHM"
+msgstr "分区特定的操作尚不支持LOCK / ALGORITHM"
+
+#: metadata/backend/mysql/errors.py:2039
+msgid "Columns participating in a foreign key are renamed"
+msgstr "参与外键的列被重命名"
+
+#: metadata/backend/mysql/errors.py:2041
+msgid "Cannot change column type INPLACE"
+msgstr "无法更改列类型INPLACE"
+
+#: metadata/backend/mysql/errors.py:2042
+msgid "Adding foreign keys needs foreign_key_checks=OFF"
+msgstr "添加外键需要foreign_key_checks = OFF"
+
+#: metadata/backend/mysql/errors.py:2046
+msgid ""
+"Creating unique indexes with IGNORE requires COPY algorithm to remove "
+"duplicate rows"
+msgstr "使用IGNORE创建唯一索引需要COPY算法来删除重复的行"
+
+#: metadata/backend/mysql/errors.py:2051
+msgid ""
+"Dropping a primary key is not allowed without also adding a new primary "
+"key"
+msgstr "在不添加新主键的情况下不允许删除主键"
+
+#: metadata/backend/mysql/errors.py:2053
+msgid "Adding an auto-increment column requires a lock"
+msgstr "添加自动增量列需要锁定"
+
+#: metadata/backend/mysql/errors.py:2057
+msgid "Cannot replace hidden FTS_DOC_ID with a user-visible one"
+msgstr "无法将隐藏的FTS_DOC_ID替换为用户可见的FTS_DOC_ID"
+
+#: metadata/backend/mysql/errors.py:2059
+msgid "Cannot drop or rename FTS_DOC_ID"
+msgstr "无法删除或重命名FTS_DOC_ID"
+
+#: metadata/backend/mysql/errors.py:2060
+msgid "Fulltext index creation requires a lock"
+msgstr "全文索引的创建需要一个锁"
+
+#: metadata/backend/mysql/errors.py:2064
+msgid ""
+"sql_slave_skip_counter can not be set when the server is running with "
+"@@GLOBAL.GTID_MODE = ON. Instead, for each transaction that you want to "
+"skip, generate an empty transaction with the same GTID as the transaction"
+msgstr ""
+"当服务器运行@@ GLOBAL.GTID_MODE = "
+"ON时，无法设置sql_slave_skip_counter。相反，对于您要跳过的每个事务，请生成一个与该事务具有相同GTID的空事务"
+
+#: metadata/backend/mysql/errors.py:2070
+msgid "Duplicate entry for key '{}'"
+msgstr "键“ {}”的重复条目"
+
+#: metadata/backend/mysql/errors.py:2074
+msgid ""
+"Long database name and identifier for object resulted in path length "
+"exceeding {} characters. Path: '{}'."
+msgstr "对象的数据库名称和标识符过长，导致路径长度超过{}个字符。路径：“ {}”。"
+
+#: metadata/backend/mysql/errors.py:2079
+msgid "cannot silently convert NULL values, as required in this SQL_MODE"
+msgstr "无法按此SQL_MODE的要求静默转换NULL值"
+
+#: metadata/backend/mysql/errors.py:2084
+msgid ""
+"Your password has expired. To log in you must change it using a client "
+"that supports expired passwords."
+msgstr "您的密码已过期。要登录，必须使用支持过期密码的客户端对其进行更改。"
+
+#: metadata/backend/mysql/errors.py:2086
+msgid "Found a row in wrong partition {}"
+msgstr "在错误的分区{}中发现一行"
+
+#: metadata/backend/mysql/errors.py:2090
+msgid ""
+"Cannot schedule event {}, relay-log name {}, position {} to Worker thread"
+" because its size {} exceeds {} of slave_pending_jobs_size_max."
+msgstr "无法安排事件{}，中继日志名称{}，位置{}到Worker线程，因为它的大小{}超过slave_pending_jobs_size_max的{}。"
+
+#: metadata/backend/mysql/errors.py:2095
+msgid "Cannot CREATE FULLTEXT INDEX WITH PARSER on InnoDB table"
+msgstr "无法在InnoDB表上使用PARSER创建FULLTEXT INDEX"
+
+#: metadata/backend/mysql/errors.py:2096
+msgid "The binary log file '{}' is logically corrupted: {}"
+msgstr "二进制日志文件“ {}”在逻辑上已损坏：{}"
+
+#: metadata/backend/mysql/errors.py:2100
+msgid ""
+"file {} was not purged because it was being read by {} thread(s), purged "
+"only {} out of {} files."
+msgstr "未清除文件{}，因为{}线程正在读取文件{}，仅从{}个文件中清除了{}个文件。"
+
+#: metadata/backend/mysql/errors.py:2102
+msgid "file {} was not purged because it is the active log file."
+msgstr "未清除文件{}，因为它是活动日志文件。"
+
+#: metadata/backend/mysql/errors.py:2106
+msgid "Auto-increment value in UPDATE conflicts with internally generated values"
+msgstr "UPDATE中的自动增量值与内部生成的值冲突"
+
+#: metadata/backend/mysql/errors.py:2111
+msgid ""
+"Row events are not logged for {} statements that modify BLACKHOLE tables "
+"in row format. Table(s): '{}'"
+msgstr "没有记录{}语句以行格式修改BLACKHOLE表的行事件。表格：“ {}”"
+
+#: metadata/backend/mysql/errors.py:2113
+msgid "Slave failed to initialize master info structure from the repository"
+msgstr "从站无法从存储库初始化主信息结构"
+
+#: metadata/backend/mysql/errors.py:2117
+msgid "Slave failed to initialize relay log info structure from the repository"
+msgstr "从站无法从存储库初始化中继日志信息结构"
+
+#: metadata/backend/mysql/errors.py:2122
+msgid ""
+"Access denied trying to change to user '{}'@'{}' (using password: {}). "
+"Disconnecting."
+msgstr "访问被拒绝尝试更改为用户'{}'@'{}'（使用密码：{}）。断开连接。"
+
+#: metadata/backend/mysql/errors.py:2124
+msgid "InnoDB is in read only mode."
+msgstr "InnoDB处于只读模式。"
+
+#: metadata/backend/mysql/errors.py:2128
+msgid ""
+"STOP SLAVE command execution is incomplete: Slave SQL thread got the stop"
+" signal, thread is busy, SQL thread will stop once the current task is "
+"complete."
+msgstr "STOP SLAVE命令执行不完整：从SQL线程收到停止信号，线程繁忙，当前任务完成后SQL线程将停止。"
+
+#: metadata/backend/mysql/errors.py:2136
+msgid ""
+"STOP SLAVE command execution is incomplete: Slave IO thread got the stop "
+"signal, thread is busy, IO thread will stop once the current task is "
+"complete."
+msgstr "STOP SLAVE命令执行不完整：从IO线程收到停止信号，线程正忙，当前任务完成后IO线程将停止。"
+
+#: metadata/backend/mysql/errors.py:2144
+msgid ""
+"Operation cannot be performed. The table '{}.{}' is missing, corrupt or "
+"contains bad data."
+msgstr "无法执行操作。表'{}。{}'丢失，损坏或包含错误的数据。"
+
+#: metadata/backend/mysql/errors.py:2146
+msgid "Temporary file write failure."
+msgstr "临时文件写入失败。"
+
+#: metadata/backend/mysql/errors.py:2150
+msgid ""
+"Upgrade index name failed, please use create index(alter table) algorithm"
+" copy to rebuild index."
+msgstr "升级索引名称失败，请使用创建索引（更改表）算法副本来重建索引。"
+
+#: metadata/backend/mysql/errors.py:2155
+msgid ""
+"TIME/TIMESTAMP/DATETIME columns of old format have been upgraded to the "
+"new format."
+msgstr "旧格式的TIME / TIMESTAMP / DATETIME列已升级为新格式。"
+
+#: metadata/backend/mysql/errors.py:2157
+msgid "Operation not allowed when innodb_forced_recovery > 0."
+msgstr "当innodb_forced_recovery&gt; 0时，不允许执行该操作。"
+
+#: metadata/backend/mysql/errors.py:2161
+msgid ""
+"The initialization vector supplied to {} is too short. Must be at least "
+"{} bytes long"
+msgstr "提供给{}的初始化向量太短。必须至少为{}个字节"
+
+#: metadata/backend/mysql/errors.py:2163
+msgid "Plugin '{}' cannot be uninstalled now. {}"
+msgstr "插件“ {}”无法立即卸载。 {}"
+
+#: metadata/backend/mysql/errors.py:2167
+msgid ""
+"Cannot execute statement because it needs to be written to the binary log"
+" as multiple statements, and this is not allowed when @@SESSION.GTID_NEXT"
+" == 'UUID:NUMBER'."
+msgstr "无法执行语句，因为它需要作为多个语句写入二进制日志，并且@@ SESSION.GTID_NEXT =='UUID：NUMBER'时不允许这样做。"
+
+#: metadata/backend/mysql/errors.py:2175
+msgid ""
+"Slave has more GTIDs than the master has, using the master's SERVER_UUID."
+" This may indicate that the end of the binary log was truncated or that "
+"the last binary log file was lost, e.g., after a power or disk failure "
+"when sync_binlog != 1. The master may or may not have rolled back "
+"transactions that were already replicated to the slave. Suggest to "
+"replicate any transactions that master has rolled back from slave to "
+"master, and/or commit empty transactions on master to account for "
+"transactions that have been committed on master but are not included in "
+"GTID_EXECUTED."
+msgstr ""
+"使用主服务器的SERVER_UUID，从服务器具有比主服务器更多的GTID。这可能表明二进制日志的末尾已被截断，或者最后一个二进制日志文件已丢失，例如，在sync_binlog！="
+" "
+"1的电源或磁盘故障之后。主数据库可能已回滚或可能未回滚已复制的事务。给奴隶建议将主服务器已从从服务器回滚的所有事务复制到主服务器，和/或在主服务器上提交空事务，以解决已在主服务器上提交但未包含在GTID_EXECUTED中的事务。"
+
+#: metadata/data_quality/errors.py:21
+msgid "元数据质量问题"
+msgstr ""
+
+#: metadata/data_quality/errors.py:68
+msgid "数据一致性问题"
+msgstr ""
+
+#: metadata/interactor/core.py:164
+msgid "Fail to get operator. The action is {}"
+msgstr ""
+
+#: metadata/interactor/core.py:198
+msgid "Fail to get operator. The batch_action is {}"
+msgstr ""
+
+#: metadata/interactor/interact.py:174
+msgid "Edit function is not enabled in MySQL backend."
+msgstr ""
+
+#: metadata/interactor/orchestrate.py:96
+msgid ""
+"Type name {} is not registered in SingleDGraphOrchestrator. The operate "
+"record is {}"
+msgstr ""
+
+#: metadata/interactor/orchestrate.py:156
+msgid ""
+"Type name {} is not registered in BatchDGraphOrchestrator. The operate "
+"record is {}"
+msgstr ""
+
+#: metadata/interactor/orchestrate.py:209
+msgid ""
+"The type name {} is not watched in MySQReplicaInteractor. The record info"
+" is {}"
+msgstr ""
+
+#: metadata/interactor/orchestrate.py:241
+msgid ""
+"Type name {} is not watched in BatchMySQLReplicaOrchestrator. The record "
+"info is {}"
+msgstr ""
+
+#: metadata/interactor/record.py:275
+msgid "Fail to replay transaction."
+msgstr ""
+
+#: metadata/service/access/rpc.py:161
+msgid ""
+"Executed RPC Call {} in {} with r_state {}, arg {}, kwargs {}. The id is "
+"{}."
+msgstr ""
+
+#: metadata/service/access/rpc.py:166
+msgid ""
+"Executed RPC Call {} in {} with r_state {}, arg {}, kwargs {}. The result"
+" is {}, id is {}."
+msgstr ""
+
+#: metadata/service/access/rpc.py:208
+msgid "Error in internal server. The rpc id is {}"
+msgstr "内部服务器错误。 RPC ID为{}"
+
+#: metadata/service/access/rpc.py:247
+msgid "service is unhealthy. The rpc id is {}"
+msgstr ""
+
+#: metadata/service/access/rpc.py:258
+msgid "Error in call method. The rpc id is {}"
+msgstr "调用方法错误。 RPC ID为{}"
+
+#: metadata/service/access/rpc.py:349
+msgid "occur an error when dispatch backend. msg is {}."
+msgstr ""
+
+#: metadata/service/access/service_server.py:296
+msgid "Access RPC server {}:{} is starting."
+msgstr "Access RPC服务器{}：{}正在启动。"
+
+#: metadata/service/access/service_server.py:310
+msgid "Access RPC server is stopped."
+msgstr "Access RPC服务器已停止。"
+
+#: metadata/service/access/service_server.py:316
+msgid "Server host."
+msgstr "服务器主机。"
+
+#: metadata/service/access/service_server.py:317
+msgid "Server port."
+msgstr "服务器端口。"
+
+#: metadata/service/access/service_server.py:318
+msgid "Worker num."
+msgstr "工人人数"
+
+#: metadata/service/access/service_server.py:323
+msgid "Start single process server."
+msgstr "启动单进程服务器。"
+
+#: metadata/service/access/service_server.py:325
+msgid "Start in HA mode."
+msgstr "以高可用性模式启动。"
+
+#: metadata/service/access/layers/bridge.py:75
+msgid "Some db operate logs are missing. The id list is {}"
+msgstr "一些数据库操作日志丢失。 ID列表为{}"
+
+#: metadata/service/access/layers/tag.py:94
+msgid "At least one target type must be applied."
+msgstr ""
+
+#: metadata/service/access/layers/tag.py:96
+msgid "Only one target type is required if target filter is applied."
+msgstr ""
+
+#: metadata/service/access/layers/tag.py:101
+msgid "Fail to get md type by target type."
+msgstr ""
+
+#: metadata/service/access/layers/tag.py:228
+msgid "Fail to get md type by type_name."
+msgstr ""
+
+#: metadata/service/cli/state.py:84
+msgid "cluster name.(master/slave[default])"
+msgstr ""
+
+#: metadata/service/cli/state.py:106
+msgid "BE status."
+msgstr ""
+
+#: metadata/service/cli/state.py:115
+msgid "statistic window (s)"
+msgstr ""
+
+#: metadata/service/cli/state.py:116
+msgid "window delay (s)"
+msgstr ""
+
+#: metadata/service/cli/state.py:138
+msgid "switch name.[service.sub_switch]"
+msgstr ""
+
+#: metadata/service/cli/state.py:139
+msgid "switch value.[on / off]"
+msgstr ""
+
+#: metadata/service/cli/state.py:159
+msgid "dgraph version"
+msgstr ""
+
+#: metadata/service/cli/state.py:160
+msgid "id of dgraph backend"
+msgstr ""
+
+#: metadata/service/cli/sync.py:26
+msgid "Min db operate number."
+msgstr ""
+
+#: metadata/service/cli/sync.py:27
+msgid "Max db operate number."
+msgstr ""
+
+#: metadata/service/cli/token.py:23
+msgid "private key."
+msgstr ""
+
+#: metadata/service/cli/type_system.py:42
+#: metadata/service/cli/type_system.py:70
+msgid "Layer backend type in backend ha mode."
+msgstr ""
+
+#: metadata/service/cli/type_system.py:143
+msgid "show mode"
+msgstr ""
+
+#: metadata/state/manage.py:65
+msgid "The backends ha state {} is not allowed to switch."
+msgstr ""
+
+#: metadata/state/manage.py:93
+msgid "Fail to switch slave {} backend."
+msgstr ""
+
+#: metadata/state/manage.py:95
+msgid "Fail to switch master {} backend."
+msgstr ""
+
+#: metadata/state/manage.py:168
+msgid "fail to get backend version, because {} is invalid."
+msgstr ""
+
+#: metadata/state/manage.py:182
+msgid ""
+"fail to set backend version, because {} is invalid. should be one of[{}, "
+"{}]"
+msgstr ""
+
+#: metadata/type_system/converter.py:72
+msgid "No available attr converter."
+msgstr ""
+
+#: metadata/type_system/converter.py:237
+msgid "Fail to access target info from md type {} with id {}"
+msgstr ""
+
+#: metadata/type_system/core.py:135
+msgid "No identifier attr in this metadata type."
+msgstr ""
+
+#: metadata/type_system/core.py:229
+msgid "No actual type for the {}."
+msgstr ""
+
+#: metadata_biz/analyse/similarity.py:72
+msgid "The compare content is blank."
+msgstr ""
+
+#: metadata_biz/analyse/similarity.py:285
+msgid "Some rt id {} is not existed."
+msgstr ""
+
+#: metadata_biz/analyse/similarity.py:312
+msgid "Can't compare all items together."
+msgstr ""
+
+#: metadata_biz/analyse/similarity.py:431
+msgid "Fail to get lineage."
+msgstr ""
+
+#: metadata_biz/interactor/operators.py:151
+msgid "Invalid lineage data directing."
+msgstr ""
+
+#: metadata_biz/type_system/converters.py:118
+msgid "Not supported md type."
+msgstr ""
+
+#: metadata_biz/type_system/converters.py:124
+msgid "Fail to access target info from target_type {} and target_id {}"
+msgstr ""
+
+#: metadata_biz/type_system/converters.py:173
+msgid "Fail to access tag info from parent_id {}."
+msgstr ""
+
+#: metadata_biz/type_system/converters.py:277
+msgid "Fail to access target info from data_set_type {} and data_set_id {}"
+msgstr ""
+
+#~ msgid "MetaData System Error: {}. Code is {}."
+#~ msgstr "MetaData系统错误：{}。代码是{}。"
+
+#~ msgid "Sync timeout of {}."
+#~ msgstr "{}的同步超时。"
+
+#~ msgid "Entity {} with qualified_name {} not existed."
+#~ msgstr "实体{}和qualified_name {}不存在。"
+
+#~ msgid "Atlas Backend Error: {}. Code is {}."
+#~ msgstr "Atlas后端错误：{}。代码是{}。"
+
+#~ msgid "MySQL Backend Error: {}. Code is {}."
+#~ msgstr "MySQL后端错误：{}。代码是{}。"
+
+#~ msgid "Given search filter {0} did not yield any results"
+#~ msgstr "给定搜索过滤器{0}没有产生任何结果"
+
+#~ msgid "Save failed: {0} has no updates"
+#~ msgstr "保存失败：{0}没有更新"
+
+#~ msgid "{0}: invalid supertypes - circular reference back to self {1}"
+#~ msgstr "{0}：无效的超类-循环回自身{1}"
+
+#~ msgid "{0}: incompatible supertype {1}"
+#~ msgstr "{0}：不兼容的超类型{1}"
+
+#~ msgid "{0}.{1}: unknown constraint {1}"
+#~ msgstr "{0}。{1}：未知约束{1}"
+
+#~ msgid "{0}.{1} : {2} constraint not supported"
+#~ msgstr "{0}。{1}：{2}约束不受支持"
+
+#~ msgid "{0}.{1} : {2} incompatible attribute type {3}"
+#~ msgstr "{0}。{1}：{2}属性类型不兼容{3}"
+
+#~ msgid "{0}.{1} : invalid constraint. missing parameter {2} in {3}. params={4}"
+#~ msgstr "{0}。{1}：无效约束。 {3}中缺少参数{2}。参数= {4}"
+
+#~ msgid "{0}.{1} : invalid constraint. {2} {3}.{4} does not exist"
+#~ msgstr "{0}。{1}：无效约束。 {2} {3}。{4}不存在"
+
+#~ msgid ""
+#~ "{0}.{1} : invalid constraint. Data type"
+#~ " of {2} {3}.{4} should be {5}, "
+#~ "but found {6}"
+#~ msgstr "{0}。{1}：无效约束。 {2} {3}。{4}的数据类型应为{5}，但发现为{6}"
+
+#~ msgid "{0}: Unknown/invalid typename"
+#~ msgstr "{0}：未知/无效的类型名"
+
+#~ msgid "{0}.{1} : constraints not supported on map type {2}"
+#~ msgstr "{0}。{1}：地图类型{2}不支持约束"
+
+#~ msgid "{0}.{1} : can not add mandatory attribute"
+#~ msgstr "{0}。{1}：无法添加必需属性"
+
+#~ msgid "{0}.{1} : attribute delete not supported"
+#~ msgstr "{0}。{1}：不支持属性删除"
+
+#~ msgid "superType remove not supported"
+#~ msgstr "不支持superType删除"
+
+#~ msgid "expected type {0}; found {1}"
+#~ msgstr "预期类型为{0}；找到{1}"
+
+#~ msgid "Given type {0} doesn't match {1}"
+#~ msgstr "给定类型{0}与{1}不匹配"
+
+#~ msgid "Invalid type definition {0}"
+#~ msgstr "无效的类型定义{0}"
+
+#~ msgid "Cardinality of attribute {0}.{1} requires a list or set type"
+#~ msgstr "属性{0}的基数。{1}需要一个列表或集合类型"
+
+#~ msgid "Type {0} with unique attribute {1} does not exist"
+#~ msgstr "具有唯一属性{1}的类型{0}不存在"
+
+#~ msgid "Type {0} with name {1} does not exist"
+#~ msgstr "类型{0}和名称{1}不存在"
+
+#~ msgid "Type Category {0} is invalid"
+#~ msgstr "类型类别{0}无效"
+
+#~ msgid "{0} - invalid patch for type {1}"
+#~ msgstr "{0}-类型{1}的无效补丁"
+
+#~ msgid "{0} - patch references unknown type {1}"
+#~ msgstr "{0}-修补程序引用未知类型{1}"
+
+#~ msgid "{0} - patch data is invalid for type {1}"
+#~ msgstr "{0}-补丁数据对于类型{1}无效"
+
+#~ msgid ""
+#~ "{0}: invalid name for {1}.  Names "
+#~ "must consist of a letter followed "
+#~ "by a sequence of letter, number, "
+#~ "or '_' characters"
+#~ msgstr "{0}：{1}的无效名称。名称必须由字母，字母，数字或'_'字符序列组成"
+
+#~ msgid "{0}: invalid name. Attribute name must not contain query keywords"
+#~ msgstr "{0}：名称无效。属性名称不得包含查询关键字"
+
+#~ msgid "invalid parameters: {0}"
+#~ msgstr "无效的参数：{0}"
+
+#~ msgid "instance {0} already is associated with classification {1}"
+#~ msgstr "实例{0}已与分类{1}相关联"
+
+#~ msgid "{0}.{1}: invalid {2} constraint. Attribute {3} is not an entity type"
+#~ msgstr "{0}。{1}：无效的{2}约束。属性{3}不是实体类型"
+
+#~ msgid ""
+#~ "{0}.{1}: invalid {2} constraint. Inverse "
+#~ "attribute {3}.{4} does not exist"
+#~ msgstr "{0}。{1}：无效的{2}约束。逆属性{3}。{4}不存在"
+
+#~ msgid ""
+#~ "{0}.{1}: invalid {2} constraint. Inverse "
+#~ "attribute {3}.{4} is not an entity "
+#~ "type"
+#~ msgstr "{0}。{1}：无效的{2}约束。逆属性{3}。{4}不是实体类型"
+
+#~ msgid "cannot map attribute: {0} of type: {1} from vertex"
+#~ msgstr "无法从顶点映射类型：{1}的属性：{0}"
+
+#~ msgid "ObjectId is not valid {0}"
+#~ msgstr "ObjectId无效{0}"
+
+#~ msgid "Unresolved references: byId={0}; byUniqueAttributes={1}"
+#~ msgstr "未解决的引用：byId = {0}; byUniqueAttributes = {1}"
+
+#~ msgid "Attribute {0} not found for type {1}"
+#~ msgstr "找不到类型{1}的属性{0}"
+
+#~ msgid "{0} is a System-type"
+#~ msgstr "{0}是系统类型"
+
+#~ msgid "not a valid struct value {0}"
+#~ msgstr "不是有效的结构值{0}"
+
+#~ msgid "Invalid lineage query parameters passed {0}: {1}"
+#~ msgstr "传递了无效的沿袭查询参数{0}：{1}"
+
+#~ msgid "{0}.{1} : attribute update not supported"
+#~ msgstr "{0}。{1}：不支持属性更新"
+
+#~ msgid "invalid value: {0}"
+#~ msgstr "无效值：{0}"
+
+#~ msgid "{0}"
+#~ msgstr "{0}"
+
+#~ msgid "Parameter parsing failed at: {0}"
+#~ msgstr "参数解析在以下位置失败：{0}"
+
+#~ msgid "Mandatory field {0}.{1} has empty/null value"
+#~ msgstr "必填字段{0}。{1}的值为空/空"
+
+#~ msgid "relationshipDef {0} creation attempted without 2 ends"
+#~ msgstr "尝试不进行2个结束就创建RelationshipDef {0}"
+
+#~ msgid "relationshipDef {0} creation attempted with both ends as containers"
+#~ msgstr "尝试将两端都作为容器创建RelationshipDef {0}"
+
+#~ msgid ""
+#~ "Cannot set an Attribute with type "
+#~ "{0} on relationship def {1}, as it"
+#~ " is not a primitive type "
+#~ msgstr "无法在关系def {1}上设置类型为{0}的Attribute，因为它不是原始类型"
+
+#~ msgid ""
+#~ "ASSOCIATION relationshipDef {0} creation "
+#~ "attempted with an end specifying "
+#~ "isContainer"
+#~ msgstr "尝试以指定isContainer的结尾尝试创建ASSOCIATION RelationshipDef {0}"
+
+#~ msgid ""
+#~ "COMPOSITION relationshipDef {0} creation "
+#~ "attempted without an end specifying "
+#~ "isContainer"
+#~ msgstr "尝试在没有指定isContainer的结尾的情况下尝试创建DEF {0}关系"
+
+#~ msgid ""
+#~ "AGGREGATION relationshipDef {0} creation "
+#~ "attempted without an end specifying "
+#~ "isContainer"
+#~ msgstr "尝试创建关系DEF {0}，但未指定isContainer的结尾"
+
+#~ msgid ""
+#~ "COMPOSITION relationshipDef {0} can only "
+#~ "have one parent; so cannot have "
+#~ "SET cardinality on children"
+#~ msgstr "COMPOSITION RelationshipDef {0}只能有一个父对象；所以不能对孩子有SET基数"
+
+#~ msgid "relationshipDef {0} cannot have a LIST cardinality on an end"
+#~ msgstr "lationshipDef {0}不能在结尾具有LIST基数"
+
+#~ msgid "relationshipDef {0} has invalid end type {1}"
+#~ msgstr "lationshipDef {0}具有无效的结束类型{1}"
+
+#~ msgid "invalid relationshipDef: {0}: end type 1: {1}, end type 2: {2}"
+#~ msgstr "无效的关系DEF：{0}：结束类型1：{1}，结束类型2：{2}"
+
+#~ msgid "invalid update for relationshipDef {0}: new end1 {1}, existing end1 {2}"
+#~ msgstr "关系Def {0}的无效更新：新的end1 {1}，现有的end1 {2}"
+
+#~ msgid "invalid update for relationshipDef {0}: new end2 {1}, existing end2 {2}"
+#~ msgstr "关系Def {0}的无效更新：新的end2 {1}，现有的end2 {2}"
+
+#~ msgid ""
+#~ "invalid  update for relationship {0}: "
+#~ "new relationshipDef category {1}, existing "
+#~ "relationshipDef category {2}"
+#~ msgstr "关系{0}的无效更新：新的RelationshipDef类别{1}，现有的RelationshipDef类别{2}"
+
+#~ msgid ""
+#~ "invalid relationshipDef rename for "
+#~ "relationship guid {0}: new name {1}, "
+#~ "existing name {2}"
+#~ msgstr "无效的RelationshipDef为关系guid {0}重命名：新名称{1}，现有名称{2}"
+
+#~ msgid "{0}: invalid end1 name. Name must not contain query keywords"
+#~ msgstr "{0}：无效的end1名称。名称中不得包含查询关键字"
+
+#~ msgid "{0}: invalid end2 name. Name must not contain query keywords"
+#~ msgstr "{0}：无效的end2名称。名称中不得包含查询关键字"
+
+#~ msgid "No relationshipDef defined between {0} and {1} on attribute: {2}"
+#~ msgstr "在属性{2}的{0}和{1}之间未定义RelationshipDef"
+
+#~ msgid "Invalid relationshipDef: {0}"
+#~ msgstr "无效的关系定义：{0}"
+
+#~ msgid ""
+#~ "Invalid entity-type for relationship "
+#~ "attribute ‘{0}’: entity specified (guid={1})"
+#~ " is of type ‘{2}’, but expected "
+#~ "type is ‘{3}’"
+#~ msgstr "关系属性“ {0}”的无效实体类型：指定的实体（guid = {1}）的类型为“ {2}”，但预期的类型为“ {3}”"
+
+#~ msgid "{0}: Unknown/invalid classification"
+#~ msgstr "{0}：未知/无效分类"
+
+#~ msgid ""
+#~ "No search parameter was found. One "
+#~ "of the following MUST be specified "
+#~ "in the request; typeName, classification, "
+#~ "termName or queryText"
+#~ msgstr "找不到搜索参数。在请求中必须指定以下之一： typeName，分类，termName或queryText"
+
+#~ msgid "Expected attribute {0} to be a relationship but found type {1}"
+#~ msgstr "预期属性{0}是一个关系，但发现类型为{1}"
+
+#~ msgid "Invalid entity type '{0}', guid '{1}' in relationship search"
+#~ msgstr "关系搜索中的实体类型“ {0}”无效，GUID“ {1}”"
+
+#~ msgid "Attribute {0}.{1} is of type {2}. Import has this attribute type as {3}"
+#~ msgstr "属性{0}。{1}的类型为{2}。导入的属性类型为{3}"
+
+#~ msgid "EntityTypes cannot be removed from ClassificationDef ‘{0}‘"
+#~ msgstr "无法从ClassificationDef'{0}'中删除实体类型"
+
+#~ msgid "ClassificationDef ‘{0}‘ has invalid ‘{1}‘ in entityTypes"
+#~ msgstr "在实体类型中，ClassificationDef'{0}'具有无效的'{1}'"
+
+#~ msgid ""
+#~ "ClassificationDef ‘{0}‘ has supertypes whose"
+#~ " entityTypes are disjoint; e.g. 2 "
+#~ "supertypes that are not related by "
+#~ "inheritance specify different non empty "
+#~ "entityType lists. This means the child"
+#~ " cannot honour the restrictions specified"
+#~ " in both parents."
+#~ msgstr "分类定义'{0}'具有其实体类型不相交的超类型；例如，与继承无关的2个超类型指定了不同的非空实体类型列表。这意味着孩子不能履行父母双方规定的限制。"
+
+#~ msgid ""
+#~ "ClassificationDef ‘{0}‘ has entityTypes ‘{1}‘"
+#~ " which are not subsets of it's "
+#~ "supertypes entityTypes"
+#~ msgstr "ClassificationDef'{0}'的实体类型'{1}'不是其超类型的实体的子集"
+
+#~ msgid ""
+#~ "Entity (guid=‘{0}‘,typename=‘{1}‘) cannot be "
+#~ "classified by Classification ‘{2}‘, because"
+#~ " ‘{1}‘ is not in the "
+#~ "ClassificationDef's restrictions."
+#~ msgstr ""
+#~ "实体（guid ='{0}'，typename "
+#~ "='{1}'）不能通过分类'{2}'进行分类，因为'{1}'不在CategoryDef的限制内。"
+
+#~ msgid "saved-search {0} can not be moved from user {1} to {2}"
+#~ msgstr "无法将保存的搜索{0}从用户{1}移到{2}"
+
+#~ msgid "Length of query param {0} exceeds the limit"
+#~ msgstr "查询参数{0}的长度超出限制"
+
+#~ msgid "Invalid query length, update {0} to change the limit"
+#~ msgstr "查询长度无效，请更新{0}以更改限制"
+
+#~ msgid ""
+#~ "Invalid DSL query: {0} | Reason: "
+#~ "{1}. Please refer to Atlas DSL "
+#~ "grammar for more information"
+#~ msgstr "无效的DSL查询：{0} |原因：{1}。有关更多信息，请参考Atlas DSL语法。"
+
+#~ msgid "DSL Semantic Error - GroupBy attribute {0} is non-primitive"
+#~ msgstr "DSL语义错误-GroupBy属性{0}不是原始的"
+
+#~ msgid "DSL Semantic Error - {0} type not found"
+#~ msgstr "DSL语义错误-找不到{0}类型"
+
+#~ msgid "DSL Semantic Error - {0} classification not found"
+#~ msgstr "DSL语义错误-找不到{0}分类"
+
+#~ msgid "DSL Semantic Error - {0} attribute not found for type {1}"
+#~ msgstr "DSL语义错误-找不到类型{1}的{0}属性"
+
+#~ msgid "DSL Semantic Error - OrderBy attribute {0} is non-primitive"
+#~ msgstr "DSL语义错误-OrderBy属性{0}不是原始的"
+
+#~ msgid ""
+#~ "DSL Semantic Error - From source "
+#~ "{0} is not a valid Entity/Classification"
+#~ " type"
+#~ msgstr "DSL语义错误-来自源{0}的无效实体/分类类型"
+
+#~ msgid "DSL Semantic Error - Select clause has multiple referred attributes {0}"
+#~ msgstr "DSL语义错误-Select子句具有多个引用的属性{0}"
+
+#~ msgid ""
+#~ "DSL Semantic Error - Select clause "
+#~ "has aggregation on referred attributes "
+#~ "{0}"
+#~ msgstr "DSL语义错误-Select子句在引用的属性{0}上具有聚合"
+
+#~ msgid "DSL Semantic Error - Select clause has simple and referred attributes"
+#~ msgstr "DSL语义错误-Select子句具有简单且引用的属性"
+
+#~ msgid "DSL Semantic Error - No attribute {0} exists for type {1}"
+#~ msgstr "DSL语义错误-类型{1}不存在属性{0}"
+
+#~ msgid "DSL Semantic Error - Qualified name for {0} failed!"
+#~ msgstr "DSL语义错误-{0}的合格名称失败！"
+
+#~ msgid ""
+#~ "DSL Semantic Error - Qualified name "
+#~ "for {0} failed for type {1}. "
+#~ "Cause: {2}"
+#~ msgstr "DSL语义错误-类型{1}的{0}的限定名称失败。原因：{2}"
+
+#~ msgid ""
+#~ "DSL Semantic Error - Duplicate alias "
+#~ "found: '{0}' for type '{1}' already "
+#~ "present."
+#~ msgstr "DSL语义错误-找到重复的别名：类型为“ {1}”的“ {0}”。"
+
+#~ msgid "DSL Semantic Error - Date format: {0}."
+#~ msgstr "DSL语义错误-日期格式：{0}。"
+
+#~ msgid "DSL Semantic Error - Property needs to be a primitive type: {0}"
+#~ msgstr "DSL语义错误-属性必须是原始类型：{0}"
+
+#~ msgid ""
+#~ "change of relationship end is not "
+#~ "permitted. relationship-type={}, relationship-"
+#~ "guid={}, end-guid={}, updated-end-"
+#~ "guid={}"
+#~ msgstr "不允许更改关系结束。关系类型= {}，关系引导= {}，结束引导= {}，更新结束引导= {}"
+
+#~ msgid ""
+#~ "change of relationship type is not "
+#~ "permitted. relationship-guid={}, current-"
+#~ "type={}, new-type={}"
+#~ msgstr "不允许更改关系类型。关系guid = {}，当前类型= {}，新类型= {}"
+
+#~ msgid "Update to classification {0} is not allowed from propagated entity"
+#~ msgstr "传播实体不允许更新为分类{0}"
+
+#~ msgid "Delete of classification {0} is not allowed from propagated entity"
+#~ msgstr "不允许从传播的实体中删除分类{0}"
+
+#~ msgid "Classification {0} is not associated with entity"
+#~ msgstr "分类{0}与实体没有关联"
+
+#~ msgid "{0}: Unknown/invalid glossary term"
+#~ msgstr "{0}：词汇表术语未知/无效"
+
+#~ msgid ""
+#~ "Invalid classification parameters passed for"
+#~ " {0} operation for entity: {1}"
+#~ msgstr "为实体{1}的{0}操作传递了无效的分类参数"
+
+#~ msgid ""
+#~ "Propagated classification {0} is not "
+#~ "associated with entity {2}, it is "
+#~ "associated with entity {1}"
+#~ msgstr "传播的分类{0}未与实体{2}关联，但与实体{1}关联"
+
+#~ msgid ""
+#~ "Invalid propagated classification: {0} with"
+#~ " entityGuid: {1} added to blocked "
+#~ "propagated classifications."
+#~ msgstr "无效的传播分类：{0}，其中实体实体：{1}已添加到阻止的传播分类中。"
+
+#~ msgid "Mandatory anchor attribute is missing"
+#~ msgstr "缺少必需的锚点属性"
+
+#~ msgid "Mandatory qualifiedName attribute is missing"
+#~ msgstr "缺少必填qualifiedName属性"
+
+#~ msgid "Invalid attribute {0} for partial update of {1}"
+#~ msgstr "属性{0}无效，无法部分更新{1}"
+
+#~ msgid "Invalid attrVal for partial update of {0}, expected = {1} found {2}"
+#~ msgstr "用于部分更新{0}的attrVal无效，预期=找到{2} {2}"
+
+#~ msgid "Term guid can't be empty/null when adding to a category"
+#~ msgstr "添加到类别时，术语guid不能为空/空"
+
+#~ msgid "New Anchor guid can't be empty/null"
+#~ msgstr "新主播guid不能为空/空"
+
+#~ msgid "Missing mandatory attribute, TermAssignment relationship guid"
+#~ msgstr "缺少必填属性，TermAssignment关系guid"
+
+#~ msgid ""
+#~ "Attributes qualifiedName and name are "
+#~ "missing. Failed to derive a unique "
+#~ "name for Glossary"
+#~ msgstr "缺少qualifiedName和name属性。无法为词汇表得出唯一的名称"
+
+#~ msgid ""
+#~ "Attributes qualifiedName, name & glossary "
+#~ "name are missing. Failed to derive "
+#~ "a unique name for Glossary term"
+#~ msgstr "缺少属性qualifiedName，名称和词汇表名称。无法为词汇表术语推导唯一名称"
+
+#~ msgid ""
+#~ "Attributes qualifiedName, name & glossary "
+#~ "name are missing. Failed to derive "
+#~ "a unique name for Glossary category"
+#~ msgstr "缺少属性qualifiedName，名称和词汇表名称。无法为词汇表类别导出唯一名称"
+
+#~ msgid "Relationship end is invalid. Expected {0} but is NULL"
+#~ msgstr "关系结束无效。预期为{0}，但为NULL"
+
+#~ msgid "Invalid Term relationship: Term can't have a relationship with self"
+#~ msgstr "无效的术语关系：术语不能与自身有关系"
+
+#~ msgid ""
+#~ "Invalid child category relationship: Child "
+#~ "category (guid = {0}) belongs to "
+#~ "different glossary"
+#~ msgstr "无效的子类别关系：子类别（guid = {0}）属于不同的词汇表"
+
+#~ msgid ""
+#~ "Given relationshipGuid({0}) is invalid for "
+#~ "term (guid={1}) and entity(guid={2})"
+#~ msgstr "给定的关系Guid（{0}）对于术语（guid = {1}）和实体（guid = {2}）无效"
+
+#~ msgid ""
+#~ "{0}.{1}: invalid attribute type. Attribute "
+#~ "cannot be of type classification"
+#~ msgstr "{0}。{1}：无效的属性类型。属性不能为类型分类"
+
+#~ msgid "Category name is empty/null"
+#~ msgstr "类别名称为空/空"
+
+#~ msgid "name cannot contain following special chars ,'@', '.')"
+#~ msgstr "名称不能包含以下特殊字符，'@'，'。'）"
+
+#~ msgid ""
+#~ "Term ,guid={0}) can't be deleted as "
+#~ "it has been assigned to {1} "
+#~ "entities."
+#~ msgstr "术语，guid = {0}）已被分配给{1}个实体，因此无法删除。"
+
+#~ msgid "Invalid timezone {0}"
+#~ msgstr "无效的时区{0}"
+
+#~ msgid "Invalid startTime {0}"
+#~ msgstr "无效的开始时间{0}"
+
+#~ msgid "Invalid endTime {0}"
+#~ msgstr "无效的结束时间{0}"
+
+#~ msgid "Invalid dateRange: startTime {0} must be before endTime {1}"
+#~ msgstr "无效的dateRange：startTime {0}必须在endTime {1}之前"
+
+#~ msgid ""
+#~ "Removal of classification {0}, which is"
+#~ " propagated from entity {1}, is not"
+#~ " supported"
+#~ msgstr "不支持删除从实体{1}传播的分类{0}"
+
+#~ msgid "{0} is not authorized to perform {1}"
+#~ msgstr "{0}无权执行{1}"
+
+#~ msgid "Given typename {0} was invalid"
+#~ msgstr "给定类型名称{0}无效"
+
+#~ msgid "Given type guid {0} was invalid"
+#~ msgstr "给定类型guid {0}无效"
+
+#~ msgid "No classifications associated with entity: {0}"
+#~ msgstr "没有与实体相关的分类：{0}"
+
+#~ msgid "No result found for {0}"
+#~ msgstr "找不到{0}的结果"
+
+#~ msgid "Given instance guid {0} is invalid/not found"
+#~ msgstr "给定实例guid {0}无效/未找到"
+
+#~ msgid "Instance lineage query failed {0}"
+#~ msgstr "实例沿袭查询失败{0}"
+
+#~ msgid "Invalid instance creation/updation parameters passed : {0}"
+#~ msgstr "传递了无效的实例创建/更新参数：{0}"
+
+#~ msgid "Given classification {0} was invalid"
+#~ msgstr "给定的分类{0}无效"
+
+#~ msgid "Instance {0} with unique attribute {1} does not exist"
+#~ msgstr "具有唯一属性{1}的实例{0}不存在"
+
+#~ msgid "Referenced entity {0} is not found"
+#~ msgstr "找不到引用的实体{0}"
+
+#~ msgid "Given instance is invalid/not found: {0}"
+#~ msgstr "给定的实例无效/未找到：{0}"
+
+#~ msgid "Given relationship guid {0} is invalid/not found"
+#~ msgstr "给定关系guid {0}无效/未找到"
+
+#~ msgid "Invalid relationship creation/updation parameters passed : {0}"
+#~ msgstr "传递了无效的关系创建/更新参数：{0}"
+
+#~ msgid "RelationshipDef {0} endDef typename {0} cannot be found"
+#~ msgstr "找不到RelationshipDef {0} endDef类型名{0}"
+
+#~ msgid "Attempting to delete a relationship which is already deleted : {0}"
+#~ msgstr "尝试删除已经删除的关系：{0}"
+
+#~ msgid "Updating entityGuid of classification is not allowed."
+#~ msgstr "不允许更新分类的实体向导。"
+
+#~ msgid "Given instance guid {0} is not a dataset"
+#~ msgstr "给定实例guid {0}不是数据集"
+
+#~ msgid "Given instance guid {0} has been deleted"
+#~ msgstr "给定实例guid {0}已被删除"
+
+#~ msgid "No propagated classifications associated with entity: {0}"
+#~ msgstr "没有与实体关联的传播分类：{0}"
+
+#~ msgid "Given type {0} already exists"
+#~ msgstr "给定类型{0}已存在"
+
+#~ msgid "Given type {0} has references"
+#~ msgstr "给定类型{0}有引用"
+
+#~ msgid "failed to update entity: {0}"
+#~ msgstr "无法更新实体：{0}"
+
+#~ msgid "relationship {0} already exists between entities {1} and {2}"
+#~ msgstr "实体{1}和{2}之间的关系{0}已经存在"
+
+#~ msgid "Given type {0} has associated relationshipDefs"
+#~ msgstr "给定类型{0}具有关联的RelationshipDefs"
+
+#~ msgid "search named {0} already exists for user {1}"
+#~ msgstr "用户{1}已存在名为{0}的搜索"
+
+#~ msgid "Glossary with qualifiedName {0} already exists"
+#~ msgstr "带有qualifiedName {0}的词汇表已经存在"
+
+#~ msgid "Glossary term with qualifiedName {0} already exists"
+#~ msgstr "带有qualifiedName {0}的词汇表术语已经存在"
+
+#~ msgid "Glossary category with qualifiedName {0} already exists"
+#~ msgstr "带有qualifiedName {0}的词汇表类别已存在"
+
+#~ msgid "Internal server error {0}"
+#~ msgstr "内部服务器错误{0}"
+
+#~ msgid "Index creation failed for {0}"
+#~ msgstr "{0}的索引创建失败"
+
+#~ msgid "Index rollback failed for {0}"
+#~ msgstr "{0}的索引回滚失败"
+
+#~ msgid "Discovery query failed {0}"
+#~ msgstr "发现查询失败{0}"
+
+#~ msgid ""
+#~ "Failed to get the lock; another "
+#~ "type update might be in progress. "
+#~ "Please try again"
+#~ msgstr "无法获得锁；可能正在进行其他类型的更新。请再试一遍"
+
+#~ msgid "Another import or export is in progress. Please try again"
+#~ msgstr "另一个导入或导出正在进行中。请再试一遍"
+
+#~ msgid "Failed to notify {0} for change {1}"
+#~ msgstr "无法通知{0}进行更改{1}"
+
+#~ msgid "Failed to obtain gremlin script engine: {0}"
+#~ msgstr "无法获取gremlin脚本引擎：{0}"
+
+#~ msgid "ObjectMapper.readValue returned NULL for class: {0}"
+#~ msgstr "ObjectMapper.readValue为类{0}返回NULL。"
+
+#~ msgid "Gremlin script execution failed: {0}"
+#~ msgstr "Gremlin脚本执行失败：{0}"
+
+#~ msgid "ActiveInstanceState.update resulted in exception."
+#~ msgstr "ActiveInstanceState.update导致异常。"
+
+#~ msgid "Failed to run QuickStart: {0}"
+#~ msgstr "无法运行快速入门：{0}"
+
+#~ msgid "EmbeddedServer.Start: failed!"
+#~ msgstr "EmbeddedServer.Start：失败！"
+
+#~ msgid "StormTopologyUtil: {0}"
+#~ msgstr "StormTopologyUtil：{0}"
+
+#~ msgid "SqoopHook: {0}"
+#~ msgstr "SqoopHook：{0}"
+
+#~ msgid "HiveHook: {0}"
+#~ msgstr "HiveHook：{0}"
+
+#~ msgid "HiveHookMetaStoreBridge: {0}"
+#~ msgstr "HiveHookMetaStoreBridge：{0}"
+
+#~ msgid "Load failed: {0}"
+#~ msgstr "加载失败：{0}"
+
+#~ msgid "Notification failed for operation: {0} : {1}"
+#~ msgstr "操作通知失败：{0}：{1}"
+
+#~ msgid "Atlas backend don't implement this method now."
+#~ msgstr "Atlas后端现在不实现此方法。"
+
+#~ msgid "Invalid type category to access."
+#~ msgstr "要访问的类型类别无效。"
+
+#~ msgid "Now only entity type defs can be retrieve."
+#~ msgstr "现在只能检索实体类型defs。"
+
+#~ msgid "Renewing type def is not implemented."
+#~ msgstr "未实现续订类型def。"
+
+#~ msgid "Deleting type def is not implemented."
+#~ msgstr "未实现删除类型def。"
+
+#~ msgid "Executed RPC Call {} in {} with arg {}, kwargs {}. The id is {}."
+#~ msgstr "用arg {}，kwargs {}在{}中执行了RPC调用{}。 ID为{}。"
+
+#~ msgid ""
+#~ "Executed RPC Call {} in {} with"
+#~ " arg {}, kwargs {}, the result "
+#~ "is {}. The id is {}."
+#~ msgstr "使用arg {}，kwargs {}在{}中执行了RPC调用{}，结果为{}。 ID为{}。"
+
+#~ msgid "MTM Relation Bridge doesn't support update operate."
+#~ msgstr "MTM关系桥不支持更新操作。"
+
+#~ msgid "Invalid db operate method."
+#~ msgstr "无效的数据库操作方法。"
+
+#~ msgid "No guid or qualified_name to query."
+#~ msgstr "没有要查询的guid或qualified_name。"
+
+#~ msgid "Invalid mapper find mode."
+#~ msgstr "无效的映射器查找模式。"
+
+#~ msgid "Fail to find type {}'s attrs_mapping"
+#~ msgstr "找不到类型{}的attrs_mapping"
+
+#~ msgid "Not supported type to unserialize."
+#~ msgstr "不支持反序列化的类型。"
+
+#~ msgid "The required field: [{}] value is not sat."
+#~ msgstr "必填字段：[{}]值不等于。"
+
+#~ msgid "The value is not in choices."
+#~ msgstr "该值不在选择范围内。"
+
+#~ msgid "Invalid item type."
+#~ msgstr "无效的项目类型。"
+
+#~ msgid "Invalid Item type."
+#~ msgstr "无效的项目类型。"
+
+#~ msgid "Can't find type."
+#~ msgstr "找不到类型。"
+

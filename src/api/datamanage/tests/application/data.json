@@ -1,0 +1,159 @@
+{
+    "dimension_table": {
+        "node_type":"dimension_table",
+        "node_conf":{
+            "main_table":"591_f2335_s_02",
+            "fields":[
+                {
+                    "field_name":"report_time",
+                    "field_type":"string",
+                    "field_clean_content":{
+                        "clean_option":"SQL",
+                        "clean_content":"concat('中文名:', report_time) as report_time"
+                    },
+                    "ins_field":{
+                        "input_result_table_id":"591_f2335_s_02",
+                        "input_field_name":"report_time",
+                        "application_clean_content":{
+                            "clean_option":"SQL",
+                            "clean_content":"case report_time when 1 then '一' when 2 then '二' else '三' end as report_time"
+                        }
+                    }
+                },
+                {
+                    "field_name":"DisplayName",
+                    "field_type":"string",
+                    "field_clean_content":{
+                        "clean_option":"SQL",
+                        "clean_content":"concat('展示名:', DisplayName)"
+                    },
+                    "ins_field":{
+                        "input_result_table_id":"591_f2335_s_02",
+                        "input_field_name":"DisplayName",
+                        "application_clean_content":{
+                            "clean_option":"SQL",
+                            "clean_content":"case DisplayName when '1' then '一' when '2' then '二' else DisplayName end as DisplayName"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "fact_table": {
+        "node_type":"fact_table",
+        "node_conf":{
+            "main_table":"591_AccessDataBusiness",
+            "fields":[
+                {
+                    "field_name":"DisplayName",
+                    "field_type":"string",
+                    "field_clean_content":{
+                        "clean_option":"SQL",
+                        "clean_content":"concat('展示名:', DisplayName)"
+                    },
+                    "ins_field":{
+                        "input_result_table_id":"591_AccessDataBusiness",
+                        "input_field_name":"DisplayName",
+                        "application_clean_content":{
+                            "clean_option":"SQL",
+                            "clean_content":"case DisplayName when '1' then '一' when '2' then '二' else DisplayName end as DisplayName"
+                        }
+                    }
+                },
+                {
+                    "field_name":"DisplayName_combine",
+                    "field_type":"string",
+                    "field_clean_content":{
+                        "clean_option":"SQL",
+                        "clean_content":"concat(bk_biz_id ,'+', DisplayName)"
+                    },
+                    "ins_field":{
+                        "input_result_table_id":"",
+                        "input_field_name":"",
+                        "application_clean_content": null
+                    }
+                },
+                {
+                    "field_name":"udf_check_main",
+                    "field_type":"string",
+                    "field_clean_content":{
+                        "clean_option":"SQL",
+                        "clean_content":"udf_java_udf('DisplayName:', udf_check_main) as udf_check_main"
+                    },
+                    "ins_field":{
+                        "input_result_table_id":"591_AccessDataBusiness",
+                        "input_field_name":"DisplayName",
+                        "application_clean_content":null
+                    }
+                },
+                {
+                    "field_name":"bk_biz_id",
+                    "field_type":"string",
+                    "input_result_table_id":"591_AccessDataBusiness",
+                    "input_field_name":"bk_biz_id",
+                    "field_clean_content":{
+
+                    },
+                    "ins_field":{
+                        "input_result_table_id":"591_AccessDataBusiness",
+                        "input_field_name":"bk_biz_id",
+                        "application_clean_content":{
+                            "clean_option":"SQL",
+                            "clean_content":"cast(bk_biz_id as bigint) as bk_biz_id"
+                        }
+                    },
+                    "dmm_relation":{
+                        "related_method":"left-join"
+                    },
+                    "ins_relation":{
+                        "input_result_table_id":"591_cmdb_application_list",
+                        "input_field_name":"CCID"
+                    }
+                },
+                {
+                    "field_name": "OpsGroupID",
+                    "field_type": "long",
+                    "input_result_table_id": "591_cmdb_application_list",
+                    "input_field_name": "OpsGroupID",
+                    "field_clean_content": {
+                        "clean_option": "SQL",
+                        "clean_content": "OpsGroupID * 100 as OpsGroupID"
+                    },
+                    "ins_field": {
+                        "input_result_table_id": "591_cmdb_application_list",
+                        "input_field_name": "OpsGroupID",
+                        "application_clean_content": {
+                            "clean_option": "SQL",
+                            "clean_content": "OpsGroupID / 100 as OpsGroupID"
+                        }
+                    }
+                },
+                {
+                    "field_name": "ori_OpsGroupID",
+                    "field_type": "long",
+                    "field_clean_content": null,
+                    "ins_field": {
+                        "input_result_table_id": "591_AccessDataBusiness",
+                        "input_field_name": "OpsGroupID",
+                        "application_clean_content": null
+                    }
+                }
+            ]
+        }
+    }
+    ,"indicator": {
+        "node_type": "indicator",
+        "node_conf": {
+            "main_table": "591_admin_test_flow_1_out",
+            "calculation_atom": {
+                "calculation_atom_name": "test_atom",
+                "field_type": "int",
+                "calculation_formula": "count(city1)"
+            },
+            "ins_indicator": {
+                "aggregation_fields": "ip",
+                "filter_formula": "report_time is not null"
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+node_modules/**/*
+plugins/**/*
+static/**/*
+test/**/*
+src/**/*
+commitlint.config.js
+webBuild/**

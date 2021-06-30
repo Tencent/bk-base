@@ -1,0 +1,31 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_feature_shield_rules",
+            "data": [
+                {
+                    "effect": "deny",
+                    "feature": "application.custom_permission.grant",
+                    "action": {
+                        "id": "*"
+                    }
+                },
+                {
+                    "effect": "deny",
+                    "feature": "application.custom_permission.renew",
+                    "action": {
+                        "id": "*"
+                    }
+                },
+                {
+                    "effect": "deny",
+                    "feature": "user_permission.custom_permission.delete",
+                    "action": {
+                        "id": "*"
+                    }
+                }
+            ]
+        }
+    ]
+}

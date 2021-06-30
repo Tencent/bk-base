@@ -1,0 +1,129 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "algorithm-create",
+                "name": "算法新增",
+                "name_en": "Algorithm Create",
+                "description": "算法新增",
+                "description_en": "Algorithm Create",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "algorithm-copy",
+                "name": "算法复制",
+                "name_en": "Algorithm Replication",
+                "description": "算法复制",
+                "description_en": "Algorithm Replication",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "algorithm",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-algorithm"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "algorithm-retrieve",
+                "name": "算法查看",
+                "name_en": "Algorithm View",
+                "description": "算法查看",
+                "description_en": "Algorithm View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "algorithm",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-algorithm"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "algorithm-update",
+                "name": "算法编辑",
+                "name_en": "Algorithm Update",
+                "description": "算法编辑",
+                "description_en": "Algorithm Update",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "algorithm",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-algorithm"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "algorithm-delete",
+                "name": "算法删除",
+                "name_en": "Algorithm Delete",
+                "description": "算法删除",
+                "description_en": "Algorithm Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "algorithm",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-algorithm"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

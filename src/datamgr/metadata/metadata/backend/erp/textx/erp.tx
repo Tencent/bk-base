@@ -1,0 +1,87 @@
+/*
+    A grammar for ERP Search format.
+    Todo:各类member单独定义可用的value
+*/
+
+Expression:
+    "[" values*=Object[','] "]"
+;
+
+Array:
+    "[" values*=Value[','] "]"
+;
+
+Object:
+    "{" members*=Member[','] "}"
+;
+
+Value:
+    STRING | FLOAT | BOOL | Object | Array | "null"
+;
+
+PrimitiveValue:
+    STRING | FLOAT | BOOL | "null"
+;
+
+Member:
+    ExpressionName|TypedMember|BackendMember|CommonFunctionMember|ComplexFunctionMember|AttributeMember
+;
+
+ExpressionName:
+    key='"?:expression_name"' ':' value=STRING
+;
+
+TypedMember:
+    key='"?:typed"' ':' value=STRING
+;
+
+BackendMember:
+    key='"?:backend"' ':' value=STRING
+;
+
+CommonFunctionMember:
+    actual_member=CommonFunctionMemberAgent
+;
+
+ComplexFunctionMember:
+    key='"?:' function_name=/\w+/ '":' value=Object
+;
+
+AttributeMember:
+    key=STRING ':' value=Value
+;
+
+/*
+    公共函数子类型
+*/
+CommonFunctionMemberAgent:
+    StartFilterMember|WildCardMember|CountMember|PagingMember|OrderByMember|CascadeMember|FilterMember
+;
+
+StartFilterMember:
+    key='"?:start_filter"' ':' value=STRING
+;
+
+WildCardMember:
+    key='"*"' ':' value=BOOL
+;
+
+CountMember:
+    key='"?:count"' ':' value=BOOL
+;
+
+PagingMember:
+    key='"?:paging"' ':' value=Object
+;
+
+OrderByMember:
+    key='"?:order_by"' ':' value=Object
+;
+
+CascadeMember:
+    key='"?:cascade"' ':' value=BOOL
+;
+
+FilterMember:
+    key='"?:filter"' ':' value=STRING
+;

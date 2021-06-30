@@ -1,0 +1,660 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-11 09:58+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: pro/datamap/dmaction.py:59
+msgid "数据集市"
+msgstr ""
+
+#: pro/datamap/dmaction.py:60 pro/datastocktake/views.py:151
+#: pro/datastocktake/views.py:240 pro/datastocktake/views.py:322
+#: pro/datastocktake/views.py:365
+msgid "其他"
+msgstr ""
+
+#: pro/datamap/dmaction.py:66 pro/datamap/dmaction.py:68
+msgid "ModelFlow模型"
+msgstr ""
+
+#: pro/datamap/dmaction.py:67
+msgid "实时计算"
+msgstr ""
+
+#: pro/datamap/dmaction.py:69
+msgid "离线计算"
+msgstr ""
+
+#: pro/datamap/dmaction.py:70
+msgid "转换"
+msgstr ""
+
+#: pro/datamap/dmaction.py:71
+msgid "清洗"
+msgstr ""
+
+#: pro/datamap/dmaction.py:72
+msgid "场景化模型"
+msgstr ""
+
+#: pro/datamap/dmaction.py:73
+msgid "存储类计算"
+msgstr ""
+
+#: pro/datamap/dmaction.py:74
+msgid "视图"
+msgstr ""
+
+#: pro/datamap/dmaction.py:1613
+msgid "-其他"
+msgstr ""
+
+#: pro/datamap/dmaction.py:1617
+msgid "非标准数据"
+msgstr ""
+
+#: pro/datamap/dmaction.py:4653 pro/datastocktake/views.py:137
+msgid "组件"
+msgstr ""
+
+#: pro/datamap/dmaction.py:4654 pro/datastocktake/views.py:137
+msgid "设备"
+msgstr ""
+
+#: pro/datamap/dmaction.py:4655 pro/datastocktake/views.py:137
+msgid "系统"
+msgstr ""
+
+#: pro/datamap/serializers.py:13 pro/datamap/serializers.py:17
+#: pro/datamap/serializers.py:38 pro/datamap/serializers.py:60
+#: pro/datamap/serializers.py:72 pro/datamap/serializers.py:87
+msgid "全部"
+msgstr ""
+
+#: pro/datamap/serializers.py:14 pro/datamap/serializers.py:61
+#: pro/datamap/serializers.py:88
+msgid "数据平台"
+msgstr ""
+
+#: pro/datamap/serializers.py:15 pro/datamap/serializers.py:62
+#: pro/datamap/serializers.py:89
+msgid "TDW平台"
+msgstr ""
+
+#: pro/datamap/serializers.py:18 pro/datamap/serializers.py:39
+#: pro/datamap/serializers.py:73
+msgid "结果数据"
+msgstr ""
+
+#: pro/datamap/serializers.py:19 pro/datamap/serializers.py:40
+#: pro/datamap/serializers.py:74 pro/lifecycle/serializers.py:14
+#: pro/lifecycle/serializers.py:24
+msgid "数据源"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:10
+msgid "规则ID"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:11 pro/dataquality/models/rule.py:28
+msgid "结果表ID"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:12 pro/dataquality/serializers/rule.py:112
+#: pro/dataquality/serializers/rule.py:116
+msgid "规则配置"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:13 pro/dataquality/models/rule.py:72
+msgid "是否生效"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:14 pro/dataquality/models/rule.py:32
+#: pro/dataquality/models/rule.py:73 pro/dstan/models.py:22
+#: pro/dstan/models.py:24 pro/dstan/models.py:49 pro/dstan/models.py:51
+#: pro/dstan/models.py:76 pro/dstan/models.py:78 pro/dstan/models.py:110
+#: pro/dstan/models.py:112 pro/dstan/models.py:138 pro/dstan/models.py:140
+#: pro/dstan/models.py:155 pro/dstan/models.py:157
+msgid "创建者"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:15 pro/dataquality/models/rule.py:33
+#: pro/dataquality/models/rule.py:74 pro/dstan/models.py:23
+#: pro/dstan/models.py:25 pro/dstan/models.py:50 pro/dstan/models.py:52
+#: pro/dstan/models.py:77 pro/dstan/models.py:79 pro/dstan/models.py:111
+#: pro/dstan/models.py:113 pro/dstan/models.py:139 pro/dstan/models.py:141
+#: pro/dstan/models.py:156 pro/dstan/models.py:158
+msgid "创建时间"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:16 pro/dataquality/models/rule.py:34
+#: pro/dataquality/models/rule.py:75
+msgid "更新者"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:17 pro/dataquality/models/rule.py:35
+#: pro/dataquality/models/rule.py:76
+msgid "更新时间"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:18 pro/dataquality/models/rule.py:77
+msgid "规则描述"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:27
+msgid "规则任务ID"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:29
+msgid "质量审核规则ID"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:30
+msgid "审核任务配置"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:31
+msgid "任务状态"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:44 pro/dataquality/serializers/rule.py:33
+msgid "事件ID"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:45
+msgid "事件英文名"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:46
+msgid "事件别名"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:47
+msgid "事件时效性(秒)"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:48
+msgid "事件时间"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:49
+msgid "事件状态"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:50
+msgid "事件类型"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:51
+msgid "事件子类型"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:52
+msgid "事件极性"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:53
+msgid "事件级别"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:54
+msgid "事件来源"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:55
+msgid "业务ID"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:56
+msgid "产生事件的平台"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:57
+msgid "产生事件的类型"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:58
+msgid "事件敏感度"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:59
+msgid "事件维度"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:68
+msgid "事件类型名称"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:69
+msgid "事件类型中文名"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:70
+msgid "分类下序号"
+msgstr ""
+
+#: pro/dataquality/models/rule.py:71
+msgid "父事件分类名称"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:17
+msgid "定时器类型"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:18
+msgid "Crontab调度配置"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:19
+msgid "固定时间触发配置"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:20
+msgid "一次性执行"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:22
+msgid "定时器值"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:26
+msgid "输入参数类型"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:27
+msgid "输入参数名称"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:31
+msgid "参数类型"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:32
+msgid "指标名称"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:34
+msgid "常数类型"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:35
+msgid "常数值"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:36
+msgid "子操作"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:37
+msgid "表达式"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:43
+msgid "非法参数类型: {}"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:47
+msgid "指标类型参数需要提供有效的\"指标名称(metric_name)\""
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:50
+msgid "常数类型参数需要提供有效的\"常数类型(constant_type)\""
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:52
+msgid "非法的常数类型: {}"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:56
+msgid "常数类型参数需要提供有效的\"常数值(constant_value)\""
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:59
+msgid "事件类型参数需要提供有效的\"事件ID(event_id)\""
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:62
+msgid "操作类型参数需要提供有效的\"操作逻辑(function)\""
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:66
+msgid "表达式类型参数需要提供有效的\"表达式(expression)\""
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:72
+msgid "规则操作类型"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:73
+msgid "规则操作名称"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:74
+msgid "规则操作参数"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:80
+msgid "非法操作类型: {}"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:86
+msgid "输出事件ID"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:87
+msgid "输出事件名称"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:88
+msgid "输出事件中文名"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:89
+msgid "输出事件类型"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:90
+msgid "输出事件子类型"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:91
+msgid "事件时效(秒)"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:92
+msgid "事件标签"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:96
+msgid "规则输入配置"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:97
+msgid "规则操作配置"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:98
+msgid "规则输出配置"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:110
+msgid "规则版本"
+msgstr ""
+
+#: pro/dataquality/serializers/rule.py:111
+msgid "定时器"
+msgstr ""
+
+#: pro/dataquality/serializers/sampling.py:10
+msgid "数据热度"
+msgstr ""
+
+#: pro/dataquality/serializers/sampling.py:11
+msgid "热度顺序取值比例"
+msgstr ""
+
+#: pro/dataquality/serializers/sampling.py:12
+msgid "最近有数据时间(秒)"
+msgstr ""
+
+#: pro/datastocktake/views.py:388
+msgid "ModelFlow模型(batch)"
+msgstr ""
+
+#: pro/datastocktake/views.py:389
+msgid "ModelFlow模型(stream)"
+msgstr ""
+
+#: pro/datastocktake/views.py:515
+msgid "其他应用"
+msgstr ""
+
+#: pro/dstan/exceptions.py:11
+msgid "数据标准化通用错误"
+msgstr ""
+
+#: pro/dstan/exceptions.py:16
+#, python-brace-format
+msgid "出现非法参数，{k}: {v}"
+msgstr ""
+
+#: pro/dstan/exceptions.py:21
+#, python-brace-format
+msgid "对象不存在，{object_id}"
+msgstr ""
+
+#: pro/dstan/exceptions.py:26
+#, python-brace-format
+msgid "元数据不符合预期，{message}"
+msgstr ""
+
+#: pro/dstan/models.py:17 pro/dstan/models.py:194
+msgid "标准id"
+msgstr ""
+
+#: pro/dstan/models.py:18
+msgid "标准名称"
+msgstr ""
+
+#: pro/dstan/models.py:19 pro/dstan/models.py:180
+msgid "标准描述"
+msgstr ""
+
+#: pro/dstan/models.py:20 pro/dstan/models.py:69
+msgid "所属分类"
+msgstr ""
+
+#: pro/dstan/models.py:21 pro/dstan/models.py:75 pro/dstan/models.py:109
+#: pro/dstan/models.py:137 pro/dstan/models.py:154
+msgid "是否有效"
+msgstr ""
+
+#: pro/dstan/models.py:43
+msgid "版本id"
+msgstr ""
+
+#: pro/dstan/models.py:44
+msgid "关联的dm_standard_config表id"
+msgstr ""
+
+#: pro/dstan/models.py:45
+msgid "标准版本号,例子:v1.0,v2.0..."
+msgstr ""
+
+#: pro/dstan/models.py:46
+msgid "版本描述"
+msgstr ""
+
+#: pro/dstan/models.py:48
+msgid "版本状态"
+msgstr ""
+
+#: pro/dstan/models.py:62
+msgid "标准内容id"
+msgstr ""
+
+#: pro/dstan/models.py:63
+msgid "关联的dm_standard_version_config表id"
+msgstr ""
+
+#: pro/dstan/models.py:64
+msgid "标准内容名称"
+msgstr ""
+
+#: pro/dstan/models.py:66
+msgid "约束条件,格式例子:[1,2]"
+msgstr ""
+
+#: pro/dstan/models.py:67 pro/dstan/models.py:101 pro/dstan/models.py:105
+#: pro/dstan/models.py:125 pro/dstan/models.py:129
+msgid "来源记录id"
+msgstr ""
+
+#: pro/dstan/models.py:68
+msgid "标准模板sql"
+msgstr ""
+
+#: pro/dstan/models.py:70
+msgid "标准内容类型[detaildata/indicator]"
+msgstr ""
+
+#: pro/dstan/models.py:71
+msgid "标准内容描述"
+msgstr ""
+
+#: pro/dstan/models.py:73
+msgid "窗口类型,以秒为单位,json表达定义"
+msgstr ""
+
+#: pro/dstan/models.py:74
+msgid "过滤条件"
+msgstr ""
+
+#: pro/dstan/models.py:100 pro/dstan/models.py:124
+msgid "关联的dm_standard_content_config的id"
+msgstr ""
+
+#: pro/dstan/models.py:102 pro/dstan/models.py:103 pro/dstan/models.py:126
+#: pro/dstan/models.py:127
+msgid "字段英文名"
+msgstr ""
+
+#: pro/dstan/models.py:104 pro/dstan/models.py:106 pro/dstan/models.py:128
+#: pro/dstan/models.py:130 pro/dstan/models.py:176
+msgid "数据类型"
+msgstr ""
+
+#: pro/dstan/models.py:107 pro/dstan/models.py:136
+msgid "备注"
+msgstr ""
+
+#: pro/dstan/models.py:108
+msgid "字段在数据集中的顺序"
+msgstr ""
+
+#: pro/dstan/models.py:131
+msgid "是否维度:0:否;1:是;"
+msgstr ""
+
+#: pro/dstan/models.py:133
+msgid "可加性"
+msgstr ""
+
+#: pro/dstan/models.py:134
+msgid "关联的值约束配置表id"
+msgstr ""
+
+#: pro/dstan/models.py:135
+msgid "计算方式id"
+msgstr ""
+
+#: pro/dstan/models.py:152
+msgid "约束名称"
+msgstr ""
+
+#: pro/dstan/models.py:153
+msgid "约束条件"
+msgstr ""
+
+#: pro/dstan/models.py:177
+msgid "数据类型名称"
+msgstr ""
+
+#: pro/dstan/models.py:179
+msgid "类型"
+msgstr ""
+
+#: pro/dstan/models.py:195
+msgid "单位英文名"
+msgstr ""
+
+#: pro/dstan/models.py:196
+msgid "单位中文名"
+msgstr ""
+
+#: pro/dstan/models.py:197
+msgid "单位类目英文名"
+msgstr ""
+
+#: pro/dstan/models.py:198
+msgid "单位类目中文名"
+msgstr ""
+
+#: pro/dstan/models.py:199
+msgid "描述"
+msgstr ""
+
+#: pro/dstan/views.py:38
+msgid "值范围"
+msgstr ""
+
+#: pro/dstan/views.py:39
+msgid "值枚举"
+msgstr ""
+
+#: pro/dstan/views.py:40
+msgid "包含"
+msgstr ""
+
+#: pro/dstan/views.py:41
+msgid "不包含"
+msgstr ""
+
+#: pro/dstan/views.py:42
+msgid "开头是"
+msgstr ""
+
+#: pro/dstan/views.py:43
+msgid "结尾是"
+msgstr ""
+
+#: pro/dstan/views.py:44
+msgid "正则表达式"
+msgstr ""
+
+#: pro/dstan/views.py:48
+msgid "无窗口"
+msgstr ""
+
+#: pro/dstan/views.py:48
+msgid "滚动窗口"
+msgstr ""
+
+#: pro/dstan/views.py:48
+msgid "滑动窗口"
+msgstr ""
+
+#: pro/dstan/views.py:48
+msgid "累加窗口"
+msgstr ""
+
+#: pro/lifecycle/serializers.py:13 pro/lifecycle/serializers.py:23
+msgid "结果表"
+msgstr ""
+
+#: pro/lifecycle/serializers.py:19
+msgid "频率"
+msgstr ""
+
+#: pro/lifecycle/serializers.py:20
+msgid "开始时间"
+msgstr ""
+
+#: pro/lifecycle/serializers.py:21
+msgid "结束时间"
+msgstr ""

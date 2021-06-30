@@ -1,0 +1,135 @@
+objects:
+  - object_class: bkdata
+    object_name: 蓝鲸数据平台
+    object_name_en: DataSystem
+    has_object: False
+    scope_id_key: "*"
+    scope_name_key: "*"
+    user_mode: False
+    to_iam: False
+
+  - object_class: dataadmin
+    object_name: 数据平台管理系统
+    object_name_en: AdminSystem
+    has_object: False
+    scope_id_key: "*"
+    scope_name_key: "*"
+    user_mode: False
+    to_iam: False
+
+  - object_class: biz
+    object_name: 业务
+    object_name_en: Business
+    has_object: True
+    scope_id_key: bk_biz_id
+    scope_name_key: bk_biz_name
+    user_mode: True
+    to_iam: True
+
+  - object_class: project
+    object_name: 项目
+    object_name_en: Project
+    has_object: True
+    scope_id_key: project_id
+    scope_name_key: project_name
+    user_mode: True
+    to_iam: True
+
+  - object_class: dashboard
+    object_name: 图表面板
+    object_name_en: Dashboard
+    has_object: True
+    scope_id_key: dashboard_id
+    scope_name_key: dashboard_name
+    user_mode: False
+    to_iam: True
+
+  - object_class: flow
+    object_name: 任务
+    object_name_en: Flow
+    has_object: True
+    scope_id_key: flow_id
+    scope_name_key: flow_name
+    user_mode: False
+    to_iam: True
+
+  - object_class: data_token
+    object_name: 授权码
+    object_name_en: DataToken
+    has_object: True
+    scope_id_key: data_token_id
+    scope_name_key: data_token_name
+    user_mode: True
+    to_iam: True
+
+  - object_class: function
+    object_name: 自定义计算函数
+    object_name_en: UDF
+    has_object: True
+    scope_id_key: function_id
+    scope_name_key: function_name
+    user_mode: True
+    to_iam: True
+
+  - object_class: raw_data
+    object_name: 数据源
+    object_name_en: RawData
+    has_object: True
+    scope_id_key: raw_data_id
+    scope_name_key: raw_data_name
+    user_mode: True
+    to_iam: True
+
+  - object_class: resource_group
+    object_name: 资源组
+    object_name_en: ResourceGroup
+    has_object: True
+    scope_id_key: resource_group_id
+    scope_name_key: group_name
+    user_mode: True
+    to_iam: True
+
+  - object_class: result_table
+    object_name: 结果数据
+    object_name_en: ResultTable
+    has_object: True
+    scope_id_key: result_table_id
+    scope_name_key: result_table_name
+    user_mode: True
+    to_iam: True
+
+  - object_class: model
+    object_name: 算法模型
+    object_name_en: AlgorithmModel
+    has_object: True
+    scope_id_key: model_id
+    scope_name_key: model_name
+    user_mode: False
+    to_iam: True
+
+  - object_class: sample_set
+    object_name: 样本集
+    object_name_en: SampleSet
+    has_object: True
+    scope_id_key: sample_set_id
+    scope_name_key: sample_set_name
+    user_mode: False
+    to_iam: True
+
+  - object_class: algorithm
+    object_name: 算法
+    object_name_en: Algorithm
+    has_object: True
+    scope_id_key: algorithm_id
+    scope_name_key: algorithm_name
+    user_mode: False
+    to_iam: True
+
+  - object_class: datamodel
+    object_name: 数据模型
+    object_name_en: DataModel
+    has_object: True
+    scope_id_key: model_id
+    scope_name_key: model_name
+    user_mode: False
+    to_iam: True

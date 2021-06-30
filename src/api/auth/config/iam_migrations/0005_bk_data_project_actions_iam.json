@@ -1,0 +1,161 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "project-create",
+                "name": "项目创建",
+                "name_en": "Project Create",
+                "description": "项目创建",
+                "description_en": "Project Create",
+                "type": "create",
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "project-delete",
+                "name": "项目删除",
+                "name_en": "Project Delete",
+                "description": "项目删除",
+                "description_en": "Project Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "project-manage",
+                "name": "项目管理",
+                "name_en": "Project Manage",
+                "description": "项目管理",
+                "description_en": "Project Manage",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "project-retrieve",
+                "name": "项目查看",
+                "name_en": "Project View",
+                "description": "项目查看",
+                "description_en": "Project View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "project-update",
+                "name": "项目编辑",
+                "name_en": "Project Edit",
+                "description": "项目编辑",
+                "description_en": "Project Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "project-manage_dashboard",
+                "name": "项目图表开发",
+                "name_en": "Project Manager Dashboard",
+                "description": "项目图表开发",
+                "description_en": "Project Manager Dashboard",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "project-manage_flow",
+                "name": "项目数据开发",
+                "name_en": "Project Manager Flow",
+                "description": "项目数据开发",
+                "description_en": "Project Manager Flow",
+                "type": "manage",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

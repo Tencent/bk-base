@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+  ~
+  ~ Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+  ~
+  ~ BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+  ~
+  ~ License for BK-BASE 蓝鲸基础平台:
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  ~ documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  ~ the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+  ~ and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+             http://www.springframework.org/schema/beans
+             http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="grid.cfg" name="${.data_model["cluster.name"]}" class="org.apache.ignite.configuration.IgniteConfiguration">
+
+        <!--<property name="peerClassLoadingEnabled" value="true"/>-->
+        <property name="clientMode" value="true" />
+        <property name="metricsLogFrequency" value="0" />
+
+        <property name="communicationSpi">
+            <bean class="org.apache.ignite.spi.communication.tcp.TcpCommunicationSpi">
+                <property name="localPort" value="50000"/>
+                <property name="localPortRange" value="10000"/>
+            </bean>
+        </property>
+        <property name="pluginConfigurations">
+            <bean class="com.tencent.bk.base.datahub.ignite.plugin.BkSecurityPluginConf">
+                <property name="cluster" value="${.data_model["cluster.name"]}" />
+            </bean>
+        </property>
+        <property name="discoverySpi">
+            <bean class="com.tencent.bk.base.datahub.cache.ignite.BkZkDiscoverySpi">
+                <property name="zkConnectionString" value="${.data_model["zk.domain"]}:${.data_model["zk.port"]}"/>
+                <property name="zkRootPath" value="${.data_model["zk.root.path"]}"/>
+                <property name="sessionTimeout" value="${.data_model["session.timeout"]}"/>
+                <property name="joinTimeout" value="${.data_model["join.timeout"]}"/>
+                <property name="user" value="${.data_model["user"]}"/>
+                <property name="password" value="${.data_model["password"]}"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

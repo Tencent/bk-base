@@ -1,0 +1,128 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+flink-sql:
+  walker:
+    type: .SerialGroup
+    groups:
+      - type: .checker.FlinkSqlIllegalAliasNameChecker
+      - type: .checker.FlinkStartEndTimeChecker
+      - type: .checker.UseOfLimitClauseChecker
+      - type: .checker.UseOfOrderByClauseChecker
+      - type: .checker.UseOfUnionOperationChecker
+      - type: .checker.AbsentAliasChecker
+      - type: .checker.IllegalDoubleQuotedStringChecker
+      - type: .checker.IllegalSelectAllColumnsChecker
+      - type: .checker.DuplicatedColumnsChecker
+      - type: .checker.UseOfReservedWordChecker
+        reserved-word-list:
+          - timestamp
+          - offset
+          - bkdata_par_offset
+          - dtEventTime
+          - dtEventTimeStamp
+          - localTime
+          - thedate
+          - rowtime
+      - type: .optimizer.FlinkAggFunctionResultTypeOptimizer
+      - type: .optimizer.FlinkConcatFunctionResultTypeOptimizer
+      - type: .optimizer.FlinkIfFunctionToCaseWhenOptimizer
+      - type: .optimizer.FunctionNameMappingOptimizer
+        mapping:
+          lcase: lower
+          ucase: upper
+          left: "`left`"
+          right: "`right`"
+          replace: udf_replace
+          truncate: udf_truncate
+          substring: udf_substring
+          last: bkdata_last
+          sum: bkdata_sum
+      - type: .optimizer.FlinkAddTimestampToFunctionCallOptimizer
+        names:
+          - name: now
+            argCount: 0
+          - name: now
+            argCount: 1
+          - name: curdate
+            argCount: 0
+          - name: curdate
+            argCount: 1
+          - name: curtime
+            argCount: 0
+          - name: curtime
+            argCount: 1
+          - name: unix_timestamp
+            argCount: 0
+      - type: .optimizer.FlinkFunctionCustomizedOptimizer
+      - type: .optimizer.FlinkCustomizedDivisionOptimizer
+      - type: .optimizer.FunctionNameCaseOptimizer
+        rule: ToLower
+        names:
+          - add_onlinecnt
+          - add_os
+          - contains_substring
+          - curdate
+          - now
+          - curtime
+          - from_millisec
+          - from_unixtime
+          - gameappid_to_plat
+          - inet_aton
+          - inet_ntoa
+          - int_overflow
+          - instr
+          - last_instr
+          - left
+          - length
+          - locate
+          - ltrim
+          - mid
+          - regexp_replace
+          - right
+          - rtrim
+          - split_index
+          - substring_index
+          - unixtime_diff
+          - unix_timestamp
+          - bkdata_division
+          - trans_fields_to_records
+          - split_field_to_records
+          - zip
+          - udf_replace
+          - udf_substring
+          - udf_truncate
+  de-parser:
+    type: .FlinkSqlDeParserAPIV3
+    trtTableMetadataUrlPattern: http://__BKDATA_METAAPI_HOST__:__BKDATA_METAAPI_PORT__/v3/meta/result_tables/{0}/?related=fields
+    staticTableMetadataUrlPattern: http://__BKDATA_DATAFLOWAPI_HOST__:__BKDATA_DATAFLOWAPI_PORT__/v3/dataflow/stream/result_tables/{0}/associate_data_source_info/
+    udfMetadataUrlPattern: http://__BKDATA_DATAFLOWAPI_HOST__:__BKDATA_DATAFLOWAPI_PORT__/v3/dataflow/udf/functions/?env={0}&function_name={1}
+    aggregationCallRefs:
+      - COUNT
+      - AVG
+      - SUM
+      - MAX
+      - MIN
+      - BKDATA_LAST
+      - BKDATA_SUM
+      - GROUP_CONCAT

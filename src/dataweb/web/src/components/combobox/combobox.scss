@@ -1,0 +1,193 @@
+/*!
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+ */
+
+@charset "utf-8";
+// 插件统一前缀
+$comboboxPrefix: bkdata-combobox;
+$borderColor: #c3cdd7; //边框色
+$primaryColor: #3a84ff; //主要
+$fnMinorColor: #c3cdd7; //次要颜色 用于plaeholder等
+$defaultBackgroundColor: #fafafa;
+$formBorderColor: #c3cdd7; //表单输入框色
+$defaultColor: #ffffff; //默认
+$formBorderFocusColor: #3c96ff; //表单输入框激活色
+$primaryHoverColor: #4f5399; //主要
+
+.#{$comboboxPrefix} {
+  position: relative;
+  width: 100%;
+  &-wrapper {
+    position: relative;
+    width: 100%;
+
+    &:hover {
+      .bkdata-combobox-icon-clear {
+        &:not(.isEmpty) {
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      .bkdata-combobox-icon-box {
+        &:not(.isEmpty) {
+          display: none;
+        }
+      }
+    }
+  }
+  &-input {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    border: 1px solid $borderColor;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #666;
+    outline: none;
+    box-shadow: none;
+    cursor: text;
+    transition: border linear 0.2s;
+    &:hover {
+      &:not([disabled='disabled']) {
+        border-color: $borderColor;
+      }
+      + .bk-icon {
+        color: $primaryColor;
+      }
+    }
+    &::placeholder {
+      color: $fnMinorColor;
+    }
+    &.active {
+      border-color: $primaryHoverColor !important;
+      + .bk-icon {
+        color: $primaryColor;
+      }
+    }
+    &[disabled='disabled'] {
+      color: #aaa;
+      cursor: not-allowed;
+      background: $defaultBackgroundColor;
+    }
+  }
+  &-icon-box {
+    position: absolute;
+    height: 100%;
+    width: 33px;
+    right: 0;
+    top: 0;
+    /*background: $borderColor;*/
+    cursor: pointer;
+  }
+  &-icon-clear {
+    position: absolute;
+    display: none;
+    height: 100%;
+    width: 30px;
+    right: 0;
+    top: 0;
+    span {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: 12px;
+    }
+  }
+  &-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    font-size: 12px;
+    transition: all linear 0.2s;
+    transform: translateY(-50%);
+  }
+  &-list {
+    margin: -5px -10px;
+    /* padding: 5px 10px; */
+    background: #fff;
+    > ul {
+      max-height: 300px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background: #a5a5a5;
+        box-shadow: inset 0 0 6px hsla(0, 0%, 80%, 0.3);
+      }
+    }
+  }
+  &-item {
+    position: relative;
+    min-width: 100%;
+    width: 100%;
+    border-left: $formBorderColor;
+    border-right: $formBorderColor;
+    background-color: $defaultColor;
+    padding: 0 5px;
+    &:not([disabled='disabled']) {
+      cursor: pointer;
+      &:hover,
+      &.selected {
+        background-color: #eef6fe;
+        color: $primaryColor;
+        .bk-selector-tools {
+          display: block;
+        }
+        &:hover .bk-selector-deleted {
+          background: #de5353;
+          color: $defaultColor;
+        }
+      }
+    }
+
+    .text {
+      padding: 0 10px;
+      line-height: 42px;
+      font-size: 14px;
+    }
+  }
+  &-item-target {
+    background-color: #eef6fe;
+    color: $primaryColor;
+    .bk-selector-tools {
+      display: block;
+    }
+    &:hover .bk-selector-deleted {
+      background: #de5353;
+      color: $defaultColor;
+    }
+  }
+  &.open {
+    border-color: $formBorderFocusColor;
+    .#{$comboboxPrefix}-icon {
+      transform: rotate(180deg) translate(0, 50%);
+    }
+  }
+}

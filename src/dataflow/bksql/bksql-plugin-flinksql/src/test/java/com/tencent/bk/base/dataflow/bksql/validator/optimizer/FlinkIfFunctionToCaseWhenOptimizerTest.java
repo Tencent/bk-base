@@ -1,0 +1,60 @@
+/*
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ *
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ *
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+package com.tencent.bk.base.dataflow.bksql.validator.optimizer;
+
+import com.tencent.blueking.bksql.util.DeParsingMatcher;
+import com.tencent.blueking.bksql.validator.OptimizerTestSupport;
+import org.junit.Test;
+
+public class FlinkIfFunctionToCaseWhenOptimizerTest extends OptimizerTestSupport {
+
+    @Test
+    public void test() throws Exception {
+        FlinkIfFunctionToCaseWhenOptimizer optimizer = new FlinkIfFunctionToCaseWhenOptimizer();
+        assertThat(optimizer,
+                "SELECT "
+                        + "abc(if(xx(a), sum(b), avg(c))) AS cc, "
+                        + "count(1) as cnt "
+                        + "FROM demo "
+                        + "group by abc(if(xx(a), sum(b), avg(c)))",
+                new DeParsingMatcher("SELECT "
+                        + "abc(CASE WHEN xx(a) THEN sum(b) ELSE avg(c) END) AS cc, "
+                        + "count(1) AS cnt "
+                        + "FROM demo "
+                        + "GROUP BY abc(CASE WHEN xx(a) THEN sum(b) ELSE avg(c) END)"));
+        // nested if function
+        assertThat(optimizer, "SELECT "
+                        + "abc(if(xx(a), IF(a,b,c), avg(c))) AS cc, "
+                        + "count(1) as cnt "
+                        + "FROM demo "
+                        + "group by abc(if(xx(a), sum(b), avg(c)))",
+                new DeParsingMatcher("SELECT "
+                        + "abc(CASE WHEN xx(a) THEN CASE WHEN a "
+                        + "THEN b ELSE c END ELSE avg(c) END) AS cc, "
+                        + "count(1) AS cnt "
+                        + "FROM demo "
+                        + "GROUP BY abc(CASE WHEN xx(a) THEN sum(b) ELSE avg(c) END)"));
+    }
+}

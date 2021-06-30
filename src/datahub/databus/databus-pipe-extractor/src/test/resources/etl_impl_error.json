@@ -1,0 +1,30 @@
+{
+  "method":"from_json_list",
+  "args":[],
+  "type":"fun",
+  "next":{
+    "args":[],
+    "type":"fun",
+    "method":"iterate",
+    "next": {
+      "type": "assign",
+      "subtype": "assign_json",
+      "label": "label001",
+      "assign": [
+        {
+          "key": "k1",
+          "assign_to": "fieldname"
+        }
+      ]
+    }
+  },
+  "conf": {
+    "time_field_name": "fieldname",
+    "output_field_name": "outname",
+    "time_format": "format",
+    "timestamp_len": 10,
+    "time_round": 1,
+    "compressed": 1,
+    "ignore_fields": ["fieldname"]
+  }
+}

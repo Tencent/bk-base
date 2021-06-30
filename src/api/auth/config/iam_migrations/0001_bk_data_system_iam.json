@@ -1,0 +1,21 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_system",
+            "data": {
+                "id": "bk_bkdata",
+                "name": "数据平台",
+                "name_en": "data",
+                "description": "简化业务数据的获取，提升数据开发的效率，提供一站式、低门槛的大数据服务",
+                "description_en": "Simplify the acquisition of business data, Improve the efficiency of data development, Provide a one-stop and low-threshold big data service",
+                "clients": "bk_dataweb,bk_iam_app,bk_bkdata,data",
+                "provider_config": {
+                    "host": "http://__AUTH_SERVICE__",
+                    "auth": "basic",
+                    "healthz": "/healthz"
+                }
+            }
+        }
+    ]
+}

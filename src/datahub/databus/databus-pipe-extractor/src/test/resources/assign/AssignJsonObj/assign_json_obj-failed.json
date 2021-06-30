@@ -1,0 +1,14 @@
+{
+  "type": "assign",
+  "subtype": "assign_json",
+  "assign": [
+    {
+      "key": "k1",
+      "assign_to": "varname1"
+    },
+    {
+      "key": "k2",
+      "assign_to": "varname2"
+    }
+  ]
+}

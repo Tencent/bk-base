@@ -1,0 +1,227 @@
+{
+    "bk_biz_id": 591,
+    "result_table_id": "591_custom_stream_metric1",
+    "parent_result_table_id": "591_main_table_joint_debug_3",
+    "flow_node_id": 40000,
+    "calculation_atom_name": "min_price",
+    "aggregation_fields": [],
+    "filter_formula": "-- WHERE 之后的语句",
+    "scheduling_type": "stream",
+    "scheduling_content": {
+        "window_type": "scroll",
+        "count_freq": 30,
+        "window_time": 30,
+        "window_lateness": {
+            "allowed_lateness": false,
+            "lateness_count_freq": 60,
+            "lateness_time": 1
+        },
+        "waiting_time": 30
+    }
+}
+
+{
+    "bk_biz_id": 591,
+    "result_table_id": "591_custom_batch_metric1",
+    "parent_result_table_id": "591_main_table_joint_debug_3",
+    "flow_node_id": 50000,
+    "calculation_atom_name": "min_price",
+    "aggregation_fields": [],
+    "filter_formula": "-- WHERE 之后的语句",
+    "scheduling_type": "batch",
+    "scheduling_content": {
+        "window_type": "fixed",
+        "count_freq": 3,
+        "dependency_config_type": "unified",
+        "schedule_period": "hour",
+        "fixed_delay": 0,
+        "unified_config": {
+            "window_size": 3,
+            "dependency_rule": "at_least_one_finished",
+            "window_size_period": "hour"
+        },
+        "advanced": {
+            "recovery_enable": false,
+            "recovery_times": 1,
+            "recovery_interval": "60m"
+        }
+    }
+}
+
+// 实时指标节点联调参数
+{
+    "config": {
+        "outputs": [
+            {
+                "bk_biz_id": 591,
+                "fields": [],
+                "output_name": "数据模型指标表",
+                "table_name": "min_price_test_window",
+                "validate": {
+                    "table_name": {
+                        "status": false,
+                        "errorMsg": ""
+                    },
+                    "output_name": {
+                        "status": false,
+                        "errorMsg": ""
+                    },
+                    "field_config": {
+                        "status": false,
+                        "errorMsg": "必填项不可为空"
+                    }
+                }
+            }
+        ],
+        "from_nodes": [
+            {
+                "id": 22760,
+                "from_result_table_ids": [
+                    "591_main_table_joint_debug_3"
+                ]
+            },
+        ],
+        "output_name": "数据模型指标表",
+        "table_name": "min_price_test_window",
+        "name": "数据模型指标节点",
+        "bk_biz_id": 591,
+        "data_model_indicator": {
+            "model_instance_id": 71,
+            "calculation_atom_name": "min_price",
+            "aggregation_fields": [],
+            "filter_formula": "-- WHERE 之后的语句",
+            "scheduling_type": "stream",
+            "scheduling_content": {
+                "window_type": "scroll",
+                "count_freq": 30,
+                "window_time": 30,
+                "window_lateness": {
+                    "allowed_lateness": false,
+                    "lateness_count_freq": 60,
+                    "lateness_time": 1
+                },
+                "waiting_time": 30
+            }
+        },
+        "from_result_table_ids": [
+            "591_main_table_joint_debug_3"
+        ],
+        "origin_id": "bk_node_1606359271620"
+    },
+    "frontend_info": {
+        "x": 780,
+        "y": 326
+    },
+    "from_links": [
+        {
+            "source": {
+                "x": 580,
+                "y": 326,
+                "id": "ch_22760",
+                "arrow": "Left",
+                "node_id": 22760
+            },
+            "target": {
+                "x": 780,
+                "y": 326,
+                "id": "bk_node_1606359271620",
+                "arrow": "Left",
+                "node_id": ""
+            }
+        }
+    ],
+    "flow_id": 8199,
+    "node_type": "data_model_stream_indicator"
+}
+
+// 离线指标节点联调参数
+{
+    "config": {
+        "outputs": [
+            {
+                "bk_biz_id": 591,
+                "fields": [],
+                "output_name": "数据模型离线指标表",
+                "table_name": "min_price_test_fixed_window_1428_3h",
+                "validate": {
+                    "table_name": {
+                        "status": false,
+                        "errorMsg": ""
+                    },
+                    "output_name": {
+                        "status": false,
+                        "errorMsg": ""
+                    },
+                    "field_config": {
+                        "status": false,
+                        "errorMsg": "必填项不可为空"
+                    }
+                }
+            }
+        ],
+        "from_nodes": [
+            {
+                "id": 22771,
+                "from_result_table_ids": [
+                    "591_main_table_joint_debug_3"
+                ]
+            },
+        ],
+        "output_name": "数据模型离线指标表",
+        "table_name": "min_price_test_fixed_window_1428_3h",
+        "name": "数据模型离线指标节点",
+        "bk_biz_id": 591,
+        "data_model_indicator": {
+            "model_instance_id": 71,
+            "calculation_atom_name": "min_price",
+            "aggregation_fields": [],
+            "filter_formula": "-- WHERE 之后的语句",
+            "scheduling_type": "batch",
+            "scheduling_content": {
+                "window_type": "fixed",
+                "count_freq": 3,
+                "dependency_config_type": "unified",
+                "schedule_period": "hour",
+                "fixed_delay": 0,
+                "unified_config": {
+                    "window_size": 3,
+                    "dependency_rule": "at_least_one_finished",
+                    "window_size_period": "hour"
+                },
+                "advanced": {
+                    "recovery_enable": false,
+                    "recovery_times": 1,
+                    "recovery_interval": "60m"
+                }
+            }
+        },
+        "from_result_table_ids": [
+            "591_main_table_joint_debug_3"
+        ],
+        "origin_id": "bk_node_1606359271620"
+    },
+    "frontend_info": {
+        "x": 924.6492295537776,
+        "y": 458.86710419495483
+    },
+    "from_links": [
+        {
+            "source": {
+                "x": 924.6492295537776,
+                "y": 258.86710419495483,
+                "id": "ch_22771",
+                "arrow": "Left",
+                "node_id": 22771
+            },
+            "target": {
+                "x": 924.6492295537776,
+                "y": 458.86710419495483,
+                "id": "bk_node_1606359271620",
+                "arrow": "Left",
+                "node_id": ""
+            }
+        }
+    ],
+    "flow_id": 8199,
+    "node_type": "data_model_batch_indicator"
+}

@@ -1,0 +1,1561 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-11 09:58+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: exceptions.py:120
+msgid "参数格式错误"
+msgstr "参数格式错误"
+
+#: exceptions.py:125
+msgid "关键参数为空"
+msgstr "关键参数为空"
+
+#: exceptions.py:130
+msgid "参数错误导致查询结果为空"
+msgstr "参数错误导致查询结果为空"
+
+#: exceptions.py:135
+msgid "接口只允许进行查询操作"
+msgstr "接口只允许进行查询操作"
+
+#: exceptions.py:140
+msgid "查询TSDB监控指标失败"
+msgstr "查询TSDB监控指标失败"
+
+#: exceptions.py:145
+msgid "查询结果为空"
+msgstr "查询结果为空"
+
+#: exceptions.py:150
+#, python-brace-format
+msgid "查询结果表信息失败({message})"
+msgstr "查询结果表信息失败({message})"
+
+#: exceptions.py:155
+msgid "上报指标失败"
+msgstr "上报指标失败"
+
+#: exceptions.py:160
+msgid "解密bkdata_token失败"
+msgstr "解密bkdata_token失败"
+
+#: exceptions.py:165
+msgid "发送消息到kafka失败"
+msgstr "发送消息到kafka失败"
+
+#: exceptions.py:170
+msgid "加密连接信息失败"
+msgstr "加密连接信息失败"
+
+#: exceptions.py:175
+#, python-brace-format
+msgid "不支持告警方式({notify_way})"
+msgstr "不支持告警方式({notify_way})"
+
+#: exceptions.py:180
+msgid "告警发送失败"
+msgstr "告警发送失败"
+
+#: exceptions.py:185
+msgid "该flow的告警配置已存在"
+msgstr "该flow的告警配置已存在"
+
+#: exceptions.py:190
+msgid "该flow的告警配置不存在"
+msgstr "该flow的告警配置不存在"
+
+#: exceptions.py:195
+msgid "数据处理或数据传输不存在"
+msgstr ""
+
+#: exceptions.py:200
+msgid "集群不存在"
+msgstr ""
+
+#: exceptions.py:205
+msgid "获取任务调度信息失败"
+msgstr ""
+
+#: exceptions.py:210
+msgid "查询数据质量指标参数错误"
+msgstr ""
+
+#: exceptions.py:215
+#, python-brace-format
+msgid "不支持指标{measurement}的查询"
+msgstr ""
+
+#: exceptions.py:220
+msgid "删除数据质量指标失败"
+msgstr ""
+
+#: exceptions.py:225
+msgid "只支持访问单个地区集群"
+msgstr ""
+
+#: exceptions.py:230
+msgid "无法获取告警对象的地域标签"
+msgstr ""
+
+#: exceptions.py:235
+msgid "一个告警对象只允许有一个数据监控告警配置"
+msgstr ""
+
+#: lite/datamap/dmaction.py:13
+msgid "其他"
+msgstr ""
+
+#: lite/datamap/dmaction.py:15 lite/datamap/dmaction.py:17
+msgid "ModelFlow模型"
+msgstr ""
+
+#: lite/datamap/dmaction.py:16
+msgid "实时计算"
+msgstr ""
+
+#: lite/datamap/dmaction.py:18
+msgid "离线计算"
+msgstr ""
+
+#: lite/datamap/dmaction.py:19
+msgid "转换"
+msgstr ""
+
+#: lite/datamap/dmaction.py:20
+msgid "清洗"
+msgstr ""
+
+#: lite/datamap/dmaction.py:21
+msgid "场景化模型"
+msgstr ""
+
+#: lite/datamap/dmaction.py:22
+msgid "存储类计算"
+msgstr ""
+
+#: lite/datamap/dmaction.py:23
+msgid "视图"
+msgstr ""
+
+#: lite/datamap/views.py:216
+msgid "数据来源"
+msgstr ""
+
+#: lite/datamap/views.py:234
+msgid "数据类型"
+msgstr ""
+
+#: lite/dmonitor/constants.py:81
+msgid "恢复正常"
+msgstr ""
+
+#: lite/dmonitor/constants.py:82
+msgid "已暂停"
+msgstr ""
+
+#: lite/dmonitor/constants.py:83
+#, fuzzy
+#| msgid "告警ID"
+msgid "告警中"
+msgstr "告警ID"
+
+#: lite/dmonitor/constants.py:84
+msgid "预警中"
+msgstr ""
+
+#: lite/dmonitor/constants.py:85
+#, fuzzy
+#| msgid "无指标时间"
+msgid "无指标"
+msgstr "无指标时间"
+
+#: lite/dmonitor/flow_models.py:35
+msgid "清洗信息ID"
+msgstr "清洗信息ID"
+
+#: lite/dmonitor/flow_models.py:36
+msgid "清洗处理ID"
+msgstr "清洗处理ID"
+
+#: lite/dmonitor/flow_models.py:37
+msgid "原始数据的ID"
+msgstr "原始数据的ID"
+
+#: lite/dmonitor/flow_models.py:38 lite/dmonitor/flow_models.py:50
+#: lite/dmonitor/flow_models.py:62 lite/dmonitor/flow_models.py:135
+msgid "状态"
+msgstr "状态"
+
+#: lite/dmonitor/flow_models.py:47
+msgid "分发任务ID"
+msgstr "分发任务ID"
+
+#: lite/dmonitor/flow_models.py:48
+msgid "分发处理ID"
+msgstr "分发处理ID"
+
+#: lite/dmonitor/flow_models.py:49
+msgid "分发传输ID"
+msgstr "分发传输ID"
+
+#: lite/dmonitor/flow_models.py:59
+#, fuzzy
+#| msgid "数据源任务ID"
+msgid "转换任务ID"
+msgstr "数据源任务ID"
+
+#: lite/dmonitor/flow_models.py:60
+#, fuzzy
+#| msgid "清洗处理ID"
+msgid "拉取处理ID"
+msgstr "清洗处理ID"
+
+#: lite/dmonitor/flow_models.py:61
+msgid "拉取传输ID"
+msgstr "拉取传输ID"
+
+#: lite/dmonitor/flow_models.py:71 lite/dmonitor/serializers.py:177
+msgid "数据流ID"
+msgstr "数据流ID"
+
+#: lite/dmonitor/flow_models.py:72
+msgid "数据流名称"
+msgstr "数据流名称"
+
+#: lite/dmonitor/flow_models.py:73 lite/dmonitor/flow_models.py:102
+#: lite/dmonitor/models.py:102 lite/dmonitor/serializers.py:142
+#: lite/dmonitor/serializers.py:445 lite/dmonitor/serializers.py:488
+msgid "项目ID"
+msgstr "项目ID"
+
+#: lite/dmonitor/flow_models.py:74
+msgid "数据流状态"
+msgstr "数据流状态"
+
+#: lite/dmonitor/flow_models.py:75
+msgid "APP CODE"
+msgstr "APP CODE"
+
+#: lite/dmonitor/flow_models.py:76 lite/dmonitor/models.py:154
+msgid "是否有效"
+msgstr "是否有效"
+
+#: lite/dmonitor/flow_models.py:77 lite/dmonitor/flow_models.py:122
+#: lite/dmonitor/flow_models.py:138 lite/dmonitor/models.py:33
+#: lite/dmonitor/models.py:76
+msgid "创建时间"
+msgstr "创建时间"
+
+#: lite/dmonitor/flow_models.py:78 lite/dmonitor/flow_models.py:123
+#: lite/dmonitor/flow_models.py:140 lite/dmonitor/models.py:35
+#: lite/dmonitor/models.py:77 lite/dmonitor/models.py:115
+#: lite/dmonitor/models.py:141
+msgid "更新时间"
+msgstr "更新时间"
+
+#: lite/dmonitor/flow_models.py:87 lite/dmonitor/serializers.py:178
+msgid "数据流节点ID"
+msgstr "数据流节点ID"
+
+#: lite/dmonitor/flow_models.py:89
+msgid "节点名称"
+msgstr "节点名称"
+
+#: lite/dmonitor/flow_models.py:90 lite/dmonitor/flow_models.py:106
+msgid "节点类型"
+msgstr "节点类型"
+
+#: lite/dmonitor/flow_models.py:91
+msgid "节点状态"
+msgstr "节点状态"
+
+#: lite/dmonitor/flow_models.py:100
+msgid "ID"
+msgstr "ID"
+
+#: lite/dmonitor/flow_models.py:101 lite/dmonitor/models.py:101
+#: lite/dmonitor/serializers.py:143 lite/dmonitor/serializers.py:444
+#: lite/dmonitor/serializers.py:489
+msgid "业务ID"
+msgstr "业务ID"
+
+#: lite/dmonitor/flow_models.py:105
+msgid "结果表ID"
+msgstr "结果表ID"
+
+#: lite/dmonitor/flow_models.py:107
+msgid "结果表生成类型"
+msgstr "结果表生成类型"
+
+#: lite/dmonitor/flow_models.py:108
+msgid "是否是节点的头部RT"
+msgstr "是否是节点的头部RT"
+
+#: lite/dmonitor/flow_models.py:117
+#, fuzzy
+#| msgid "清洗处理ID"
+msgid "数据处理ID"
+msgstr "清洗处理ID"
+
+#: lite/dmonitor/flow_models.py:118
+msgid "统计频率"
+msgstr ""
+
+#: lite/dmonitor/flow_models.py:119
+msgid "统计延迟"
+msgstr ""
+
+#: lite/dmonitor/flow_models.py:132
+msgid "任务执行标识"
+msgstr "任务执行标识"
+
+#: lite/dmonitor/flow_models.py:133 lite/dmonitor/flow_models.py:149
+msgid "调度任务标识"
+msgstr "调度任务标识"
+
+#: lite/dmonitor/flow_models.py:134
+msgid "调度时间"
+msgstr "调度时间"
+
+#: lite/dmonitor/flow_models.py:136
+msgid "运行信息"
+msgstr "运行信息"
+
+#: lite/dmonitor/flow_models.py:137
+msgid "分类"
+msgstr ""
+
+#: lite/dmonitor/flow_models.py:139 lite/dmonitor/serializers.py:442
+#: lite/dmonitor/serializers.py:458 lite/dmonitor/serializers.py:473
+#: lite/dmonitor/serializers.py:513 lite/dmonitor/serializers.py:598
+#: lite/dmonitor/serializers.py:675
+msgid "开始时间"
+msgstr "开始时间"
+
+#: lite/dmonitor/flow_models.py:150
+#, fuzzy
+#| msgid "调度时间"
+msgid "第一次调度时间"
+msgstr "调度时间"
+
+#: lite/dmonitor/flow_models.py:151 lite/dmonitor/serializers.py:246
+#, fuzzy
+#| msgid "告警配置是否生效"
+msgid "是否生效"
+msgstr "告警配置是否生效"
+
+#: lite/dmonitor/flow_views.py:300
+#, python-brace-format
+msgid "Build result table info error: {error}"
+msgstr "Build result table info error: {error}"
+
+#: lite/dmonitor/flow_views.py:329
+#, python-brace-format
+msgid "Build raw data info error: {error}"
+msgstr "Build raw data info error: {error}"
+
+#: lite/dmonitor/flow_views.py:369 lite/dmonitor/flow_views.py:456
+#, python-brace-format
+msgid ""
+"ResultTable({result_table_id} as two nodes in flow1({flow_id1}) and "
+"flow2({flow_id2})"
+msgstr ""
+"ResultTable({result_table_id} as two nodes in flow1({flow_id1}) and "
+"flow2({flow_id2})"
+
+#: lite/dmonitor/metric_views.py:123
+msgid "该指标为敏感指标，暂不支持查询"
+msgstr ""
+
+#: lite/dmonitor/mixins/base_mixins.py:44
+#, python-brace-format
+msgid "Complex search meta data error: {error}"
+msgstr "Complex search meta data error: {error}"
+
+#: lite/dmonitor/mixins/base_mixins.py:221
+msgid "权限不足({})"
+msgstr ""
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:143
+#, python-brace-format
+msgid "无法获取结果表({result_table_id})所属任务的调度信息"
+msgstr ""
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:154
+#, python-brace-format
+msgid "无法获取数据处理任务({processing_id})的调度信息"
+msgstr ""
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:163
+#, python-brace-format
+msgid "获取离线任务调度周期失败, 原因: {error}"
+msgstr ""
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:171
+#, python-brace-format
+msgid "获取模型任务调度周期失败, 原因: {error}"
+msgstr ""
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:175
+#, python-brace-format
+msgid "暂不支持获取{processing_type}类型任务的调度信息"
+msgstr ""
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:246
+#, python-brace-format
+msgid "获取Jobnavi集群信息失败: {error}"
+msgstr ""
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:254
+msgid "失败"
+msgstr "失败"
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:257
+msgid "前序节点执行失败"
+msgstr "前序节点执行失败"
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:260
+msgid "前序节点未执行，请等待下个周期"
+msgstr "前序节点未执行，请等待下个周期"
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:263
+msgid "任务已退役"
+msgstr "任务已退役"
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:266 lite/dmonitor/serializers.py:466
+#: lite/dmonitor/serializers.py:480
+msgid "警告"
+msgstr "警告"
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:268
+msgid "运行中"
+msgstr "运行中"
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:271
+msgid "等待中"
+msgstr "等待中"
+
+#: lite/dmonitor/mixins/dmonitor_mixins.py:274
+msgid "成功"
+msgstr "成功"
+
+#: lite/dmonitor/models.py:14
+msgid "监控对象"
+msgstr "监控对象"
+
+#: lite/dmonitor/models.py:15
+msgid "监控配置"
+msgstr "监控配置"
+
+#: lite/dmonitor/models.py:16 lite/dmonitor/models.py:74
+#: lite/dmonitor/serializers.py:150 lite/dmonitor/serializers.py:520
+msgid "通知方式"
+msgstr "通知方式"
+
+#: lite/dmonitor/models.py:17
+msgid "触发方式"
+msgstr "触发方式"
+
+#: lite/dmonitor/models.py:18
+msgid "收敛规则配置"
+msgstr "收敛规则配置"
+
+#: lite/dmonitor/models.py:19
+msgid "其它配置"
+msgstr "其它配置"
+
+#: lite/dmonitor/models.py:20 lite/dmonitor/models.py:97
+msgid "告警接收人列表"
+msgstr "告警接收人列表"
+
+#: lite/dmonitor/models.py:21
+msgid "告警策略生成类型"
+msgstr "告警策略生成类型"
+
+#: lite/dmonitor/models.py:22 lite/dmonitor/serializers.py:194
+#: lite/dmonitor/serializers.py:248 lite/dmonitor/serializers.py:447
+msgid "用户"
+msgstr "用户"
+
+#: lite/dmonitor/models.py:23 lite/dmonitor/serializers.py:249
+#: lite/dmonitor/serializers.py:448
+msgid "管理员"
+msgstr "管理员"
+
+#: lite/dmonitor/models.py:24 lite/dmonitor/serializers.py:250
+#: lite/dmonitor/serializers.py:449
+msgid "系统"
+msgstr "系统"
+
+#: lite/dmonitor/models.py:31
+msgid "告警配置是否生效"
+msgstr "告警配置是否生效"
+
+#: lite/dmonitor/models.py:32 lite/dmonitor/serializers.py:522
+msgid "创建者"
+msgstr "创建者"
+
+#: lite/dmonitor/models.py:34 lite/dmonitor/models.py:140
+msgid "更新者"
+msgstr "更新者"
+
+#: lite/dmonitor/models.py:36 lite/dmonitor/models.py:78
+#: lite/dmonitor/models.py:116
+msgid "告警描述"
+msgstr "告警描述"
+
+#: lite/dmonitor/models.py:47
+msgid "监控目标类型"
+msgstr "监控目标类型"
+
+#: lite/dmonitor/models.py:48
+msgid "数据计算流"
+msgstr "数据计算流"
+
+#: lite/dmonitor/models.py:49
+msgid "数据集成流"
+msgstr "数据集成流"
+
+#: lite/dmonitor/models.py:51
+msgid "监控流ID"
+msgstr "监控流ID"
+
+#: lite/dmonitor/models.py:52
+msgid "监控流节点ID"
+msgstr "监控流节点ID"
+
+#: lite/dmonitor/models.py:54
+msgid "告警配置类型"
+msgstr "告警配置类型"
+
+#: lite/dmonitor/models.py:55 lite/dmonitor/serializers.py:462
+#: lite/dmonitor/serializers.py:477
+msgid "数据流监控"
+msgstr "数据流监控"
+
+#: lite/dmonitor/models.py:56 lite/dmonitor/serializers.py:461
+#: lite/dmonitor/serializers.py:476
+msgid "任务监控"
+msgstr "任务监控"
+
+#: lite/dmonitor/models.py:57
+msgid "所有数据质量监控"
+msgstr ""
+
+#: lite/dmonitor/models.py:70 lite/dmonitor/models.py:89
+#: lite/dmonitor/serializers.py:504 lite/dmonitor/serializers.py:703
+msgid "告警信息"
+msgstr "告警信息"
+
+#: lite/dmonitor/models.py:71 lite/dmonitor/models.py:90
+msgid "告警信息英文"
+msgstr "告警信息英文"
+
+#: lite/dmonitor/models.py:72 lite/dmonitor/models.py:110
+msgid "告警时间"
+msgstr "告警时间"
+
+#: lite/dmonitor/models.py:73
+msgid "接收人"
+msgstr "接收人"
+
+#: lite/dmonitor/models.py:75
+msgid "维度"
+msgstr "维度"
+
+#: lite/dmonitor/models.py:91
+msgid "告警完整信息"
+msgstr "告警完整信息"
+
+#: lite/dmonitor/models.py:92
+msgid "告警完整信息英文"
+msgstr "告警完整信息英文"
+
+#: lite/dmonitor/models.py:93 lite/dmonitor/serializers.py:516
+msgid "告警策略ID"
+msgstr "告警策略ID"
+
+#: lite/dmonitor/models.py:94
+msgid "告警策略类型"
+msgstr "告警策略类型"
+
+#: lite/dmonitor/models.py:95 lite/dmonitor/serializers.py:460
+#: lite/dmonitor/serializers.py:475
+msgid "告警类型"
+msgstr ""
+
+#: lite/dmonitor/models.py:96
+msgid "告警策略内容"
+msgstr "告警策略内容"
+
+#: lite/dmonitor/models.py:98
+msgid "告警通知方式列表"
+msgstr "告警通知方式列表"
+
+#: lite/dmonitor/models.py:99
+msgid "告警FlowID"
+msgstr "告警FlowID"
+
+#: lite/dmonitor/models.py:100
+msgid "告警节点ID"
+msgstr "告警节点ID"
+
+#: lite/dmonitor/models.py:103
+#, fuzzy
+#| msgid "结果表生成类型"
+msgid "生成类型"
+msgstr "结果表生成类型"
+
+#: lite/dmonitor/models.py:104
+msgid "告警维度"
+msgstr "告警维度"
+
+#: lite/dmonitor/models.py:105
+msgid "告警ID"
+msgstr "告警ID"
+
+#: lite/dmonitor/models.py:106 lite/dmonitor/serializers.py:465
+#: lite/dmonitor/serializers.py:479 lite/dmonitor/serializers.py:517
+msgid "告警级别"
+msgstr "告警级别"
+
+#: lite/dmonitor/models.py:107 lite/dmonitor/serializers.py:452
+#: lite/dmonitor/serializers.py:469 lite/dmonitor/serializers.py:483
+#: lite/dmonitor/serializers.py:702
+msgid "告警状态"
+msgstr "告警状态"
+
+#: lite/dmonitor/models.py:108
+msgid "告警发送状态"
+msgstr "告警发送状态"
+
+#: lite/dmonitor/models.py:109
+msgid "告警发送异常原因"
+msgstr "告警发送异常原因"
+
+#: lite/dmonitor/models.py:111
+msgid "告警发送时间"
+msgstr "告警发送时间"
+
+#: lite/dmonitor/models.py:112
+msgid "告警恢复时间"
+msgstr "告警恢复时间"
+
+#: lite/dmonitor/models.py:113
+msgid "告警收敛信息"
+msgstr "告警收敛信息"
+
+#: lite/dmonitor/models.py:114
+msgid "告警创建时间"
+msgstr "告警创建时间"
+
+#: lite/dmonitor/models.py:127
+#, fuzzy
+#| msgid "开始时间"
+msgid "屏蔽开始时间"
+msgstr "开始时间"
+
+#: lite/dmonitor/models.py:128
+#, fuzzy
+#| msgid "结束时间"
+msgid "屏蔽结束时间"
+msgstr "结束时间"
+
+#: lite/dmonitor/models.py:129 lite/dmonitor/serializers.py:515
+msgid "屏蔽原因"
+msgstr ""
+
+#: lite/dmonitor/models.py:130
+#, fuzzy
+#| msgid "告警策略ID"
+msgid "屏蔽告警策略"
+msgstr "告警策略ID"
+
+#: lite/dmonitor/models.py:131
+#, fuzzy
+#| msgid "告警级别"
+msgid "屏蔽告警级别"
+msgstr "告警级别"
+
+#: lite/dmonitor/models.py:132
+#, fuzzy
+#| msgid "告警配置"
+msgid "屏蔽告警配置ID"
+msgstr "告警配置"
+
+#: lite/dmonitor/models.py:133
+#, fuzzy
+#| msgid "告警接收人"
+msgid "屏蔽告警接收人"
+msgstr "告警接收人"
+
+#: lite/dmonitor/models.py:134
+#, fuzzy
+#| msgid "告警通知方式列表"
+msgid "屏蔽告警通知方式"
+msgstr "告警通知方式列表"
+
+#: lite/dmonitor/models.py:135
+#, fuzzy
+#| msgid "告警维度"
+msgid "屏蔽告警维度"
+msgstr "告警维度"
+
+#: lite/dmonitor/models.py:137
+#, fuzzy
+#| msgid "告警配置是否生效"
+msgid "屏蔽配置是否生效"
+msgstr "告警配置是否生效"
+
+#: lite/dmonitor/models.py:142
+msgid "屏蔽规则描述"
+msgstr ""
+
+#: lite/dmonitor/models.py:151
+msgid "通知方式标识"
+msgstr "通知方式标识"
+
+#: lite/dmonitor/models.py:152
+msgid "通知方式名称"
+msgstr "通知方式名称"
+
+#: lite/dmonitor/models.py:153
+msgid "通知方式别名"
+msgstr "通知方式别名"
+
+#: lite/dmonitor/models.py:155
+msgid "备注信息"
+msgstr "备注信息"
+
+#: lite/dmonitor/serializers.py:30
+msgid "开"
+msgstr "开"
+
+#: lite/dmonitor/serializers.py:31
+msgid "关"
+msgstr "关"
+
+#: lite/dmonitor/serializers.py:36
+msgid "无数据时间"
+msgstr "无数据时间"
+
+#: lite/dmonitor/serializers.py:40
+msgid "无数据时间必须是1~10080的正整数(分钟)"
+msgstr "无数据时间必须是1~10080的正整数(分钟)"
+
+#: lite/dmonitor/serializers.py:45
+msgid "波动比较周期"
+msgstr "波动比较周期"
+
+#: lite/dmonitor/serializers.py:46
+msgid "波动数值"
+msgstr "波动数值"
+
+#: lite/dmonitor/serializers.py:48
+msgid "百分比"
+msgstr "百分比"
+
+#: lite/dmonitor/serializers.py:49
+msgid "条数"
+msgstr "条数"
+
+#: lite/dmonitor/serializers.py:50
+msgid "波动单位"
+msgstr "波动单位"
+
+#: lite/dmonitor/serializers.py:52
+msgid "变化"
+msgstr "变化"
+
+#: lite/dmonitor/serializers.py:53
+msgid "增长"
+msgstr "增长"
+
+#: lite/dmonitor/serializers.py:54
+msgid "减少"
+msgstr "减少"
+
+#: lite/dmonitor/serializers.py:55
+msgid "波动趋势"
+msgstr "波动趋势"
+
+#: lite/dmonitor/serializers.py:59
+msgid "数据波动周期必须是1~168的正整数(小时)"
+msgstr "数据波动周期必须是1~168的正整数(小时)"
+
+#: lite/dmonitor/serializers.py:68 lite/dmonitor/serializers.py:81
+msgid "延迟时间"
+msgstr "延迟时间"
+
+#: lite/dmonitor/serializers.py:69 lite/dmonitor/serializers.py:82
+msgid "持续时间"
+msgstr "持续时间"
+
+#: lite/dmonitor/serializers.py:73 lite/dmonitor/serializers.py:86
+msgid "数据延迟时间必须是1~10080的正整数(分钟)"
+msgstr "数据延迟时间必须是1~10080的正整数(分钟)"
+
+#: lite/dmonitor/serializers.py:76 lite/dmonitor/serializers.py:89
+#: lite/dmonitor/serializers.py:98
+msgid "数据延迟持续时间必须是1~10080的正整数(分钟)"
+msgstr "数据延迟持续时间必须是1~10080的正整数(分钟)"
+
+#: lite/dmonitor/serializers.py:94
+msgid "持续增长时间"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:103
+msgid "无指标时间"
+msgstr "无指标时间"
+
+#: lite/dmonitor/serializers.py:104
+msgid "离线异常状态"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:108
+#, fuzzy
+#| msgid "数据延迟持续时间必须是1~10080的正整数(分钟)"
+msgid "任务持续停止时间必须是1~10080的正整数(分钟)"
+msgstr "数据延迟持续时间必须是1~10080的正整数(分钟)"
+
+#: lite/dmonitor/serializers.py:111
+msgid "必须至少选择一种异常状态进行监控"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:116
+msgid "调度延迟"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:117
+msgid "执行延迟"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:121
+#, fuzzy
+#| msgid "数据延迟时间必须是1~10080的正整数(分钟)"
+msgid "调度延迟时间必须是1~10080的正整数(分钟)"
+msgstr "数据延迟时间必须是1~10080的正整数(分钟)"
+
+#: lite/dmonitor/serializers.py:124
+#, fuzzy
+#| msgid "数据延迟时间必须是1~10080的正整数(分钟)"
+msgid "执行延迟时间必须是1~10080的正整数(分钟)"
+msgstr "数据延迟时间必须是1~10080的正整数(分钟)"
+
+#: lite/dmonitor/serializers.py:133
+msgid "无效率"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:137
+#, fuzzy
+#| msgid "触发次数必须是1~10000的正整数"
+msgid "无效率必须是0~100的正数"
+msgstr "触发次数必须是1~10000的正整数"
+
+#: lite/dmonitor/serializers.py:144 lite/dmonitor/serializers.py:464
+#: lite/dmonitor/serializers.py:486
+msgid "告警对象"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:145 lite/dmonitor/serializers.py:490
+msgid "告警对象类型"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:146 lite/dmonitor/serializers.py:173
+#: lite/dmonitor/serializers.py:491
+msgid "数据计算任务"
+msgstr "数据计算任务"
+
+#: lite/dmonitor/serializers.py:147 lite/dmonitor/serializers.py:174
+#: lite/dmonitor/serializers.py:492
+msgid "数据集成任务"
+msgstr "数据集成任务"
+
+#: lite/dmonitor/serializers.py:149
+msgid "是否启用"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:152 lite/dmonitor/serializers.py:495
+msgid "我作为接收人的告警配置"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:153 lite/dmonitor/serializers.py:496
+#, fuzzy
+#| msgid "告警配置"
+msgid "我管理的告警配置"
+msgstr "告警配置"
+
+#: lite/dmonitor/serializers.py:154
+msgid "我有权限且已配置的告警策略"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:159
+msgid "无数据告警配置"
+msgstr "无数据告警配置"
+
+#: lite/dmonitor/serializers.py:160
+msgid "数据波动告警配置"
+msgstr "数据波动告警配置"
+
+#: lite/dmonitor/serializers.py:161
+msgid "数据丢失告警配置"
+msgstr "数据丢失告警配置"
+
+#: lite/dmonitor/serializers.py:162
+#, fuzzy
+#| msgid "数据延迟告警配置"
+msgid "数据时间延迟告警配置"
+msgstr "数据延迟告警配置"
+
+#: lite/dmonitor/serializers.py:163
+#, fuzzy
+#| msgid "数据延迟告警配置"
+msgid "处理时间延迟告警配置"
+msgstr "数据延迟告警配置"
+
+#: lite/dmonitor/serializers.py:164
+msgid "任务告警配置"
+msgstr "任务告警配置"
+
+#: lite/dmonitor/serializers.py:165
+msgid "离线任务延迟"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:166
+msgid "数据中断告警"
+msgstr "数据中断告警"
+
+#: lite/dmonitor/serializers.py:167
+#, fuzzy
+#| msgid "无数据告警配置"
+msgid "无效数据告警配置"
+msgstr "无数据告警配置"
+
+#: lite/dmonitor/serializers.py:168
+#, fuzzy
+#| msgid "数据延迟告警配置"
+msgid "延迟增长告警配置"
+msgstr "数据延迟告警配置"
+
+#: lite/dmonitor/serializers.py:175
+msgid "全平台任务"
+msgstr "全平台任务"
+
+#: lite/dmonitor/serializers.py:179
+msgid "数据源ID"
+msgstr "数据源ID"
+
+#: lite/dmonitor/serializers.py:180
+msgid "数据源任务ID"
+msgstr "数据源任务ID"
+
+#: lite/dmonitor/serializers.py:181
+msgid "告警对象维度"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:185
+msgid "数据计算类型告警目标必须有flow_id字段"
+msgstr "数据计算类型告警目标必须有flow_id字段"
+
+#: lite/dmonitor/serializers.py:188
+msgid "数据集成类型告警目标必须有raw_data_id字段"
+msgstr "数据集成类型告警目标必须有raw_data_id字段"
+
+#: lite/dmonitor/serializers.py:195 lite/dmonitor/serializers.py:199
+msgid "用户列表"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:196
+msgid "角色"
+msgstr "角色"
+
+#: lite/dmonitor/serializers.py:197
+msgid "接收者类型"
+msgstr "接收者类型"
+
+#: lite/dmonitor/serializers.py:198 lite/dmonitor/serializers.py:238
+#: lite/dmonitor/serializers.py:372 lite/dmonitor/serializers.py:377
+msgid "用户名"
+msgstr "用户名"
+
+#: lite/dmonitor/serializers.py:200
+msgid "角色ID"
+msgstr "角色ID"
+
+#: lite/dmonitor/serializers.py:201
+msgid "作用域ID"
+msgstr "作用域ID"
+
+#: lite/dmonitor/serializers.py:205
+msgid "用户类型的接收者必须有username字段"
+msgstr "用户类型的接收者必须有username字段"
+
+#: lite/dmonitor/serializers.py:208
+#, fuzzy
+#| msgid "用户类型的接收者必须有username字段"
+msgid "用户类型为接收列表必须有userlist字段"
+msgstr "用户类型的接收者必须有username字段"
+
+#: lite/dmonitor/serializers.py:211
+msgid "角色类型的接收者必须有role_id和scope_id字段"
+msgstr "角色类型的接收者必须有role_id和scope_id字段"
+
+#: lite/dmonitor/serializers.py:216
+msgid "触发时间检测范围"
+msgstr "触发时间检测范围"
+
+#: lite/dmonitor/serializers.py:217
+msgid "触发次数阈值"
+msgstr "触发次数阈值"
+
+#: lite/dmonitor/serializers.py:221
+msgid "触发周期必须是1~10080的正整数(分钟)"
+msgstr "触发周期必须是1~10080的正整数(分钟)"
+
+#: lite/dmonitor/serializers.py:224
+msgid "触发次数必须是1~10000的正整数"
+msgstr "触发次数必须是1~10000的正整数"
+
+#: lite/dmonitor/serializers.py:229
+msgid "告警屏蔽时间"
+msgstr "告警屏蔽时间"
+
+#: lite/dmonitor/serializers.py:233
+msgid "告警屏蔽时间必须是1~10080的正整数(分钟)"
+msgstr "告警屏蔽时间必须是1~10080的正整数(分钟)"
+
+#: lite/dmonitor/serializers.py:239
+msgid "告警目标"
+msgstr "告警目标"
+
+#: lite/dmonitor/serializers.py:240
+msgid "告警配置"
+msgstr "告警配置"
+
+#: lite/dmonitor/serializers.py:241
+msgid "通知方式配置"
+msgstr "通知方式配置"
+
+#: lite/dmonitor/serializers.py:242
+msgid "收敛配置(触发条件)"
+msgstr "收敛配置(触发条件)"
+
+#: lite/dmonitor/serializers.py:243
+msgid "收敛配置(告警屏蔽)"
+msgstr "收敛配置(告警屏蔽)"
+
+#: lite/dmonitor/serializers.py:244
+msgid "告警接收者"
+msgstr "告警接收者"
+
+#: lite/dmonitor/serializers.py:263
+msgid "告警接收者不能为空"
+msgstr "告警接收者不能为空"
+
+#: lite/dmonitor/serializers.py:284 lite/dmonitor/serializers.py:286
+msgid "必须有任意一种通知方式生效"
+msgstr "必须有任意一种通知方式生效"
+
+#: lite/dmonitor/serializers.py:440
+msgid "FlowID"
+msgstr "FlowID"
+
+#: lite/dmonitor/serializers.py:441
+msgid "节点ID"
+msgstr "节点ID"
+
+#: lite/dmonitor/serializers.py:443 lite/dmonitor/serializers.py:459
+#: lite/dmonitor/serializers.py:474 lite/dmonitor/serializers.py:514
+#: lite/dmonitor/serializers.py:599 lite/dmonitor/serializers.py:676
+msgid "结束时间"
+msgstr "结束时间"
+
+#: lite/dmonitor/serializers.py:451
+msgid "告警策略ID列表"
+msgstr "告警策略ID列表"
+
+#: lite/dmonitor/serializers.py:453
+msgid "按维度过滤"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:454
+msgid "分组维度"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:467 lite/dmonitor/serializers.py:481
+msgid "严重"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:484
+msgid "依据"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:485
+#, fuzzy
+#| msgid "告警ID"
+msgid "告警"
+msgstr "告警ID"
+
+#: lite/dmonitor/serializers.py:501
+msgid "告警接收人"
+msgstr "告警接收人"
+
+#: lite/dmonitor/serializers.py:502
+msgid "告警方式"
+msgstr "告警方式"
+
+#: lite/dmonitor/serializers.py:503 lite/dmonitor/serializers.py:699
+msgid "告警标题"
+msgstr "告警标题"
+
+#: lite/dmonitor/serializers.py:505
+msgid "英文告警信息"
+msgstr "英文告警信息"
+
+#: lite/dmonitor/serializers.py:518
+#, fuzzy
+#| msgid "告警配置"
+msgid "告警配置ID"
+msgstr "告警配置"
+
+#: lite/dmonitor/serializers.py:519
+#, fuzzy
+#| msgid "接收者类型"
+msgid "接收者"
+msgstr "接收者类型"
+
+#: lite/dmonitor/serializers.py:521
+msgid "屏蔽维度"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:568
+msgid "时序数据库"
+msgstr "时序数据库"
+
+#: lite/dmonitor/serializers.py:569
+msgid "数据流监控指标"
+msgstr "数据流监控指标"
+
+#: lite/dmonitor/serializers.py:570
+msgid "自定义监控指标"
+msgstr "自定义监控指标"
+
+#: lite/dmonitor/serializers.py:571
+#, fuzzy
+#| msgid "数据流监控指标"
+msgid "性能监控指标"
+msgstr "数据流监控指标"
+
+#: lite/dmonitor/serializers.py:573
+msgid "SQL"
+msgstr "SQL"
+
+#: lite/dmonitor/serializers.py:574 lite/dmonitor/serializers.py:637
+#: lite/dmonitor/serializers.py:652
+msgid "地区标签"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:581
+msgid "只支持同时查询一个地区的TSDB指标"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:587
+msgid "数据集ID列表"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:588
+#, fuzzy
+#| msgid "数据流ID"
+msgid "数据流ID列表"
+msgstr "数据流ID"
+
+#: lite/dmonitor/serializers.py:589
+#, fuzzy
+#| msgid "数据流节点ID"
+msgid "数据流节点ID列表"
+msgstr "数据流节点ID"
+
+#: lite/dmonitor/serializers.py:590
+msgid "数据集所在存储列表"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:591
+msgid "维度过滤条件"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:592
+msgid "聚合维度"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:594
+msgid "序列"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:595
+msgid "单值"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:596
+msgid "原始指标"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:597
+msgid "指标格式"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:601
+msgid "1分钟"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:602
+msgid "10分钟"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:603
+msgid "30分钟"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:604
+msgid "1小时"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:605
+msgid "1天"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:608
+msgid "赋值为空"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:609
+msgid "赋值为0"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:610
+msgid "赋值为上一个点的值"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:611
+msgid "不返回该时间点"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:618
+msgid "参数中必须至少包含一项data_set_ids, flow_id或node_ids"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:621
+msgid "不允许同时查询超过100个数据集"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:624
+msgid "不允许同时查询超过10个数据流"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:627
+msgid "不允许同时查询超过100个数据流节点"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:633
+msgid "上报的数据"
+msgstr "上报的数据"
+
+#: lite/dmonitor/serializers.py:634
+msgid "kafka集群"
+msgstr "kafka集群"
+
+#: lite/dmonitor/serializers.py:636
+msgid "上报数据的topic"
+msgstr "上报数据的topic"
+
+#: lite/dmonitor/serializers.py:644
+msgid "只支持同时上报埋点到一个地区的kafka集群"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:650
+msgid "数据集ID"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:651
+msgid "数据集所在存储"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:659
+msgid "只支持同时删除一个地区某个数据集的TSDB指标"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:665 lite/dmonitor/serializers.py:669
+msgid "结果表列表"
+msgstr "结果表列表"
+
+#: lite/dmonitor/serializers.py:670 lite/dmonitor/serializers.py:681
+msgid "数据处理ID列表"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:671
+msgid "查询周期"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:677
+msgid "最近时间范围"
+msgstr "最近时间范围"
+
+#: lite/dmonitor/serializers.py:685
+msgid "更新周期"
+msgstr "更新周期"
+
+#: lite/dmonitor/serializers.py:689
+msgid "是否包含关联关系"
+msgstr "是否包含关联关系"
+
+#: lite/dmonitor/serializers.py:690
+msgid "是否包含状态信息"
+msgstr "是否包含状态信息"
+
+#: lite/dmonitor/serializers.py:694
+msgid "是否包含节点信息"
+msgstr "是否包含节点信息"
+
+#: lite/dmonitor/serializers.py:695
+msgid "是否只包含运行中的流"
+msgstr "是否只包含运行中的流"
+
+#: lite/dmonitor/serializers.py:700
+msgid "告警规则名称"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:701
+msgid "告警规则路径"
+msgstr ""
+
+#: lite/dmonitor/serializers.py:704
+msgid "告警参数"
+msgstr ""
+
+#: lite/healthz/mixins/health_mixins.py:28
+#, python-format
+msgid "检查DataManager模块Master健康状态失败，异常信息：%s"
+msgstr "检查DataManager模块Master健康状态失败，异常信息：%s"
+
+#: lite/healthz/mixins/health_mixins.py:55
+#: lite/healthz/mixins/health_mixins.py:64
+msgid "Master超过5分钟没有打点"
+msgstr "Master超过5分钟没有打点"
+
+#: lite/healthz/mixins/health_mixins.py:71
+msgid "当前运行中的Worker数量小于3个"
+msgstr "当前运行中的Worker数量小于3个"
+
+#: lite/healthz/mixins/health_mixins.py:74
+msgid "当前Task队列大于50，请检查Worker是否运行异常"
+msgstr "当前Task队列大于50，请检查Worker是否运行异常"
+
+#: lite/healthz/mixins/health_mixins.py:78
+#: lite/healthz/mixins/health_mixins.py:85
+msgid "当前Task队列大于500，请检查Worker是否运行异常，清空队列"
+msgstr "当前Task队列大于500，请检查Worker是否运行异常，清空队列"
+
+#: lite/healthz/mixins/health_mixins.py:81
+msgid "当前存储队列大于50，请检查Puller是否运行异常"
+msgstr "当前存储队列大于50，请检查Puller是否运行异常"
+
+#: lite/healthz/mixins/health_mixins.py:88
+msgid "当前启动Worker队列大于50，请检查Master是否运行异常"
+msgstr "当前启动Worker队列大于50，请检查Master是否运行异常"
+
+#: lite/healthz/mixins/health_mixins.py:93
+msgid "当前启动Worker队列大于500，请检查Master是否运行异常，清空队列"
+msgstr "当前启动Worker队列大于500，请检查Master是否运行异常，清空队列"
+
+#: lite/healthz/mixins/health_mixins.py:98
+#, python-format
+msgid "查询DataManager模块Master状态失败，异常信息：%s"
+msgstr "查询DataManager模块Master状态失败，异常信息：%s"
+
+#: lite/tag/tagaction.py:34
+msgid "sql参数传递错误:需要传递字符串参数"
+msgstr ""
+
+#: lite/tag/views.py:96
+msgid "标签英文名称已存在!"
+msgstr ""
+
+#: lite/tag/views.py:457 lite/tag/views.py:489
+msgid "code参数必须且非空!"
+msgstr ""
+
+#: lite/tag/views.py:667
+msgid "target_id参数不能为空!"
+msgstr ""
+
+#: lite/tag/views.py:669
+msgid "target_type参数不能为空!"
+msgstr ""
+
+#: utils/dbtools/influx_util.py:68
+#, python-brace-format
+msgid "地区({geog_area})没有角色为{role}的TSDB集群"
+msgstr ""
+
+#: utils/dbtools/kafka_util.py:153
+#, python-brace-format
+msgid "地区({geog_area})没有角色为{role}的channel集群"
+msgstr ""
+
+#: versions/ee/exceptions.py:15 versions/tencent/exceptions.py:23
+#: versions/tgdp/exceptions.py:15
+msgid "数据管理API异常"
+msgstr "数据管理API异常"
+
+#: versions/tencent/exceptions.py:28
+msgid "LOL主备切换失败"
+msgstr "LOL主备切换失败"
+
+#: versions/tencent/exceptions.py:33
+#, python-brace-format
+msgid "查询ip({ip})最后一条记录失败"
+msgstr "查询ip({ip})最后一条记录失败"
+
+#: versions/tencent/exceptions.py:38
+#, python-brace-format
+msgid "查询ip({ip})的备机({backup_ip})的index失败"
+msgstr "查询ip({ip})的备机({backup_ip})的index失败"
+
+#: versions/tencent/exceptions.py:44
+#, python-brace-format
+msgid ""
+"切换采集器失败 ip: {ip}, src_data_id: {src_data_id}, dst_data_id: "
+"{dst_data_id}, index: {index}, 异常信息: {err_msg}"
+msgstr ""
+"切换采集器失败 ip: {ip}, src_data_id: {src_data_id}, dst_data_id: "
+"{dst_data_id}, index: {index}, 异常信息: {err_msg}"
+
+#: versions/tencent/exceptions.py:51
+msgid "黑名单操作失败"
+msgstr "黑名单操作失败"
+
+#: versions/tencent/exceptions.py:56
+#, python-brace-format
+msgid "查询IP({ip})信息失败"
+msgstr "查询IP({ip})信息失败"
+
+#: versions/tencent/exceptions.py:61
+msgid "重置备机index失败"
+msgstr "重置备机index失败"
+
+#: versions/tencent/lol_admin/gse_api/proc.py:178
+msgid "get_proc_result 返回格式错误"
+msgstr ""
+
+#: versions/tencent/lol_admin/lol_switch_logic.py:143
+msgid "操作失败"
+msgstr "操作失败"
+
+#: versions/tencent/lol_admin/phantom_views.py:33
+#: versions/tencent/lol_admin/phantom_views.py:75
+#: versions/tencent/lol_admin/views.py:101
+#: versions/tencent/lol_admin/views.py:129
+msgid "输入参数不合法"
+msgstr "输入参数不合法"
+
+#~ msgid "数据源"
+#~ msgstr "数据源"
+
+#, python-format
+#~ msgid "告警无法关联到告警配置， 请检查DB中是否存在告警配置 %s "
+#~ msgstr "告警无法关联到告警配置， 请检查DB中是否存在告警配置 %s "
+
+#~ msgid "告警无法关联到告警配置， 请检查DB中是否存在告警配置"
+#~ msgstr "告警无法关联到告警配置， 请检查DB中是否存在告警配置"
+
+#, python-format
+#~ msgid "发送告警信息至蓝鲸告警后台失败, 异常信息 %s"
+#~ msgstr "发送告警信息至蓝鲸告警后台失败, 异常信息 %s"
+
+#~ msgid "失败部分成功状态是否作为异常"
+#~ msgstr "失败部分成功状态是否作为异常"
+
+#~ msgid "告警来源"
+#~ msgstr "告警来源"
+
+#~ msgid "备注"
+#~ msgstr "备注"
+
+#~ msgid "描述"
+#~ msgstr "描述"
+
+#, python-format
+#~ msgid "检查DataManager模块API健康状态失败，异常信息：%s"
+#~ msgstr "检查DataManager模块API健康状态失败，异常信息：%s"
+
+#~ msgid "调用DataManager模块API失败"
+#~ msgstr "调用DataManager模块API失败"
+
+#, python-format
+#~ msgid "调用DataManager模块API失败，异常信息：%s"
+#~ msgstr "调用DataManager模块API失败，异常信息：%s"
+
+#~ msgid "结果表"
+#~ msgstr "结果表"
+
+#~ msgid "集群名称"
+#~ msgstr "集群名称"
+
+#~ msgid "connector名称"
+#~ msgstr "connector名称"
+
+#~ msgid "数据中台告警"
+#~ msgstr "数据中台告警"
+
+#~ msgid "【告警恢复】"
+#~ msgstr "【告警恢复】"
+
+#~ msgid "邮件"
+#~ msgstr "邮件"
+
+#~ msgid "短信"
+#~ msgstr "短信"
+
+#~ msgid "微信"
+#~ msgstr "微信"
+
+#~ msgid "企业微信"
+#~ msgstr "企业微信"
+
+#~ msgid "电话"
+#~ msgstr "电话"
+
+#~ msgid "语音"
+#~ msgstr "语音"
+
+#, python-format
+#~ msgid "指标信息编码错误 %s"
+#~ msgstr "指标信息编码错误 %s"
+
+#, python-format
+#~ msgid "kafka 写入%(message)s失败 %(error)s"
+#~ msgstr "kafka 写入%(message)s失败 %(error)s"
+
+#~ msgid "APP标识"
+#~ msgstr "APP标识"
+
+#~ msgid "获取连接参数的密钥"
+#~ msgstr "获取连接参数的密钥"
+
+#~ msgid "通知方式中文名"
+#~ msgstr "通知方式中文名"

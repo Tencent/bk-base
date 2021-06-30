@@ -1,0 +1,180 @@
+# vim:ft=sh
+
+clean_help () {
+    echo "usage: clean all|MODULE"
+    echo ""
+    echo "  all     clean all service installed on host"
+    echo "  MODULE  clean the specified module has bean installed"
+
+    exit 0
+}
+
+clean_docker () {
+    export PATH=$INSTALL_PATH/paas_agent/paas_agent/bin:$PATH
+    for can_id in $(docker ps | awk 'NR>1 {print $1}'); do
+        log "remove docker cantainer: $can_id"
+        docker kill $can_id
+        docker rm $can_id
+    done
+
+    docker rmi $IMAGE_NAME
+    docker rmi bkbase:pure
+
+    log "remove docker daemon"
+    pkill -9 dockerd
+    pkill -9 docker-containerd
+
+    rm -rf /var/run/docker*
+    rm -rf /var/lib/docker*
+}
+
+_clean () {
+    local module=$1 MODULE MODULE_IPS ip
+    local CTRL_IP=$2
+
+    #MODULE=$(tr '[:lower:]' '[:upper:]' <<<$module)
+    MODULE_IPS=( $(map_name2ip $module) )
+
+    case $module in
+        all|cron|consul|zabbix_agent|gse_agent) MODULE_IPS=( ${ALL_IP[@]} ) ;;
+    esac
+
+    for ip in ${MODULE_IPS[@]}; do
+        rcmd root@$ip "source ./clean.fc; clean $module $CTRL_IP"
+    done
+}
+
+clean () {
+    local module=$1
+    local tag=$2
+
+    if [ "$module" == "cron" ]; then
+        clean_crontab
+        return 0
+    fi
+
+    log "remove init directory, tags, file"
+    rm -rf $INSTALL_PATH/.initdb_${module%_cluster*}
+    rm -rf $INSTALL_PATH/{public,logs}/${module%_cluster*}
+    rm -rf $INSTALL_PATH/etc/${module%_cluster*}
+    rm -rf $INSTALL_PATH/etc/${module%_cluster*}.conf
+
+    [ -f $INSTALL_PATH/.installed_module ] && sed -i "/^$module/d" $INSTALL_PATH/.installed_module
+    [ -f /etc/rc.d/bkrc.local ] && sed -i "/start $module/d" /etc/rc.d/bkrc.local
+
+    crontab <(crontab -l | grep -v "/watch.rc;" \
+                         | grep -v "/process_watch $module")
+
+    if [[ "$module" =~ ^redis_cluster ]]; then
+        rm -rf $INSTALL_PATH/service/${module%_cluster*}
+        [ "$tag" != "$LAN_IP" ] && rm -rf $PKG_SRC_PATH/service/${module%_cluster*}
+    fi
+
+    log "remove virtualenv, startup settings."
+    load_env
+    case $module in
+        all) clean_all $tag;;
+        cmdb) rmvirtualenv cmdb ;;
+        fta)
+            crontab <( crontab -l | grep -v "$INSTALL_PATH/.envs/fta/bin/python" )
+            rmvirtualenv $module
+            ;;
+        appo|appt|paas_agent)
+            rmvirtualenv paas_agent
+            clean_docker
+            clean_localpy
+            rm -rf $INSTALL_PATH/paas_agent
+            ;;
+        open_paas|paas)
+            rmvirtualenv $(selected_projects paas)
+            rm -rf $INSTALL_PATH/$module
+            local mpt_paas=$INSTALL_PATH/open_paas/paas/media
+            umount_nfs $mpt_paas
+            sed -i '/\/paas\/media/d' /etc/fstab
+            clean_localpy
+            ;;
+        job)
+            local mpt_job=$INSTALL_PATH/public/job
+            umount_nfs $mpt_job
+            sed -i '/\public\/job/d' /etc/fstab
+            ;;
+        rabbitmq) rm -rf /var/lib/rabbitmq/.* /var/lib/rabbitmq/* ;;
+        bkdata)
+            rm -f $INSTALL_PATH/.init_bkdata_snapshot
+            rmvirtualenv databus dataapi monitor
+            crontab <( crontab -l | grep -v "$INSTALL_PATH/.envs/monitor/bin/python" )
+            ;;
+        nfs)
+            > /etc/exportfs
+
+            service nfs stop
+            service rpcbind stop
+        ;;
+        zk|kafka|es|consul)
+            rm -rf $INSTALL_PATH/service/$module
+            [ "$tag" != "$LAN_IP" ] && rm -rf $PKG_SRC_PATH/service/$module
+            ;;
+    esac
+
+    if [ "$tag" != "$LAN_IP" ]; then
+        log "remove project src, dist directory"
+        [ "$tag" != "$LAN_IP" ] && rm -rf $PKG_SRC_PATH/$module
+    fi
+    rm -rf $INSTALL_PATH/$module
+}
+
+umount_nfs () {
+    local mpt="$1"
+
+    if ! df -P -t nfs $mpt >/dev/null 2>&1; then
+        log "unmount $mpt ..."
+        umount $mpt
+    fi
+}
+
+clean_crontab () {
+    log "clean crontab settings"
+    crontab <( crontab -l | grep -v "/watch.rc;" \
+                          | grep -v "/process_watch " \
+                          | grep -v "$INSTALL_PATH" \
+                          | grep -v "/usr/local/gse/" )
+    return 0
+}
+
+clean_rcfile () {
+    :
+}
+
+clean_all () {
+    local tag=$1
+
+    for mod in $(tac $INSTALL_PATH/.installed_module); do
+        clean $mod $tag
+    done
+
+    rm -rf $INSTALL_PATH
+    rm -f /root/.bkrc
+    rm -f /etc/rc.d/bkrc.local
+
+    if [ "$tag" != "$LAN_IP" ]; then
+        rm -rf $PKG_SRC_PATH
+    fi
+    rm -rf $INSTALL_PATH
+
+    # 清理crontab
+    clean_crontab
+}
+
+clean_localpy () {
+
+    rm -rf /usr/local/lib/python2.7
+    rm -f /usr/local/lib/pkgconfig/python-2.7.pc
+    rm -f /usr/local/lib/libpython2.7.a
+    (
+        cd /usr/local/bin;
+        rm -f easy_install easy_install-2.7 pbr pip pip2 pip2.7 \
+            python python2.7 python2.7-config \
+            virtualenv virtualenv-clone virtualenvwrapper.sh \
+            virtualenvwrapper_lazy.sh wheel
+    )
+}

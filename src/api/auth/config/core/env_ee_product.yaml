@@ -1,0 +1,9 @@
+objects:
+  - object_class: biz
+    object_name: 业务
+    object_name_en: Business
+    has_object: True
+    scope_id_key: bk_biz_id
+    scope_name_key: bk_biz_name
+    user_mode: False
+    to_iam: True

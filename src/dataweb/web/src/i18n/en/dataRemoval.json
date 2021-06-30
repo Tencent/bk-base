@@ -1,0 +1,20 @@
+{
+    "来源存储和目标存储需要在数据入库中已配置": "Source storage and destination storage need to be configured in the data warehousing",
+    "读取量": "Read volume",
+    "写入量": "rite volume",
+    "已完成": "completed",
+    "当前任务状态为": "The current task status is",
+    "迁移数据时间范围": "Migration data time range: greater than or equal to the start time, less than the end time",
+    "当前支持迁移类型": "Currently supported migration types",
+    "准备中": "preparing",
+    "迁移概况": "Migration Overview",
+    "迁移进度": "Migration progress",
+    "数据迁移": "Data Migration",
+    "源存储": "Origin",
+    "来源存储": "Source storage",
+    "目标存储": "Target",
+    "覆盖目标数据": "Overwrite target data",
+    "迁移列表": "Migration list",
+    "创建迁移": "Create migration",
+    "时间段": "period"
+}

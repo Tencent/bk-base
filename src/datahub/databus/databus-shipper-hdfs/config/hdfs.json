@@ -1,0 +1,16 @@
+{
+  "name":"hdfs-sink",
+  "config": {
+    "group.id":"hdfs-cluster-01",
+    "connector.class":"com.tencent.bk.base.datahub.databus.connect.hdfs.BizHdfsSinkConnector",
+    "tasks.max":"1",
+    "topics":"test_hdfs",
+    "topics.dir":"/kafka/data",
+    "partitioner.class":"com.tencent.bk.base.datahub.databus.connect.hdfs.BizDataPartitioner",
+    "hdfs.url":"hdfs://hdfsTest",
+    "hadoop.home.dir":"/data/mapf/hadoop/",
+    "hadoop.conf.dir":"/data/hdfs/config/",
+    "flush.size":"5",
+    "rotate.interval.ms":"5000"
+  }
+}

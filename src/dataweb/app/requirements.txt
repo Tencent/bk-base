@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+Django==2.2.6
+pymysql==0.6.7
+MarkupSafe==1.1.1
+Mako==1.0.6
+httplib2==0.9.1
+suds-py3==1.4.4.1
+celery==3.1.25
+django-celery==3.2.1
+requests==2.22
+django-cors-headers==2.1.0
+djangorestframework==3.10.0
+django-filter==2.1.0
+html5lib==1.0b9
+bleach==2.0.0
+pycryptodome==3.10.1
+pillow==4.1.1
+django-reversion==2.0.9
+jsonschema==2.6.0
+gunicorn==19.6.0
+gevent==1.1.2
+greenlet==0.4.9
+arrow==0.14.2
+six==1.11.0
+futures==3.1.1
+uWSGI==2.0.13.1
+mysqlclient==1.4.4
+python-json-logger==0.1.7
+
+# 静态服务
+whitenoise==3.3.0
+
+# APM服务
+ddtrace==0.14.1
+
+# 加入raven包依赖
+raven==6.10.0
+
+# 自动获取环境变量
+environs==9.3.2
+dj-database-url==0.5.0

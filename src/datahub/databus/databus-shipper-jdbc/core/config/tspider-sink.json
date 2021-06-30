@@ -1,0 +1,17 @@
+{
+  "name":"tspider-sink",
+  "config": {
+    "group.id":"tspider-cluster-01",
+    "name":"tspider-sink",
+    "rt.id": "result_table_id",
+    "tasks.max":"1",
+    "connector.class":"com.tencent.bkdata.connect.tspider.TspiderSinkConnector",
+    "connection.url":"jdbc:mysql://xx.xx.xx:25000/mapf_databus?autoReconnect=true&useServerPrepStmts=false&rewriteBatchedStatements=true",
+    "connection.user":"mapf",
+    "connection.password":"xxxx",
+    "table.name":"tableName",
+    "topics":"storm_msdk_data_puller",
+    "flush.interval":"10000",
+    "batch.size":"1000"
+  }
+}

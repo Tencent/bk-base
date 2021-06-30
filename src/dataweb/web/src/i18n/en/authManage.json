@@ -1,0 +1,15 @@
+{
+    "权限": "Authority",
+    "续期": "Renew",
+    "权限续期成功": "Permission renewed successfully",
+    "请在未过期前完成续期_当过期时间超过15天_还未进行续期的DataToken将自动移除": "Please complete the renewal before it expires. When the expiration time exceeds 15 days,the DataToken that has not been renewed will be automatically removed.",
+    "权限移交": "Transfer of authority",
+    "交接人": "Handover",
+    "被交接人": "Transferee",
+    "此操作将交接您拥有的全部权限_包括但不限于": "This operation will transfer all the permissions you have_ including but not limited to",
+    "全部项目的管理权限": "Administrative rights for all projects",
+    "全部原始数据以及结果数据的管理权限": "Management rights for all raw data and result data",
+    "调用DataAPI授权码的管理权限": "Management authority to call the DataAPI authorization code",
+    "数据开发中自定义函数的管理权限": "Management permissions for custom functions in data development",
+    "权限交接完成": "Completion of authority!"
+}

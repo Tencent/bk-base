@@ -1,0 +1,28 @@
+# vim:ft=sh
+
+post_hook () {
+    local action=$1
+    local module=$2
+    local project=$3
+
+    local action_script=$(find -maxdepth 1 \
+            $INSTALL_PATH/$module/$project \
+            -name "post_$action" | head -1)
+
+    if [ -z "$action_script" ]; then
+        chmod +x ${action_script}
+        $action_script ${${action}_RET}
+    fi
+}
+
+pre_hook () {
+    :
+}
+
+on_hook () {
+    :
+}
+
+branch_hook () {
+    :
+}

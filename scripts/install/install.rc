@@ -1,0 +1,489 @@
+# vim:ft=sh sts=4 ts=4 sw=4 expandtab nu ai
+
+source $CTRL_DIR/utils.fc
+source $CTRL_DIR/render.rc
+source $CTRL_DIR/crontab.rc
+
+load_functions install third
+load_functions install extra
+load_module bcs
+load_module ci
+
+deploy () {
+    local module=$1
+    local proj=$2
+    local ip
+
+    check_name install $module
+
+    # 若最后一个参数是1, 则先同步文件
+    check_if_sync_required ${@: -1} $module
+
+    # 若最后一个参数是1, 且是第二个参数,则要取消掉 proj 的取值.
+    [ "$proj" == "1" ] && proj=
+
+    local TARGET_IPS=( $(map_name2ip $module $proj) )
+
+    pre_deploy $module $proj
+
+    step "install ${module}(${proj:-all})"
+    if [ "$module" == "paas_plugins" ]; then
+        install_paas_plugins || fail "Abort"
+    elif [ "$module" == "ceph" ]; then
+        install_ceph
+    else
+        if [ "${#TARGET_IPS[@]}" == 0 ]; then
+            warn "$module was not configured in install.config"
+            warn "skip deploying $module"
+            return 10
+        fi
+
+        for ip in ${TARGET_IPS[@]}; do
+            rcmd root@$ip "
+                source $CTRL_DIR/install.rc;
+                export _module=${module}
+                export _project=${proj}
+                export SERVICE_ID=${module//${module%%0*}}
+                install_${module%0*} $proj" || fail "Abort"
+        done
+
+        [ "$module" == "gse" ] && upload_gse_package_to_miniweb
+    fi
+
+    export SIGN_FILE=$INSTALL_PATH/.installed_module
+    add_sumarize $module
+
+    ok "install $module(${proj:-allproject}) done"
+}
+
+pre_deploy () {
+    local module=$1
+    local proj=$2
+
+    if type pre_install_$module >/dev/null 2>&1; then
+        pre_install_$module
+    fi
+}
+
+install_paas () {
+    _install_open_paas $@
+}
+
+_install_open_paas () {
+    local module=open_paas
+    local project=$1
+
+    emphasize "install $module(${project:-all}) on host: $LAN_IP"
+    _install_dependences $module $proj
+    init_dirtree $module $proj
+
+    emphasize "copy project codes and files"
+    _rsync -a --exclude support-files $PKG_SRC_PATH/$module/$project $INSTALL_PATH/$module
+    _rsync -a $PKG_SRC_PATH/cert $INSTALL_PATH/
+    _install_localpython
+    fixlocation_libmysqlclient_r
+
+    local p
+    for p in $(selected_projects $module $project); do
+        if [[ -e $INSTALL_PATH/$module/$p ]]; then
+            light "init virtualenv for $module $p"
+            init_virtualenv $module $p /usr/local/bin/python
+        fi
+        [ "$p" == "paas" ] && [[ ${#PAAS_IP[@]} -gt 1 ]] && mount_shared_fs $module paas
+    done
+
+
+    #_render_on_detect $module $project
+    render_paas $project
+    sign_host_as_module $module $project
+}
+
+_install_dependences () {
+    local module=$1
+    local project=$2
+    local extpkg_dir=$PKG_SRC_PATH/$module/support-files/pkgs
+
+    if [ -z "$project" ]; then
+        local var_name=${module}_required
+    else
+        local var_name=${module}_${project}_required
+    fi
+
+    emphasize "check dependences for $module"
+    source $CTRL_DIR/dependences.env
+
+    # check commands
+    _yum -y install ${commands[@]} ${required[@]} $(eval echo "\${$var_name[@]}") || fail "install requirments failed"
+
+    if ! python -m argparse '' 2>/dev/null; then
+        pip install pip/argparse-1.3.0.tar.gz
+    fi
+
+    ok "All required software are installed."
+}
+
+mount_shared_fs () {
+    local module=$1
+    local project=$2
+
+    if [ "$SHARED_STORAGE_TYPE" == "nfs" ]; then
+        yum -y install nfs-utils
+        case $module in
+            open_paas)
+                mount_nfs_partition $module $INSTALL_PATH/public/nfs/$module $INSTALL_PATH/$module/$project/media
+                ;;
+            job)
+                mount_nfs_partition $module $INSTALL_PATH/public/nfs/$module $INSTALL_PATH/public/$module
+                ;;
+            paas_agent |appo | appt)
+                mount_nfs_partition $module $INSTALL_PATH/public/nfs/saas $INSTALL_PATH/public/paas_agent/share
+                ;;
+            bkdata)
+                mount_nfs_partition $module $INSTALL_PATH/public/nfs/$module $INSTALL_PATH/public/$module/nfs
+                ;;
+            bknodeman)
+                mount_nfs_partition $module $INSTALL_PATH/public/nfs/nodeman $INSTALL_PATH/public/bknodeman
+                ;;
+        esac
+    elif [ "$SHARED_STORAGE_TYPE" == "cephfs" ]; then
+        case $module in
+            open_paas)
+                mount_cephfs_partition $module /$module $INSTALL_PATH/$module/$project/media
+                ;;
+            job)
+                mount_cephfs_partition $module /$module $INSTALL_PATH/public/$module
+                ;;
+            paas_agent |appo | appt)
+                mount_cephfs_partition $module /$module $INSTALL_PATH/public/$module/share
+                ;;
+        esac
+    fi
+}
+
+
+
+install_bkdata () {
+    local module=bkdata
+    local project=$1
+    local projects=( $(selected_projects $module $project) )
+
+    step "install dependences for $module($project)"
+    _install_dependences $module
+    fixlocation_libmysqlclient_r
+    _install_java   # 根据开发要求，bkdata所有机器都安装java
+    
+    for p in ${projects[@]}; do
+        emphasize " installling ${module}($p)"
+        _install_bkdata_project $p
+        [[ "$p" = "accessapi" ]] && [[ ${#BKDATA_ACCESSAPI_IP[@]} -gt 1 ]] && mount_shared_fs bkdata 
+    done
+
+    loadcron bkdata || warn "loadcron failed. please run manually."
+}
+
+_install_bkdata_project () {
+    local module=bkdata
+    local project=$1
+
+    check_if_match_config $module $project || return 0
+    init_dirtree $module $project
+
+    emphasize "copy project codes and files to destination: $module($project)"
+    _rsync -aL --delete --exclude support-files $PKG_SRC_PATH/$module/$project $INSTALL_PATH/$module/
+    _rsync -a  $PKG_SRC_PATH/cert $INSTALL_PATH/
+
+    source <(/opt/py27/bin/python $CTRL_DIR/qq.py $PKG_SRC_PATH/$module/projects.yaml)
+    project_dir=${_project_dir["$module,$project"]}
+
+    emphasize "init bkdata module environment.."
+    init_runtime $module $project ${_language["$module,$project"]}
+
+    emphasize "generte configuration files..."
+    export APP_CODE=bk_$module
+    export APP_TOKEN=$(_app_token $APP_CODE)
+    log "app_code:$APP_CODE  app_token:$APP_TOKEN"
+    render_$module $project
+    gen_project_postscripts $module $project
+
+    sign_host_as_module $module $project
+
+    unset APP_CODE
+    unset APP_TOKEN
+}
+
+install_license () {
+    local module=license
+
+    init_dirtree $module
+
+    _rsync -a $PKG_SRC_PATH/license $INSTALL_PATH/
+    _rsync -a $PKG_SRC_PATH/cert $INSTALL_PATH/
+
+    log "render license configurations"
+    render_license
+
+    sign_host_as_module license
+}
+
+install_appo () {
+    export APP_HOST=$APPO_HOST
+    _install_paas_agent O
+    [[ ${#APPO_IP[@]} -gt 1 ]] && mount_shared_fs paas_agent
+    sign_host_as_module appo
+    unset APP_HOST
+}
+
+install_appt () {
+    export APP_HOST=$APPT_HOST
+    _install_paas_agent T
+    sign_host_as_module appt
+    unset APP_HOST
+}
+
+install_fta () {
+    local module=fta
+    local project=fta
+
+    _install_dependences $module
+    init_dirtree $module $project
+
+    log "copy files and codes"
+    rsync -a --delete --exclude support-files $PKG_SRC_PATH/$module  $INSTALL_PATH/
+    rsync -a $PKG_SRC_PATH/cert $INSTALL_PATH/
+
+    fixlocation_libmysqlclient_r
+    init_virtualenv $module $project
+
+    export APP_CODE=bk_fta
+    export APP_TOKEN="$(_app_token bk_fta)"
+
+    chenv $module $project
+    render_fta
+    # gen_project_postscripts fta fta
+    sign_host_as_module $module
+
+}
+
+_install_paas_agent () {
+    local app_env=$1
+    local module=paas_agent
+    local project=paas_agent
+    local image_dir=$PKG_SRC_PATH/$module/support-files/images
+
+    _install_dependences $module
+    init_dirtree $module
+
+    _add_user apps $INSTALL_PATH/$module
+
+    step "copy project codes and files"
+    _rsync -a --exclude support-files $PKG_SRC_PATH/$module $INSTALL_PATH/
+    _rsync -a --exclude support-files $PKG_SRC_PATH/cert $INSTALL_PATH/
+    _rsync -a $PKG_SRC_PATH/$module/support-files/pkgs $INSTALL_PATH/$module/support-files/
+
+    step "install python for paas_agent"
+    _install_localpython
+
+    step "create virtualenv for paas_agent"
+    init_virtualenv $module $project /usr/local/bin/python
+
+    if [ -d $image_dir ]; then
+        log "apps isolate mode: docker"
+        echo docker >$INSTALL_PATH/.app.env
+        create_dockerenv $module $project $image_dir
+    else
+        log "apps isolate mode: virutalenv"
+        echo virtualenv >$INSTALL_PATH/.app.env
+        mkdir $INSTALL_PATH/.appenvs
+        export WOKRON_HOME=$INSTALL_PATH/.appenvs
+        workon $(get_venv_name $module $project)
+        pip install -r requirements.txt \
+            --no-cache --no-index \
+            --find-links=$PKG_SRC_PATH/paas_agent/support-files/pkgs
+        assert "install python package for virtualenv $module done." \
+               "install python package for virtualenv $module failed."
+    fi
+
+    export _UID=$(id -u apps)
+    export _GID=$(id -g apps)
+
+    emphasize "local nginx is required for paas_agent. going to install it."
+    _yum -y install nginx || fail "install nginx for paas_agent failed."
+    if [ ! -d $INSTALL_PATH/etc/nginx ]; then
+        init_dirtree nginx
+    fi
+
+    #_render_on_detect $module
+    render_paas_agent
+    ln -sf $INSTALL_PATH/etc/paas_agent_config.yaml $INSTALL_PATH/$module/$project/etc/paas_agent_config.yaml
+    ln -sf $INSTALL_PATH/etc/nginx.conf /etc/nginx/nginx.conf
+
+    return $?
+}
+
+
+
+
+gen_nginx_cert () {
+    openssl req -x509 -days 365 -out $PKG_SRC_PATH/cert/bk_domain.crt -keyout $PKG_SRC_PATH/cert/bk_domain.key \
+        -newkey rsa:2048 -nodes -sha256 \
+        -subj "/CN=*.$BK_DOMAIN" -extensions EXT -config <( \
+        printf "[dn]\nCN=*.$BK_DOMAIN\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:*.$BK_DOMAIN\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+}
+
+install_nginx () {
+    if [ ! -d $PKG_SRC_PATH/service/nginx ]; then
+        _yum -y install nginx || fail "install nginx failed."
+    else
+        rpm -ivh --force $PKG_SRC_PATH/service/nginx/nginx-*.rpm || fail "install nginx failed."
+    fi
+    init_dirtree nginx
+
+    mkdir -p $INSTALL_PATH/miniweb/download
+    ln -sf $INSTALL_PATH/etc/nginx.conf /etc/nginx/nginx.conf
+
+    if [ "$AUTO_GET_WANIP" != "0" ]; then
+        export WAN_IP=$(get_wan_ip | head -1)
+    fi
+    _render_on_detect service "*nginx*"
+    install_miniweb
+
+    cd $INSTALL_PATH/miniweb/download
+    rm -f download#agent*
+    find . -type f | xargs md5sum > MD5
+    sign_host_as_module nginx
+}
+
+
+
+
+
+install_consul () {
+    local module=consul
+    local project=consul
+
+    _install_dependences consul
+
+    set_hostname
+    add_hosts
+    add_hosts_paas
+    service nscd stop
+    init_dirtree $project
+
+    echo "vm.overcommit_memory=1" >> /etc/sysctl.conf
+    echo "net.core.somaxconn=512" >> /etc/sysctl.conf
+    sysctl -p >/dev/null
+
+    _init_pipconf
+    install_global_pypkg
+    log "generate consul.conf, option: -o -s -p $INSTALL_PATH -a $LAN_IP"
+    cd $CTRL_DIR
+    export ENCRYPT_KEY=$(_app_token consul)
+    ./pxs -c install.config -o -e -s -p $INSTALL_PATH -a $LAN_IP
+
+    rsync -a $CTRL_DIR/support-files/templates/*consul.conf $PKG_SRC_PATH/service/support-files/templates
+
+    source ./render.rc
+    _render_on_detect service "*supervisor-consul.conf"
+
+    cd $OLDPWD
+
+    # update resolv.conf
+    log "update resolv.conf"
+    if ! grep -q "nameserver.*127.0.0.1" /etc/resolv.conf; then
+        sed -i '1i nameserver 127.0.0.1' /etc/resolv.conf
+    fi
+
+    sed -i '/option/s/rotate//' /etc/resolv.conf
+
+    sign_host_as_module consul
+    #gen_module_env
+
+    update_rclocal
+}
+
+install_global_pypkg () {
+    /opt/py27/bin/pip install --no-index --find-links $CTRL_DIR/pip supervisor pymysql paramiko pyyaml requests
+}
+
+_find_latest_one () {
+    local app_code=$1
+    local saas_pkg_dir=$PKG_SRC_PATH/official_saas
+
+    (
+        cd $saas_pkg_dir
+        ls -rt ${app_code}_V*.tar.gz 2>/dev/null | tail -1
+    )
+}
+
+install_ntp () {
+    log "Install ntpd"
+    _install_ntp
+
+    log "Enable ntpd"
+    syscmd_byos enable ntpd
+}
+
+_install_ntp () {
+    local osver=$( grep -oP '(?<=release )(\d)' /etc/redhat-release )
+    if [[ "$osver" == 7 ]]; then
+        warn "Disable chronyd"
+        systemctl stop chronyd
+        systemctl disable chronyd
+    fi
+    yum install -y ntp ntpdate ntp-doc 
+}
+
+
+
+
+_install_bkdata_project () {
+    local module=bkdata
+    local project=$1
+
+    check_if_match_config $module $project || return 0
+    if [ $project == "jobnavischeduler" ] ; then rsync -aL $INSTALL_PATH/$module/$project/lib/mysql-connector-java-5.1.28.jar /tmp/ ; fi
+
+    init_dirtree $module $project
+    if [ $project == "jupyterhub" ] ; then mkdir -p $BKDATA_NOTEBOOK_DIR $BKDATA_NOTEBOOK_DIR/.ipynb_checkpoints && chmod -r 777 BKDATA_NOTEBOOK_DIR ; fi
+
+    emphasize "copy project codes and files to destination: $module($project)"
+    _rsync -aL --delete --exclude support-files $PKG_SRC_PATH/$module/$project $INSTALL_PATH/$module/
+    _rsync -a  $PKG_SRC_PATH/cert $INSTALL_PATH/
+    if [ $project == "jobnavischeduler" ] ; then rsync -aL /tmp/mysql-connector-java-5.1.28.jar $INSTALL_PATH/$module/$project/lib/ ; rsync -aL $PKG_SRC_PATH/dataflow_opensrc_patch/mysql-connector-java-5.1.28.jar $INSTALL_PATH/$module/$project/lib/ ; fi
+    if [ $project == "jobnavirunner" ] ; then chmod 777 $INSTALL_PATH/logs/$module ; source $CTRL_DIR/extra/register_dataflow.rc ; register_jobnavirunner ; _install_sparkcode ; fi
+
+    source <(/opt/py27/bin/python $CTRL_DIR/qq.py $PKG_SRC_PATH/$module/projects.yaml)
+    project_dir=${_project_dir["$module,$project"]}
+
+    emphasize "init bkdata module environment.."
+    #init_runtime $module $project ${_language["$module,$project"]}
+
+    if [[ $(grep python $PKG_SRC_PATH/$module/$project/project.*|grep "2.") ]] ; then
+        echo "$module-$project is python 2.* project"
+        $CTRL_DIR/install_py_venv_pkgs.sh -e -p /opt/py27/bin/python -n $module-$project -r $PKG_SRC_PATH/$module/$project/01_requirements.txt -w $INSTALL_PATH/.envs -a $INSTALL_PATH/$module/$project || fail "$module-$project install failed"
+        $CTRL_DIR/install_py_venv_pkgs.sh -e -p /opt/py27/bin/python -n $module-$project -r $PKG_SRC_PATH/$module/$project/02_requirements_local.txt -w $INSTALL_PATH/.envs -a $INSTALL_PATH/$module/$project || fail "$module-$project install failed"
+    elif [[ $(grep python $PKG_SRC_PATH/$module/$project/project.*|grep "3.") ]] ; then
+        echo "$module-$project is python 3.* project"
+        if [[ $project != "jupyterhub" ]] ; then
+            $CTRL_DIR/install_py_venv_pkgs.sh -e -p /opt/py36/bin/python -n $module-$project -r $PKG_SRC_PATH/$module/$project/01_requirements.txt -w $INSTALL_PATH/.envs -a $INSTALL_PATH/$module/$project || fail "$module-$project install failed"
+            $CTRL_DIR/install_py_venv_pkgs.sh -e -p /opt/py36/bin/python -n $module-$project -r $PKG_SRC_PATH/$module/$project/02_requirements_local.txt -w $INSTALL_PATH/.envs -a $INSTALL_PATH/$module/$project || fail "$module-$project install failed"
+            #rsync -aL /opt/py36_e/bin/python3.6_e $INSTALL_PATH/.envs/$module-$project/bin/python
+       else
+            echo "jupyterhub no need install pyenv"
+       fi
+    else
+        echo "$module-$project is not python project"
+    fi
+
+    emphasize "generte configuration files..."
+    export APP_CODE=bk_$module
+    export APP_TOKEN=$(_app_token $APP_CODE)
+    log "app_code:$APP_CODE  app_token:$APP_TOKEN"
+    render_$module $project
+    gen_project_postscripts $module $project
+
+    sign_host_as_module $module $project
+
+    unset APP_CODE
+    unset APP_TOKEN
+}

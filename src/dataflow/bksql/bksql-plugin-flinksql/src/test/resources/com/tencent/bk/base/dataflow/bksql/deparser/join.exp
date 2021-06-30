@@ -1,0 +1,165 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[ {
+  "id" : "591_test_result_FlinkSqlJoin_1",
+  "name" : "test_result_FlinkSqlJoin_1",
+  "parents" : [ "591_etl_flink_sql", "591_f1630_s_02" ],
+  "window" : {
+    "type" : "tumbling",
+    "length" : 0,
+    "count_freq" : 600,
+    "waiting_time" : 60,
+    "session_gap" : 0,
+    "expired_time" : 0,
+    "allowed_lateness" : false,
+    "lateness_time" : 0,
+    "lateness_count_freq" : 0
+  },
+  "processor" : {
+    "processor_type" : "join_transform",
+    "processor_args" : "{\"first\":\"591_etl_flink_sql\",\"second\":\"591_f1630_s_02\",\"type\":\"inner\",\"join_keys\":[{\"first\":\"gseindex\",\"second\":\"log\"}]}"
+  },
+  "fields" : [ {
+    "field" : "dtEventTime",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_startTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_endTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_etl_flink_sql_path_111111",
+    "type" : "string",
+    "origin" : "591_etl_flink_sql:path",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_etl_flink_sql_report_time_222222",
+    "type" : "string",
+    "origin" : "591_etl_flink_sql:report_time",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_etl_flink_sql_log_333333",
+    "type" : "string",
+    "origin" : "591_etl_flink_sql:log",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_f1630_s_02_log_444444",
+    "type" : "string",
+    "origin" : "591_f1630_s_02:log",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_etl_flink_sql_ip_555555",
+    "type" : "string",
+    "origin" : "591_etl_flink_sql:ip",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "col_591_etl_flink_sql_gseindex_666666",
+    "type" : "long",
+    "origin" : "591_etl_flink_sql:gseindex",
+    "description" : "",
+    "is_dimension" : false
+  } ]
+}, {
+  "id" : "591_test_result",
+  "name" : "test_result",
+  "parents" : [ "591_test_result_FlinkSqlJoin_1" ],
+  "window" : {
+    "type" : "tumbling",
+    "length" : 0,
+    "count_freq" : 600,
+    "waiting_time" : 60,
+    "session_gap" : 0,
+    "expired_time" : 0,
+    "allowed_lateness" : false,
+    "lateness_time" : 0,
+    "lateness_count_freq" : 0
+  },
+  "processor" : {
+    "processor_type" : "common_transform",
+    "processor_args" : "SELECT `dtEventTime`, utc_to_local(`dtEventTime`) AS `_startTime_`, utc_to_local(`dtEventTime`) AS `_endTime_`, `col_591_etl_flink_sql_log_333333` AS `log`, `col_591_etl_flink_sql_ip_555555` AS `ip`, `col_591_etl_flink_sql_report_time_222222` AS `report_time`, `col_591_etl_flink_sql_gseindex_666666` AS `gseindex`, `col_591_etl_flink_sql_path_111111` AS `path` FROM `test_result_591___test_result_FlinkSqlJoin_1_591`"
+  },
+  "fields" : [ {
+    "field" : "dtEventTime",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_startTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "_endTime_",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "log",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "ip",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "report_time",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "gseindex",
+    "type" : "long",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  }, {
+    "field" : "path",
+    "type" : "string",
+    "origin" : "",
+    "description" : "",
+    "is_dimension" : false
+  } ]
+} ]

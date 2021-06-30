@@ -1,0 +1,1 @@
+recursive-include tencent_bkbase_datalake *.jar

@@ -1,0 +1,282 @@
+[
+  {
+    "status": "active",
+    "operation_id": "dataflow",
+    "operation_name": "数据开发"
+  },
+  {
+    "status": "active",
+    "operation_id": "batch_source",
+    "operation_name": "离线数据源"
+  },
+  {
+    "status": "active",
+    "operation_id": "hdfs_storage",
+    "operation_name": "HDFS存储"
+  },
+  {
+    "status": "active",
+    "operation_id": "elastic_storage",
+    "operation_name": "ES存储"
+  },
+  {
+    "status": "active",
+    "operation_id": "kv_source",
+    "operation_name": "关联数据源"
+  },
+  {
+    "status": "active",
+    "operation_id": "merge",
+    "operation_name": "合流计算"
+  },
+  {
+    "status": "active",
+    "operation_id": "offline",
+    "operation_name": "离线计算"
+  },
+  {
+    "status": "active",
+    "operation_id": "offline_feature",
+    "operation_name": "离线高级特性"
+  },
+  {
+    "status": "active",
+    "operation_id": "queue_storage",
+    "operation_name": "Queue存储"
+  },
+  {
+    "status": "active",
+    "operation_id": "realtime",
+    "operation_name": "实时计算"
+  },
+  {
+    "status": "active",
+    "operation_id": "session_window",
+    "operation_name": "会话窗口"
+  },
+  {
+    "status": "active",
+    "operation_id": "split",
+    "operation_name": "分流计算"
+  },
+  {
+    "status": "active",
+    "operation_id": "stream_source",
+    "operation_name": "实时数据源"
+  },
+  {
+    "status": "active",
+    "operation_id": "tspider_storage",
+    "operation_name": "Tspider存储"
+  },
+  {
+    "status": "active",
+    "operation_id": "udf",
+    "operation_name": "自定义计算函数"
+  },
+  {
+    "status": "active",
+    "operation_id": "batch-self-dependency",
+    "operation_name": "自依赖功能"
+  },
+  {
+    "status": "active",
+    "operation_id": "batch_kv_source",
+    "operation_name": "离线静态关联"
+  },
+  {
+    "status": "active",
+    "operation_id": "batch_week_task",
+    "operation_name": "离线周任务"
+  },
+  {
+    "status": "active",
+    "operation_id": "custom_calculates",
+    "operation_name": "离线补算"
+  },
+  {
+    "status": "active",
+    "operation_id": "data_log",
+    "operation_name": "任务日志"
+  },
+  {
+    "status": "active",
+    "operation_id": "druid_storage",
+    "operation_name": "Druid存储"
+  },
+  {
+    "status": "active",
+    "operation_id": "flink_streaming",
+    "operation_name": "Flink流式计算"
+  },
+  {
+    "status": "active",
+    "operation_id": "hermes_storage",
+    "operation_name": "Hermes存储"
+  },
+  {
+    "status": "active",
+    "operation_id": "ignite",
+    "operation_name": "ignite节点"
+  },
+  {
+    "status": "active",
+    "operation_id": "offline_customconf",
+    "operation_name": "离线节点是否支持自定义配置"
+  },
+  {
+    "status": "active",
+    "operation_id": "spark_structured_streaming",
+    "operation_name": "SDK节点"
+  },
+  {
+    "status": "active",
+    "operation_id": "tredis_storage",
+    "operation_name": "Tredis存储"
+  },
+  {
+    "status": "active",
+    "operation_id": "modelflow",
+    "operation_name": "数据挖掘"
+  },
+  {
+    "status": "active",
+    "operation_id": "datahub",
+    "operation_name": "数据集成"
+  },
+  {
+    "status": "active",
+    "operation_id": "data_view",
+    "operation_name": "数据视图"
+  },
+  {
+    "status": "active",
+    "operation_id": "dmonitor_center",
+    "operation_name": "监控告警中心"
+  },
+  {
+    "status": "active",
+    "operation_id": "superset",
+    "operation_name": "SupersetBI系统"
+  },
+  {
+    "status": "active",
+    "operation_id": "data_explore",
+    "operation_name": "数据探索"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "data_graph",
+    "operation_name": "数据报表服务"
+  },
+  {
+    "status": "active",
+    "operation_id": "grafana",
+    "operation_name": "Grafana"
+  },
+  {
+    "status": "active",
+    "operation_id": "sensitivity",
+    "operation_name": "敏感分级"
+  },
+  {
+    "status": "active",
+    "operation_id": "resource_manage",
+    "operation_name": "资源管理"
+  },
+  {
+    "status": "active",
+    "operation_id": "datamart",
+    "operation_name": "数据集市"
+  },
+  {
+    "status": "active",
+    "operation_id": "data_inventory",
+    "operation_name": "数据盘点"
+  },
+  {
+    "status": "active",
+    "operation_id": "data_quality",
+    "operation_name": "数据质量"
+  },
+  {
+    "status": "active",
+    "operation_id": "lifecycle",
+    "operation_name": "生命周期"
+  },
+  {
+    "status": "active",
+    "operation_id": "standard",
+    "operation_name": "数据标准"
+  },
+  {
+    "status": "active",
+    "operation_id": "data_quality_audit",
+    "operation_name": "数据质量审核"
+  },
+  {
+    "status": "active",
+    "operation_id": "model_ts_custom",
+    "operation_name": "时序自定义节点"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "new_node_layout",
+    "operation_name": "新节点布局"
+  },
+  {
+    "status": "active",
+    "operation_id": "unified_kv_source",
+    "operation_name": "离线数据源"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "compliance_reminder",
+    "operation_name": "数据接入合规提示"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "data_model_batch_indicator",
+    "operation_name": "模型实例指标（离线）"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "data_model_stream_indicator",
+    "operation_name": "模型实例指标（实时）"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "data_model_app",
+    "operation_name": "数据模型节点"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "data_model",
+    "operation_name": "数据模型"
+  },
+  {
+    "status": "active",
+    "operation_id": "clean_auto_fill",
+    "operation_name": "数据清洗智能填充"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "clickhouse_storage",
+    "operation_name": "clickhouse存储"
+  },
+  {
+    "status": "active",
+    "operation_id": "model_app",
+    "operation_name": "MLSQL节点"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "data_fix",
+    "operation_name": "数据修正"
+  },
+  {
+    "status": "disabled",
+    "operation_id": "batchv2",
+    "operation_name": "离线计算v2"
+  }
+]

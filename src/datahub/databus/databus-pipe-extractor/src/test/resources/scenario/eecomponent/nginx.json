@@ -1,0 +1,37 @@
+{
+    "@timestamp": "2017-10-22T23:06:49.290Z",
+    "beat": {
+        "address": [
+            "xx.xx.xx.xx"
+        ],
+        "hostname": "host_name",
+        "name": "host_name",
+        "version": "Vxx.xx.xx.xx"
+    },
+    "bizid": 0,
+    "cloudid": 0,
+    "dataid": 3003,
+    "gseindex": 40538,
+    "ip": "xx.xx.xx.xx",
+    "metricset": {
+        "host": "xx.xx.xx.xx:12346",
+        "module": "nginx",
+        "name": "stubstatus",
+        "rtt": 220
+    },
+    "nginx": {
+        "stubstatus": {
+            "accepts": 86,
+            "active": 1,
+            "current": 1,
+            "dropped": 0,
+            "handled": 86,
+            "hostname": "xx.xx.xx.xx:12346",
+            "reading": 0,
+            "requests": 6706,
+            "waiting": 0,
+            "writing": 1
+        }
+    },
+    "type": "metricsets"
+}

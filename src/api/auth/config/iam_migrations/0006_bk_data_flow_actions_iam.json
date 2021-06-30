@@ -1,0 +1,138 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "flow-create",
+                "name": "任务创建",
+                "name_en": "DataFlow Create",
+                "description": "任务创建",
+                "description_en": "DataFlow Create",
+                "type": "create",
+                "related_resource_types": [],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "flow-delete",
+                "name": "任务删除",
+                "name_en": "DataFlow Delete",
+                "description": "任务删除",
+                "description_en": "DataFlow Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "flow",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-flow"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "flow-execute",
+                "name": "任务执行",
+                "name_en": "DataFlow Execute",
+                "description": "任务执行",
+                "description_en": "DataFlow Execute",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "flow",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-flow"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "flow-retrieve",
+                "name": "任务查看",
+                "name_en": "DataFlow View",
+                "description": "任务查看",
+                "description_en": "DataFlow View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "flow",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-flow"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "flow-update",
+                "name": "任务编辑",
+                "name_en": "DataFlow Edit",
+                "description": "任务编辑",
+                "description_en": "DataFlow Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "flow",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-flow"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "flow-query_metrics",
+                "name": "任务质量查看",
+                "name_en": "DataFlow MetricsQuery",
+                "description": "任务质量查看",
+                "description_en": "DataFlow MetricsQuery",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "flow",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-flow"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

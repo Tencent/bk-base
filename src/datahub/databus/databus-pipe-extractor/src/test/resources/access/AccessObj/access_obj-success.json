@@ -1,0 +1,14 @@
+{
+  "type": "access",
+  "subtype": "access_obj",
+  "key": "worldid",
+  "next": {
+    "type": "assign",
+    "subtype": "assign_value",
+    "assign":
+    {
+      "key": "worldid",
+      "assign_to": "varname"
+    }
+  }
+}

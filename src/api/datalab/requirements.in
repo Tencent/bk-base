@@ -1,0 +1,3 @@
+-c ../requirements.txt
+websocket-client==0.57.0
+arrow==0.5.4

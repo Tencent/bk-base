@@ -1,0 +1,604 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+      {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-create",
+                "name": "模型新增",
+                "name_en": "Model Create",
+                "description": "模型新增",
+                "description_en": "Model Create",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "project",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-copy",
+                "name": "模型复制",
+                "name_en": "Model Copy",
+                "description": "模型复制",
+                "description_en": "Model Copy",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-retrieve",
+                "name": "模型查看",
+                "name_en": "Model View",
+                "description": "模型查看",
+                "description_en": "Model View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-update",
+                "name": "模型编辑",
+                "name_en": "Model Edit",
+                "description": "模型编辑",
+                "description_en": "Model Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-delete",
+                "name": "模型删除",
+                "name_en": "Model Delete",
+                "description": "模型删除",
+                "description_en": "Model Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-copy_experiment",
+                "name": "实验复制",
+                "name_en": "Model Experiment Copy",
+                "description": "实验复制",
+                "description_en": "Model Experiment Copy",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-retrieve_experiment",
+                "name": "实验查看",
+                "name_en": "Model Experiment View",
+                "description": "实验查看",
+                "description_en": "Model Experiment View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-create_experiment",
+                "name": "实验创建",
+                "name_en": "Model Experiment Create",
+                "description": "实验创建",
+                "description_en": "Model Experiment Create",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-update_experiment",
+                "name": "实验编辑",
+                "name_en": "Model Experiment Edit",
+                "description": "实验编辑",
+                "description_en": "Model Experiment Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-delete_experiment",
+                "name": "实验删除",
+                "name_en": "Model Experiment Delete",
+                "description": "实验删除",
+                "description_en": "Model Experiment Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-copy_release",
+                "name": "发布配置复制",
+                "name_en": "Model Release Copy",
+                "description": "发布配置复制",
+                "description_en": "Model Release Copy",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-retrieve_release",
+                "name": "发布配置查看",
+                "name_en": "Model Release View",
+                "description": "发布配置查看",
+                "description_en": "Model Release View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-create_release",
+                "name": "发布配置创建",
+                "name_en": "Model Release Create",
+                "description": "发布配置创建",
+                "description_en": "Model Release Create",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-update_release",
+                "name": "发布配置更新",
+                "name_en": "Model Release Edit",
+                "description": "发布配置更新",
+                "description_en": "Model Release Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-delete_release",
+                "name": "发布配置删除",
+                "name_en": "Model Release Delete",
+                "description": "发布配置删除",
+                "description_en": "Model Release Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-copy_service",
+                "name": "服务复制",
+                "name_en": "Model Service Copy",
+                "description": "服务复制",
+                "description_en": "Model Service Copy",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-retrieve_service",
+                "name": "服务查看",
+                "name_en": "Model Service View",
+                "description": "服务查看",
+                "description_en": "Model Service View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-create_service",
+                "name": "服务创建",
+                "name_en": "Model Service Create",
+                "description": "服务创建",
+                "description_en": "Model Service Create",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-update_service",
+                "name": "服务更新",
+                "name_en": "Model Service Edit",
+                "description": "服务更新",
+                "description_en": "Model Service Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-delete_service",
+                "name": "服务删除",
+                "name_en": "Model Service Delete",
+                "description": "服务删除",
+                "description_en": "Model Service Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-retrieve_serving",
+                "name": "应用查看",
+                "name_en": "Model Serving View",
+                "description": "应用查看",
+                "description_en": "Model Serving View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-create_serving",
+                "name": "应用创建",
+                "name_en": "Model Serving Create",
+                "description": "应用创建",
+                "description_en": "Model Serving Create",
+                "type": "create",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-update_serving",
+                "name": "应用编辑",
+                "name_en": "Model Serving Edit",
+                "description": "应用编辑",
+                "description_en": "Model Serving Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "model-delete_serving",
+                "name": "应用删除",
+                "name_en": "Model Serving Delete",
+                "description": "应用删除",
+                "description_en": "Model Serving Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "model",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-model"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

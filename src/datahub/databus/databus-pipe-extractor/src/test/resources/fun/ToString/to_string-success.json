@@ -1,0 +1,13 @@
+{
+  "type": "fun",
+  "method": "to_string",
+  "next": {
+    "type": "assign",
+    "subtype": "assign_value",
+    "assign":
+      {
+        "key": "worldid",
+        "assign_to": "varname"
+      }
+  }
+}

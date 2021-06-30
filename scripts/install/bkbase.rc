@@ -1,0 +1,16 @@
+shopt -s nullglob
+source /root/.bkrc
+cd $CTRL_DIR || exit 1
+source ./utils.fc
+source ./base.rc
+source ./install.rc
+source ./functions
+source ./initdata.rc
+source ./control.rc
+source ./status.rc
+if [[ -d $CTRL_DIR/extra ]] ; then
+    for f in $CTRL_DIR/extra/*.env $CTRL_DIR/extra/*.rc ; do
+        source $f
+    done
+fi
+shopt -u nullglob

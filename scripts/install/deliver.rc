@@ -1,0 +1,159 @@
+# vim:ft=sh sts=4 sw=4 ts=4 expandtab
+
+source ./utils.fc
+cd ${BASH_SOURCE%/*} 2>/dev/null
+
+load_functions deliver third
+load_functions deliver extra
+load_module bcs
+load_module ci
+
+CPU_CORES=$(grep -c '^processor' /proc/cpuinfo)
+
+deliver () {
+    local module=$1
+    local project=$2
+
+    ./pxs -c install.config -a $LAN_IP -o || fail "parse install.config failed."
+
+    check_https_cert
+
+    check_name sync $module
+
+    sync_${module%0*} $project
+}
+
+sync_all () {
+    local m
+
+    sync_common
+
+    #echo ${ALL_MODULE[@]%0*} | xargs -n1 -P$CPU_CORES ./bkeec sync 
+    for m in ${ALL_MODULE[@]%0*}; do
+        ./bkeec sync $m
+    done
+
+    sync_paas_plugins
+}
+
+sync_consul () {
+    local module=consul
+    local proj=
+
+    step "rsynchronize files of [$module]"
+    #echo ${ALL_IP[@]} | xargs -n1 | \
+    #    xargs -I{} -P${CPU_CORES} $CTRL_DIR/cmd_rsync -a $PKG_SRC_PATH/service/$module/bin/$module root@{}:/usr/bin/
+
+    for ip in ${ALL_IP[@]}; do
+        _rsync -a $PKG_SRC_PATH/service/$module/bin/$module root@${ip}:/usr/bin/
+    done
+}
+
+sync_bkdata () {
+    local module=bkdata
+    local proj=$1
+
+    step "rsynchronize files of [$module]"
+    #echo ${BKDATA_IP[@]} | xargs -n1 | \
+    #    xargs -I{} -P${CPU_CORES} bash -c "
+    #        $CTRL_DIR/cmd_rsync -a --delete-after $PKG_SRC_PATH/$module root@{}:$PKG_SRC_PATH/
+    #        $CTRL_DIR/cmd_rsync -a --delete-after $PKG_SRC_PATH/service/java root@{}:$PKG_SRC_PATH/service/"
+
+    for ip in ${BKDATA_IP[@]}; do
+        _rsync -a --delete-after $PKG_SRC_PATH/$module root@${ip}:$PKG_SRC_PATH/
+        _rsync -a --delete-after $PKG_SRC_PATH/service/java root@${ip}:$PKG_SRC_PATH/service/
+        _rsync -a --delete-after $PKG_SRC_PATH/service/mysql root@${ip}:$PKG_SRC_PATH/service/
+    done
+}
+
+sync_common () {
+    step "rsynchronize files of [certs,scripts,identities,common service]"
+    mkdir -m 775 -p $INSTALL_PATH/bin
+
+    _TMP_DIR_=$(mktemp -d /tmp/XXXXXXXXXXXXXXX)
+    _TMP_DIR1_=$(mktemp -d /tmp/XXXXXXXXXXXXXXX)
+    chmod 775 ${_TMP_DIR1_} ${_TMP_DIR_}
+
+    # 企业标识文件, 脚本, 证书
+    [ -z "$IGNORE_CERT" ] && rsync -a $PKG_SRC_PATH/cert ${_TMP_DIR_}/
+    rsync -a $PKG_SRC_PATH/ENTERPRISE $PKG_SRC_PATH/*.env ${_TMP_DIR_}/bin/
+    rsync -a $CTRL_DIR/process_watch \
+             $CTRL_DIR/health_check \
+             $CTRL_DIR/pxs \
+             $CTRL_DIR/functions \
+             $CTRL_DIR/.app.token \
+             $CTRL_DIR/*.rc \
+             $CTRL_DIR/*.fc \
+             $CTRL_DIR/*.env \
+             ${_TMP_DIR_}/bin/
+    [ -d "$CTRL_DIR/ci" ] && rsync -a $CTRL_DIR/ci "${_TMP_DIR_}/bin/"
+
+    # 处理Nginx模板的http/https
+    local schema=${HTTP_SCHEMA:-http}
+    if [[ "$schema" = "https" ]]; then
+        # comment out ssl conf
+        sed -ri '/ssl config begin/,/ssl config end/s/^#+//' \
+            $PKG_SRC_PATH/service/support-files/templates/\#etc#nginx#{cmdb,job,paas}.conf
+    else
+        # comment ssl conf
+        sed -ri '/ssl config begin/,/ssl config end/s/^#*/#/' \
+            $PKG_SRC_PATH/service/support-files/templates/\#etc#nginx#{cmdb,job,paas}.conf
+    fi
+
+    #
+    local cmdfile=$CTRL_DIR/.cmd_sync_common
+    cat >$cmdfile <<_OO_
+#!/bin/bash
+source $CTRL_DIR/utils.fc
+ip=\${1}
+# 创建基础目录.
+ssh -o StrictHostKeyChecking=no root@\${ip} "umask 022; mkdir -m 775 -p $PKG_SRC_PATH $INSTALL_PATH/bin $CTRL_DIR"
+#_rsync -a $PKG_SRC_PATH/service/py27/ root@\${ip}:/opt/py27/
+#_rsync -a $PKG_SRC_PATH/service/py36/ root@\${ip}:/opt/py36/
+_rsync -a $CTRL_DIR/bin/jq root@\${ip}:/usr/bin/
+
+_rsync -a ${_TMP_DIR_}/ root@\${ip}:$INSTALL_PATH/
+_rsync -a $PKG_SRC_PATH/ENTERPRISE $PKG_SRC_PATH/*.env root@\${ip}:$PKG_SRC_PATH/
+
+# 配置模板
+cd $PKG_SRC_PATH
+rsync -a service/.pip service/consul service/support-files ${_TMP_DIR1_}/service/
+rsync -a $CTRL_DIR/pip/pip.conf cert ${_TMP_DIR1_}/
+
+_rsync -a --delete $CTRL_DIR/ root@\${ip}:$CTRL_DIR/
+_rsync -a ${_TMP_DIR1_}/ root@\${ip}:$PKG_SRC_PATH/
+_OO_
+    chmod +x $cmdfile
+    echo ${ALL_IP[@]} | xargs -n1 | \
+        xargs -I{} -P${CPU_CORES} $cmdfile {}
+
+    rm -fr ${_TMP_DIR1_} ${_TMP_DIR_}
+}
+
+sync_nginx () {
+    local module=nginx
+    step "rsynchronize files of [$module:miniweb]"
+
+    (
+        cd $PKG_SRC_PATH/service
+        tar zcf py27.tgz py27
+    )
+
+    for ip in ${NGINX_IP[@]}; do
+        [ -d $PKG_SRC_PATH/service/$module ] && _rsync -aL --delete $PKG_SRC_PATH/service/$module root@${ip}:$PKG_SRC_PATH/service/
+        _rsync -aL --delete $PKG_SRC_PATH/miniweb root@${ip}:$PKG_SRC_PATH/
+        _rsync -aL $CTRL_DIR/agent_setup/*#* root@${ip}:$PKG_SRC_PATH/miniweb/support-files/templates/
+        _rsync -aL $PKG_SRC_PATH/service/py27.tgz $CTRL_DIR/agent_setup/* root@${ip}:$PKG_SRC_PATH/miniweb/download/
+    done
+
+    rm -f $PKG_SRC_PATH/service/py27.tgz
+}
+
+sync_confd () {
+    local module=confd 
+
+    step "rsynchronize files of [$module]"
+    for ip in ${CONFD_IP[@]}; do
+        _rsync -a $PKG_SRC_PATH/service/$module/bin/$module root@$ip:/usr/bin/
+    done
+}

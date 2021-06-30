@@ -1,0 +1,1172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-13 10:53+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: analyse/views.py:51
+msgid "部分rt不存在."
+msgstr "some rt tables are not exist"
+
+#: analyse/views.py:71
+msgid "参数不合法。"
+msgstr "arguments invalid"
+
+#: basic/common.py:35
+msgid "{} | {} | 调度ID：{}"
+msgstr "{} | {} | Schedule ID: {}"
+
+#: basic/common.py:38
+msgid "错误已记录. | 调度ID：{}"
+msgstr "Error has been recorded. | Schedule ID: {}"
+
+#: basic/common.py:50
+msgid "RPC流程失败:{}."
+msgstr "Faild in RPC procedure: {}."
+
+#: basic/common.py:54
+msgid "RPC返回结果为空."
+msgstr "RPC return result is null."
+
+#: configs/models.py:23
+msgid "归属的英文标识:bkdata，gem，idata等"
+msgstr "BelongsTo identifications: bkdata, gem, idata, etc."
+
+#: configs/models.py:24
+msgid "归属的名称"
+msgstr "BelongsTo name"
+
+#: configs/models.py:25
+msgid "归属的中文名称"
+msgstr "BelongsTo alias"
+
+#: configs/models.py:26 configs/models.py:81 configs/models.py:108
+#: configs/models.py:139 configs/models.py:171 configs/models.py:199
+#: configs/models.py:250 configs/models.py:274 configs/models.py:306
+#: configs/models.py:333
+msgid "是否有效"
+msgstr "Is it active"
+
+#: configs/models.py:27 configs/models.py:58 configs/models.py:82
+#: configs/models.py:113 configs/models.py:144 configs/models.py:176
+#: configs/models.py:200 configs/models.py:228 configs/models.py:251
+#: configs/models.py:275 configs/models.py:311 configs/models.py:334
+#: public/models/data_processing.py:298 public/models/data_transferring.py:150
+#: public/models/result_table.py:175 public/serializers/common.py:154
+#: public/serializers/common.py:235
+msgid "备注信息"
+msgstr "Remarks"
+
+#: configs/models.py:50
+msgid "集群组ID"
+msgstr "Cluster group ID"
+
+#: configs/models.py:51
+msgid "集群组名称"
+msgstr "Cluster group name"
+
+#: configs/models.py:52
+msgid "集群中文名"
+msgstr "Cluster alias"
+
+#: configs/models.py:53
+msgid "集群可访问性"
+msgstr "Cluster accessibility"
+
+#: configs/models.py:53 public/models/result_table.py:167
+msgid "私有"
+msgstr "Private"
+
+#: configs/models.py:53
+msgid "公共"
+msgstr "Public"
+
+#: configs/models.py:54 configs/models.py:109 configs/models.py:140
+#: configs/models.py:172 configs/models.py:307 public/models/__init__.py:11
+msgid "创建人"
+msgstr "Creator"
+
+#: configs/models.py:55 configs/models.py:110 configs/models.py:141
+#: configs/models.py:173 configs/models.py:308 public/models/__init__.py:12
+msgid "创建时间"
+msgstr "Creation time"
+
+#: configs/models.py:56 configs/models.py:111 configs/models.py:142
+#: configs/models.py:174 configs/models.py:309 public/models/__init__.py:13
+msgid "修改人"
+msgstr "Modifier"
+
+#: configs/models.py:57 configs/models.py:112 configs/models.py:143
+#: configs/models.py:175 configs/models.py:310 public/models/__init__.py:14
+msgid "修改时间"
+msgstr "Modification time"
+
+#: configs/models.py:78
+msgid "内容key"
+msgstr "Content key"
+
+#: configs/models.py:79 configs/serializers.py:13
+msgid "目标语言"
+msgstr "Target language"
+
+#: configs/models.py:80
+msgid "目标翻译内容"
+msgstr "Target translation content"
+
+#: configs/models.py:106
+msgid "接入分类名称"
+msgstr "Access classification name"
+
+#: configs/models.py:107
+msgid "接入分类中文名"
+msgstr "Access classification alias"
+
+#: configs/models.py:137
+msgid "编码方式名称"
+msgstr "Coding scheme name"
+
+#: configs/models.py:138
+msgid "编码方式中文名"
+msgstr "Coding scheme alias"
+
+#: configs/models.py:168
+msgid "字段类型标识"
+msgstr "Field type identification"
+
+#: configs/models.py:169
+msgid "字段类型名称"
+msgstr "Field type name"
+
+#: configs/models.py:170
+msgid "字段类型中文名"
+msgstr "Field type alias"
+
+#: configs/models.py:196
+msgid "状态标识"
+msgstr "State identification"
+
+#: configs/models.py:197
+msgid "状态名称"
+msgstr "State name"
+
+#: configs/models.py:198
+msgid "状态中文名"
+msgstr "State alias"
+
+#: configs/models.py:220
+msgid "功能ID"
+msgstr "Function ID"
+
+#: configs/models.py:221
+msgid "功能名称"
+msgstr "Function name"
+
+#: configs/models.py:222
+msgid "功能中文名称"
+msgstr "Function alias"
+
+#: configs/models.py:223
+msgid "功能状态"
+msgstr "Functional status"
+
+#: configs/models.py:224
+msgid "有效"
+msgstr "Valid"
+
+#: configs/models.py:225
+msgid "无效"
+msgstr "Invalid"
+
+#: configs/models.py:226
+msgid "不可见"
+msgstr "Invisible"
+
+#: configs/models.py:248 public/models/data_processing.py:296
+#: public/models/data_processing.py:313 public/models/result_table.py:163
+msgid "数据处理类型"
+msgstr "Data processing type"
+
+#: configs/models.py:249
+msgid "数据处理类型中文别名"
+msgstr "Data processing type alias"
+
+#: configs/models.py:272 public/models/result_table.py:162
+#: public/serializers/common.py:48 public/serializers/common.py:117
+#: public/serializers/result_table.py:59
+msgid "结果表类型"
+msgstr "Result table type"
+
+#: configs/models.py:273
+msgid "结果表类型中文含义"
+msgstr "Result table type alias"
+
+#: configs/models.py:303
+msgid "时间格式"
+msgstr "Time format"
+
+#: configs/models.py:304
+msgid "时间格式名称"
+msgstr "Time format name"
+
+#: configs/models.py:305
+msgid "时间格式长度"
+msgstr "Time format length"
+
+#: configs/models.py:331 public/models/data_transferring.py:148
+#: public/models/data_transferring.py:164
+msgid "数据传输类型"
+msgstr "Data transferring type"
+
+#: configs/models.py:332
+msgid "数据传输类型中文别名"
+msgstr "Data transferring type alias"
+
+#: configs/serializers.py:12
+msgid "待翻译别名"
+msgstr "Alias to be translated"
+
+#: configs/serializers.py:17 public/serializers/common.py:20
+#: public/serializers/common.py:74 public/serializers/common.py:137
+#: public/serializers/common.py:218 public/serializers/result_table.py:65
+msgid "标签列表"
+msgstr "tag list"
+
+#: exceptions.py:88
+#, python-brace-format
+msgid "数据库操作异常{err_msg}"
+msgstr "Database operation exception {err_msg}"
+
+#: exceptions.py:93
+#, python-brace-format
+msgid "无法找打key({content_key})对应语言({language})的翻译"
+msgstr ""
+"Unable to find a translation of corresponding language ({language}) for the "
+"key ({content_key})"
+
+#: exceptions.py:98
+#, python-brace-format
+msgid "参数错误：{error_detail}"
+msgstr "Parameter error: {error_detail}"
+
+#: exceptions.py:103
+#, python-brace-format
+msgid "结果表({result_table_id})不存在"
+msgstr "The result table ({result_table_id}) does not exist"
+
+#: exceptions.py:108
+#, python-brace-format
+msgid "结果表字段({field})冲突"
+msgstr "Result table field ({field}) conflict"
+
+#: exceptions.py:113
+msgid "结果表存储删除失败"
+msgstr "Result table storage deletion failed"
+
+#: exceptions.py:118
+#, python-brace-format
+msgid "结果表类型({result_table_type})不存在"
+msgstr "The result table type ({result_table_type}) does not exist"
+
+#: exceptions.py:123
+msgid "创建计算结果表未同时提交用户SQL"
+msgstr "SQL is not submitted while creating a calculation result table"
+
+#: exceptions.py:128
+msgid "该结果表的数据处理尚未删除，请先删除相关数据处理"
+msgstr ""
+"The data processing for the result table has not been deleted yet. Please "
+"delete the relevant data processing first."
+
+#: exceptions.py:133
+#, python-brace-format
+msgid "结果表字段类型({field_type})不合法"
+msgstr "Result table field type ({field_type}) is not valid"
+
+#: exceptions.py:138 public/models/result_table.py:156
+#, python-brace-format
+msgid "结果表({result_table_id})已存在"
+msgstr "The result table ({result_table_id}) already exists"
+
+#: exceptions.py:143
+#, python-brace-format
+msgid "项目({project_id})不存在"
+msgstr "Project ({project_id}) does not exist"
+
+#: exceptions.py:148
+msgid "默认项目不能被删除"
+msgstr "Default project cannot be deleted"
+
+#: exceptions.py:153
+#, python-brace-format
+msgid "数据处理({processing_id})不存在"
+msgstr "Data processing ({processing_id}) does not exist"
+
+#: exceptions.py:158
+msgid "数据处理最多允许输出一个结果表，当前参数输出有{}个"
+msgstr ""
+"Data processing allows a maximum of one result table to be output. The "
+"number of current outputs is {}"
+
+#: exceptions.py:163
+msgid "数据处理输出结果表冲突"
+msgstr "Conflict occurs when data processing outputs result table"
+
+#: exceptions.py:168
+#, python-brace-format
+msgid "数据处理类型{processing_type}不存在"
+msgstr "Data processing type {processing_type} does not exist"
+
+#: exceptions.py:173
+#, fuzzy, python-brace-format
+#| msgid "数据处理({processing_id})不存在"
+msgid "数据处理({data_processing_relation.id})不存在"
+msgstr "Data processing ({processing_id}) does not exist"
+
+#: exceptions.py:178
+#, python-brace-format
+msgid "数据传输({transferring_id})不存在"
+msgstr "Data transferring ({transferring_id}) does not exist"
+
+#: exceptions.py:183
+#, python-brace-format
+msgid "数据传输类型{transferring_type}不存在"
+msgstr "Data transferring type {transferring_type} does not exist"
+
+#: exceptions.py:188
+#, python-brace-format
+msgid "同步出错：操作元数据系统失败。错误信息：{inner_error}"
+msgstr ""
+"Synchronization error: Failed to operate the metadata system. Error message: "
+"{inner_error}"
+
+#: exceptions.py:193
+#, python-brace-format
+msgid "同步出错：元数据不合规。错误：{inner_error}"
+msgstr "Synchronization error: Metadata is not compliant. Error: {inner_error}"
+
+#: exceptions.py:198
+#, python-brace-format
+msgid "无法操作元数据系统(Direct)。错误信息：{inner_error}"
+msgstr ""
+"Unable to operate the metadata system (Direct). Error message: {inner_error}"
+
+#: exceptions.py:203
+#, python-brace-format
+msgid "元数据录入出错：数据不合规(Direct)。错误信息：{inner_error}"
+msgstr ""
+"Metadata entry error: Data is not compliant (Direct). Error message: "
+"{inner_error}"
+
+#: exceptions.py:208
+#, python-brace-format
+msgid "操作元数据系统失败。错误：{inner_error}"
+msgstr "Failed to operate the metadata system. Error: {inner_error}"
+
+#: exceptions.py:213
+#, python-brace-format
+msgid "请求的数据不合规。错误：{inner_error}"
+msgstr "The requested data is not compliant. Error: {inner_error}"
+
+#: exceptions.py:218
+#, python-brace-format
+msgid "不支持该操作对象: {operate_object}"
+msgstr "The operation object is not supported: {operate_object}"
+
+#: exceptions.py:223
+#, python-brace-format
+msgid "不支持操作对象({operate_type})的该操作类型: {operate_type}"
+msgstr ""
+"The operation type of the operation object ({operate_type}) is not "
+"supported: {operate_type}"
+
+#: exceptions.py:228
+#, python-brace-format
+msgid "TDW表({table_id})不存在"
+msgstr "TDW table ({table_id}) does not exist"
+
+#: exceptions.py:233
+#, fuzzy, python-brace-format
+#| msgid "TDW表({table_id})不存在"
+msgid "TDW表字段({col_name})不存在"
+msgstr "TDW table ({table_id}) does not exist"
+
+#: exceptions.py:238
+#, python-brace-format
+msgid "TDW表({table_id})已存在。无法新建。"
+msgstr "The TDW table ({table_id}) already exists. Unable to create a new one."
+
+#: exceptions.py:243
+#, python-brace-format
+msgid "结果表({result_table_id})没有关联的TDW Table。"
+msgstr "result table ({result_table_id}) has no related TDW table"
+
+#: exceptions.py:248
+#, python-brace-format
+msgid "结果表({table_id})已有关联的TDW Table。"
+msgstr "The result table ({table_id}) already has an associated TDW Table."
+
+#: exceptions.py:253
+#, python-brace-format
+msgid "本地元数据与TDW侧不一致。错误信息:{error_msg}。"
+msgstr "local meta data is not match with TDW side. error info: {error_msg}"
+
+#: exceptions.py:258
+msgid "本地元数据创建者已失去TDW侧权限。"
+msgstr "The local metadata creator has lost the permissions for TDW side."
+
+#: exceptions.py:263
+msgid "统计频率空白或不一致。"
+msgstr "frequency of statistic is null or not matchable"
+
+#: exceptions.py:268
+msgid "未知同步场景。"
+msgstr "unknown scene"
+
+#: exceptions.py:273
+#, python-brace-format
+msgid "TDW数据同步异常。错误信息:{error_msg}。"
+msgstr "TDW data sync error. error info:{error_msg}"
+
+#: exceptions.py:278
+#, python-brace-format
+msgid "TDW客户端异常。错误信息:{error_msg}。"
+msgstr "TDW client error. error info: {error_msg}"
+
+#: exceptions.py:283
+#, python-brace-format
+msgid "无法获取用户{user}的TDW鉴权信息。"
+msgstr "Unable to get the TDW authentication information for user {user}."
+
+#: exceptions.py:288
+msgid "所提交的Usability无法在当前场景下使用。"
+msgstr "The submitted Usability cannot be used in the current scenario."
+
+#: exceptions.py:293
+#, python-brace-format
+msgid "无法使用当前用户获取TDW应用组({app_group_name})信息。"
+msgstr ""
+"can not get TDW application group info ({app_group_name}) of present user"
+
+#: exceptions.py:298
+#, python-brace-format
+msgid "当前TDW应用组({app_group_name})配置未存储。"
+msgstr "this TDW application group config ({app_group_name}) is not deployed"
+
+#: exceptions.py:303
+#, python-brace-format
+msgid "无法转换tdw字段类型({field_type})。"
+msgstr "can not transfer this tdw field({field_type})"
+
+#: exceptions.py:308
+#, fuzzy, python-brace-format
+#| msgid "项目({project_id})不存在"
+msgid "标签({code})不存在"
+msgstr "Project ({project_id}) does not exist"
+
+#: exceptions.py:313
+#, fuzzy, python-brace-format
+#| msgid "项目({project_id})不存在"
+msgid "目标实体({type}:{id})不存在"
+msgstr "Project ({project_id}) does not exist"
+
+#: exceptions.py:318
+#, python-brace-format
+msgid "实体类型({type})不支持标签"
+msgstr "entity type ({type}) not support tag"
+
+#: exceptions.py:323
+#, python-brace-format
+msgid "标签关联关系({tag_target})不存在"
+msgstr "tag relation ({tag_target}) is not exists"
+
+#: exceptions.py:328
+#, python-brace-format
+msgid "标签关联关系({tag_target})存在"
+msgstr "tag relation ({tag_target}) exists"
+
+#: exceptions.py:333
+#, python-brace-format
+msgid "标签定义({code})仍被依赖"
+msgstr "tag define ({code}) still be relied"
+
+#: exceptions.py:338
+#, python-brace-format
+msgid "标签({code})的层级解析失败"
+msgstr "The tag ({code}) failed to resolve the hierarchy"
+
+#: exceptions.py:343
+#, python-brace-format
+msgid "层级{depth}不在允许的范围"
+msgstr "level {depth} is not in valid range"
+
+#: exceptions.py:348
+#, python-brace-format
+msgid ""
+"字段({field_name})类型发生变化。系统禁止变更字段类型，若数据需要使用新的类型"
+"请新建字段。"
+msgstr ""
+"The field ({field_name}) type has changed. The system prohibits changing the "
+"field type, if the data needs to use the new typeplease create new field"
+
+#: exceptions.py:353
+msgid "ERP表达式出错。"
+msgstr "ERP expression is wrong."
+
+#: public/common.py:22
+msgid "序号"
+msgstr "No."
+
+#: public/common.py:23 public/models/result_table.py:201
+msgid "字段名"
+msgstr "Field name"
+
+#: public/common.py:28 public/common.py:30
+msgid "字段{}在黑名单内。"
+msgstr "The field {} is in the blacklist."
+
+#: public/common.py:34
+msgid "字段{}不合规。"
+msgstr "field {} is illegal"
+
+#: public/models/__init__.py:21
+msgid "结果表状态"
+msgstr "Result table status"
+
+#: public/models/__init__.py:22
+msgid "失效"
+msgstr "Invalid"
+
+#: public/models/__init__.py:23 public/serializers/common.py:262
+msgid "删除"
+msgstr "Delete"
+
+#: public/models/__init__.py:25
+msgid "失效操作人"
+msgstr "Invalid operator"
+
+#: public/models/__init__.py:26
+msgid "失效时间"
+msgstr "Failure time"
+
+#: public/models/__init__.py:27 public/models/__init__.py:41
+msgid "删除人"
+msgstr "Deleter"
+
+#: public/models/__init__.py:28 public/models/__init__.py:42
+msgid "删除时间"
+msgstr "Deletion time"
+
+#: public/models/__init__.py:35 public/models/__init__.py:53
+#: public/models/data_processing.py:294 public/models/data_transferring.py:146
+#: public/models/result_table.py:159
+msgid "项目ID"
+msgstr "Project ID"
+
+#: public/models/__init__.py:36 public/models/__init__.py:54
+#: public/serializers/common.py:34
+msgid "项目名称"
+msgstr "Project name"
+
+#: public/models/__init__.py:37
+#, python-brace-format
+msgid "项目({project_name})已存在"
+msgstr "Project ({project_name}) already existed"
+
+#: public/models/__init__.py:39
+msgid "项目是否有效"
+msgstr "Is the project valid?"
+
+#: public/models/__init__.py:40 public/serializers/common.py:35
+msgid "项目来源"
+msgstr "Project source"
+
+#: public/models/__init__.py:43 public/serializers/common.py:36
+msgid "项目描述"
+msgstr "Project description"
+
+#: public/models/__init__.py:55
+msgid "项目的内容"
+msgstr "Content of the project"
+
+#: public/models/__init__.py:65 public/models/result_table.py:188
+#: public/serializers/common.py:113 public/serializers/common.py:243
+msgid "结果表标识"
+msgstr "Result table identification"
+
+#: public/models/__init__.py:74
+msgid "自增ID"
+msgstr "Self-add ID"
+
+#: public/models/__init__.py:75
+msgid "操作方式"
+msgstr "Operation method"
+
+#: public/models/__init__.py:76
+msgid "QUERY"
+msgstr "QUERY"
+
+#: public/models/__init__.py:76
+msgid "CREATE"
+msgstr "CREATE"
+
+#: public/models/__init__.py:76
+msgid "UPDATE"
+msgstr "UPDATE"
+
+#: public/models/__init__.py:77
+msgid "DELETE"
+msgstr "DELETE"
+
+#: public/models/__init__.py:77
+msgid "CONDITIONAL_DELETE"
+msgstr ""
+
+#: public/models/__init__.py:78
+msgid "CONDITIONAL_UPDATE"
+msgstr ""
+
+#: public/models/__init__.py:79
+msgid "db名称"
+msgstr "db name"
+
+#: public/models/__init__.py:80
+msgid "表名称"
+msgstr "Table name"
+
+#: public/models/__init__.py:81
+msgid "唯一键值"
+msgstr "Unique key value"
+
+#: public/models/__init__.py:82
+msgid "条件表达式"
+msgstr "conditional expression"
+
+#: public/models/__init__.py:83
+msgid "唯一键值对应条目变更的数据"
+msgstr "Change data of entry corresponding to the unique key value"
+
+#: public/models/__init__.py:84
+msgid "变更时间"
+msgstr "Changed time"
+
+#: public/models/__init__.py:85
+msgid "是否已同步"
+msgstr "Has it been synchronized?"
+
+#: public/models/__init__.py:86
+msgid "备注"
+msgstr "Remarks"
+
+#: public/models/data_processing.py:81
+msgid "输入数据处理关联创建失败"
+msgstr ""
+
+#: public/models/data_processing.py:96
+msgid "输出数据处理关联创建失败"
+msgstr ""
+
+#: public/models/data_processing.py:134
+msgid "更新数据处理关联失败"
+msgstr ""
+
+#: public/models/data_processing.py:226
+msgid "参数result_tables中缺少{}的配置"
+msgstr "{}'s content doesn't exist in result_tables"
+
+#: public/models/data_processing.py:233
+msgid "旧关系中结果表({})不存在"
+msgstr ""
+"The result table ({result_table_id}) does not exist in old relationship"
+
+#: public/models/data_processing.py:291
+msgid "数据处理ID"
+msgstr "Data processing ID"
+
+#: public/models/data_processing.py:292
+#, python-brace-format
+msgid "数据处理({processing_id})已存在"
+msgstr "Data processing ({processing_id}) already existed"
+
+#: public/models/data_processing.py:295 public/serializers/common.py:149
+msgid "数据处理名称"
+msgstr "Data processing name"
+
+#: public/models/data_processing.py:297 public/models/data_transferring.py:149
+#: public/models/result_table.py:164 public/serializers/common.py:50
+#: public/serializers/common.py:119 public/serializers/common.py:150
+#: public/serializers/common.py:231 public/serializers/result_table.py:87
+msgid "生成类型"
+msgstr "Generate type"
+
+#: public/models/data_processing.py:299 public/models/result_table.py:174
+#: public/serializers/common.py:128 public/serializers/result_table.py:63
+#: public/serializers/result_table.py:97
+msgid "所属平台"
+msgstr "Affiliated platform"
+
+#: public/models/data_processing.py:312
+msgid "数据处理逻辑内容，使用json格式"
+msgstr "Data processing logic content, using json format"
+
+#: public/models/data_processing.py:323 public/models/data_transferring.py:174
+msgid "数据方向"
+msgstr "Data direction"
+
+#: public/models/data_processing.py:324 public/models/data_transferring.py:175
+msgid "输入"
+msgstr "Input"
+
+#: public/models/data_processing.py:325 public/models/data_transferring.py:176
+msgid "输出"
+msgstr "Output"
+
+#: public/models/data_processing.py:327 public/models/data_transferring.py:178
+#: public/models/result_table.py:204 public/serializers/common.py:63
+#: public/serializers/common.py:279
+msgid "数据类型"
+msgstr "Data type"
+
+#: public/models/data_processing.py:328 public/models/data_transferring.py:179
+#: public/serializers/common.py:64
+msgid "源数据"
+msgstr "Raw data"
+
+#: public/models/data_processing.py:329 public/models/data_transferring.py:180
+#: public/serializers/common.py:65 public/serializers/common.py:255
+#: public/serializers/common.py:279
+msgid "结果表"
+msgstr "Result table"
+
+#: public/models/data_processing.py:331 public/models/data_transferring.py:182
+#: public/serializers/common.py:67
+msgid "数据ID"
+msgstr "Data ID"
+
+#: public/models/data_processing.py:332 public/models/data_transferring.py:183
+msgid "存储信息ID"
+msgstr "Storage information ID"
+
+#: public/models/data_processing.py:333 public/models/data_transferring.py:184
+#: public/serializers/common.py:69 public/serializers/common.py:245
+msgid "channel ID"
+msgstr "channel ID"
+
+#: public/models/data_processing.py:334 public/models/data_transferring.py:185
+msgid "数据处理存储类型"
+msgstr "Data processing storage type"
+
+#: public/models/data_processing.py:335 public/models/data_transferring.py:186
+#: public/serializers/common.py:71 public/serializers/common.py:247
+#: public/serializers/common.py:273
+msgid "管道"
+msgstr "Pipeline"
+
+#: public/models/data_processing.py:336 public/models/data_transferring.py:187
+#: public/serializers/common.py:72 public/serializers/common.py:248
+#: public/serializers/common.py:274
+msgid "存储"
+msgstr "Storage"
+
+#: public/models/data_transferring.py:147
+msgid "数据传输中文名"
+msgstr "Data transferring alias"
+
+#: public/models/data_transferring.py:163
+msgid "数据传输逻辑内容，使用json格式"
+msgstr "Data transferring logic content, using json format"
+
+#: public/models/data_transferring.py:188
+msgid "内存"
+msgstr "RAM"
+
+#: public/models/result_table.py:155
+msgid "结果表ID"
+msgstr "Result table ID"
+
+#: public/models/result_table.py:158 public/serializers/common.py:111
+msgid "业务ID"
+msgstr "Business ID"
+
+#: public/models/result_table.py:160
+msgid "结果表名"
+msgstr "Result table name"
+
+#: public/models/result_table.py:161 public/serializers/common.py:116
+#: public/serializers/result_table.py:85
+msgid "别名"
+msgstr "Alias"
+
+#: public/models/result_table.py:165 public/serializers/common.py:49
+#: public/serializers/common.py:118 public/serializers/result_table.py:66
+#: public/serializers/result_table.py:86
+msgid "敏感性"
+msgstr "Sensitivity"
+
+#: public/models/result_table.py:166
+msgid "公开"
+msgstr "Public"
+
+#: public/models/result_table.py:168
+msgid "敏感"
+msgstr "Sensitive"
+
+#: public/models/result_table.py:170 public/serializers/common.py:54
+#: public/serializers/common.py:123 public/serializers/result_table.py:91
+msgid "统计频率"
+msgstr "Count frequency"
+
+#: public/models/result_table.py:172
+msgid "是否为受控表"
+msgstr "Is it a managed table?"
+
+#: public/models/result_table.py:189
+msgid "结果表的内容"
+msgstr "Result table content"
+
+#: public/models/result_table.py:198
+msgid "结果表字段ID"
+msgstr "Result table field ID"
+
+#: public/models/result_table.py:199
+msgid "所属结果表"
+msgstr "Result table"
+
+#: public/models/result_table.py:200
+msgid "字段在数据集中的顺序"
+msgstr "The order of fields in the dataset"
+
+#: public/models/result_table.py:202
+msgid "字段中文名"
+msgstr "Field alias"
+
+#: public/models/result_table.py:203 public/serializers/common.py:55
+msgid "描述"
+msgstr "Description"
+
+#: public/models/result_table.py:205
+msgid "是否为维度"
+msgstr "Is it a dimension?"
+
+#: public/models/result_table.py:206
+msgid "原始字段名称"
+msgstr "Original field name"
+
+#: public/models/result_table.py:207
+msgid "角色"
+msgstr "role"
+
+#: public/serializers/common.py:18 public/serializers/common.py:33
+msgid "项目用户名"
+msgstr "project user name"
+
+#: public/serializers/common.py:19 public/serializers/common.py:37
+msgid "Tdw应用组"
+msgstr "Tdw application group"
+
+#: public/serializers/common.py:46 public/serializers/common.py:133
+#: public/serializers/common.py:148 public/serializers/common.py:196
+#: public/serializers/common.py:200 public/serializers/common.py:209
+#: public/serializers/common.py:215 public/serializers/common.py:229
+#: public/serializers/common.py:241 public/serializers/common.py:266
+#: public/serializers/result_table.py:56 public/serializers/result_table.py:84
+msgid "用户名"
+msgstr "Username"
+
+#: public/serializers/common.py:47
+msgid "结果表别名"
+msgstr "Result table alias"
+
+#: public/serializers/common.py:51 public/serializers/common.py:120
+#: public/serializers/common.py:151 public/serializers/common.py:232
+#: public/serializers/result_table.py:88
+msgid "用户生成"
+msgstr "User generated"
+
+#: public/serializers/common.py:52 public/serializers/common.py:121
+#: public/serializers/common.py:152 public/serializers/common.py:233
+#: public/serializers/result_table.py:89
+msgid "系统生成"
+msgstr "System generated"
+
+#: public/serializers/common.py:56 public/serializers/common.py:126
+#: public/serializers/result_table.py:60 public/serializers/result_table.py:94
+msgid "结果表字段"
+msgstr "Result table field"
+
+#: public/serializers/common.py:68 public/serializers/common.py:244
+msgid "存储类型ID"
+msgstr "Storage type ID"
+
+#: public/serializers/common.py:70 public/serializers/common.py:246
+#: public/serializers/common.py:272
+msgid "存储类型"
+msgstr "Storage type"
+
+#: public/serializers/common.py:78
+msgid "落地存储集群ID为null"
+msgstr "Target storage cluster ID is null"
+
+#: public/serializers/common.py:80
+msgid "管道存储集群ID为null"
+msgstr "Pipeline storage cluster ID is null"
+
+#: public/serializers/common.py:82
+msgid "落地存储集群ID和管道存储ID只有一个允许存在有效值，另一个需为null"
+msgstr ""
+"Only one of the target storage cluster ID or the pipe storage ID is allowed "
+"to have a valid value, and the other one needs to be null."
+
+#: public/serializers/common.py:91
+msgid "数据处理至少需要有一个输入源"
+msgstr "Data processing requires at least one input source"
+
+#: public/serializers/common.py:101
+msgid "数据处理输出不允许为raw_data类型"
+msgstr "Data processing output is not allowed to be raw_data type"
+
+#: public/serializers/common.py:104
+msgid "输出结果表ID({})不在result_tables参数中"
+msgstr "Output result table ID ({}) is not in the result_tables parameter"
+
+#: public/serializers/common.py:115 public/serializers/result_table.py:58
+msgid "结果表名称"
+msgstr "Result table name"
+
+#: public/serializers/common.py:125 public/serializers/result_table.py:93
+msgid "结果表描述"
+msgstr "Result table description"
+
+#: public/serializers/common.py:127 public/serializers/result_table.py:62
+#: public/serializers/result_table.py:96
+msgid "是否受控"
+msgstr "Is it managed?"
+
+#: public/serializers/common.py:129 public/serializers/result_table.py:61
+#: public/serializers/result_table.py:95
+msgid "额外平台信息"
+msgstr "Extra platform information"
+
+#: public/serializers/common.py:134 public/serializers/common.py:155
+msgid "结果表详情"
+msgstr "Result table details"
+
+#: public/serializers/common.py:135 public/serializers/common.py:156
+#: public/serializers/common.py:216 public/serializers/common.py:236
+msgid "数据输入"
+msgstr "Data input"
+
+#: public/serializers/common.py:136 public/serializers/common.py:157
+#: public/serializers/common.py:217 public/serializers/common.py:237
+msgid "数据输出"
+msgstr "Data output"
+
+#: public/serializers/common.py:166 public/serializers/common.py:181
+msgid "参数集合列表"
+msgstr "List of parameter sets"
+
+#: public/serializers/common.py:167
+#, fuzzy
+#| msgid "参数集合列表"
+msgid "参数集合列表-recent"
+msgstr "List of parameter sets"
+
+#: public/serializers/common.py:174
+msgid "Sync content缺失"
+msgstr "sync content is lack"
+
+#: public/serializers/common.py:201 public/serializers/common.py:207
+msgid "是否删除下游结果表"
+msgstr "Whether to delete the downstream result table"
+
+#: public/serializers/common.py:206
+msgid "数据处理id"
+msgstr "Data processing id"
+
+#: public/serializers/common.py:210
+msgid "数据处理列表"
+msgstr "Data processing list"
+
+#: public/serializers/common.py:211
+msgid "是否删除所有下游结果表"
+msgstr "Whether to delete all downstream result tables"
+
+#: public/serializers/common.py:230
+msgid "数据传输名称"
+msgstr "Data transferring name"
+
+#: public/serializers/common.py:256
+msgid "数据处理"
+msgstr "Data processing"
+
+#: public/serializers/common.py:257
+msgid "数据传输"
+msgstr "Data transmission"
+
+#: public/serializers/common.py:259
+msgid "操作类型"
+msgstr "Operation type"
+
+#: public/serializers/common.py:260
+msgid "创建"
+msgstr "Create"
+
+#: public/serializers/common.py:261
+msgid "修改"
+msgstr "Modify"
+
+#: public/serializers/common.py:264
+msgid "操作参数"
+msgstr "Operation parameter"
+
+#: public/serializers/common.py:267
+msgid "API操作列表"
+msgstr "API operation list"
+
+#: public/serializers/common.py:271
+msgid "存储集群ID"
+msgstr "Storage cluster ID"
+
+#: public/serializers/common.py:279
+#, fuzzy
+#| msgid "数据方向"
+msgid "数据源"
+msgstr "Data direction"
+
+#: public/serializers/common.py:280
+msgid "定位键"
+msgstr "Navigation key"
+
+#: public/serializers/common.py:281
+msgid "深度"
+msgstr "depth"
+
+#: public/serializers/result_table.py:28
+msgid "不允许的field role"
+msgstr "not allowed field role"
+
+#: public/serializers/result_table.py:40
+msgid "结果表ID并非由业务ID与结果表名称结合生成"
+msgstr ""
+"The result table ID is not generated by combining the biz ID with the result "
+"table name"
+
+#: public/serializers/result_table.py:51
+msgid "结果表名称已存在"
+msgstr "The result table name already exists"
+
+#: public/serializers/result_table.py:64
+msgid "生成途径"
+msgstr "generation pathway"
+
+#: public/serializers/result_table.py:73
+msgid "BKData平台表必填fields。"
+msgstr "Result table of BKData platform requires fields"
+
+#: public/serializers/result_table.py:76
+msgid "RT名称过长。"
+msgstr "rt table name is too long"
+
+#: public/views/result_table.py:420
+msgid "Tdw RT表必填Tdw信息。"
+msgstr "Tdw RT table must put Tdw info"
+
+#: public/views/result_table.py:592
+msgid "Usability {} 非可用状态"
+msgstr "Usability {} is not valid"
+
+#: public/views/result_table.py:625
+msgid "erp表达式未检索cluster信息。"
+msgstr "erp expression not search cluster info"
+
+#: public/views/result_table.py:1074
+msgid "Tdw RT表不支持。"
+msgstr "Tdw RT table is not supported"
+
+#: tag/serializers.py:28
+msgid "parents_id is not existed."
+msgstr ""
+
+#: tag/views/target.py:378 tag/views/target.py:472
+msgid "BKUserName必填。"
+msgstr "BKUserName is Required"
+
+#: tdw/serializers.py:45 tdw/serializers.py:75 tdw/serializers.py:111
+msgid "TDW字段信息"
+msgstr "TDW field info"
+
+#: tdw/serializers.py:98
+msgid "仅在仅提供已标准化数据或传入id情况下可用。"
+msgstr "only enable when get standardization data or input an id"
+
+#: tdw/support.py:24 tdw/support.py:127
+msgid "平台信息不一致。"
+msgstr "Platform information is inconsistent."
+
+#: tdw/support.py:33 tdw/support.py:47
+msgid "当前场景Usability仅支持{}。"
+msgstr "The current scenario Usability only supports {}."
+
+#: tdw/support.py:103
+msgid "不支持的统计频率"
+msgstr "Unacceptable statistic frequency"
+
+#: tdw/support.py:129
+msgid "当前Usability - {}错误。"
+msgstr "Current Usability - {} error."
+
+#: tdw/sync.py:111
+msgid "Init 状态不可同步。"
+msgstr "Init state is not synchronizable."
+
+#: tdw/views/app_group.py:25
+msgid "tdw用户"
+msgstr "tdw user"
+
+#: tdw/views/table.py:28
+msgid "db"
+msgstr "db"
+
+#: tdw/views/table.py:29 tdw/views/table.py:35
+msgid "table_name"
+msgstr "table_name"
+
+#: tdw/views/table.py:33
+msgid "cluster_id"
+msgstr ""
+
+#: tdw/views/table.py:34
+#, fuzzy
+#| msgid "table_name"
+msgid "db_name"
+msgstr "table_name"
+
+#: tdw/views/table.py:39
+msgid "comment"
+msgstr ""
+
+#: tdw/views/table.py:123
+msgid "table_id 需小于等于2000."
+msgstr "table_id can not be bigger than 2000"
+
+#: tdw/views/table.py:191 tdw/views/table.py:200 tdw/views/table.py:347
+msgid "Tdw表操作需要经由其他API。"
+msgstr "Tdw operations must via other API"
+
+#: utils/validation.py:15
+msgid "tags字段必填。"
+msgstr "tags field is required"
+
+#~ msgid "未传入查询内容"
+#~ msgstr "Query content is not loaded"

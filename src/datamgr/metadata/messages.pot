@@ -1,0 +1,4449 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-06-08 12:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: metadata/exc.py:92
+msgid "MetaData System Error: {}."
+msgstr ""
+
+#: metadata/exc.py:97
+msgid "Function {} is not implemented in backend {}."
+msgstr ""
+
+#: metadata/exc.py:102
+msgid "Invalid metadata type {}."
+msgstr ""
+
+#: metadata/exc.py:107
+msgid "Error metadata converter."
+msgstr ""
+
+#: metadata/exc.py:112 metadata/exc.py:117
+msgid "Error in system state: {}."
+msgstr ""
+
+#: metadata/exc.py:122
+msgid "Error in state manager: {}."
+msgstr ""
+
+#: metadata/exc.py:131
+msgid "MySQL Backend Error: {}."
+msgstr ""
+
+#: metadata/exc.py:136
+msgid "Dgraph Backend Error: {}."
+msgstr ""
+
+#: metadata/exc.py:141
+msgid "Error occurred in Dgraph Client: {}."
+msgstr ""
+
+#: metadata/exc.py:146
+msgid "Error occurred in Dgraph Server: {error}."
+msgstr ""
+
+#: metadata/exc.py:151
+msgid "Error in Dgraph type Converter."
+msgstr ""
+
+#: metadata/exc.py:156
+msgid "Error in Dgraph instance Converter."
+msgstr ""
+
+#: metadata/exc.py:161 metadata/exc.py:201
+msgid "Fail to parse retrieve protocol content."
+msgstr ""
+
+#: metadata/exc.py:166
+msgid "Error in shunt strategy."
+msgstr ""
+
+#: metadata/exc.py:171
+msgid "filter request cause service is unhealthy."
+msgstr ""
+
+#: metadata/exc.py:176
+msgid "Error in interactor."
+msgstr ""
+
+#: metadata/exc.py:181
+msgid "Dispatch timeout in {timeout}."
+msgstr ""
+
+#: metadata/exc.py:186
+msgid "Error during interactor execute."
+msgstr ""
+
+#: metadata/exc.py:191
+msgid "Error in interactor operator."
+msgstr ""
+
+#: metadata/exc.py:196
+msgid "Error in record replaying."
+msgstr ""
+
+#: metadata/exc.py:206
+msgid "Invalid params in erp input."
+msgstr ""
+
+#: metadata/exc.py:211
+msgid "Error in data quality process."
+msgstr ""
+
+#: metadata/exc.py:216
+msgid "Error in target search criterion."
+msgstr ""
+
+#: metadata/exc.py:221 metadata/exc.py:226
+msgid "Error in metadata analyse."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:341
+msgid "Predicate is declaring with different type."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:526
+msgid "The identifier of metadata can not be found"
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:623
+msgid "The content to commit now is larger than the chunked size limitation."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:649
+msgid "The count of one node's edge is more than MUTATE_CHUNKED_SIZE."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:847
+msgid "Not standard metadata type."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:881
+msgid "Can't find dgraph type in mapping."
+msgstr ""
+
+#: metadata/backend/dgraph/backend.py:978
+msgid "Not standard metadata instance."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v1.py:47
+msgid "Fail to get md type in ERP expression."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v1.py:126
+#: metadata/backend/dgraph/erp_v2/parser.py:122
+#: metadata/backend/dgraph/lineage.py:484 metadata/backend/erp/parser.py:157
+msgid "Not existed attr name {}"
+msgstr ""
+
+#: metadata/backend/dgraph/lineage.py:166
+msgid "Fail to get md type in extra retrieve protocol content."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v2/functions.py:62
+#: metadata/backend/dgraph/erp_v2/functions.py:182
+#: metadata/backend/erp/compiler.py:245 metadata/backend/erp/compiler.py:363
+#: metadata/backend/erp/functions.py:286 metadata/backend/erp/functions.py:299
+msgid "The attribute {} is not found on type."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v2/functions.py:75
+#: metadata/backend/erp/compiler.py:258 metadata/backend/erp/compiler.py:376
+msgid "Invalid condition expression."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v2/parser.py:90
+#: metadata/backend/erp/parser.py:113
+msgid "Md type is not existed."
+msgstr ""
+
+#: metadata/backend/dgraph/erp_v2/service.py:138
+#: metadata/backend/erp/service.py:192
+msgid "Not existed Metadata type."
+msgstr ""
+
+#: metadata/backend/erp/parser.py:98
+msgid "{} type is not a valid backend_type."
+msgstr ""
+
+#: metadata/backend/erp/service.py:129
+msgid "Can not find valid target_backend."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:23
+msgid "hashchk"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:24
+msgid "isamchk"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:25
+msgid "NO"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:26
+msgid "YES"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:27
+msgid "Can't create file '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:28
+msgid "Can't create table '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:29
+msgid "Can't create database '{}' (errno: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:30
+msgid "Can't create database '{}'; database exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:31
+msgid "Can't drop database '{}'; database doesn't exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:32
+msgid "Error dropping database (can't delete '{}', errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:33
+msgid "Error dropping database (can't rmdir '{}', errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:34
+msgid "Error on delete of '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:35
+msgid "Can't read record in system table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:36
+msgid "Can't get status of '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:37
+msgid "Can't get working directory (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:38
+msgid "Can't lock file (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:39
+msgid "Can't open file: '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:40
+msgid "Can't find file: '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:41
+msgid "Can't read dir of '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:42
+msgid "Can't change dir to '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:43
+msgid "Record has changed since last read in table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:44
+msgid "Disk full ({}); waiting for someone to free some space..."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:45
+msgid "Can't write; duplicate key in table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:46
+msgid "Error on close of '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:47
+msgid "Error reading file '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:48
+msgid "Error on rename of '{}' to '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:49
+msgid "Error writing file '{}' (errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:50
+msgid "'{}' is locked against change"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:51
+msgid "Sort aborted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:52
+msgid "View '{}' doesn't exist for '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:53
+msgid "Got error {} from storage engine"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:54
+msgid "Table storage engine for '{}' doesn't have this option"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:55
+msgid "Can't find record in '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:56
+msgid "Incorrect information in file: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:57
+msgid "Incorrect key file for table '{}'; try to repair it"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:58
+msgid "Old key file for table '{}'; repair it!"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:59
+msgid "Table '{}' is read only"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:60
+msgid "Out of memory; restart server and try again (needed {} bytes)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:61
+msgid "Out of sort memory, consider increasing server sort buffer size"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:62
+msgid "Unexpected EOF found when reading file '{}' (Errno: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:63
+msgid "Too many connections"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:67
+msgid ""
+"Out of memory; check if mysqld or some other process uses all available "
+"memory; if not, you may have to use 'ulimit' to allow mysqld to use more "
+"memory or you can add more swap space"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:72
+msgid "Can't get hostname for your address"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:73
+msgid "Bad handshake"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:74
+msgid "Access denied for user '{}'@'{}' to database '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:75
+msgid "Access denied for user '{}'@'{}' (using password: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:76
+msgid "No database selected"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:77
+msgid "Unknown command"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:78
+msgid "Column '{}' cannot be null"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:79
+msgid "Unknown database '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:80
+msgid "Table '{}' already exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:81
+msgid "Unknown table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:82
+msgid "Column '{}' in {} is ambiguous"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:83
+msgid "Server shutdown in progress"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:84
+msgid "Unknown column '{}' in '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:85
+msgid "'{}' isn't in GROUP BY"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:86
+msgid "Can't group on '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:87
+msgid "Statement has sum functions and columns in same statement"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:88
+msgid "Column count doesn't match value count"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:89
+msgid "Identifier name '{}' is too long"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:90
+msgid "Duplicate column name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:91
+msgid "Duplicate key name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:92
+msgid "Duplicate entry '{}' for key {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:93
+msgid "Incorrect column specifier for column '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:94
+msgid "{} near '{}' at line {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:95
+msgid "Query was empty"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:96
+msgid "Not unique table/alias: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:97
+msgid "Invalid default value for '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:98
+msgid "Multiple primary key defined"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:99
+msgid "Too many keys specified; max {} keys allowed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:100
+msgid "Too many key parts specified; max {} parts allowed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:101
+msgid "Specified key was too long; max key length is {} bytes"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:102
+msgid "Key column '{}' doesn't exist in table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:103
+msgid ""
+"BLOB column '{}' can't be used in key specification with the used table "
+"type"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:104
+msgid "Column length too big for column '{}' (max = {}); use BLOB or TEXT instead"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:108
+msgid ""
+"Incorrect table definition; there can be only one auto column and it must"
+" be defined as a key"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:110
+msgid "{}: ready for connections. Version: '{}' socket: '{}' port: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:111
+msgid "{}: Normal shutdown"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:112
+msgid "{}: Got signal {}. Aborting!"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:113
+msgid "{}: Shutdown complete"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:114
+msgid "{}: Forcing close of thread {} user: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:115
+msgid "Can't create IP socket"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:116
+msgid ""
+"Table '{}' has no index like the one used in CREATE INDEX; recreate the "
+"table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:117
+msgid "Field separator argument is not what is expected; check the manual"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:121
+msgid ""
+"You can't use fixed rowlength with BLOBs; please use 'fields terminated "
+"by'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:123
+msgid "The file '{}' must be in the database directory or be readable by all"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:124
+msgid "File '{}' already exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:125
+msgid "Records: {} Deleted: {} Skipped: {} Warnings: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:126
+msgid "Records: {} Duplicates: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:130
+msgid ""
+"Incorrect prefix key; the used key part isn't a string, the used length "
+"is longer than the key part, or the storage engine doesn't support unique"
+" prefix keys"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:135
+msgid "You can't delete all columns with ALTER TABLE; use DROP TABLE instead"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:136
+msgid "Can't DROP '{}'; check that column/key exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:137
+msgid "Records: {} Duplicates: {} Warnings: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:138
+msgid "You can't specify target table '{}' for update in FROM clause"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:139
+msgid "Unknown thread id: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:140
+msgid "You are not owner of thread {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:141
+msgid "No tables used"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:142
+msgid "Too many strings for column {} and SET"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:143
+msgid "Can't generate a unique log-filename {}.(1-999)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:144
+msgid "Table '{}' was locked with a READ lock and can't be updated"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:145
+msgid "Table '{}' was not locked with LOCK TABLES"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:146
+msgid "BLOB/TEXT column '{}' can't have a default value"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:147
+msgid "Incorrect database name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:148
+msgid "Incorrect table name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:152
+msgid ""
+"The SELECT would examine more than MAX_JOIN_SIZE rows; check your WHERE "
+"and use SET SQL_BIG_SELECTS=1 or SET MAX_JOIN_SIZE=# if the SELECT is "
+"okay"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:157
+msgid "Unknown error"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:158
+msgid "Unknown procedure '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:159
+msgid "Incorrect parameter count to procedure '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:160
+msgid "Incorrect parameters to procedure '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:161
+msgid "Unknown table '{}' in {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:162
+msgid "Column '{}' specified twice"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:163
+msgid "Invalid use of group function"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:164
+msgid "Table '{}' uses an extension that doesn't exist in this MariaDB version"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:165
+msgid "A table must have at least 1 column"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:166
+msgid "The table '{}' is full"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:167
+msgid "Unknown character set: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:168
+msgid "Too many tables; MariaDB can only use {} tables in a join"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:169
+msgid "Too many columns"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:173
+msgid ""
+"Row size too large. The maximum row size for the used table type, not "
+"counting BLOBs, is {}. You have to change some columns to TEXT or BLOBs"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:181
+msgid ""
+"Thread stack overrun: Used: {} of a {} stack. Use 'mysqld "
+"--thread_stack=#' to specify a bigger stack if needed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:186
+msgid "Cross dependency found in OUTER JOIN; examine your ON conditions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:190
+msgid ""
+"Table handler doesn't support NULL in given index. Please change column "
+"'{}' to be NOT NULL or use another handler"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:195
+msgid "Can't load function '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:196
+msgid "Can't initialize function '{}'; {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:197
+msgid "No paths allowed for shared library"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:198
+msgid "Function '{}' already exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:199
+msgid "Can't open shared library '{}' (Errno: {} {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:200
+msgid "Can't find symbol '{}' in library"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:201
+msgid "Function '{}' is not defined"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:205
+msgid ""
+"Host '{}' is blocked because of many connection errors; unblock with "
+"'mysqladmin flush-hosts'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:207
+msgid "Host '{}' is not allowed to connect to this MariaDB server"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:211
+msgid ""
+"You are using MariaDB as an anonymous user and anonymous users are not "
+"allowed to change passwords"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:216
+msgid ""
+"You must have privileges to update tables in the mysql database to be "
+"able to change passwords for others"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:218
+msgid "Can't find any matching row in the user table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:219
+msgid "Rows matched: {} Changed: {} Warnings: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:223
+msgid ""
+"Can't create a new thread (Errno {}); if you are not out of available "
+"memory, you can consult the manual for a possible OS-dependent bug"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:228
+msgid "Column count doesn't match value count at row {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:229
+msgid "Can't reopen table: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:230
+msgid "Invalid use of NULL value"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:231
+msgid "Got error '{}' from regexp"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:235
+msgid ""
+"Mixing of GROUP columns (MIN(),MAX(),COUNT(),...) with no GROUP columns "
+"is illegal if there is no GROUP BY clause"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:240
+msgid "There is no such grant defined for user '{}' on host '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:241
+msgid "{} command denied to user '{}'@'{}' for table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:242
+msgid "{} command denied to user '{}'@'{}' for column '{}' in table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:246
+msgid ""
+"Illegal GRANT/REVOKE command; please consult the manual to see which "
+"privileges can be used"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:248
+msgid "The host or user argument to GRANT is too long"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:249
+msgid "Table '{}.{}' doesn't exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:253
+msgid "There is no such grant defined for user '{}' on host '{}' on table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:255
+msgid "The used command is not allowed with this MariaDB version"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:259
+msgid ""
+"You have an error in your SQL syntax; check the manual that corresponds "
+"to your MariaDB server version for the right syntax to use"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:264
+msgid "Delayed insert thread couldn't get requested lock for table {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:265
+msgid "Too many delayed threads in use"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:266
+msgid "Aborted connection {} to db: '{}' user: '{}' ({})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:267
+msgid "Got a packet bigger than 'max_allowed_packet' bytes"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:268
+msgid "Got a read error from the connection pipe"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:269
+msgid "Got an error from fcntl()"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:270
+msgid "Got packets out of order"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:271
+msgid "Couldn't uncompress communication packet"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:272
+msgid "Got an error reading communication packets"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:273
+msgid "Got timeout reading communication packets"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:274
+msgid "Got an error writing communication packets"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:275
+msgid "Got timeout writing communication packets"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:276
+msgid "Result string is longer than 'max_allowed_packet' bytes"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:277
+msgid "The used table type doesn't support BLOB/TEXT columns"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:278
+msgid "The used table type doesn't support AUTO_INCREMENT columns"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:282
+msgid ""
+"INSERT DELAYED can't be used with table '{}' because it is locked with "
+"LOCK TABLES"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:284
+msgid "Incorrect column name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:285
+msgid "The used storage engine can't index column '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:289
+msgid ""
+"Unable to open underlying table which is differently defined or of non-"
+"MyISAM type or doesn't exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:291
+msgid "Can't write, because of unique constraint, to table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:292
+msgid "BLOB/TEXT column '{}' used in key specification without a key length"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:296
+msgid ""
+"All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, "
+"use UNIQUE instead"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:298
+msgid "Result consisted of more than one row"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:299
+msgid "This table type requires a primary key"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:300
+msgid "This version of MariaDB is not compiled with RAID support"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:304
+msgid ""
+"You are using safe update mode and you tried to update a table without a "
+"WHERE that uses a KEY column"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:306
+msgid "Key '{}' doesn't exist in table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:307
+msgid "Can't open table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:308
+msgid "The storage engine for the table doesn't support {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:312
+msgid "You are not allowed to execute this command in a transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:314
+msgid "Got error {} during COMMIT"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:315
+msgid "Got error {} during ROLLBACK"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:316
+msgid "Got error {} during FLUSH_LOGS"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:317
+msgid "Got error {} during CHECKPOINT"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:318
+msgid "Aborted connection {} to db: '{}' user: '{}' host: '{}' ({})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:319
+msgid "The storage engine for the table does not support binary table dump"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:320
+msgid "Binlog closed, cannot RESET MASTER"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:321
+msgid "Failed rebuilding the index of dumped table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:322
+msgid "Error from master: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:323
+msgid "Net error reading from master"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:324
+msgid "Net error writing to master"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:325
+msgid "Can't find FULLTEXT index matching the column list"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:329
+msgid ""
+"Can't execute the given command because you have active locked tables or "
+"an active transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:331
+msgid "Unknown system variable '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:332
+msgid "Table '{}' is marked as crashed and should be repaired"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:333
+msgid "Table '{}' is marked as crashed and last (automatic?) repair failed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:334
+msgid "Some non-transactional changed tables couldn't be rolled back"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:338
+msgid ""
+"Multi-statement transaction required more than 'max_binlog_cache_size' "
+"bytes of storage; increase this mysqld variable and try again"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:343
+msgid ""
+"This operation cannot be performed with a running slave; run STOP SLAVE "
+"first"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:344
+msgid ""
+"This operation requires a running slave; configure slave and do START "
+"SLAVE"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:345
+msgid ""
+"The server is not configured as slave; fix in config file or with CHANGE "
+"MASTER TO"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:349
+msgid ""
+"Could not initialize master info structure; more error messages can be "
+"found in the MariaDB error log"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:351
+msgid "Could not create slave thread; check system resources"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:355
+msgid "User {} already has more than 'max_user_connections' active connections"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:357
+msgid "You may only use constant expressions with SET"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:358
+msgid "Lock wait timeout exceeded; try restarting transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:359
+msgid "The total number of locks exceeds the lock table size"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:360
+msgid "Update locks cannot be acquired during a READ UNCOMMITTED transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:361
+msgid "DROP DATABASE not allowed while thread is holding global read lock"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:362
+msgid "CREATE DATABASE not allowed while thread is holding global read lock"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:363
+msgid "Incorrect arguments to {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:364
+msgid "'{}'@'{}' is not allowed to create new users"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:368
+msgid "Incorrect table definition; all MERGE tables must be in the same database"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:370
+msgid "Deadlock found when trying to get lock; try restarting transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:371
+msgid "The used table type doesn't support FULLTEXT indexes"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:372
+msgid "Cannot add foreign key constraint"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:373
+msgid "Cannot add or update a child row: a foreign key constraint fails"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:374
+msgid "Cannot delete or update a parent row: a foreign key constraint fails"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:375
+msgid "Error connecting to master: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:376
+msgid "Error running query on master: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:377
+msgid "Error when executing command {}: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:378
+msgid "Incorrect usage of {} and {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:382
+msgid "The used SELECT statements have a different number of columns"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:384
+msgid "Can't execute the query because you have a conflicting read lock"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:385
+msgid "Mixing of transactional and non-transactional tables is disabled"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:386
+msgid "Option '{}' used twice in statement"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:387
+msgid "User '{}' has exceeded the '{}' resource (current value: {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:391
+msgid ""
+"Access denied; you need (at least one of) the {} privilege(s) for this "
+"operation"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:393
+msgid "Variable '{}' is a SESSION variable and can't be used with SET GLOBAL"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:394
+msgid "Variable '{}' is a GLOBAL variable and should be set with SET GLOBAL"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:395
+msgid "Variable '{}' doesn't have a default value"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:396
+msgid "Variable '{}' can't be set to the value of '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:397
+msgid "Incorrect argument type to variable '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:398
+msgid "Variable '{}' can only be set, not read"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:399
+msgid "Incorrect usage/placement of '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:400
+msgid "This version of MariaDB doesn't yet support '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:404
+msgid "Got fatal error {} from master when reading data from binary log: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:406
+msgid "Slave SQL thread ignored the query because of replicate-*-table rules"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:407
+msgid "Variable '{}' is a {} variable"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:408
+msgid "Incorrect foreign key definition for '{}': {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:409
+msgid "Key reference and table reference don't match"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:410
+msgid "Operand should contain {} column(s)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:411
+msgid "Subquery returns more than 1 row"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:412
+msgid "Unknown prepared statement handler ({}) given to {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:413
+msgid "Help database is corrupt or does not exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:414
+msgid "Cyclic reference on subqueries"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:415
+msgid "Converting column '{}' from {} to {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:416
+msgid "Reference '{}' not supported ({})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:417
+msgid "Every derived table must have its own alias"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:418
+msgid "Select {} was reduced during optimization"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:419
+msgid "Table '{}' from one of the SELECTs cannot be used in {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:423
+msgid ""
+"Client does not support authentication protocol requested by server; "
+"consider upgrading MariaDB client"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:425
+msgid "All parts of a SPATIAL index must be NOT NULL"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:426
+msgid "COLLATION '{}' is not valid for CHARACTER SET '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:427
+msgid "Slave is already running"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:428
+msgid "Slave already has been stopped"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:432
+msgid ""
+"Uncompressed data size too large; the maximum size is {} (probably, "
+"length of uncompressed data was corrupted)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:437
+msgid "ZLIB: Not enough memory"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:441
+msgid ""
+"ZLIB: Not enough room in the output buffer (probably, length of "
+"uncompressed data was corrupted)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:443
+msgid "ZLIB: Input data corrupted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:444
+msgid "Row {} was cut by GROUP_CONCAT()"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:445
+msgid "Row {} doesn't contain data for all columns"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:449
+msgid "Row {} was truncated; it contained more data than there were input columns"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:454
+msgid ""
+"Column set to default value; NULL supplied to NOT NULL column '{}' at row"
+" {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:456
+msgid "Out of range value for column '{}' at row {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:457
+msgid "Data truncated for column '{}' at row {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:458
+msgid "Using storage engine {} for table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:459
+msgid "Illegal mix of collations ({},{}) and ({},{}) for operation '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:460
+msgid "Cannot drop one or more of the requested users"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:461
+msgid "Can't revoke all privileges for one or more of the requested users"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:465
+msgid "Illegal mix of collations ({},{}), ({},{}), ({},{}) for operation '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:467
+msgid "Illegal mix of collations for operation '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:471
+msgid ""
+"Variable '{}' is not a variable component (can't be used as "
+"XXXX.variable_name)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:473
+msgid "Unknown collation: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:477
+msgid ""
+"SSL parameters in CHANGE MASTER are ignored because this MariaDB slave "
+"was compiled without SSL support; they can be used later if MariaDB slave"
+" with SSL is started"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:485
+msgid ""
+"Server is running in --secure-auth mode, but '{}'@'{}' has a password in "
+"the old format; please change the password to the new format"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:490
+msgid "Field or reference '{}{}{}{}{}' of SELECT #{} was resolved in SELECT #{}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:491
+msgid "Incorrect parameter or combination of parameters for START SLAVE UNTIL"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:495
+msgid ""
+"It is recommended to use --skip-slave-start when doing step-by-step "
+"replication with START SLAVE UNTIL; otherwise, you will get problems if "
+"you get an unexpected slave's mysqld restart"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:500
+msgid "SQL thread is not to be started so UNTIL options are ignored"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:501
+msgid "Incorrect index name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:502
+msgid "Incorrect catalog name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:503
+msgid "Query cache failed to set size {}; new query cache size is {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:504
+msgid "Column '{}' cannot be part of FULLTEXT index"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:505
+msgid "Unknown key cache '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:509
+msgid ""
+"MariaDB is started in --skip-name-resolve mode; you must restart it "
+"without this switch for this grant to work"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:514
+msgid "Unknown storage engine '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:518
+msgid ""
+"'{}' is deprecated and will be removed in a future release. Please use {}"
+" instead"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:520
+msgid "The target table {} of the {} is not updatable"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:524
+msgid ""
+"The '{}' feature is disabled; you need MariaDB built with '{}' to have it"
+" working"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:529
+msgid ""
+"The MariaDB server is running with the {} option so it cannot execute "
+"this statement"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:531
+msgid "Column '{}' has duplicated value '{}' in {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:532
+msgid "Truncated incorrect {} value: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:536
+msgid ""
+"Incorrect table definition; there can be only one TIMESTAMP column with "
+"CURRENT_TIMESTAMP in DEFAULT or ON UPDATE clause"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:541
+msgid "Invalid ON UPDATE clause for '{}' column"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:542
+msgid "This command is not supported in the prepared statement protocol yet"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:543
+msgid "Got error {} '{}' from {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:544
+msgid "Got temporary error {} '{}' from {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:545
+msgid "Unknown or incorrect time zone: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:546
+msgid "Invalid TIMESTAMP value in column '{}' at row {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:547
+msgid "Invalid {} character string: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:551
+msgid "Result of {}() was larger than max_allowed_packet ({}) - truncated"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:553
+msgid "Conflicting declarations: '{}{}' and '{}{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:554
+msgid "Can't create a {} from within another stored routine"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:555
+msgid "{} {} already exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:556
+msgid "{} {} does not exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:557
+msgid "Failed to DROP {} {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:558
+msgid "Failed to CREATE {} {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:559
+msgid "{} with no matching label: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:560
+msgid "Redefining label {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:561
+msgid "End-label {} without match"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:562
+msgid "Referring to uninitialized variable {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:563
+msgid "PROCEDURE {} can't return a result set in the given context"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:564
+msgid "RETURN is only allowed in a FUNCTION"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:565
+msgid "{} is not allowed in stored procedures"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:569
+msgid ""
+"The update log is deprecated and replaced by the binary log; SET "
+"SQL_LOG_UPDATE has been ignored. This option will be removed in MariaDB "
+"5.6."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:577
+msgid ""
+"The update log is deprecated and replaced by the binary log; SET "
+"SQL_LOG_UPDATE has been translated to SET SQL_LOG_BIN. This option will "
+"be removed in MariaDB 5.6."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:582
+msgid "Query execution was interrupted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:583
+msgid "Incorrect number of arguments for {} {}; expected {}, got {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:584
+msgid "Undefined CONDITION: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:585
+msgid "No RETURN found in FUNCTION {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:586
+msgid "FUNCTION {} ended without RETURN"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:587
+msgid "Cursor statement must be a SELECT"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:588
+msgid "Cursor SELECT must not have INTO"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:589
+msgid "Undefined CURSOR: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:590
+msgid "Cursor is already open"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:591
+msgid "Cursor is not open"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:592
+msgid "Undeclared variable: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:593
+msgid "Incorrect number of FETCH variables"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:594
+msgid "No data - zero rows fetched, selected, or processed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:595
+msgid "Duplicate parameter: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:596
+msgid "Duplicate variable: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:597
+msgid "Duplicate condition: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:598
+msgid "Duplicate cursor: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:599
+msgid "Failed to ALTER {} {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:600
+msgid "Subquery value not supported"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:601
+msgid "{} is not allowed in stored function or trigger"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:605
+msgid "Variable or condition declaration after cursor or handler declaration"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:607
+msgid "Cursor declaration after handler declaration"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:608
+msgid "Case not found for CASE statement"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:609
+msgid "Configuration file '{}' is too big"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:610
+msgid "Malformed file type header in file '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:611
+msgid "Unexpected end of file while parsing comment '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:612
+msgid "Error while parsing parameter '{}' (line: '{}')"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:613
+msgid "Unexpected end of file while skipping unknown parameter '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:614
+msgid "EXPLAIN/SHOW can not be issued; lacking privileges for underlying table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:615
+msgid "File '{}' has unknown type '{}' in its header"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:616
+msgid "'{}.{}' is not {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:617
+msgid "Column '{}' is not updatable"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:618
+msgid "View's SELECT contains a subquery in the FROM clause"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:619
+msgid "View's SELECT contains a '{}' clause"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:620
+msgid "View's SELECT contains a variable or parameter"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:621
+msgid "View's SELECT refers to a temporary table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:622
+msgid "View's SELECT and view's field list have different column counts"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:623
+msgid ""
+"View merge algorithm can't be used here for now (assumed undefined "
+"algorithm)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:624
+msgid "View being updated does not have complete key of underlying table in it"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:628
+msgid ""
+"View '{}.{}' references invalid table(s) or column(s) or function(s) or "
+"definer/invoker of view lack rights to use them"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:633
+msgid "Can't drop or alter a {} from within another stored routine"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:634
+msgid "GOTO is not allowed in a stored procedure handler"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:635
+msgid "Trigger already exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:636
+msgid "Trigger does not exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:637
+msgid "Trigger's '{}' is view or temporary table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:638
+msgid "Updating of {} row is not allowed in {}trigger"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:639
+msgid "There is no {} row in {} trigger"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:640
+msgid "Field '{}' doesn't have a default value"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:641
+msgid "Division by 0"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:642
+msgid "Incorrect {} value: '{}' for column '{}' at row {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:643
+msgid "Illegal {} '{}' value found during parsing"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:644
+msgid "CHECK OPTION on non-updatable view '{}.{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:645
+msgid "CHECK OPTION failed '{}.{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:646
+msgid "{} command denied to user '{}'@'{}' for routine '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:647
+msgid "Failed purging old relay logs: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:648
+msgid "Password hash should be a {}-digit hexadecimal number"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:649
+msgid "Target log not found in binlog index"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:650
+msgid "I/O error reading log index file"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:651
+msgid "Server configuration does not permit binlog purge"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:652
+msgid "Failed on fseek()"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:653
+msgid "Fatal error during log purge"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:654
+msgid "A purgeable log is in use, will not purge"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:655
+msgid "Unknown error during log purge"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:656
+msgid "Failed initializing relay log position: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:657
+msgid "You are not using binary logging"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:658
+msgid "The '{}' syntax is reserved for purposes internal to the MariaDB server"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:659
+msgid "WSAStartup Failed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:660
+msgid "Can't handle procedures with different groups yet"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:661
+msgid "Select must have a group with this procedure"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:662
+msgid "Can't use ORDER clause with this procedure"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:666
+msgid "Binary logging and replication forbid changing the global server {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:668
+msgid "Can't map file: {}, errno: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:669
+msgid "Wrong magic in {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:670
+msgid "Prepared statement contains too many placeholders"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:671
+msgid "Key part '{}' length cannot be 0"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:672
+msgid "View text checksum failed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:673
+msgid "Can not modify more than one base table through a join view '{}.{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:674
+msgid "Can not insert into join view '{}.{}' without fields list"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:675
+msgid "Can not delete from join view '{}.{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:676
+msgid "Operation {} failed for {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:677
+msgid "XAER_NOTA: Unknown XID"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:678
+msgid "XAER_INVAL: Invalid arguments (or unsupported command)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:682
+msgid ""
+"XAER_RMFAIL: The command cannot be executed when global transaction is in"
+" the {} state"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:684
+msgid "XAER_OUTSIDE: Some work is done outside global transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:688
+msgid ""
+"XAER_RMERR: Fatal error occurred in the transaction branch - check your "
+"data for consistency"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:690
+msgid "XA_RBROLLBACK: Transaction branch was rolled back"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:694
+msgid "There is no such grant defined for user '{}' on host '{}' on routine '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:696
+msgid "Failed to grant EXECUTE and ALTER ROUTINE privileges"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:697
+msgid "Failed to revoke all privileges to dropped routine"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:698
+msgid "Data too long for column '{}' at row {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:699
+msgid "Bad SQLSTATE: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:700
+msgid "{}: ready for connections. Version: '{}' socket: '{}' port: {} {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:701
+msgid "Can't load value from file with fixed size rows to variable"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:702
+msgid "You are not allowed to create a user with GRANT"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:703
+msgid "Incorrect {} value: '{}' for function {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:704
+msgid "Table definition has changed, please retry transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:705
+msgid "Duplicate handler declared in the same block"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:709
+msgid ""
+"OUT or INOUT argument {} for routine {} is not a variable or NEW pseudo-"
+"variable in BEFORE trigger"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:711
+msgid "Not allowed to return a result set from a {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:715
+msgid "Cannot get geometry object from data you send to the GEOMETRY field"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:720
+msgid ""
+"A routine failed and has neither NO SQL nor READS SQL DATA in its "
+"declaration and binary logging is enabled; if non-transactional tables "
+"were updated, the binary log will miss their changes"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:729
+msgid ""
+"This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its"
+" declaration and binary logging is enabled (you *might* want to use the "
+"less safe log_bin_trust_function_creators variable)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:738
+msgid ""
+"You do not have the SUPER privilege and binary logging is enabled (you "
+"*might* want to use the less safe log_bin_trust_function_creators "
+"variable)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:746
+msgid ""
+"You can't execute a prepared statement which has an open cursor "
+"associated with it. Reset the statement to re-execute it."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:751
+msgid "The statement ({}) has no open cursor."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:755
+msgid "Explicit or implicit commit is not allowed in stored function or trigger."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:757
+msgid "Field of view '{}.{}' underlying table doesn't have a default value"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:758
+msgid "Recursive stored functions and triggers are not allowed."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:759
+msgid "Too big scale {} specified for column '{}'. Maximum is {}."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:760
+msgid "Too big precision {} specified for column '{}'. Maximum is {}."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:761
+msgid "For float(M,D, double(M,D or decimal(M,D, M must be >= D (column '{}')."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:765
+msgid ""
+"You can't combine write-locking of system tables with other tables or "
+"lock types"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:767
+msgid "Unable to connect to foreign data source: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:771
+msgid ""
+"There was a problem processing the query on the foreign data source. Data"
+" source error: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:776
+msgid ""
+"The foreign data source you are trying to reference does not exist. Data "
+"source error: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:781
+msgid ""
+"Can't create federated table. The data source connection string '{}' is "
+"not in the correct format"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:786
+msgid "The data source connection string '{}' is not in the correct format"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:788
+msgid "Can't create federated table. Foreign data src error: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:789
+msgid "Trigger in wrong schema"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:793
+msgid ""
+"Thread stack overrun: {} bytes used of a {} byte stack, and {} bytes "
+"needed. Use 'mysqld --thread_stack=#' to specify a bigger stack."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:798
+msgid "Routine body for '{}' is too long"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:799
+msgid "Cannot drop default keycache"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:800
+msgid "Display width out of range for column '{}' (max = {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:801
+msgid "XAER_DUPID: The XID already exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:802
+msgid "Datetime function: {} field overflow"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:806
+msgid ""
+"Can't update table '{}' in stored function/trigger because it is already "
+"used by statement which invoked this stored function/trigger."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:811
+msgid "The definition of table '{}' prevents operation {} on table '{}'."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:815
+msgid ""
+"The prepared statement contains a stored routine call that refers to that"
+" same statement. It's not allowed to execute a prepared statement in such"
+" a recursive manner"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:820
+msgid "Not allowed to set autocommit from a stored function or trigger"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:821
+msgid "Definer is not fully qualified"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:825
+msgid ""
+"View '{}'.'{}' has no definer information (old table format). Current "
+"user is used as definer. Please recreate the view!"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:830
+msgid "You need the SUPER privilege for creation view with '{}'@'{}' definer"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:831
+msgid "The user specified as a definer ('{}'@'{}') does not exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:832
+msgid "Changing schema from '{}' to '{}' is not allowed."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:833
+msgid "Cannot delete or update a parent row: a foreign key constraint fails ({})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:834
+msgid "Cannot add or update a child row: a foreign key constraint fails ({})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:835
+msgid "Variable '{}' must be quoted with `...`, or renamed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:839
+msgid ""
+"No definer attribute for trigger '{}'.'{}'. The trigger will be activated"
+" under the authorization of the invoker, which may have insufficient "
+"privileges. Please recreate the trigger."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:845
+msgid "'{}' has an old format, you should re-create the '{}' object(s)"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:849
+msgid ""
+"Recursive limit {} (as set by the max_sp_recursion_depth variable) was "
+"exceeded for routine {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:854
+msgid ""
+"Failed to load routine {}. The table mysql.proc is missing, corrupt, or "
+"contains bad data (internal code {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:859
+msgid "Incorrect routine name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:863
+msgid ""
+"Table upgrade required. Please do 'REPAIR TABLE `{}`' or dump/reload to "
+"fix it!"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:865
+msgid "AGGREGATE is not supported for stored functions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:869
+msgid ""
+"Can't create more than max_prepared_stmt_count statements (current value:"
+" {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:871
+msgid "`{}`.`{}` contains view recursion"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:872
+msgid "Non-grouping field '{}' is used in {} clause"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:873
+msgid "The used table type doesn't support SPATIAL indexes"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:874
+msgid "Triggers can not be created on system tables"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:875
+msgid "Leading spaces are removed from name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:876
+msgid "Failed to read auto-increment value from storage engine"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:877
+msgid "user name"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:878
+msgid "host name"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:879
+msgid "String '{}' is too long for {} (should be no longer than {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:880
+msgid "The target table {} of the {} is not insertable-into"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:881
+msgid "Table '{}' is differently defined or of non-MyISAM type or doesn't exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:882
+msgid "Too high level of nesting for select"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:883
+msgid "Name '{}' has become ''"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:887
+msgid ""
+"First character of the FIELDS TERMINATED string is ambiguous; please use "
+"non-optional and non-empty FIELDS ENCLOSED BY"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:892
+msgid "The foreign server, {}, you are trying to create already exists."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:896
+msgid ""
+"The foreign server name you are trying to reference does not exist. Data "
+"source error: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:898
+msgid "Table storage engine '{}' does not support the create option '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:902
+msgid ""
+"Syntax error: {} PARTITIONING requires definition of VALUES {} for each "
+"partition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:904
+msgid "Only {} PARTITIONING can use VALUES {} in partition definition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:905
+msgid "MAXVALUE can only be used in last partition definition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:906
+msgid "Subpartitions can only be hash partitions and by key"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:907
+msgid "Must define subpartitions on all partitions if on one partition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:911
+msgid "Wrong number of partitions defined, mismatch with previous setting"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:916
+msgid "Wrong number of subpartitions defined, mismatch with previous setting"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:921
+msgid "Constant/Random expression in (sub)partitioning function is not allowed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:926
+msgid ""
+"Constant, random or timezone-dependent expressions in (sub)partitioning "
+"function are not allowed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:928
+msgid "Expression in RANGE/LIST VALUES must be constant"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:929
+msgid "Field in list of fields for partition function not found in table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:930
+msgid "List of fields is only allowed in KEY partitions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:934
+msgid ""
+"The partition info in the frm file is not consistent with what can be "
+"written into the frm file"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:936
+msgid "The {} function returns the wrong type"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:937
+msgid "For {} partitions each partition must be defined"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:941
+msgid "VALUES LESS THAN value must be strictly increasing for each partition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:943
+msgid "VALUES value must be of same type as partition function"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:947
+msgid "Multiple definition of same constant in list partitioning"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:949
+msgid "Partitioning can not be used stand-alone in query"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:953
+msgid ""
+"The mix of handlers in the partitions is not allowed in this version of "
+"MariaDB"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:955
+msgid "For the partitioned engine it is necessary to define all {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:956
+msgid "Too many partitions (including subpartitions) were defined"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:960
+msgid ""
+"It is only possible to mix RANGE/LIST partitioning with HASH/KEY "
+"partitioning for subpartitioning"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:962
+msgid "Failed to create specific handler file"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:963
+msgid "A BLOB field is not allowed in partition function"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:967
+msgid "A {} must include all columns in the table's partitioning function"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:969
+msgid "Number of {} = 0 is not an allowed value"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:973
+msgid "Partition management on a not partitioned table is not possible"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:978
+msgid "Foreign key clause is not yet supported in conjunction with partitioning"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:980
+msgid "Error in list of partitions to {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:981
+msgid "Cannot remove all partitions, use DROP TABLE instead"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:982
+msgid "COALESCE PARTITION can only be used on HASH/KEY partitions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:986
+msgid ""
+"REORGANIZE PARTITION can only be used to reorganize partitions not to "
+"change their numbers"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:991
+msgid ""
+"REORGANIZE PARTITION without parameters can only be used on auto-"
+"partitioned tables using HASH PARTITIONs"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:993
+msgid "{} PARTITION can only be used on RANGE/LIST partitions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:994
+msgid "Trying to Add partition(s) with wrong number of subpartitions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:995
+msgid "At least one partition must be added"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:996
+msgid "At least one partition must be coalesced"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:997
+msgid "More partitions to reorganize than there are partitions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:998
+msgid "Duplicate partition name {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:999
+msgid "It is not allowed to shut off binlog on this command"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1003
+msgid "When reorganizing a set of partitions they must be in consecutive order"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1008
+msgid ""
+"Reorganize of range partitions cannot change total ranges except for last"
+" partition where it can extend the range"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1013
+msgid "Partition function not supported in this version for this handler"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1014
+msgid "Partition state cannot be defined from CREATE/ALTER TABLE"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1015
+msgid "The {} handler only supports 32 bit integers in VALUES"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1016
+msgid "Plugin '{}' is not loaded"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1017
+msgid "Incorrect {} value: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1018
+msgid "Table has no partition for value {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1019
+msgid "It is not allowed to specify {} more than once"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1020 metadata/backend/mysql/errors.py:1167
+msgid "Failed to create {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1021 metadata/backend/mysql/errors.py:1044
+msgid "Failed to drop {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1022
+msgid "The handler doesn't support autoextend of tablespaces"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1023
+msgid ""
+"A size parameter was incorrectly specified, either number or on the form "
+"10M"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1027
+msgid ""
+"The size number was correct but we don't allow the digit part to be more "
+"than 2 billion"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1029
+msgid "Failed to alter: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1030
+msgid "Writing one row to the row-based binary log failed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1031
+msgid "Table definition on master and slave does not match: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1035
+msgid ""
+"Slave running with --log-slave-updates must use row-based binary logging "
+"to be able to replicate row-based binary log events"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1040
+msgid "Event '{}' already exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1041
+msgid "Failed to store event {}. Error code {} from storage engine."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1042
+msgid "Unknown event '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1043
+msgid "Failed to alter event '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1045
+msgid "INTERVAL is either not positive or too big"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1046
+msgid "ENDS is either invalid or before STARTS"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1047
+msgid "Event execution time is in the past. Event has been disabled"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1048
+msgid "Failed to open mysql.event"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1049
+msgid "No datetime expression provided"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1053
+msgid ""
+"Column count of mysql.{} is wrong. Expected {}, found {}. The table is "
+"probably corrupted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1055
+msgid "Cannot load from mysql.{}. The table is probably corrupted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1056
+msgid "Failed to delete the event from mysql.event"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1057
+msgid "Error during compilation of event's body"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1058
+msgid "Same old and new event name"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1059 metadata/backend/mysql/errors.py:1623
+msgid "Data for column '{}' too long"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1060
+msgid "Cannot drop index '{}': needed in a foreign key constraint"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1064
+msgid ""
+"The syntax '{}' is deprecated and will be removed in MariaDB {}. Please "
+"use {} instead"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1066
+msgid "You can't write-lock a log table. Only read access is possible"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1067
+msgid "You can't use locks with log tables."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1071
+msgid ""
+"Upholding foreign key constraints for table '{}', entry '{}', key {} "
+"would lead to a duplicate entry"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1076
+msgid ""
+"Column count of mysql.{} is wrong. Expected {}, found {}. Created with "
+"MariaDB {}, now running {}. Please use mysql_upgrade to fix this error."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1084
+msgid ""
+"Cannot switch out of the row-based binary log format when the session has"
+" open temporary tables"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1089
+msgid ""
+"Cannot change the binary logging format inside a stored function or "
+"trigger"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1094
+msgid ""
+"The NDB cluster engine does not support changing the binlog format on the"
+" fly yet"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1096
+msgid "Cannot create temporary table with partitions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1097
+msgid "Partition constant is out of partition function domain"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1098
+msgid "This partition function is not allowed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1099
+msgid "Error in DDL log"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1100
+msgid "Not allowed to use NULL value in VALUES LESS THAN"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1101
+msgid "Incorrect partition name"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1105
+msgid ""
+"Transaction isolation level can't be changed while a transaction is in "
+"progress"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1110
+msgid ""
+"ALTER TABLE causes auto_increment resequencing, resulting in duplicate "
+"entry '{}' for key '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1112
+msgid "Internal scheduler error {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1113
+msgid "Error during starting/stopping of the scheduler. Error code {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1114
+msgid "Engine cannot be used in partitioned tables"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1115
+msgid "Cannot activate '{}' log"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1116
+msgid "The server was not built with row-based replication"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1117
+msgid "Decoding of base64 string failed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1118
+msgid "Recursion of EVENT DDL statements is forbidden when body is present"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1122
+msgid ""
+"Cannot proceed because system tables used by Event Scheduler were found "
+"damaged at server start"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1124
+msgid "Only integers allowed as number here"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1125
+msgid "This storage engine cannot be used for log tables"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1126
+msgid "You cannot '{}' a log table if logging is enabled"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1130
+msgid ""
+"Cannot rename '{}'. When logging enabled, rename to/from log table must "
+"rename two tables: the log table to an archive table and another table "
+"back to '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1135
+msgid "Incorrect parameter count in the call to native function '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1136
+msgid "Incorrect parameters in the call to native function '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1137
+msgid "Incorrect parameters in the call to stored function '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1138
+msgid "This function '{}' has the same name as a native function"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1139
+msgid "Duplicate entry '{}' for key '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1140
+msgid "Too many files opened, please execute the command again"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1144 metadata/backend/mysql/errors.py:1152
+msgid ""
+"Event execution time is in the past and ON COMPLETION NOT PRESERVE is "
+"set. The event was dropped immediately after creation."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1157
+msgid "The incident {} occured on the master. Message: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1158
+msgid "Table has no partition for some existing values"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1162
+msgid ""
+"Unsafe statement written to the binary log using statement format since "
+"BINLOG_FORMAT = STATEMENT. {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1164
+msgid "Fatal error: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1165
+msgid "Relay log read failure: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1166
+msgid "Relay log write failure: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1168
+msgid "Master command {} failed: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1169
+msgid "Binary logging not possible. Message: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1170
+msgid "View `{}`.`{}` has no creation context"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1171
+msgid "Creation context of view `{}`.`{}' is invalid"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1172
+msgid "Creation context of stored routine `{}`.`{}` is invalid"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1173
+msgid "Corrupted TRG file for table `{}`.`{}`"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1174
+msgid "Triggers for table `{}`.`{}` have no creation context"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1175
+msgid "Trigger creation context of table `{}`.`{}` is invalid"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1176
+msgid "Creation context of event `{}`.`{}` is invalid"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1177
+msgid "Cannot open table for trigger `{}`.`{}`"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1178
+msgid "Cannot create stored routine `{}`. Check warnings"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1182
+msgid ""
+"The BINLOG statement of type `{}` was not preceded by a format "
+"description BINLOG statement."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1184
+msgid "Corrupted replication event was detected"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1185
+msgid "Invalid column reference ({}) in LOAD DATA"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1186
+msgid "Being purged log {} was not found"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1187
+msgid "XA_RBTIMEOUT: Transaction branch was rolled back: took too long"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1188
+msgid "XA_RBDEADLOCK: Transaction branch was rolled back: deadlock was detected"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1189
+msgid "Prepared statement needs to be re-prepared"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1190
+msgid "DELAYED option not supported for table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1191
+msgid "The master info structure does not exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1192
+msgid "<{}> option ignored"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1193
+msgid "Built-in plugins cannot be deleted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1194
+msgid "Plugin is busy and will be uninstalled on shutdown"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1195
+msgid "{} variable '{}' is read-only. Use SET {} to assign the value"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1199
+msgid ""
+"Storage engine {} does not support rollback for this statement. "
+"Transaction rolled back and must be restarted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1204
+msgid "Unexpected master's heartbeat data: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1208
+msgid ""
+"The requested value for the heartbeat period is either negative or "
+"exceeds the maximum allowed ({} seconds)."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1213
+msgid "Bad schema for mysql.ndb_replication table. Message: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1214
+msgid "Error in parsing conflict function. Message: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1215
+msgid "Write to exceptions table failed. Message: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1216
+msgid "Comment for table '{}' is too long (max = {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1217
+msgid "Comment for field '{}' is too long (max = {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1221
+msgid ""
+"FUNCTION {} does not exist. Check the 'Function Name Parsing and "
+"Resolution' section in the Reference Manual"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1226
+msgid "Database"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1227
+msgid "Table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1228
+msgid "Partition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1229
+msgid "Subpartition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1230
+msgid "Temporary"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1231
+msgid "Renamed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1232
+msgid "Too many active concurrent transactions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1233
+msgid "Non-ASCII separator arguments are not fully supported"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1234
+msgid "debug sync point wait timed out"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1235
+msgid "debug sync point hit limit reached"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1236
+msgid "Duplicate condition information item '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1237
+msgid "Unhandled user-defined warning condition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1238
+msgid "Unhandled user-defined not found condition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1239
+msgid "Unhandled user-defined exception condition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1240
+msgid "RESIGNAL when handler not active"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1241
+msgid "SIGNAL/RESIGNAL can only use a CONDITION defined with SQLSTATE"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1242
+msgid "Data truncated for condition item '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1243
+msgid "Data too long for condition item '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1244
+msgid "Unknown locale: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1248
+msgid ""
+"The requested server id {} clashes with the slave startup option "
+"--replicate-same-server-id"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1253
+msgid ""
+"Query cache is disabled; restart the server with query_cache_type=1 to "
+"enable it"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1255
+msgid "Duplicate partition field name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1256
+msgid "Inconsistency in usage of column lists for partitioning"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1257
+msgid "Partition column values of incorrect type"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1258
+msgid "Too many fields in '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1259
+msgid "Cannot use MAXVALUE as value in VALUES IN"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1260
+msgid "Cannot have more than one value for this type of {} partitioning"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1264
+msgid ""
+"Row expressions in VALUES IN only allowed for multi-field column "
+"partitioning"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1269
+msgid "Field '{}' is of a not allowed type for this type of partitioning"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1271
+msgid "The total length of the partitioning fields is too large"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1275
+msgid ""
+"Cannot execute statement: impossible to write to binary log since both "
+"row-incapable engines and statement-incapable engines are involved."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1283
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"BINLOG_FORMAT = ROW and at least one table uses a storage engine limited "
+"to statement-based logging."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1291
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"statement is unsafe, storage engine is limited to statement-based "
+"logging, and BINLOG_FORMAT = MIXED. {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1299
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"statement is in row format and at least one table uses a storage engine "
+"limited to statement-based logging."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1307
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"BINLOG_FORMAT = STATEMENT and at least one table uses a storage engine "
+"limited to row-based logging.{}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1315
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"statement is in row format and BINLOG_FORMAT = STATEMENT."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1323
+msgid ""
+"Cannot execute statement: impossible to write to binary log since more "
+"than one engine is involved and at least one engine is self-logging."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1331
+msgid ""
+"The statement is unsafe because it uses a LIMIT clause. This is unsafe "
+"because the set of rows included cannot be predicted."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1339
+msgid ""
+"The statement is unsafe because it uses INSERT DELAYED. This is unsafe "
+"because the times when rows are inserted cannot be predicted."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1347
+msgid ""
+"The statement is unsafe because it uses the general log, slow query log, "
+"or performance_schema table(s). This is unsafe because system tables may "
+"differ on slaves."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1355
+msgid ""
+"Statement is unsafe because it invokes a trigger or a stored function "
+"that inserts into an AUTO_INCREMENT column. Inserted values cannot be "
+"logged correctly."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1363
+msgid ""
+"Statement is unsafe because it uses a UDF which may not return the same "
+"value on the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1368
+msgid ""
+"Statement is unsafe because it uses a system variable that may have a "
+"different value on the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1373
+msgid ""
+"Statement is unsafe because it uses a system function that may return a "
+"different value on the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1378
+msgid ""
+"Statement is unsafe because it accesses a non-transactional table after "
+"accessing a transactional table within the same transaction."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1383
+msgid "{} Statement: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1387
+msgid "Column {} of table '{}.{}' cannot be converted from type '{}' to type '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1389
+msgid "Can't create conversion table for table '{}.{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1393
+msgid "Cannot modify @@session.binlog_format inside a transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1395
+msgid "The path specified for {} is too long."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1399
+msgid "'{}' is deprecated and will be removed in a future release."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1401
+msgid "Native table '{}'.'{}' has the wrong structure"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1402
+msgid "Invalid performance_schema usage."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1406
+msgid ""
+"Table '{}'.'{}' was skipped since its definition is being modified by "
+"concurrent DDL statement"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1411
+msgid ""
+"Cannot modify @@session.binlog_direct_non_transactional_updates inside a "
+"transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1416
+msgid "Cannot change the binlog direct flag inside a stored function or trigger"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1418
+msgid "A SPATIAL index may only contain a geometrical type column"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1419
+msgid "Comment for index '{}' is too long (max = {})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1420
+msgid "Wait on a lock was aborted due to a pending exclusive lock"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1421
+msgid "{} value is out of range in '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1422
+msgid "A variable of a non-integer based type in LIMIT clause"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1426
+msgid "Mixing self-logging and non-self-logging engines in a statement is unsafe."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1431
+msgid ""
+"Statement accesses nontransactional table as well as transactional or "
+"temporary table, and writes to any of them."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1439
+msgid "Cannot modify @@session.sql_log_bin inside a transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1444
+msgid "Cannot change the sql_log_bin inside a stored function or trigger"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1446
+msgid "Failed to read from the .par file"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1447
+msgid "VALUES value for partition '{}' must have type INT"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1448
+msgid "Access denied for user '{}'@'{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1449
+msgid "SET PASSWORD has no significance for users authenticating via plugins"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1453
+msgid "GRANT with IDENTIFIED WITH is illegal because the user {} already exists"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1455
+msgid "Cannot truncate a table referenced in a foreign key constraint ({})"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1456
+msgid "Plugin '{}' is force_plus_permanent and can not be unloaded"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1460
+msgid ""
+"The requested value for the heartbeat period is less than 1 millisecond. "
+"The value is reset to 0, meaning that heartbeating will effectively be "
+"disabled."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1468
+msgid ""
+"The requested value for the heartbeat period exceeds the value of "
+"slave_net_timeout seconds. A sensible value for the period should be less"
+" than the timeout."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1476
+msgid ""
+"Multi-row statements required more than 'max_binlog_stmt_cache_size' "
+"bytes of storage; increase this mysqld variable and try again"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1484
+msgid ""
+"Primary key/partition key update is not allowed since the table is "
+"updated both as '{}' and '{}'."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1489
+msgid ""
+"Table rebuild required. Please do 'ALTER TABLE `{}` FORCE' or dump/reload"
+" to fix it!"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1491
+msgid "The value of '{}' should be no less than the value of '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1492
+msgid "Index column size too large. The maximum column size is {} bytes."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1493
+msgid "Trigger '{}' has an error in its body: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1494
+msgid "Unknown trigger has an error in its body: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1495
+msgid "Index {} is corrupted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1496
+msgid "Undo log record is too big."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1500
+msgid ""
+"INSERT IGNORE... SELECT is unsafe because the order in which rows are "
+"retrieved by the SELECT determines which (if any) rows are ignored. This "
+"order cannot be predicted and may differ on master and the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1508
+msgid ""
+"INSERT... SELECT... ON DUPLICATE KEY UPDATE is unsafe because the order "
+"in which rows are retrieved by the SELECT determines which (if any) rows "
+"are updated. This order cannot be predicted and may differ on master and "
+"the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1517
+msgid ""
+"REPLACE... SELECT is unsafe because the order in which rows are retrieved"
+" by the SELECT determines which (if any) rows are replaced. This order "
+"cannot be predicted and may differ on master and the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1525
+msgid ""
+"CREATE... IGNORE SELECT is unsafe because the order in which rows are "
+"retrieved by the SELECT determines which (if any) rows are ignored. This "
+"order cannot be predicted and may differ on master and the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1533
+msgid ""
+"CREATE... REPLACE SELECT is unsafe because the order in which rows are "
+"retrieved by the SELECT determines which (if any) rows are replaced. This"
+" order cannot be predicted and may differ on master and the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1541
+msgid ""
+"UPDATE IGNORE is unsafe because the order in which rows are updated "
+"determines which (if any) rows are ignored. This order cannot be "
+"predicted and may differ on master and the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1549
+msgid ""
+"Plugin '{}' is marked as not dynamically uninstallable. You have to stop "
+"the server to uninstall it."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1554
+msgid ""
+"Plugin '{}' is marked as not dynamically installable. You have to stop "
+"the server to install it."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1559
+msgid ""
+"Statements writing to a table with an auto-increment column after "
+"selecting from another table are unsafe because the order in which rows "
+"are retrieved determines what (if any) rows will be written. This order "
+"cannot be predicted and may differ on master and the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1568
+msgid ""
+"CREATE TABLE... SELECT... on a table with an auto-increment column is "
+"unsafe because the order in which rows are retrieved by the SELECT "
+"determines which (if any) rows are inserted. This order cannot be "
+"predicted and may differ on master and the slave."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1577
+msgid ""
+"INSERT... ON DUPLICATE KEY UPDATE on a table with more than one UNIQUE "
+"KEY is unsafe"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1579
+msgid "Table is being used in foreign key check."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1580
+msgid "Storage engine '{}' does not support system tables. [{}.{}]"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1584
+msgid ""
+"INSERT into autoincrement field which is not the first part in the "
+"composed primary key is unsafe."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1586
+msgid "Cannot load from {}.{}. The table is probably corrupted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1590
+msgid "The requested value {} for the master delay exceeds the maximum {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1595
+msgid ""
+"Only Format_description_log_event and row events are allowed in BINLOG "
+"statements (but {} was provided"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1597
+msgid "Non matching attribute '{}' between partition and table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1598
+msgid "Table to exchange with partition is partitioned: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1599
+msgid "Table to exchange with partition is temporary: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1600
+msgid "Subpartitioned table, use subpartition instead of partition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1601
+msgid "Unknown partition '{}' in table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1602
+msgid "Tables have different definitions"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1603
+msgid "Found a row that does not match the partition"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1607
+msgid ""
+"Option binlog_cache_size ({}) is greater than max_binlog_cache_size ({});"
+" setting binlog_cache_size equal to max_binlog_cache_size."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1615
+msgid ""
+"Cannot use {} access on index '{}' due to type or collation conversion on"
+" field '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1620
+msgid "Table to exchange with partition has foreign key references: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1622
+msgid "Key value '{}' was not found in table '{}.{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1627
+msgid "Replication event checksum verification failed while reading from network."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1632
+msgid ""
+"Replication event checksum verification failed while reading from a log "
+"file."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1637
+msgid ""
+"Option binlog_stmt_cache_size ({}) is greater than "
+"max_binlog_stmt_cache_size ({}); setting binlog_stmt_cache_size equal to "
+"max_binlog_stmt_cache_size."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1642
+msgid "Can't update table '{}' while '{}' is being created."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1643
+msgid "PARTITION () clause on non partitioned table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1644
+msgid "Found a row not matching the given partition set"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1645
+msgid "partition '{}' doesn't exist"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1649
+msgid "Failure while changing the type of replication repository: {}."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1654
+msgid "The creation of some temporary tables could not be rolled back."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1659
+msgid ""
+"Some temporary tables were dropped, but these operations could not be "
+"rolled back."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1661
+msgid "{} is not supported in multi-threaded slave mode. {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1665
+msgid ""
+"The number of modified databases exceeds the maximum {}; the database "
+"names will not be included in the replication event metadata."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1673
+msgid ""
+"Cannot execute the current event group in the parallel mode. Encountered "
+"event {}, relay-log name {}, position {} which prevents execution of this"
+" event group in parallel mode. Reason: {}."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1678
+msgid "{}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1682
+msgid "FULLTEXT index is not supported for partitioned tables."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1684
+msgid "Invalid condition number"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1685
+msgid "Sending passwords in plain text without SSL/TLS is extremely insecure."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1689
+msgid ""
+"Storing MySQL user name or password information in the master info "
+"repository is not secure and is therefore not recommended. Please "
+"consider using the USER and PASSWORD connection options for START SLAVE; "
+"see the 'START SLAVE Syntax' in the MySQL Manual for more information."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1699
+msgid ""
+"Foreign key constraint for table '{}', record '{}' would lead to a "
+"duplicate entry in table '{}', key '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1704
+msgid ""
+"Foreign key constraint for table '{}', record '{}' would lead to a "
+"duplicate entry in a child table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1709
+msgid ""
+"Setting authentication options is not possible when only the Slave SQL "
+"Thread is being started."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1711
+msgid "The table does not have FULLTEXT index to support this query"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1715
+msgid "The system variable {} cannot be set in stored functions or triggers."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1720
+msgid "The system variable {} cannot be set when there is an ongoing transaction."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1725
+msgid ""
+"The system variable @@SESSION.GTID_NEXT has the value {}, which is not "
+"listed in @@SESSION.GTID_NEXT_LIST."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1730
+msgid ""
+"The system variable @@SESSION.GTID_NEXT cannot change inside a "
+"transaction."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1732
+msgid "The statement 'SET {}' cannot invoke a stored function."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1736
+msgid ""
+"The system variable @@SESSION.GTID_NEXT cannot be 'AUTOMATIC' when "
+"@@SESSION.GTID_NEXT_LIST is non-NULL."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1741
+msgid "Skipping transaction {} because it has already been executed and logged."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1743
+msgid "Malformed GTID set specification '{}'."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1744
+msgid "Malformed GTID set encoding."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1745
+msgid "Malformed GTID specification '{}'."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1749
+msgid ""
+"Impossible to generate Global Transaction Identifier: the integer "
+"component reached the maximal value. Restart the server with a new "
+"server_uuid."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1757
+msgid ""
+"Parameters MASTER_LOG_FILE, MASTER_LOG_POS, RELAY_LOG_FILE and "
+"RELAY_LOG_POS cannot be set when MASTER_AUTO_POSITION is active."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1765
+msgid ""
+"CHANGE MASTER TO MASTER_AUTO_POSITION = 1 can only be executed when "
+"@@GLOBAL.GTID_MODE = ON."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1770
+msgid ""
+"Cannot execute statements with implicit commit inside a transaction when "
+"@@SESSION.GTID_NEXT != AUTOMATIC."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1775
+msgid ""
+"GTID_MODE = ON or GTID_MODE = UPGRADE_STEP_2 requires "
+"DISABLE_GTID_UNSAFE_STATEMENTS = 1."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1780
+msgid ""
+"@@GLOBAL.GTID_MODE = ON or UPGRADE_STEP_2 requires "
+"@@GLOBAL.ENFORCE_GTID_CONSISTENCY = 1."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1785
+msgid ""
+"@@GLOBAL.GTID_MODE = ON or UPGRADE_STEP_1 or UPGRADE_STEP_2 requires "
+"--log-bin and --log-slave-updates."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1790
+msgid ""
+"@@SESSION.GTID_NEXT cannot be set to UUID:NUMBER when @@GLOBAL.GTID_MODE "
+"= OFF."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1795
+msgid ""
+"@@SESSION.GTID_NEXT cannot be set to ANONYMOUS when @@GLOBAL.GTID_MODE = "
+"ON."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1800
+msgid ""
+"@@SESSION.GTID_NEXT_LIST cannot be set to a non-NULL value when "
+"@@GLOBAL.GTID_MODE = OFF."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1805
+msgid ""
+"Found a Gtid_log_event or Previous_gtids_log_event when "
+"@@GLOBAL.GTID_MODE = OFF."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1810
+msgid ""
+"When @@GLOBAL.ENFORCE_GTID_CONSISTENCY = 1, updates to non-transactional "
+"tables can only be done in either autocommitted statements or single-"
+"statement transactions, and never in the same statement as updates to "
+"transactional tables."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1819
+msgid ""
+"CREATE TABLE ... SELECT is forbidden when "
+"@@GLOBAL.ENFORCE_GTID_CONSISTENCY = 1."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1824
+msgid ""
+"When @@GLOBAL.ENFORCE_GTID_CONSISTENCY = 1, the statements CREATE "
+"TEMPORARY TABLE and DROP TEMPORARY TABLE can be executed in a non-"
+"transactional context only, and require that AUTOCOMMIT = 1."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1833
+msgid ""
+"The value of @@GLOBAL.GTID_MODE can only change one step at a time: OFF "
+"<-> UPGRADE_STEP_1 <-> UPGRADE_STEP_2 <-> ON. Also note that this value "
+"must be stepped up or down simultaneously on all servers; see the Manual "
+"for instructions."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1843
+msgid ""
+"The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1, "
+"but the master has purged binary logs containing GTIDs that the slave "
+"requires."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1851
+msgid ""
+"@@SESSION.GTID_NEXT cannot be changed by a client that owns a GTID. The "
+"client owns {}. Ownership is released on COMMIT or ROLLBACK."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1856
+msgid "Unknown EXPLAIN format name: '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1857
+msgid "Cannot execute statement in a READ ONLY transaction."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1858
+msgid "Comment for table partition '{}' is too long (max = {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1862
+msgid ""
+"Slave is not configured or failed to initialize properly. You must at "
+"least set --server-id to enable either a master or a slave. Additional "
+"error messages can be found in the MySQL error log."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1868
+msgid "InnoDB presently supports one FULLTEXT index creation at a time"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1869
+msgid "Cannot create FULLTEXT index on temporary InnoDB table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1870
+msgid "Column '{}' is of wrong type for an InnoDB FULLTEXT index"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1871
+msgid "Index '{}' is of wrong type for an InnoDB FULLTEXT index"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1875
+msgid ""
+"Creating index '{}' required more than 'innodb_online_alter_log_max_size'"
+" bytes of modification log. Please try again."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1880
+msgid "Unknown ALGORITHM '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1881
+msgid "Unknown LOCK type '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1885
+msgid ""
+"CHANGE MASTER cannot be executed when the slave was stopped with an error"
+" or killed in MTS mode. Consider using RESET SLAVE or START SLAVE UNTIL."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1893
+msgid ""
+"Cannot recover after SLAVE errored out in parallel execution mode. "
+"Additional error messages can be found in the MySQL error log."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1901
+msgid ""
+"Cannot clean up worker info tables. Additional error messages can be "
+"found in the MySQL error log."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1906
+msgid ""
+"Column count of {}.{} is wrong. Expected {}, found {}. The table is "
+"probably corrupted"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1908
+msgid "Slave must silently retry current transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1912
+msgid ""
+"There is a foreign key check running on table '{}'. Cannot discard the "
+"table."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1914
+msgid "Schema mismatch ({}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1915
+msgid "Table '{}' in system tablespace"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1916
+msgid "IO Read error: ({}, {}) {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1917
+msgid "IO Write error: ({}, {}) {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1918
+msgid "Tablespace is missing for table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1922
+msgid ""
+"Tablespace for table '{}' exists. Please DISCARD the tablespace before "
+"IMPORT."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1924
+msgid "Tablespace has been discarded for table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1925
+msgid "Internal error: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1926
+msgid "ALTER TABLE '{}' IMPORT TABLESPACE failed with error {} : '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1927
+msgid "Index corrupt: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1931
+msgid "YEAR({}) column type is deprecated. Creating YEAR(4) column instead."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1933
+msgid "Your password does not satisfy the current policy requirements"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1934
+msgid "You must SET PASSWORD before executing this statement"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1938
+msgid ""
+"Failed to add the foreign key constaint. Missing index for constraint "
+"'{}' in the foreign table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1943
+msgid ""
+"Failed to add the foreign key constaint. Missing index for constraint "
+"'{}' in the referenced table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1945
+msgid "Failed to add the foreign key constraint '{}' to system tables"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1946
+msgid "Failed to open the referenced table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1950
+msgid ""
+"Failed to add the foreign key constraint on table '{}'. Incorrect options"
+" in FOREIGN KEY constraint '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1952
+msgid "Duplicate foreign key constraint name '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1956
+msgid ""
+"The password hash doesn't have the expected format. Check if the correct "
+"password algorithm is being used with the PASSWORD() function."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1961
+msgid "Cannot drop column '{}': needed in a foreign key constraint '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1965
+msgid ""
+"Cannot drop column '{}': needed in a foreign key constraint '{}' of table"
+" '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1970
+msgid ""
+"Column '{}' cannot be NOT NULL: needed in a foreign key constraint '{}' "
+"SET NULL"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1975
+msgid ""
+"Duplicate index '{}' defined on the table '{}.{}'. This is deprecated and"
+" will be disallowed in a future release."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1980
+msgid "Cannot change column '{}': used in a foreign key constraint '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1984
+msgid ""
+"Cannot change column '{}': used in a foreign key constraint '{}' of table"
+" '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1989
+msgid ""
+"Cannot delete rows from table which is parent in a foreign key constraint"
+" '{}' of table '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1991
+msgid "Malformed communication packet."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1992
+msgid "Running in read-only mode"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:1996
+msgid ""
+"When @@SESSION.GTID_NEXT is set to a GTID, you must explicitly set it to "
+"a different value after a COMMIT or ROLLBACK. Please check GTID_NEXT "
+"variable manual page for detailed explanation. Current "
+"@@SESSION.GTID_NEXT is '{}'."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2002
+msgid "The system variable {} cannot be set in stored procedures."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2006
+msgid "@@GLOBAL.GTID_PURGED can only be set when @@GLOBAL.GTID_MODE = ON."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2011
+msgid "@@GLOBAL.GTID_PURGED can only be set when @@GLOBAL.GTID_EXECUTED is empty."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2016
+msgid ""
+"@@GLOBAL.GTID_PURGED can only be set when there are no ongoing "
+"transactions (not even in other clients)."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2018
+msgid "@@GLOBAL.GTID_PURGED was changed from '{}' to '{}'."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2019
+msgid "@@GLOBAL.GTID_EXECUTED was changed from '{}' to '{}'."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2023
+msgid ""
+"Cannot execute statement: impossible to write to binary log since "
+"BINLOG_FORMAT = STATEMENT, and both replicated and non replicated tables "
+"are written to."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2028
+msgid "{} is not supported for this operation. Try {}."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2029
+msgid "{} is not supported. Reason: {}. Try {}."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2030
+msgid "COPY algorithm requires a lock"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2034
+msgid "Partition specific operations do not yet support LOCK/ALGORITHM"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2039
+msgid "Columns participating in a foreign key are renamed"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2041
+msgid "Cannot change column type INPLACE"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2042
+msgid "Adding foreign keys needs foreign_key_checks=OFF"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2046
+msgid ""
+"Creating unique indexes with IGNORE requires COPY algorithm to remove "
+"duplicate rows"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2051
+msgid ""
+"Dropping a primary key is not allowed without also adding a new primary "
+"key"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2053
+msgid "Adding an auto-increment column requires a lock"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2057
+msgid "Cannot replace hidden FTS_DOC_ID with a user-visible one"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2059
+msgid "Cannot drop or rename FTS_DOC_ID"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2060
+msgid "Fulltext index creation requires a lock"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2064
+msgid ""
+"sql_slave_skip_counter can not be set when the server is running with "
+"@@GLOBAL.GTID_MODE = ON. Instead, for each transaction that you want to "
+"skip, generate an empty transaction with the same GTID as the transaction"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2070
+msgid "Duplicate entry for key '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2074
+msgid ""
+"Long database name and identifier for object resulted in path length "
+"exceeding {} characters. Path: '{}'."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2079
+msgid "cannot silently convert NULL values, as required in this SQL_MODE"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2084
+msgid ""
+"Your password has expired. To log in you must change it using a client "
+"that supports expired passwords."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2086
+msgid "Found a row in wrong partition {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2090
+msgid ""
+"Cannot schedule event {}, relay-log name {}, position {} to Worker thread"
+" because its size {} exceeds {} of slave_pending_jobs_size_max."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2095
+msgid "Cannot CREATE FULLTEXT INDEX WITH PARSER on InnoDB table"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2096
+msgid "The binary log file '{}' is logically corrupted: {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2100
+msgid ""
+"file {} was not purged because it was being read by {} thread(s), purged "
+"only {} out of {} files."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2102
+msgid "file {} was not purged because it is the active log file."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2106
+msgid "Auto-increment value in UPDATE conflicts with internally generated values"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2111
+msgid ""
+"Row events are not logged for {} statements that modify BLACKHOLE tables "
+"in row format. Table(s): '{}'"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2113
+msgid "Slave failed to initialize master info structure from the repository"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2117
+msgid "Slave failed to initialize relay log info structure from the repository"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2122
+msgid ""
+"Access denied trying to change to user '{}'@'{}' (using password: {}). "
+"Disconnecting."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2124
+msgid "InnoDB is in read only mode."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2128
+msgid ""
+"STOP SLAVE command execution is incomplete: Slave SQL thread got the stop"
+" signal, thread is busy, SQL thread will stop once the current task is "
+"complete."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2136
+msgid ""
+"STOP SLAVE command execution is incomplete: Slave IO thread got the stop "
+"signal, thread is busy, IO thread will stop once the current task is "
+"complete."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2144
+msgid ""
+"Operation cannot be performed. The table '{}.{}' is missing, corrupt or "
+"contains bad data."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2146
+msgid "Temporary file write failure."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2150
+msgid ""
+"Upgrade index name failed, please use create index(alter table) algorithm"
+" copy to rebuild index."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2155
+msgid ""
+"TIME/TIMESTAMP/DATETIME columns of old format have been upgraded to the "
+"new format."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2157
+msgid "Operation not allowed when innodb_forced_recovery > 0."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2161
+msgid ""
+"The initialization vector supplied to {} is too short. Must be at least "
+"{} bytes long"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2163
+msgid "Plugin '{}' cannot be uninstalled now. {}"
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2167
+msgid ""
+"Cannot execute statement because it needs to be written to the binary log"
+" as multiple statements, and this is not allowed when @@SESSION.GTID_NEXT"
+" == 'UUID:NUMBER'."
+msgstr ""
+
+#: metadata/backend/mysql/errors.py:2175
+msgid ""
+"Slave has more GTIDs than the master has, using the master's SERVER_UUID."
+" This may indicate that the end of the binary log was truncated or that "
+"the last binary log file was lost, e.g., after a power or disk failure "
+"when sync_binlog != 1. The master may or may not have rolled back "
+"transactions that were already replicated to the slave. Suggest to "
+"replicate any transactions that master has rolled back from slave to "
+"master, and/or commit empty transactions on master to account for "
+"transactions that have been committed on master but are not included in "
+"GTID_EXECUTED."
+msgstr ""
+
+#: metadata/data_quality/errors.py:21
+msgid "元数据质量问题"
+msgstr ""
+
+#: metadata/data_quality/errors.py:68
+msgid "数据一致性问题"
+msgstr ""
+
+#: metadata/interactor/core.py:164
+msgid "Fail to get operator. The action is {}"
+msgstr ""
+
+#: metadata/interactor/core.py:198
+msgid "Fail to get operator. The batch_action is {}"
+msgstr ""
+
+#: metadata/interactor/interact.py:174
+msgid "Edit function is not enabled in MySQL backend."
+msgstr ""
+
+#: metadata/interactor/orchestrate.py:96
+msgid ""
+"Type name {} is not registered in SingleDGraphOrchestrator. The operate "
+"record is {}"
+msgstr ""
+
+#: metadata/interactor/orchestrate.py:156
+msgid ""
+"Type name {} is not registered in BatchDGraphOrchestrator. The operate "
+"record is {}"
+msgstr ""
+
+#: metadata/interactor/orchestrate.py:209
+msgid ""
+"The type name {} is not watched in MySQReplicaInteractor. The record info"
+" is {}"
+msgstr ""
+
+#: metadata/interactor/orchestrate.py:241
+msgid ""
+"Type name {} is not watched in BatchMySQLReplicaOrchestrator. The record "
+"info is {}"
+msgstr ""
+
+#: metadata/interactor/record.py:275
+msgid "Fail to replay transaction."
+msgstr ""
+
+#: metadata/service/access/rpc.py:161
+msgid ""
+"Executed RPC Call {} in {} with r_state {}, arg {}, kwargs {}. The id is "
+"{}."
+msgstr ""
+
+#: metadata/service/access/rpc.py:166
+msgid ""
+"Executed RPC Call {} in {} with r_state {}, arg {}, kwargs {}. The result"
+" is {}, id is {}."
+msgstr ""
+
+#: metadata/service/access/rpc.py:208
+msgid "Error in internal server. The rpc id is {}"
+msgstr ""
+
+#: metadata/service/access/rpc.py:247
+msgid "service is unhealthy. The rpc id is {}"
+msgstr ""
+
+#: metadata/service/access/rpc.py:258
+msgid "Error in call method. The rpc id is {}"
+msgstr ""
+
+#: metadata/service/access/rpc.py:349
+msgid "occur an error when dispatch backend. msg is {}."
+msgstr ""
+
+#: metadata/service/access/service_server.py:296
+msgid "Access RPC server {}:{} is starting."
+msgstr ""
+
+#: metadata/service/access/service_server.py:310
+msgid "Access RPC server is stopped."
+msgstr ""
+
+#: metadata/service/access/service_server.py:316
+msgid "Server host."
+msgstr ""
+
+#: metadata/service/access/service_server.py:317
+msgid "Server port."
+msgstr ""
+
+#: metadata/service/access/service_server.py:318
+msgid "Worker num."
+msgstr ""
+
+#: metadata/service/access/service_server.py:323
+msgid "Start single process server."
+msgstr ""
+
+#: metadata/service/access/service_server.py:325
+msgid "Start in HA mode."
+msgstr ""
+
+#: metadata/service/access/layers/bridge.py:75
+msgid "Some db operate logs are missing. The id list is {}"
+msgstr ""
+
+#: metadata/service/access/layers/tag.py:94
+msgid "At least one target type must be applied."
+msgstr ""
+
+#: metadata/service/access/layers/tag.py:96
+msgid "Only one target type is required if target filter is applied."
+msgstr ""
+
+#: metadata/service/access/layers/tag.py:101
+msgid "Fail to get md type by target type."
+msgstr ""
+
+#: metadata/service/access/layers/tag.py:228
+msgid "Fail to get md type by type_name."
+msgstr ""
+
+#: metadata/service/cli/state.py:84
+msgid "cluster name.(master/slave[default])"
+msgstr ""
+
+#: metadata/service/cli/state.py:106
+msgid "BE status."
+msgstr ""
+
+#: metadata/service/cli/state.py:115
+msgid "statistic window (s)"
+msgstr ""
+
+#: metadata/service/cli/state.py:116
+msgid "window delay (s)"
+msgstr ""
+
+#: metadata/service/cli/state.py:138
+msgid "switch name.[service.sub_switch]"
+msgstr ""
+
+#: metadata/service/cli/state.py:139
+msgid "switch value.[on / off]"
+msgstr ""
+
+#: metadata/service/cli/state.py:159
+msgid "dgraph version"
+msgstr ""
+
+#: metadata/service/cli/state.py:160
+msgid "id of dgraph backend"
+msgstr ""
+
+#: metadata/service/cli/sync.py:26
+msgid "Min db operate number."
+msgstr ""
+
+#: metadata/service/cli/sync.py:27
+msgid "Max db operate number."
+msgstr ""
+
+#: metadata/service/cli/token.py:23
+msgid "private key."
+msgstr ""
+
+#: metadata/service/cli/type_system.py:42
+#: metadata/service/cli/type_system.py:70
+msgid "Layer backend type in backend ha mode."
+msgstr ""
+
+#: metadata/service/cli/type_system.py:143
+msgid "show mode"
+msgstr ""
+
+#: metadata/state/manage.py:65
+msgid "The backends ha state {} is not allowed to switch."
+msgstr ""
+
+#: metadata/state/manage.py:93
+msgid "Fail to switch slave {} backend."
+msgstr ""
+
+#: metadata/state/manage.py:95
+msgid "Fail to switch master {} backend."
+msgstr ""
+
+#: metadata/state/manage.py:168
+msgid "fail to get backend version, because {} is invalid."
+msgstr ""
+
+#: metadata/state/manage.py:182
+msgid ""
+"fail to set backend version, because {} is invalid. should be one of[{}, "
+"{}]"
+msgstr ""
+
+#: metadata/type_system/converter.py:72
+msgid "No available attr converter."
+msgstr ""
+
+#: metadata/type_system/converter.py:237
+msgid "Fail to access target info from md type {} with id {}"
+msgstr ""
+
+#: metadata/type_system/core.py:135
+msgid "No identifier attr in this metadata type."
+msgstr ""
+
+#: metadata/type_system/core.py:229
+msgid "No actual type for the {}."
+msgstr ""
+
+#: metadata_biz/analyse/similarity.py:72
+msgid "The compare content is blank."
+msgstr ""
+
+#: metadata_biz/analyse/similarity.py:285
+msgid "Some rt id {} is not existed."
+msgstr ""
+
+#: metadata_biz/analyse/similarity.py:312
+msgid "Can't compare all items together."
+msgstr ""
+
+#: metadata_biz/analyse/similarity.py:431
+msgid "Fail to get lineage."
+msgstr ""
+
+#: metadata_biz/interactor/operators.py:151
+msgid "Invalid lineage data directing."
+msgstr ""
+
+#: metadata_biz/type_system/converters.py:118
+msgid "Not supported md type."
+msgstr ""
+
+#: metadata_biz/type_system/converters.py:124
+msgid "Fail to access target info from target_type {} and target_id {}"
+msgstr ""
+
+#: metadata_biz/type_system/converters.py:173
+msgid "Fail to access tag info from parent_id {}."
+msgstr ""
+
+#: metadata_biz/type_system/converters.py:277
+msgid "Fail to access target info from data_set_type {} and data_set_id {}"
+msgstr ""
+

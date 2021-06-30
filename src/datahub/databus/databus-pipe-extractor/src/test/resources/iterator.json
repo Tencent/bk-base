@@ -1,0 +1,23 @@
+{
+    "type": "fun",
+    "method": "from_json",
+    "next": {
+        "type": "access",
+        "subtype": "access_obj",
+        "key": "_value_",
+        "next": {
+            "type": "fun",
+            "method": "iterate",
+            "next": {
+                "type": "assign",
+                "subtype": "assign_obj",
+                "assign": [
+                    {
+                        "key": "k1",
+                        "assign_to": "var1"
+                    }
+                ]
+            }
+        }
+    }
+}

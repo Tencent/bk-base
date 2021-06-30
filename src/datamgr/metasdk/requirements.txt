@@ -1,0 +1,14 @@
+attrs
+tblib
+jsonext
+gevent
+kazoo
+requests
+sqlalchemy
+dictdiffer
+kombu==4.6.11
+setuptools
+enum34~=1.1.6;python_version<"3.4"
+crypto~=1.4.1;python_version<"3.4"
+pycrypto;python_version>="3.6"
+concurrent-log-handler==0.9.19

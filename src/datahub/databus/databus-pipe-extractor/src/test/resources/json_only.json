@@ -1,0 +1,18 @@
+{
+    "type": "fun",
+    "method": "from_json",
+    "next": {
+        "type": "assign",
+        "subtype": "assign_obj",
+        "assign": [
+            {
+                "key": "k1",
+                "assign_to": "varname"
+            },
+            {
+                "key": "k2",
+                "assign_to": "varname2"
+            }
+        ]
+    }
+}

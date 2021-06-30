@@ -1,0 +1,80 @@
+#!/bin/bash
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+source $CTRL_DIR/utils.fc
+source $CTRL_DIR/control.rc
+
+# cerely beat使用
+mkdir -p ${BK_HOME}/public/bkdata/datahubapi
+
+# 表初始化json文件路径
+common_path=$INSTALL_PATH/bkdata/datahubapi/init_tables
+init_clusters_file=$common_path/init_clusters.json
+init_scenarios_file=$common_path/init_scenarios.json
+
+# 表初始化请求storekit url
+domain=$BKDATA_DATAHUBAPI_HOST:$BKDATA_DATAHUBAPI_PORT
+common_url=http://$domain/v3/storekit
+init_cluster_config_api=$common_url/init/init_clusters/?file_name=$init_clusters_file
+init_scenario_config_api=$common_url/init/init_scenarios/?file_name=$init_scenarios_file
+
+export LOG_FILE=/tmp/storekit_init_tables.$(date +%Y%m%d%H%M%S).log
+cd $INSTALL_PATH/bkdata/datahubapi
+
+
+# 1 初始化表storage_cluster_config
+log "[storage_cluster_config] add cluster_config begin"
+
+tmp_file=$(mktemp /tmp/add_cluster_config.XXXX.$(date +%Y%m%d%H%M%S))
+curl -s -o $tmp_file --connect-timeout 60 \
+    -H 'Content-Type: application/json; charset=utf-8' \
+    -X GET $init_cluster_config_api
+if grep '"result": false' $tmp_file; then
+    log "$(< $tmp_file)"
+    fail "$(< $tmp_file)"
+else
+    ok "done"
+    rm -f $tmpfile
+fi
+
+log "[storage_cluster_config] add cluster_config end"
+
+
+# 2 初始化表storage_scenario_config
+log "[storage_cluster_scenario_config] add cluster_scenario_config begin"
+
+tmp_file=$(mktemp /tmp/add_cluster_scenario_config.XXXX.$(date +%Y%m%d%H%M%S))
+curl -s -o $tmp_file --connect-timeout 60 \
+    -H 'Content-Type: application/json; charset=utf-8' \
+    -X GET $init_scenario_config_api
+if grep '"result": false' $tmp_file; then
+    log "$(< $tmp_file)"
+    fail "$(< $tmp_file)"
+else
+    ok "done"
+    rm -f $tmpfile
+fi
+
+log "[storage_cluster_scenario_config] add cluster_scenario_config end"
+
+

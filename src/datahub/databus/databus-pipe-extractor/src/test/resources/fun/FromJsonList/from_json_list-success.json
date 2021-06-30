@@ -1,0 +1,25 @@
+{
+  "method":"from_json_list",
+  "args":[],
+  "type":"fun",
+  "next":{
+    "args":[
+    ],
+    "type":"fun",
+    "method":"iterate",
+    "next":{
+      "type":"assign",
+      "subtype":"assign_obj",
+      "assign":[
+        {
+          "assign_to":"var1",
+          "key":"k1"
+        },
+        {
+          "assign_to":"var2",
+          "key":"k2"
+        }
+      ]
+    }
+  }
+}

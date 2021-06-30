@@ -1,0 +1,164 @@
+{
+  "Method": [
+    {
+      "name": "MAX",
+      "documentation": "number MAX(Array)",
+      "insertText": {
+        "value": ""
+      },
+      "signatureHelp": true,
+      "parameters": [
+        {
+          "label": "Array numbers",
+          "documentation": "需要计算最大值的数组"
+        }
+      ]
+    },
+    {
+      "name": "AVG",
+      "documentation": "number AVG(Array)",
+      "insertText": {
+        "value": ""
+      },
+      "signatureHelp": true,
+      "parameters": [
+        {
+          "label": "Array numbers",
+          "documentation": "需要计算平均值的数组"
+        }
+      ]
+    },
+    {
+      "name": "SUM",
+      "documentation": "number SUM(Array)",
+      "insertText": {
+        "value": ""
+      },
+      "signatureHelp": true,
+      "parameters": [
+        {
+          "label": "Array numbers",
+          "documentation": "需要统计个数的数组"
+        }
+      ]
+    },
+    {
+      "name": "NEWID",
+      "documentation": "number NEWID(Array)",
+      "insertText": {
+        "value": ""
+      },
+      "signatureHelp": true,
+      "parameters": [
+        {
+          "label": "String",
+          "documentation": "新的ID"
+        }
+      ]
+    },
+    {
+      "name": "COUNT",
+      "documentation": "number COUNT(Array)",
+      "insertText": {
+        "value": ""
+      },
+      "signatureHelp": true,
+      "parameters": [
+        {
+          "label": "Array numbers",
+          "documentation": "需要统计的数组"
+        }
+      ]
+    }
+  ],
+  "Keyword": [
+    {
+      "name": "SELECT",
+      "documentation": ""
+    },
+    {
+      "name": "FROM",
+      "documentation": ""
+    },
+    {
+      "name": "WHERE",
+      "documentation": ""
+    },
+    {
+      "name": "GROUP",
+      "documentation": ""
+    },
+    {
+      "name": "BY",
+      "documentation": ""
+    },
+    {
+      "name": "LEFT",
+      "documentation": ""
+    },
+    {
+      "name": "FULL",
+      "documentation": ""
+    },
+    {
+      "name": "JOIN",
+      "documentation": ""
+    },
+    {
+      "name": "NOT",
+      "documentation": ""
+    },
+    {
+      "name": "IS",
+      "documentation": ""
+    },
+    {
+      "name": "LIKE",
+      "documentation": ""
+    },
+    {
+      "name": "IN",
+      "documentation": ""
+    },
+    {
+      "name": "CASE",
+      "documentation": ""
+    },
+    {
+      "name": "WHEN",
+      "documentation": ""
+    },
+    {
+      "name": "END",
+      "documentation": ""
+    },
+    {
+      "name": "ELSE",
+      "documentation": ""
+    },
+    {
+      "name": "AS",
+      "documentation": ""
+    },
+    {
+      "name": "IF",
+      "documentation": ""
+    },
+    {
+      "name": "ORDER",
+      "documentation": ""
+    },
+    {
+      "name": "LIMIT",
+      "documentation": ""
+    },
+    {
+      "name": "DESC",
+      "documentation": ""
+    },
+    {
+      "name": "ASC",
+      "documentation": ""
+    }
+  ]
+}

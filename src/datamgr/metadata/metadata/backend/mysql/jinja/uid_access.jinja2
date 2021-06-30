@@ -1,0 +1,8 @@
+{
+{% for predicate_name,identifier_values in query_contents.items() %}
+    {{ predicate_name }}(func: eq({{ predicate_name }},[{{ identifier_values }}]))  {
+          id_v: {{ predicate_name }}
+          uid
+    }
+{% endfor %}
+}

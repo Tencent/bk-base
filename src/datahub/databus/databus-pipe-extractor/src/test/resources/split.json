@@ -1,0 +1,52 @@
+{
+    "type": "fun",
+    "method": "from_json",
+    "next": {
+        "type": "branch",
+        "next": [
+            {
+                "type": "access",
+                "subtype": "access_obj",
+                "key": "_value_",
+                "next": {
+                    "type": "fun",
+                    "method": "iterate",
+                    "next": {
+                        "type": "fun",
+                        "method": "split",
+                        "args": ["|"],
+                        "next": {
+                            "type": "assign",
+                            "subtype": "assign_pos",
+                            "assign": [
+                                {
+                                    "index": 0,
+                                  "assign_to": "onlinenum",
+                                  "type": "int"
+                                },
+                                {
+                                    "index": 1,
+                                    "assign_to": "set"
+                                },
+                                {
+                                    "index": 2,
+                                    "assign_to": "set2"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "type": "assign",
+                "subtype": "assign_obj",
+                "assign": [
+                    {
+                        "key": "_time_",
+                        "assign_to": "report_time"
+                    }
+                ]
+            }
+        ]
+    }
+}

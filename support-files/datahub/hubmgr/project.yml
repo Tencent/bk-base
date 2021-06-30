@@ -1,0 +1,8 @@
+- name: hubmgr
+  module: bkdata
+  project_dir: bkdata/hubmgr
+  alias: hubmgr
+  role: "node"
+  version: DATABUS_VERSION
+  version_type: DATABUS_VERSION_TYPE
+  language: java/1.8

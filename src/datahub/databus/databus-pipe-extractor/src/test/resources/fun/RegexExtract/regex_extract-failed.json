@@ -1,0 +1,17 @@
+{
+  "type": "fun",
+  "method": "regex_extract",
+  "args": [
+    {"regexp":"a(?P<data>\\d+)b", "keys": ["data"]}
+  ],
+  "next": {
+    "type": "assign",
+    "subtype": "assign_obj",
+    "assign": [
+      {
+        "key": "data",
+        "assign_to": "data"
+      }
+    ]
+  }
+}

@@ -1,0 +1,694 @@
+# Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+#
+# Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+#
+# BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+#
+# License for BK-BASE 蓝鲸基础平台:
+# --------------------------------------------------------------------
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+# LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-25 17:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: api/api_driver.py:41
+msgid "API返回为空"
+msgstr "API return null"
+
+#: api/api_driver.py:44
+#, python-format
+msgid "调用%(api_name)s失败(%(code)s) - %(message)s"
+msgstr "call %(api_name)s failed (%(code)s) - %(message)s"
+
+#: api/api_driver.py:51
+msgid "API返回格式错误"
+msgstr "API return message format error"
+
+#: api/auth.py:27
+msgid "项目信息"
+msgstr "project information"
+
+#: api/auth.py:44
+msgid "校验用户权限"
+msgstr "verify user permission"
+
+#: api/auth.py:56 api/auth.py:64
+msgid "获取成员"
+msgstr "get members"
+
+#: api/auth.py:73
+msgid "获取项目成员"
+msgstr "get project members"
+
+#: api/auth.py:81
+msgid "审批单据"
+msgstr "auth ticket"
+
+#: api/auth.py:93
+msgid "资源组授权"
+msgstr "resource group authorization"
+
+#: api/dataquery.py:24
+msgid "数据查询"
+msgstr "data query"
+
+#: api/meta.py:24
+msgid "获取集群组详情"
+msgstr "get cluster group information"
+
+#: api/meta.py:32
+msgid "获取项目元信息"
+msgstr "get project meta information"
+
+#: api/storekit.py:24
+msgid "存储场景"
+msgstr "storage scenarios"
+
+#: api/storekit.py:32 api/storekit.py:39
+msgid "存储集群容量信息"
+msgstr "storage capacity information"
+
+#: error_code/errorcodes.py:35
+msgid "参数异常"
+msgstr "argument exception"
+
+#: error_code/errorcodes.py:36
+msgid "元数据接口调用异常"
+msgstr "call metadata interface exception"
+
+#: error_code/errorcodes.py:37
+msgid "内部服务异常"
+msgstr "internal service exception"
+
+#: error_code/errorcodes.py:38
+msgid "外部服务异常"
+msgstr "external service exception"
+
+#: error_code/errorcodes.py:39
+msgid "调用状态异常"
+msgstr "call status exception"
+
+#: error_code/errorcodes.py:40
+msgid "非法状态"
+msgstr "illegal status"
+
+#: error_code/errorcodes.py:41
+msgid "无权限操作"
+msgstr "unauthorized operation"
+
+#: error_code/errorcodes.py:42
+msgid "期望外异常"
+msgstr "unexpected exception"
+
+#: meta/meta_helper.py:31
+msgid "meta API返回为空"
+msgstr "meta API return null"
+
+#: serializers/processing_metrics_serializers.py:22
+#: serializers/storage_metrics_serializers.py:22
+msgid "开始日期"
+msgstr "start date"
+
+#: serializers/processing_metrics_serializers.py:23
+#: serializers/storage_metrics_serializers.py:23
+msgid "结束日期"
+msgstr "end date"
+
+#: serializers/processing_metrics_serializers.py:24
+#: serializers/serializers.py:81 serializers/serializers.py:130
+#: serializers/serializers.py:164 serializers/serializers.py:169
+#: serializers/serializers.py:173 serializers/serializers.py:187
+#: serializers/serializers.py:192 serializers/serializers.py:201
+#: serializers/serializers.py:206 serializers/serializers.py:215
+#: serializers/storage_metrics_serializers.py:24
+msgid "地区"
+msgstr "geog area"
+
+#: serializers/processing_metrics_serializers.py:30
+#: serializers/storage_metrics_serializers.py:30
+msgid "开始日期，格式为YYYY-MM-DD HH:mm:SS"
+msgstr "start date: YYYY-MM-DD HH:mm:SS"
+
+#: serializers/processing_metrics_serializers.py:37
+#: serializers/storage_metrics_serializers.py:37
+msgid "结束日期，格式为YYYY-MM-DD HH:mm:SS"
+msgstr "end date: YYYY-MM-DD HH:mm:SS"
+
+#: serializers/serializers.py:25 serializers/serializers.py:66
+#: serializers/serializers.py:77
+msgid "资源组英文标识"
+msgstr "resource group ID"
+
+#: serializers/serializers.py:26 serializers/serializers.py:50
+#: serializers/serializers.py:67 views/resource_group_views.py:172
+msgid "资源组名称"
+msgstr "resource group name"
+
+#: serializers/serializers.py:27
+msgid "资源组管理员"
+msgstr "resource group administrator"
+
+#: serializers/serializers.py:28 serializers/serializers.py:51
+#: views/resource_group_views.py:174
+msgid "资源组类型"
+msgstr "resource group type"
+
+#: serializers/serializers.py:29 serializers/serializers.py:52
+msgid "任务名称"
+msgstr "job name"
+
+#: serializers/serializers.py:30 serializers/serializers.py:53
+#: serializers/serializers.py:68 serializers/serializers.py:152
+msgid "描述说明"
+msgstr "description"
+
+#: serializers/serializers.py:34
+msgid ""
+"资源组英文标识只能包含英文、数字、中划线和下划线，且不能中划线和数字开头"
+msgstr ""
+"resource group ID can only contain English, Numbers, underscores, and "
+"underscores, and cannot begin with underscores and Numbers"
+
+#: serializers/serializers.py:36
+msgid "资源组英文标识不允许使用连续两个下划线。"
+msgstr ""
+"resource group ID does not allow the use of two consecutive underscores"
+
+#: serializers/serializers.py:43 serializers/serializers.py:59
+#, python-format
+msgid ""
+"非法资源组类型（%(group_type)s），目前仅支持文件类型（%(group_type_arrays)s）"
+msgstr ""
+"illegal resource group type:（%(group_type)s）. Currently only the following "
+"types are supported:（%(group_type_arrays)s）"
+
+#: serializers/serializers.py:72
+msgid "审批人"
+msgstr "approver"
+
+#: serializers/serializers.py:73
+msgid "审批结果"
+msgstr "approve result"
+
+#: serializers/serializers.py:78 serializers/serializers.py:103
+#: serializers/serializers.py:115 serializers/serializers.py:122
+#: serializers/serializers.py:132 serializers/serializers.py:220
+#: serializers/serializers.py:265 serializers/serializers.py:311
+#: serializers/serializers.py:325 views/group_capacity_views.py:239
+msgid "资源分类"
+msgstr "resource type"
+
+#: serializers/serializers.py:79 serializers/serializers.py:104
+#: serializers/serializers.py:116 serializers/serializers.py:133
+#: serializers/serializers.py:174 serializers/serializers.py:188
+#: serializers/serializers.py:193 serializers/serializers.py:202
+#: serializers/serializers.py:207 serializers/serializers.py:216
+#: serializers/serializers.py:221 serializers/serializers.py:266
+#: serializers/serializers.py:312 serializers/serializers.py:326
+#: views/group_capacity_views.py:240
+msgid "服务类型"
+msgstr "service type"
+
+#: serializers/serializers.py:80
+msgid "单据类型"
+msgstr "ticket type"
+
+#: serializers/serializers.py:82 serializers/serializers.py:94
+msgid "资源套餐ID"
+msgstr "unit ID"
+
+#: serializers/serializers.py:83 serializers/serializers.py:95
+msgid "数量"
+msgstr "quantity"
+
+#: serializers/serializers.py:84 serializers/serializers.py:334
+#: views/group_capacity_views.py:245
+msgid "申请原因"
+msgstr "reason"
+
+#: serializers/serializers.py:88
+msgid "申请资源数量必须大于0。"
+msgstr "The number of resources requested must be greater than 0."
+
+#: serializers/serializers.py:93
+msgid "申请单号"
+msgstr "apply ID"
+
+#: serializers/serializers.py:96
+msgid "实施结果"
+msgstr "result"
+
+#: serializers/serializers.py:97
+msgid "状态"
+msgstr "status"
+
+#: serializers/serializers.py:98 serializers/serializers.py:126
+#: serializers/serializers.py:178 serializers/serializers.py:197
+#: serializers/serializers.py:211 serializers/serializers.py:222
+#: serializers/serializers.py:267 serializers/serializers.py:313
+#: serializers/serializers.py:327 serializers/serializers.py:374
+#: serializers/serializers.py:408
+msgid "集群ID"
+msgstr "cluster ID"
+
+#: serializers/serializers.py:102
+msgid "配置单元名称"
+msgstr "unit name"
+
+#: serializers/serializers.py:105 serializers/serializers.py:137
+msgid "CPU数量"
+msgstr "number of CPU"
+
+#: serializers/serializers.py:106 serializers/serializers.py:138
+msgid "内存数据量"
+msgstr "number of memory"
+
+#: serializers/serializers.py:107 serializers/serializers.py:139
+msgid "GPU数量"
+msgstr "number of GPU"
+
+#: serializers/serializers.py:108 serializers/serializers.py:140
+msgid "存储容量"
+msgstr "storage capacity"
+
+#: serializers/serializers.py:109 serializers/serializers.py:141
+msgid "网络带宽"
+msgstr "network bandwidth"
+
+#: serializers/serializers.py:110 serializers/serializers.py:142
+msgid "处理槽位"
+msgstr "processor slot"
+
+#: serializers/serializers.py:111 serializers/serializers.py:118
+#: serializers/serializers.py:135 serializers/serializers.py:229
+#: serializers/serializers.py:274
+msgid "是否生效"
+msgstr "is active"
+
+#: serializers/serializers.py:117
+msgid "服务类型名称"
+msgstr "service type name"
+
+#: serializers/serializers.py:127 serializers/serializers.py:223
+#: serializers/serializers.py:268 serializers/serializers.py:314
+#: serializers/serializers.py:328 serializers/serializers.py:377
+#: serializers/serializers.py:404
+msgid "集群类型"
+msgstr "cluster type"
+
+#: serializers/serializers.py:128 serializers/serializers.py:224
+#: serializers/serializers.py:269
+msgid "集群名称"
+msgstr "cluster name"
+
+#: serializers/serializers.py:129 serializers/serializers.py:225
+#: serializers/serializers.py:270
+msgid "组件类型"
+msgstr "component type"
+
+#: serializers/serializers.py:131 serializers/serializers.py:163
+#: serializers/serializers.py:227 serializers/serializers.py:272
+#: serializers/serializers.py:333 serializers/serializers.py:339
+#: serializers/serializers.py:346 serializers/serializers.py:357
+#: serializers/serializers.py:382 views/group_capacity_views.py:237
+#: views/resource_group_views.py:171
+msgid "资源组ID"
+msgstr "resource group ID"
+
+#: serializers/serializers.py:134
+msgid "外部系统集群ID"
+msgstr "source cluster ID"
+
+#: serializers/serializers.py:136 serializers/serializers.py:230
+#: serializers/serializers.py:275
+msgid "是否可以拆分分配"
+msgstr "is splittable"
+
+#: serializers/serializers.py:143
+msgid "可用CPU数量"
+msgstr "available number of CPU"
+
+#: serializers/serializers.py:144
+msgid "可用内存数据量"
+msgstr "available number of memory"
+
+#: serializers/serializers.py:145
+msgid "可用GPU数量"
+msgstr "available number of GPU"
+
+#: serializers/serializers.py:146
+msgid "可用存储容量"
+msgstr "available number of storage"
+
+#: serializers/serializers.py:147
+msgid "可用网络带宽"
+msgstr "available number of network bandwidth"
+
+#: serializers/serializers.py:148
+msgid "可用处理槽位"
+msgstr "available number of processor slots"
+
+#: serializers/serializers.py:149 serializers/serializers.py:237
+#: serializers/serializers.py:282
+msgid "集群连接信息"
+msgstr "cluster connection information"
+
+#: serializers/serializers.py:150 serializers/serializers.py:238
+#: serializers/serializers.py:283
+msgid "优先度"
+msgstr ""
+
+#: serializers/serializers.py:151 serializers/serializers.py:239
+#: serializers/serializers.py:284
+msgid "所属父集群"
+msgstr ""
+
+#: serializers/serializers.py:165 serializers/serializers.py:228
+#: serializers/serializers.py:273
+msgid "集群组"
+msgstr "cluster group"
+
+#: serializers/serializers.py:175 serializers/serializers.py:194
+#: serializers/serializers.py:208
+msgid "开始时间"
+msgstr "start time"
+
+#: serializers/serializers.py:176 serializers/serializers.py:195
+#: serializers/serializers.py:209
+msgid "结束时间"
+msgstr "end time"
+
+#: serializers/serializers.py:177 serializers/serializers.py:196
+#: serializers/serializers.py:210
+msgid "时间单位"
+msgstr "time unit"
+
+#: serializers/serializers.py:182
+msgid "不支持的time_unit值，time_unit取值为：5min, 10min, 30min, hour, day"
+msgstr ""
+"unsupported time_unit, only the following values are supported:5min, 10min, "
+"30min, hour, day "
+
+#: serializers/serializers.py:226 serializers/serializers.py:271
+#: serializers/serializers.py:315 serializers/serializers.py:329
+#: serializers/serializers.py:340 serializers/serializers.py:347
+#: serializers/serializers.py:358 serializers/serializers.py:383
+msgid "区域"
+msgstr "area"
+
+#: serializers/serializers.py:231 serializers/serializers.py:276
+#: serializers/serializers.py:316
+msgid "CPU数量，单位core"
+msgstr "number of CPU, unit: core"
+
+#: serializers/serializers.py:232 serializers/serializers.py:277
+#: serializers/serializers.py:317
+msgid "内存数据量，单位MB"
+msgstr "number of CPU, unit: MB"
+
+#: serializers/serializers.py:233 serializers/serializers.py:278
+#: serializers/serializers.py:318
+msgid "GPU数量，单位core类型"
+msgstr "number of GPU, unit: core"
+
+#: serializers/serializers.py:234 serializers/serializers.py:279
+#: serializers/serializers.py:319
+msgid "存储容量，单位MB"
+msgstr "number of storage, unit: MB"
+
+#: serializers/serializers.py:235 serializers/serializers.py:280
+#: serializers/serializers.py:320
+msgid "网络带宽，单位bit"
+msgstr "network bandwidth, unit: bit"
+
+#: serializers/serializers.py:236 serializers/serializers.py:281
+#: serializers/serializers.py:321
+msgid "处理槽位，单位个"
+msgstr "processor slots"
+
+#: serializers/serializers.py:245 serializers/serializers.py:291
+#, python-format
+msgid ""
+"非法资源分类: %(resource_type)s，目前仅支持文件类型"
+"（%(resource_type_arrays)s）"
+msgstr ""
+"illegal resource type: %(resource_type)s. Only the follows types are "
+"supported: （%(resource_type_arrays)s）"
+
+#: serializers/serializers.py:259 serializers/serializers.py:305
+msgid "resource_group_id 和 cluster_group 必须填一个"
+msgstr "resource_group_id or cluster_group is required"
+
+#: serializers/serializers.py:285
+msgid "资源更新类型(full:全量更新，incremental：增量）"
+msgstr "resource update type: full/incremental"
+
+#: serializers/serializers.py:338 serializers/serializers.py:345
+#: serializers/serializers.py:356 serializers/serializers.py:381
+msgid "任务ID"
+msgstr "job ID"
+
+#: serializers/serializers.py:341 serializers/serializers.py:348
+#: serializers/serializers.py:352 serializers/serializers.py:359
+#: serializers/serializers.py:384
+msgid "任务状态"
+msgstr "job status"
+
+#: serializers/serializers.py:360
+msgid "结果集记录数限制"
+msgstr "result set record limit"
+
+#: serializers/serializers.py:364
+msgid "job_id 和 resource_group_id 必须填一个"
+msgstr "job_id or resource_group_id is required"
+
+#: serializers/serializers.py:366
+msgid "传入 resource_group_id 时必须同时传入 geog_area_code"
+msgstr "geog_are_code is required when resource_group_id is provided"
+
+#: serializers/serializers.py:368
+msgid "status 和 limit 必须填一个"
+msgstr "status or limit is required"
+
+#: serializers/serializers.py:375 serializers/serializers.py:402
+msgid "集群名"
+msgstr "cluster name"
+
+#: serializers/serializers.py:376 serializers/serializers.py:403
+msgid "资源类型"
+msgstr "resource type"
+
+#: serializers/serializers.py:378 serializers/serializers.py:409
+msgid "提交实例ID"
+msgstr "submit instance ID"
+
+#: serializers/serializers.py:380
+msgid "任务提交ID"
+msgstr "submit ID"
+
+#: serializers/serializers.py:385
+msgid "提交实例列表"
+msgstr "submit instance list"
+
+#: serializers/serializers.py:390
+msgid "创建提交记录必须传入 job_id, resource_group_id, geog_area_code"
+msgstr "job_id, resource_group_id, geog_area_code are required"
+
+#: serializers/serializers.py:396
+#, python-format
+msgid "重复的集群ID：%s"
+msgstr "duplicated cluster ID: %s"
+
+#: serializers/serializers.py:416
+msgid ""
+"至少传入一个查询参数：cluster_id, cluster_name, resource_type, cluster_type, "
+"inst_id"
+msgstr ""
+"at least one of the follows param is required: cluster_id, cluster_name, "
+"resource_type, cluster_type, inst_id"
+
+#: serializers/serializers.py:422
+msgid "清理时间阈值"
+msgstr "clear time threshold"
+
+#: serializers/serializers.py:430
+#, python-format
+msgid "任务资源提交记录最少保留%s天"
+msgstr "job submit resource is reserve for at least %s days"
+
+#: services/cluster_register_svc.py:29
+msgid "该cluster_group对应的资源组不存在，请联系管理员。"
+msgstr "resource_group for given cluster_group is not exist"
+
+#: services/cluster_register_svc.py:201
+msgid "该资源组申请被拒绝，不能注册集群。"
+msgstr ""
+"The resource group application was rejected and the cluster cannot be "
+"registered."
+
+#: services/cluster_register_svc.py:203
+msgid "该资源组已经被删除，不能注册集群。"
+msgstr ""
+"The resource group has been deleted and the cluster cannot be registered"
+
+#: services/cluster_register_svc.py:206
+msgid "该资源组还在审批流程中，还不能注册集群，请先联系相关人员审批。"
+msgstr ""
+"The resource group is still in the approval process and cannot register the "
+"cluster. Please contact relevant personnel for approval first."
+
+#: services/resource_group_svc.py:54
+msgid "计算资源"
+msgstr ""
+
+#: services/resource_group_svc.py:62
+msgid "总线资源"
+msgstr ""
+
+#: services/resource_group_svc.py:70
+msgid "存储资源"
+msgstr ""
+
+#: views/group_capacity_views.py:170
+msgid "不是资源组管理员，没有权限进行资源扩缩容申请。"
+msgstr ""
+"Is not a resource group manager, does not have the authority to expand the "
+"resource volume application"
+
+#: views/group_capacity_views.py:176
+#, python-format
+msgid "资源组不存在，资源组ID=%s。"
+msgstr ""
+"You are not a resource group manager, do not have the authority to expand "
+"the resource volume application, resource_group_id:%s"
+
+#: views/group_capacity_views.py:181
+msgid "资源组未生效，不允许申请资源。"
+msgstr ""
+"The resource group is not in effect. You are not allowed to apply for "
+"resources"
+
+#: views/group_capacity_views.py:213
+msgid "资源单元型号，不存在。"
+msgstr "resource unit not exist"
+
+#: views/group_capacity_views.py:235
+msgid "资源申请"
+msgstr "apply for resource "
+
+#: views/group_capacity_views.py:238 views/resource_group_views.py:173
+msgid "所属业务"
+msgstr "business"
+
+#: views/group_capacity_views.py:241
+msgid "集群组ID"
+msgstr "cluster ID"
+
+#: views/group_capacity_views.py:243
+msgid "内存"
+msgstr "memory"
+
+#: views/group_capacity_views.py:244
+msgid "磁盘"
+msgstr "hard disk"
+
+#: views/group_capacity_views.py:416 views/group_capacity_views.py:429
+#, python-format
+msgid "资源扩缩容申请单(%(apply_id)s)当前状态为: %(status)s，审批无效。"
+msgstr ""
+"Status of application form:%(apply_id)s for resource expansion is "
+"%(status)s, rejected"
+
+#: views/job_submit_views.py:359
+#, python-format
+msgid "任务资源提交记录(%s)不存在。"
+msgstr "job resource submit record:%s not exist"
+
+#: views/project_auth_views.py:119
+msgid "已经申请过该资源组，无需重复申请。"
+msgstr ""
+"You have already applied for this resource group. There is no need to apply "
+"again"
+
+#: views/project_auth_views.py:123
+msgid "资源组不存在，请确认后再申请。"
+msgstr "The resource group does not exist. Please confirm and apply again"
+
+#: views/project_auth_views.py:125
+msgid "该资源组是公开的无需申请。"
+msgstr "The resource group is open without application"
+
+#: views/resource_group_views.py:169
+msgid "创建资源组"
+msgstr "create resource group"
+
+#: views/resource_group_views.py:175
+msgid "描述"
+msgstr "description"
+
+#: views/resource_group_views.py:218 views/resource_group_views.py:287
+#: views/resource_group_views.py:460
+msgid "不是资源组管理员，没有权限修改。"
+msgstr ""
+"You are not a resource group administrator and have no permission to modify"
+
+#: views/resource_group_views.py:247
+msgid "业务ID有不正确。"
+msgstr "business ID incorrect"
+
+#: views/resource_group_views.py:249
+msgid "资源组ID有不正确。"
+msgstr "resource group ID incorrect"
+
+#: views/resource_group_views.py:415 views/resource_group_views.py:425
+#, python-format
+msgid "资源组(%(resource_group_id)s)当前状态为: %(status)s，审批无效。"
+msgstr "Status of resource group:%(resource_group_id)s is %(status)s, rejected"
+
+#: views/resource_group_views.py:464
+#, python-format
+msgid "资源组(%s)生效中，不可以删除。"
+msgstr "resource group:%s is active, deleting is not allowed"
+
+#: views/resource_group_views.py:820
+msgid "项目"
+msgstr "project"
+
+#: views/resource_group_views.py:820
+msgid "业务"
+msgstr "business"
+
+#: views/resource_group_views.py:820
+msgid "数据 dataId"
+msgstr "data ID"
+
+#: views/resource_register_views.py:100
+msgid "该集群信息已经存在。"
+msgstr "cluster information already exists"
+
+#: views/resource_register_views.py:221
+msgid "该集群配置不存在。"
+msgstr "cluster config not exist"

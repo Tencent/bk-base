@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-03 22:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: common/api/base.py:180
+msgid "API请求异常，请管理员排查问题"
+msgstr ""
+
+#: common/api/base.py:188
+#, python-brace-format
+msgid "API请求异常，状态码（{code}），请管理员排查问题"
+msgstr ""
+
+#: common/api/base.py:220
+msgid "返回数据格式不正确，结果格式非json."
+msgstr ""
+
+#: common/api/base.py:307
+#, python-brace-format
+msgid "异常请求方式，{method}"
+msgstr ""
+
+#: common/api/base.py:314
+#, python-brace-format
+msgid "请求参数中请包含参数{key}"
+msgstr ""
+
+#: common/api/base.py:473
+#, python-brace-format
+msgid "请求方法{key}不存在"
+msgstr ""
+
+#: common/auth/exceptions.py:20
+msgid "权限不足"
+msgstr ""
+
+#: common/auth/exceptions.py:25
+msgid "必要参数缺失"
+msgstr ""
+
+#: common/auth/exceptions.py:30
+msgid "认证不通过，请提供合法的 BKData 认证信息"
+msgstr ""
+
+#: common/auth/exceptions.py:35
+msgid "内部模块调用请传递准确的 bk_app_code 和 bk_app_secret"
+msgstr ""
+
+#: common/auth/exceptions.py:40
+msgid "请传递合法的 data_token"
+msgstr ""
+
+#: common/auth/exceptions.py:45
+msgid "非白名单 APP 不可直接访问接口"
+msgstr ""
+
+#: common/auth/exceptions.py:50
+msgid "未检测到有效的认证信息"
+msgstr ""
+
+#: common/auth/identities.py:168
+msgid "参数 bk_username 不可为空"
+msgstr ""
+
+#: common/auth/perms.py:12
+msgid "bk_username不可为空"
+msgstr ""
+
+#: common/auth/perms.py:24
+msgid "bk_app_code不可为空"
+msgstr ""
+
+#: common/auth/perms.py:47
+msgid "data_token不可为空"
+msgstr ""
+
+#: common/base_utils.py:194
+#, python-brace-format
+msgid "参数校验失败:{wrap}"
+msgstr "Failed to validate parameters:{wrap}"
+
+#: common/base_utils.py:210
+#, python-brace-format
+msgid "{wrap}{prefix}第{index}项:"
+msgstr "{wrap}{prefix}No.{index}"
+
+#: common/base_utils.py:251
+msgid "参数校验失败，详情请查看返回的errors"
+msgstr "Failed to validate parameters. You can see the details from 'errors'"
+
+#: common/decorators.py:160 common/decorators.py:215
+msgid ""
+"该装饰器只允许用于Django的View函数(包括普通View函数和Class-base的View函数)"
+msgstr ""
+
+#: common/exceptions.py:51
+msgid "参数校验错误"
+msgstr "Failed to validate parameters"
+
+#: common/exceptions.py:52
+msgid "调用API异常"
+msgstr "Exception by calling other API"
+
+#: common/exceptions.py:53
+msgid "API返回异常"
+msgstr "Exception by content the other API returned"
+
+#: common/exceptions.py:55
+#, python-brace-format
+msgid "对象不存在：{table}[{column}={value}]"
+msgstr ""
+
+#: common/exceptions.py:56
+#, python-brace-format
+msgid "对象已存在，无法添加：{table}[{column}={value}]"
+msgstr ""
+
+#: common/exceptions.py:58
+msgid "该模型已注册为需要进行数据同步的ORM模型"
+msgstr ""
+
+#: common/exceptions.py:59
+msgid "元数据信息同步失败"
+msgstr ""
+
+#: common/exceptions.py:60
+msgid "元数据同步类注册失败"
+msgstr ""
+
+#: common/exceptions.py:62
+msgid "正常响应"
+msgstr ""
+
+#: common/exceptions.py:63
+msgid "API不存在"
+msgstr ""
+
+#: common/exceptions.py:64
+msgid "系统异常"
+msgstr ""
+
+#: common/exceptions.py:66
+msgid "普通异常"
+msgstr ""
+
+#: common/exceptions.py:67
+#, python-brace-format
+msgid "带有参数的异常，{param1}，{param2}"
+msgstr ""
+
+#: common/transaction.py:121 common/transaction.py:212
+msgid "请求元数据接口异常({})，数据同步失败"
+msgstr "Failed to synchronize the meta data because of the exception by calling Meta API({})."
+
+#: common/transaction.py:125 common/transaction.py:216
+msgid "请求元数据接口失败({})，数据同步失败"
+msgstr "Failed to synchronize the meta data because of calling Meta API({}) failed."
+
+#: demo/serializers.py:36
+msgid "聚合函数"
+msgstr ""
+
+#: demo/serializers.py:40
+msgid "统计数值"
+msgstr ""
+
+#: demo/serializers.py:41
+msgid "详情"
+msgstr ""
+
+#: demo/serializers.py:43
+msgid "实例ID"
+msgstr ""
+
+#: demo/serializers.py:44
+msgid "业务"
+msgstr ""
+
+#: demo/serializers.py:45
+msgid "项目"
+msgstr ""
+
+#: demo/serializers.py:46
+msgid "名称"
+msgstr ""
+
+#: demo/serializers.py:47
+msgid "配置"
+msgstr ""

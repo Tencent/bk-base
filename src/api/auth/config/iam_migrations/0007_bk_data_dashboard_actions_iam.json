@@ -1,0 +1,89 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "dashboard-create",
+                "name": "面板创建",
+                "name_en": "Dashboard Create",
+                "description": "面板创建",
+                "description_en": "Dashboard Create",
+                "type": "create",
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "dashboard-delete",
+                "name": "面板删除",
+                "name_en": "Dashboard Delete",
+                "description": "面板删除",
+                "description_en": "Dashboard Delete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "dashboard",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-dashboard"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "dashboard-retrieve",
+                "name": "面板查看",
+                "name_en": "Dashboard View",
+                "description": "面板查看",
+                "description_en": "Dashboard View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "dashboard",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-dashboard"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "dashboard-update",
+                "name": "面板编辑",
+                "name_en": "Dashboard Edit",
+                "description": "面板编辑",
+                "description_en": "Dashboard Edit",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "dashboard",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-dashboard"
+                            }
+                        ]
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

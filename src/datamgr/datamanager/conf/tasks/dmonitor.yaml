@@ -1,0 +1,162 @@
+plans:
+  - task_code: sync_meta_cache
+    task_name: 同步元数据到Cache
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.sync_meta_to_redis
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_common_metrics_clean
+    task_name: 通用埋点清理和解析
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.metrics_perceive_and_process
+    task_params: '{"topic": "bkdata_data_monitor_metrics591"}'
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_databus_metrics_clean
+    task_name: 总线埋点清理和解析
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.metrics_perceive_and_process
+    task_params: '{"topic": "bkdata_data_monitor_databus_metrics591"}'
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_delay_metrics
+    task_name: 生成延迟指标
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.data_delay_metrics
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_drop_metrics
+    task_name: 生成无效率指标
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.data_drop_metrics
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_metrics_storage
+    task_name: 质量指标入库
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.metrics_storage
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_rawdata_metrics
+    task_name: 数据源数据量统计
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.rawdata_msg_cnt_metrics
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_alert_match
+    task_name: 原始告警匹配用户告警配置任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.alert_match
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_alert_summary
+    task_name: 告警收敛和汇总任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.alert_convergence_and_summary
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_no_data_alert
+    task_name: 无数据告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.no_data_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_data_drop_alert
+    task_name: 数据丢弃告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.data_drop_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_data_trend_alert
+    task_name: 数据波动告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.data_trend_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_data_delay_alert
+    task_name: 数据延迟告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.data_delay_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_process_delay_alert
+    task_name: 处理延迟告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.process_delay_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_data_interrupt_alert
+    task_name: 数据中断告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.data_interrupt_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_delay_trend_alert
+    task_name: 延迟趋势告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.delay_trend_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_dataflow_task_alert
+    task_name: 数据开发任务告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.dataflow_task_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_data_loss_alert
+    task_name: 延迟趋势告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.data_loss_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_batch_data_trend_alert
+    task_name: 离线数据波动告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.batch_data_trend_alert
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dmonitor_batch_delay_alert
+    task_name: 离线任务延迟告警任务
+    task_category: dmonitor
+    task_loader: import
+    task_entry: dmonitor.main.batch_delay_alert
+    task_status: 'on'
+    work_type: long

@@ -1,0 +1,539 @@
+# vim:ft=sh sts=4 ts=4 sw=4 expandtab
+
+cd ${BASH_SOURCE%/*} 2>/dev/null
+
+source ./utils.fc
+source ./status.rc
+source ./crontab.rc
+
+load_functions control third
+load_functions control extra
+load_module bcs
+load_module ci
+
+start () {
+    local prod="$1"
+    local proj="$2"
+    local proc="$3"
+    local ip
+
+    check_name start $prod
+
+    local TARGET_IPS=( $(map_name2ip $prod $proj) )
+
+    case $prod in
+        paas_plugin*|plugin) start_paas_plugins ;;
+        ntp ) start_ntp $proj $proc ;;
+        rabbitmq) _start_rabbitmq  ;;
+        all) start_all ;;
+        #bkdata) 
+        #    local ORDERED_PROJECTS=( $(grep -Po '(?<=name: )[a-z-_]+' $PKG_SRC_PATH/bkdata/projects.yaml) )
+        #    local p host_project=$CTRL_DIR/.${prod}.proj.start.ord
+        #    : > $host_project
+        #    for p in ${ORDERED_PROJECTS[@]}; do
+        #        for ip in $(value_of "BKDATA_${p^^}_IP[@]"); do
+        #            echo $ip $p >>$host_project
+        #        done
+        #    done
+
+        #    # 连续IP，只登陆一次
+        #    while read ip all_proj; do
+        #        (
+        #            rcmd root@$ip "
+        #                source $CTRL_DIR/control.rc;
+        #                start_multi_project ${prod%0*} $all_proj; ret=\$?;
+        #                addcron_for ${prod%0*}; exec <&-; exit \$ret"
+        #            exit $?
+        #        )
+        #        let ret+=$?
+        #    done < <(awk '$1 in a {a[$1] = a[$1] " "$2;next}NR>1{print y, a[y]; delete a[y];}{a[$1] = $2;y=$1}END{for (i in a) print i, a[i]}' $host_project)
+
+        #    return $ret
+        #    ;;
+        *)
+            [ $prod == "consul" ]    && TARGET_IPS=( ${ALL_IP[@]} )
+            [ $prod == "gse_agent" ] && TARGET_IPS=( ${ALL_IP[@]} )
+            [ $prod == "open_paas" ] && TARGET_IPS=( ${PAAS_IP[@]} )
+            [ $prod == "tsdbproxy" ] && TARGET_IPS=( ${INFLUXDB_IP[@]} )
+            [ $prod == "saas-o" ]    && TARGET_IPS=( ${APPO_IP[@]})
+            [ $prod == "saas-t" ]    && TARGET_IPS=( ${APPT_IP[@]})
+
+            for ip in ${TARGET_IPS[@]}; do
+                log "starting $prod(${proj:-ALL}) on host: $ip"
+                rcmd root@$ip "
+                    source $CTRL_DIR/control.rc;
+                    start_${prod%0*} $proj $proc; ret=\$?;
+                    addcron_for ${prod%0*}; exec <&-; exit \$ret"
+                let ret+=$?
+            done
+
+            return $ret
+            ;;
+    esac
+}
+
+stop () {
+    local prod="$1"
+    local proj="$2"
+    local proc="$3"
+
+    check_name stop $prod
+
+    TARGET_IPS=( $(map_name2ip $prod $proj) )
+
+    case $prod in
+        paas_plugin*|plugin) stop_paas_plugins ;;
+        rabbitmq) _stop_rabbitmq ;;
+        ntp ) stop_ntp $proj $proc ;;
+        all) stop_all ;;
+        *)
+            [ $prod == "consul" ]    && TARGET_IPS=( ${ALL_IP[@]} )
+            [ $prod == "gse_agent" ] && TARGET_IPS=( ${ALL_IP[@]} )
+            [ $prod == "open_paas" ] && TARGET_IPS=( ${PAAS_IP[@]} )
+            [ $prod == "tsdbproxy" ] && TARGET_IPS=( ${INFLUXDB_IP[@]} )
+            [ $prod == "saas-o" ]    && TARGET_IPS=( ${APPO_IP[@]})
+            [ $prod == "saas-t" ]    && TARGET_IPS=( ${APPT_IP[@]})
+
+            for ip in ${TARGET_IPS[@]}; do
+                log "stopping $prod(${proj:-ALL}) on host: $ip"
+                rcmd root@$ip "source $CTRL_DIR/control.rc; removecron_for ${prod%0*}; stop_${prod%0*} $proj $proc"
+            done
+        ;;
+    esac
+}
+
+_reload_proc_if_is_running () {
+    local proc=$1
+
+    if ps_status_$proc >/dev/null 2>&1; then
+        case $proc in 
+            nginx) nginx -s reload ;;
+        esac
+    fi
+}
+
+_start_proc_if_not_running () {
+    local module=$1
+
+    if ! ps_status_$module >/dev/null 2>&1; then
+        _start_$module
+    fi
+}
+
+_stop_proc_if_running () {
+    local module=$1
+
+    if ps_status_$module >/dev/null 2>&1; then
+        _stop_$module
+    fi
+}
+
+start_multi_project () {
+    local module=$1; shift
+    local p
+
+    for p in $@; do
+        start_$module $p
+    done
+}
+
+start_bkdata () {
+    local module=bkdata
+    local proj="$1"
+    local proc="$2"
+    local sp_conf
+
+    local projects=( $(selected_projects $module $proj) )
+
+    for p in ${projects[@]}; do
+        sp_conf=$INSTALL_PATH/etc/supervisor-${module}-${p}.conf
+        [ -f $sp_conf ] || fail "$sp_conf: file not found"
+        if [ $p == "jobnavirunner" ] ; then chmod 777 $INSTALL_PATH/logs/$module ; source $CTRL_DIR/extra/register_dataflow.rc ; register_jobnavirunner ; fi
+
+        chenv $module $p
+
+        if ! process_is_running "supervisord -c .*$sp_conf" >/dev/null; then
+            /opt/py27/bin/supervisord -c $sp_conf
+        fi
+
+        /opt/py27/bin/supervisorctl -c $sp_conf start all
+    done
+}
+
+hookctl () {
+    local action=$1
+    local module=$2
+    local project=$3
+    local project_dir
+
+    pop_items $module $project
+
+    [ ! -d $INSTALL_PATH/$project_dir ] && return 0
+    hook_program=$(find $INSTALL_PATH/$project_dir -maxdepth 2 -name "$action" | head -1)
+    if [ -n "$hook_program" -a -f "$hook_program" ]; then
+        chmod +x $hook_program
+        $hook_program
+    fi
+}
+
+stop_bkdata () {
+    local module=bkdata
+    local proj="$1"
+    local proc="$2"
+    local sp_conf
+    local projects=( $(selected_projects $module $proj) )
+
+    for p in ${projects[@]}; do
+        sp_conf=$INSTALL_PATH/etc/supervisor-${module}-${p}.conf
+        [ -f $sp_conf ] || fail "$sp_conf: file not found"
+
+        chenv $module $p
+
+        if process_is_running "supervisord -c .*$sp_conf" >/dev/null; then
+            /opt/py27/bin/supervisorctl -c $sp_conf stop all
+            /opt/py27/bin/supervisorctl -c $sp_conf shutdown
+        else
+            log "supervisord of $module($p) does not exists. ignore "
+        fi
+    done
+}
+
+start_nginx () {
+    _start_proc_if_not_running nginx
+}
+
+_start_nginx () {
+    nginx
+}
+
+stop_nginx () {
+    #_stop_proc_if_running nginx
+    nginx -s stop
+}
+
+_stop_nginx () {
+    nginx -s stop
+}
+
+_start_docker () {
+    # syscmd_byos start docker
+    $INSTALL_PATH/paas_agent/paas_agent/bin/dockerctl start
+    #dockerctl start
+}
+
+stop_docker () {
+    pkill dockerd
+}
+
+_stop_docker () {
+    pkill dockerd
+}
+
+_start_app () {
+    local project=$1
+    local evntype
+
+    read envtype ignore <$INSTALL_PATH/.app.env
+
+    case $envtype in
+        virtualenv) _start_app_venv $project ;;
+        docker) _start_app_container $project ;;
+    esac
+}
+
+_stop_app () {
+    local project=$1
+
+    read envtype ignore <$INSTALL_PATH/.app.env
+
+    case $envtype in
+        virtualenv) _stop_app_venv $project ;;
+        docker) _stop_app_container $project ;;
+    esac
+}
+
+__start_app_env () {
+    local app_code=$1
+    local venv_path=$INSTALL_PATH/paas_agent/apps/Envs/$app_code
+    local sp_conf=$INSTALL_PATH/paas_agent/apps/projects/$app_code/conf/supervisord.conf
+
+    [ -f $sp_conf ] || fail "$sp_conf: file not found"
+    source $venv_path/bin/activate || fail "enter virtuenv $app_code failed."
+
+    log "start app $project"
+    if ! process_is_running "supervisord -c .*$sp_conf" >/dev/null; then
+        su -m apps -c "$venv_path/bin/supervisord -c $sp_conf"
+    fi
+    su -m apps -c "$venv_path/bin/supervisorctl -c $sp_conf start all"
+}
+
+__stop_app_env () {
+    local app_code=$1
+    local venv_path=$INSTALL_PATH/paas_agent/apps/Envs/$app_code
+    local sp_conf=$INSTALL_PATH/paas_agent/apps/projects/$app_code/conf/supervisord.conf
+
+    [ -f $sp_conf ] || fail "$sp_conf: file not found"
+    source $venv_path/bin/activate || fail "enter virtuenv $app_code failed."
+
+    log "stop app $project"
+    if process_is_running "supervisord -c .*$sp_conf" >/dev/null; then
+        su -m apps -c "
+            $venv_path/bin/supervisorctl -c $sp_conf stop all
+            $venv_path/bin/supervisorctl -c $sp_conf shutdown
+        "
+    fi
+}
+
+_start_app_venv () {
+    local proejct=$1
+    local app_home=$INSTALL_PATH/paas_agent/apps/projects
+    local venv_path
+    local app_code
+
+    if [ ! -z "$project" ]; then
+        __start_app_env $project
+    else
+        config_files=$( shopt -s nullglob; echo $app_home/*/conf/supervisord.conf )
+
+        for f in ${config_files[@]}; do
+            app_code=$( echo $f | grep -Po '(?<=projects/)\w+(?=/conf/)' )
+            __start_app_env $app_code
+        done
+    fi
+}
+
+_stop_app_venv () {
+    local proejct=$1
+    local app_home=$INSTALL_PATH/paas_agent/apps/projects
+    local venv_path
+    local app_code
+
+    if [ ! -z "$project" ]; then
+        __stop_app_env $project
+    else
+        config_files=$( shopt -s nullglob; echo $app_home/*/conf/supervisord.conf )
+
+        for f in ${config_files[@]}; do
+            app_code=$( echo $f | grep -Po '(?<=projects/)\w+(?=/conf/)' )
+            __stop_app_env $app_code
+        done
+    fi
+}
+
+start_mongodb () {
+    local module=service
+    local proj=mongodb
+    local logfile=$INSTALL_PATH/logs/mongodb/mongod.log
+
+    $INSTALL_PATH/$module/$proj/bin/$proj.sh start
+    wait_for_done_bylog $logfile "waiting for connections on port $MONGODB_PORT"
+}
+
+stop_mongodb () {
+    local module=service
+    local proj=mongodb
+
+    $INSTALL_PATH/$module/$proj/bin/$proj.sh stop
+}
+
+start_nfs () {
+    service nfs start
+    service rpcbind start
+}
+
+stop_nfs () {
+    service nfs stop
+    service rpcbind stop
+}
+
+start_influxdb () {
+    service influxdb start
+}
+
+stop_influxdb () {
+    service influxdb stop
+}
+
+start_tsdbproxy () {
+    nohup /usr/bin/tsdb-proxy -config $INSTALL_PATH/etc/tsdb-proxy.conf >/dev/null 2>&1 &
+}
+
+stop_tsdbproxy () {
+    pkill tsdb-proxy
+}
+
+start_etcd () {
+    if [ "$1" == "--sys" ]; then
+        systemctl daemon-reload
+        systemctl enable etcd
+
+        log "exec systemctl start etcd."
+        at now <<< 'systemctl start etcd'
+    elif [[ -f /etc/systemd/system/etcd.service ]]; then
+        systemctl start etcd 
+    else
+        source $INSTALL_PATH/etc/etcd.conf
+        nohup /usr/bin/etcd --name $ETCD_NAME --data-dir=$ETCD_DATA_DIR \
+          --initial-advertise-peer-urls $ETCD_INITIAL_ADVERTISE_PEER_URLS \
+          --listen-peer-urls "$ETCD_LISTEN_PEER_URLS" \
+          --listen-client-urls "$ETCD_LISTEN_CLIENT_URLS" \
+          --advertise-client-urls "$ETCD_ADVERTISE_CLIENT_URLS" \
+          --initial-cluster-token "$ETCD_INITIAL_CLUSTER_TOKEN" \
+          --initial-cluster "$ETCD_INITIAL_CLUSTER" \
+          --initial-cluster-state new >/dev/null 2>&1 &
+    fi
+}
+
+stop_etcd () {
+    if [[ -f /etc/systemd/system/etcd.service ]]; then
+        systemctl stop etcd
+    else
+        pkill -x etcd
+    fi
+}
+
+start_consul () {
+    local sp_conf=$INSTALL_PATH/etc/supervisor-consul.conf
+    [ -f $sp_conf ] || fail "$sp_conf: file not found"
+
+    if process_is_running "supervisord .*supervisor-consul.conf"; then
+        /opt/py27/bin/supervisorctl -c $sp_conf start all
+    else
+        /opt/py27/bin/supervisord -c $sp_conf
+        /opt/py27/bin/supervisorctl -c $sp_conf start all
+    fi
+}
+
+stop_consul () {
+    local sp_conf=$INSTALL_PATH/etc/supervisor-consul.conf
+    [ -f $sp_conf ] || fail "$sp_conf: file not found"
+
+    /opt/py27/bin/supervisorctl -c $INSTALL_PATH/etc/supervisor-consul.conf shutdown
+}
+
+reload_consul () {
+    local sp_conf=$INSTALL_PATH/etc/supervisor-consul.conf
+    [ -f $sp_conf ] || fail "$sp_conf: file not found"
+
+    log "$(/opt/py27/bin/supervisorctl -c $INSTALL_PATH/etc/supervisor-consul.conf reload)"
+}
+
+stop_installed_service () {
+    local module=$1
+    local proj=$2
+    local service_id=$3
+
+    if grep -Eq "^$module\b" $INSTALL_PATH/.installed_sumary; then
+        stop $module $project $service_id
+    fi
+}
+
+start_installed_service () {
+    local module=$1
+    local proj=$2
+    local service_id=$3
+
+    if grep -Eq "^$module\b" $INSTALL_PATH/.installed_sumary; then
+        start $module $project $service_id
+    fi
+}
+
+stop_all () {
+    stop_installed_service nginx
+    stop_installed_service gse_agent
+
+    stop_installed_service fta
+    stop_installed_service bkdata
+    stop_installed_service paas
+    stop_installed_service cmdb
+    stop_installed_service job
+    stop_installed_service gse
+    stop_installed_service license
+    stop_installed_service appo
+    stop_installed_service appt
+    stop_installed_service paas_plugins
+
+    stop_installed_service kafka
+    stop_installed_service tsdbproxy
+    stop_installed_service influxdb
+    stop_installed_service etcd
+    stop_installed_service beanstalk
+    stop_installed_service es
+
+    wait_ns_die kafka.service.consul
+
+    stop_installed_service zk
+    stop_installed_service rabbitmq
+    stop_installed_service mongodb
+    stop_installed_service redis
+    stop_installed_service redis01
+    stop_installed_service redis_cluster
+    stop_installed_service redis_cluster01
+    stop_installed_service mysql
+    stop_installed_service mysql01
+ 
+    stop_installed_service consul
+}
+
+start_all () {
+    start_installed_service consul
+    start_installed_service mysql
+    start_installed_service mysql01
+    start_installed_service nfs
+    start_installed_service license
+    start_installed_service redis
+    start_installed_service redis01
+    start_installed_service nginx
+    start_installed_service es
+    start_installed_service paas
+    start_installed_service paas_plugins
+
+    start_installed_service redis_cluster
+    start_installed_service redis_cluster01
+    start_installed_service zk
+
+    wait_ns_alive zk.service.consul
+
+    start_installed_service mongodb
+    start_installed_service cmdb
+    start_installed_service gse
+    start_installed_service gse_agent
+    start_installed_service rabbitmq
+
+    wait_ns_alive rabbitmq.service.consul
+
+    start_installed_service job
+    start_installed_service appo
+    start_installed_service appt
+
+    start_installed_service kafka
+    start_installed_service beanstalk
+    start_installed_service etcd
+    start_installed_service influxdb
+    start_installed_service tsdbproxy
+    start_installed_service bkdata
+    start_installed_service fta
+
+    start_installed_service saas-o
+    start_installed_service saas-t
+}
+
+start_confd () {
+    local sp_conf=$INSTALL_PATH/etc/supervisor-confd.conf
+    [ -f $sp_conf ] || fail "$sp_conf: file not found"
+
+    if process_is_running "supervisord .*supervisor-confd.conf"; then
+        /opt/py27/bin/supervisorctl -c $sp_conf start all
+    else
+        /opt/py27/bin/supervisord -c $sp_conf
+        /opt/py27/bin/supervisorctl -c $sp_conf start all
+    fi
+}
+
+stop_confd () {
+    local sp_conf=$INSTALL_PATH/etc/supervisor-confd.conf
+    [ -f $sp_conf ] || fail "$sp_conf: file not found"
+
+    /opt/py27/bin/supervisorctl -c $INSTALL_PATH/etc/supervisor-confd.conf shutdown
+}
+

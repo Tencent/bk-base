@@ -1,0 +1,629 @@
+#!/bin/bash
+
+usage () {
+    echo "usage: bk_install PLATFORM"
+
+    echo "PLATFORM: "
+    echo "  ./bk_install paas       安装 paas 及依赖环境"
+    echo "  ./bk_install app_mgr    安装 appo,appt 及依赖"
+    echo "  ./bk_install cmdb       安装 cmdb 及依赖环境"
+    echo "  ./bk_install job        安装 job 及依赖环境"
+    echo "  ./bk_install ci         安装 蓝盾 及依赖环境"
+    echo "  ./bk_install bkmonitor  安装 bkmonitor 及依赖环境"
+    echo "  ./bk_install bcs        安装 容器管理平台"
+    echo "  ./bk_install bkdata     安装 bkdata 及依赖环境"
+    echo "  ./bk_install gse_agent  在蓝鲸服务器上安装 gse_agent, 并将主机注册到cmdb"
+    echo "  ./bk_install fta        安装 故障自愈后台"
+    echo "  ./bk_install saas-[o|t] [APP_CODE[==x.x.x]]  从后台部署 saas 应用"
+}
+
+export LC_ALL=en_US.UTF-8
+service=$1
+cd ${BASH_SOURCE%/*} 2>/dev/null
+source ./functions
+step_file=.bk_install.step
+[ -f $step_file ] || touch $step_file
+
+log "commond: bk_install $@" >/dev/null
+
+_bkeec () {
+    if grep -xF "$*" $step_file >/dev/null; then
+        log "$@ has been performed without FATAL stat...  $(green_echo skip)"
+    else
+        ./bkeec $@ && echo "$*" >>$step_file
+
+        [ $? -eq 0 -o $? -eq 10 ] || exit 1
+    fi
+}
+
+# 检查协议
+check_agreement || exit 1
+
+case $service in
+    consul)
+        _bkeec sync all
+        _bkeec install consul
+        _bkeec start consul
+        ;;
+    paas)
+        _bkeec sync all
+        _bkeec install consul
+        _bkeec start consul
+        
+        source ./globals.env
+        if [ "$SHARED_STORAGE_TYPE" == "nfs" ]; then
+            _bkeec install nfs
+        else
+            _bkeec install ceph
+            _bkeec initdata ceph
+        fi
+
+        _bkeec install license
+        _bkeec install mysql
+        _bkeec install redis
+        _bkeec start mysql
+        _bkeec initdata mysql
+        _bkeec install nginx
+        _bkeec install confd
+
+        if [ "$SHARED_STORAGE_TYPE" == "nfs" ]; then
+            _bkeec start nfs
+        fi
+
+        _bkeec start license
+        _bkeec start redis
+        _bkeec start nginx
+        _bkeec start confd
+
+        _bkeec install paas
+        _bkeec install iam
+        _bkeec install usermgr
+        _bkeec initdata iam 
+        _bkeec start iam
+        _bkeec initdata paas
+        _bkeec initdata usermgr        
+        _bkeec start usermgr
+        _bkeec start paas
+
+        source ./initdata.rc 
+        iam_migration nodeman
+
+        cd $CTRL_DIR
+        source ./utils.fc
+        if [ ! -z "$MYSQL_IP1" ]; then
+            create_mysql_slave
+        fi
+
+        for svs in redis nginx mysql paas iam usermgr; do
+            ./bkeec status $svs
+        done
+
+        source ./config.env
+        source ./globals.env
+        source ./ports.env
+        echo ""
+        echo "如果以上步骤没有报错, 你现在可以通过 $(green_echo $HTTP_SCHEMA://$PAAS_FQDN:$DEFAULT_HTTPS_PORT) 访问 paas 平台,"
+        echo "登陆用户名(login user): $(green_echo $PAAS_ADMIN_USER)"
+        echo "登陆密码(login password): $(green_echo $PAAS_ADMIN_PASS)"
+        echo 
+        ;;
+
+    cmdb)
+        _bkeec install redis
+        _bkeec install redis01
+        _bkeec install redis_cluster
+        _bkeec install nginx
+        _bkeec start redis
+        _bkeec start redis01
+        _bkeec start redis_cluster
+        _bkeec install mongodb
+        _bkeec install es
+        _bkeec start es
+        _bkeec install gse
+        _bkeec install cmdb
+        _bkeec install zk
+        _bkeec initdata mongodb
+        _bkeec start zk
+        wait_ns_alive zk.service.consul || fail "zk.service.consul无法解析"
+        _bkeec start cmdb
+        _bkeec start nginx
+        source ./ports.env 
+        log "waiting for cmdb_coreserver port($CMDB_CORE_PORT) ready..."
+        wait_http_port_alive cmdb-direct.service.consul ${CMDB_CORE_PORT} 25 || fail "启动cmdb进程失败。"
+        _bkeec initdata cmdb
+        counter=7   # max timeout
+        until ./health_check/check_cmdb_blueking_id || [ $counter -eq 0 ]; do
+            sleep 1
+            ((counter--))
+        done
+        [[ $counter -eq 0 ]] && fail "初始化cmdb失败，请检查cmdb的后台错误日志。"
+        unset counter 
+        _bkeec initdata gse
+        _bkeec start gse
+
+        for svs in redis_cluster zk nginx redis mongodb gse cmdb; do
+            ./bkeec status $svs
+        done
+
+        source ./config.env
+        source ./globals.env
+        source ./ports.env
+        echo ""
+        echo "如果以上步骤没有报错, 你现在可以通过 $(green_echo $HTTP_SCHEMA://$CMDB_FQDN:$DEFAULT_HTTPS_PORT) 访问配置平台,"
+        echo ""
+        ;;
+    job)
+        source ./globals.env
+        if [ "$SHARED_STORAGE_TYPE" == "nfs" ]; then
+            _bkeec install nfs
+        else
+            _bkeec install ceph
+            _bkeec initdata ceph
+        fi
+        
+        _bkeec install redis
+        _bkeec install redis01
+        _bkeec install redis_cluster
+        _bkeec install nginx
+        _bkeec install mysql
+        _bkeec install mongodb
+        _bkeec install rabbitmq
+        _bkeec install cmdb
+        _bkeec install zk
+        _bkeec install license
+        _bkeec install gse
+        _bkeec install job
+
+        if [ "$SHARED_STORAGE_TYPE" == "nfs" ]; then
+            _bkeec start nfs
+        else
+            _bkeec start ceph
+        fi
+        
+        _bkeec start redis
+        _bkeec start redis01
+        _bkeec start redis_cluster
+        wait_ns_alive zk.service.consul
+        _bkeec start zk
+        _bkeec start nginx
+        _bkeec start mysql
+        _bkeec initdata mysql
+        _bkeec initdata mongodb
+        _bkeec initdata rabbitmq
+        _bkeec initdata job
+        _bkeec start cmdb
+        _bkeec initdata cmdb
+        _bkeec initdata gse
+        _bkeec start license
+        _bkeec start gse
+        _bkeec start job
+        _bkeec install gse_agent
+        source ./.rcmdrc
+        source ./register.rc
+        register_auto_launch_plugins
+
+        for svs in mysql redis redis_cluster zk rabbitmq license cmdb gse job; do
+            ./bkeec status $svs
+        done
+
+        source ./config.env
+        source ./globals.env
+        source ./ports.env
+
+        wget -O $CTRL_DIR/rabbitmqadmin http://rabbitmq.service.consul:15672/cli/rabbitmqadmin 2>/dev/null
+        wassert "get rabbitmqadmin done." "get rabbitmqadmin failed."
+        [ -f $CTRL_DIR/rabbitmqadmin ] && chmod +x $CTRL_DIR/rabbitmqadmin
+
+        echo ""
+        echo "如果以上步骤没有报错, 你现在可以通过 $(green_echo $HTTP_SCHEMA://$JOB_FQDN:$DEFAULT_HTTPS_PORT) 访问作业平台,"
+        echo ""
+        ;;
+    bkmonitor)
+        _bkeec install kafka
+        _bkeec install beanstalk
+        _bkeec install redis
+        _bkeec install redis_cluster
+        _bkeec install influxdb
+        _bkeec start kafka
+        _bkeec start beanstalk
+        _bkeec start redis
+        _bkeec start redis_cluster
+        _bkeec start influxdb
+        for module in paas job cmdb; do
+            if ! grep -q "start $module" $step_file; then
+                fail "$module is required for $service. please install $module first"
+            fi
+        done
+
+        _bkeec install bkmonitor
+        _bkeec initdata bkmonitor
+        _bkeec start bkmonitor
+
+        for svs in kafka beanstalk redis redis_cluster influxdb bkmonitor; do
+            ./bkeec status $svs
+        done
+
+        source ./config.env
+        source ./globals.env
+        echo ""
+        echo "如果以上步骤没有报错, 已经完成 bkmonitor 的部署，接下来可以:"
+        echo " 1. 通过./bk_install saas-o bk_monitor 部署 蓝鲸监控app, 或"
+        echo " 2. 通过开发者中心部署 蓝鲸监控app"
+        echo ""
+        ;;
+
+    bkdata)
+        source ./utils.fc
+        source ./.rcmdrc
+        bkdata_proj_cnt=$(grep -c 'name: ' $PKG_SRC_PATH/bkdata/projects.yaml)
+        if [[ $bkdata_proj_cnt -lt 12 ]]; then
+            echo "请检查包解压顺序是否正常，以及$PKG_SRC_PATH/bkdata/projects.yaml中，是否包含数据集成后台的12个工程。"
+        fi
+        _bkeec install mysql01
+        _bkeec install mysql02
+        _bkeec install mysql03
+        _bkeec start mysql01
+        _bkeec start mysql02
+        _bkeec start mysql03
+        _bkeec initdata mysql01
+        _bkeec initdata mysql02
+        _bkeec initdata mysql03
+
+        if [ ! -z "$MYSQL01_IP1" ]; then
+            create_mysql_slave $MYSQL01_IP0 $MYSQL01_IP1
+        fi
+        if [ ! -z "$MYSQL02_IP1" ]; then
+            create_mysql_slave $MYSQL02_IP0 $MYSQL02_IP1
+        fi
+        if [ ! -z "$MYSQL03_IP1" ]; then
+            create_mysql_slave $MYSQL03_IP0 $MYSQL03_IP1
+        fi
+
+        _bkeec install kafka
+        _bkeec install redis
+        _bkeec install redis_cluster
+        # 安装etcd（使用并发方式）
+        emphasize "install etcd for bkdata"
+        printf "%s\n" "${ETCD_IP[@]}" | xargs -P 0 -I{} ssh {} "rsync -a $PKG_SRC_PATH/service/etcd/{etcd,etcdctl} /usr/local/bin/"
+        printf "%s\n" "${ETCD_IP[@]}" | xargs -P 0 -I{} ssh {} "source $CTRL_DIR/.rcmdrc; pgrep -x etcd &>/dev/null || ETCD_DATA_DIR=$INSTALL_PATH/public/etcd $CTRL_DIR/bin/install_etcd.sh ${ETCD_IP[@]}"
+        printf "%s\n" "${ETCD_IP[@]}" | xargs -P 0 -I{} ssh {} "source $CTRL_DIR/utils.fc;sign_host_as_module etcd"
+        _bkeec initdata etcd
+
+        _bkeec install tsdbproxy
+        _bkeec install influxdb
+        _bkeec start kafka
+        _bkeec start redis
+        _bkeec start redis_cluster
+        _bkeec start influxdb
+        _bkeec start tsdbproxy
+        _bkeec install es
+        _bkeec start es
+
+        for svs in kafka redis redis_cluster influxdb tsdbproxy; do
+            ./bkeec status $svs
+        done
+
+        source ./.rcmdrc
+        _bkeec install bkdata
+        _bkeec initdata bkdata
+
+        # bkdatav3后，拆分模块很细，初次部署启动有依赖顺序和注册操作，请严格按照以下顺序执行：
+        _bkeec start bkdata collectorhub
+        _bkeec start bkdata metadata
+        _bkeec start bkdata metaapi
+        rcmd "$BKDATA_METAAPI_IP" "$PKG_SRC_PATH/bkdata/metaapi/on_migrate"
+        processing_type_config=$(mysql -u${MYSQL_DATAHUB_USER:-$MYSQL_USER} -p${MYSQL_DATAHUB_PASS:-$MYSQL_PASS} -h${MYSQL_DATAHUB_IP:-$MYSQL_IP} -Be 'select * from bkdata_meta.processing_type_config')
+        if [[ $(echo "$processing_type_config" | wc -l ) -lt 2 ]]; then
+            fail "metaapi注册异常，bkdata_meta.processing_type_config表中条目小于1."
+        fi
+        _bkeec start bkdata databusapi
+
+        echo collectorhub metadata metaapi databusapi | xargs -n1 ./bkeec status bkdata
+        echo "如果上述进程运行不是running，请按Ctrl-C中止安装，并检查相关进程的启动日志错误，否则，按回车继续"
+        read -p "Press [Enter] to continue..."
+
+        # 第一次部署databus 需要前置动作，启动进程后等待接口ready，然后运行后置操作。
+        rcmd $BKDATA_DATABUS_IP "$PKG_SRC_PATH/bkdata/databus/pre_start"
+        _bkeec start bkdata databus
+        echo "waiting 10 seconds for databus to work." && sleep 10
+        for port in $DATABUS_CLEAN_REST_PORT $DATABUS_ES_REST_PORT $DATABUS_ESLOG_REST_PORT $DATABUS_REDIS_REST_PORT $DATABUS_TSDB_REST_PORT $DATABUS_MYSQL_REST_PORT $DATABUS_BKHDFS_REST_PORT
+        do
+            echo -n "检查databus的PORT: $port(运行 curl -s http://${BKDATA_DATABUS_HOST}:$port/connectors/) - 输出结果: "
+            curl -s http://${BKDATA_DATABUS_HOST}:$port/connectors/
+            echo
+        done
+        echo "如果curl的输出有异常（正常输出是'[]'，或者有数据返回），请按Ctrl-C中止安装，并检查相关port对应的databus启动日志错误，否则，按回车继续"
+        read -p "Press [Enter] to continue..."
+        rcmd $BKDATA_DATABUS_IP "$PKG_SRC_PATH/bkdata/databus/post_start"
+
+        rcmd $BKDATA_ACCESSAPI_IP "$PKG_SRC_PATH/bkdata/accessapi/pre_start"
+        _bkeec start bkdata accessapi
+        _bkeec start bkdata datamanageapi
+        _bkeec start bkdata authapi
+        _bkeec start bkdata dataqueryapi
+        _bkeec start bkdata bksql
+        _bkeec start bkdata storekitapi
+
+        wait_http_api_health http://$BKDATA_STOREKITAPI_HOST:$BKDATA_STOREKITAPI_PORT/v3/storekit/healthz true || fail "bkdata(storekitapi)健康检查失败，请确认进程是否启动成功"
+        rcmd "$BKDATA_STOREKITAPI_IP" "$PKG_SRC_PATH/bkdata/storekitapi/on_migrate"
+        cluster_config=$(mysql -u${MYSQL_DATAHUB_USER:-$MYSQL_USER} -p${MYSQL_DATAHUB_PASS:-$MYSQL_PASS} -h${MYSQL_DATAHUB_IP:-$MYSQL_IP} -Be 'select * from bkdata_meta.storage_cluster_config')
+        if [[ $(echo "$cluster_config" | wc -l ) -lt 3 ]]; then
+            fail "storekitapi注册存储集群异常，bkdata_meta.storage_cluster_config表中条目小于3."
+        fi
+
+        _bkeec start bkdata datamanager
+
+        ./bkeec status etcd
+        ./bkeec status bkdata
+
+        source ./config.env
+        source ./globals.env
+        echo ""
+        echo "如果以上步骤没有报错, 已经完成 bkdata 的部署，接下来可以按需选择:"
+        echo " 1. 通过./bk_install saas-o bk_log_search 部署 日志检索app"
+        echo " 2. 通过./bk_install saas-o bk_dataweb 部署 数据平台官网"
+        echo ""
+        ;;
+    fta)
+        _bkeec install redis_cluster
+        _bkeec install beanstalk
+        _bkeec start redis_cluster
+        _bkeec start beanstalk
+
+        for module in paas job cmdb; do
+            if ! grep -q "start $module" $step_file; then
+                fail "$module is required for $service. please install $module first"
+            fi
+        done
+
+        _bkeec install fta
+        _bkeec initdata fta
+        _bkeec start fta
+
+        for svs in redis_cluster beanstalk fta; do
+            ./bkeec status $svs
+        done
+
+        source ./config.env
+        source ./globals.env
+        echo ""
+        echo "如果以上步骤没有报错, 已经完成 故障自愈后台 的部署，接下来可以:"
+        echo " 1. 通过./bk_install saas-o bk_fta_solutions 部署故障自愈app, 或"
+        echo " 2. 通过开发者中心部署故障自愈app"
+        echo ""
+        ;;
+    app_mgr)
+        _bkeec install rabbitmq
+        _bkeec initdata rabbitmq
+        _bkeec activate rabbitmq
+        _bkeec install appt
+        _bkeec initdata appt
+        _bkeec start appt
+        _bkeec activate appt
+        _bkeec install appo
+        _bkeec initdata appo
+        _bkeec start appo
+        _bkeec activate appo
+
+        for svs in appo appt rabbitmq; do
+            ./bkeec status $svs
+        done
+
+        source ./config.env
+        source ./globals.env
+        echo ""
+        echo "如果以上步骤没有报错, 已经完成正式环境及测试环境的部署，接下来可以:"
+        echo " 1. 通过./bk_install saas-o bk_nodeman 部署节点管理app, 或"
+        echo " 2. 通过开发者中心部署app."
+        echo "若要安装蓝鲸监控, 日志检索, 需要先通过 ./bk_install bkdata 安装 bkadta"
+        echo ""
+        ;;
+    plugin)
+        _bkeec install redis
+        _bkeec start redis
+        _bkeec install es
+        _bkeec start es
+        _bkeec install paas_plugins
+        _bkeec start paas_plugins
+
+        ./bkeec status paas_plugins
+
+        source ./config.env
+        source ./globals.env
+        echo ""
+        echo "如果以上步骤没有报错, 你现在已经完成 蓝鲸平台插件包, 支持paas, app 的日志检索和告警功能"
+        echo "在开发者中心点击任意 app, 在左侧导航的日志服务和告警服务中可以使用改功能"
+        echo ""
+        ;;
+    zabbix)
+        _bkeec install zabbix
+        _bkeec install zabbix_agent
+        _bkeec initdata zabbix
+        _bkeec start zabbix
+        _bkeec start zabbix_agent
+        ;;
+    saas-o|saas-t)
+        # 初次部署时，自动初始化环境变量到open_paas.paas_app_envvars表中
+        source ./initdata.rc
+        _add_saas_env
+        ./bkeec install $@
+        ;;
+    gse_agent)
+        ./bkeec install gse_agent
+        source ./.rcmdrc
+        source ./register.rc
+        register_auto_launch_plugins
+        ;;
+    dataflow)
+        source ./utils.fc
+        bkdata_proj_cnt=$(grep -c 'name: ' $PKG_SRC_PATH/bkdata/projects.yaml)
+        if [[ $bkdata_proj_cnt -ne 16 ]]; then
+            echo "请检查dataflow的包解压顺序是否正常，以及$PKG_SRC_PATH/bkdata/projects.yaml中，是否包含dataflowapi,jobnaviapi等dataflow的工程"
+        fi
+        _bkeec sync bkdata dataflowapi
+        _bkeec sync bkdata jobnaviapi
+        _bkeec install bkdata dataflowapi
+        _bkeec initdata bkdata dataflowapi
+        _bkeec start bkdata dataflowapi
+        _bkeec install bkdata jobnaviapi
+        _bkeec start bkdata jobnaviapi
+        _bkeec sync hadoop
+        _bkeec install hadoop
+        _bkeec initdata hadoop
+        _bkeec start hadoop
+
+        for ip in ${HADOOP_NAMENODE_IP[@]} ${HADOOP_RESOURCEMANAGER_IP[@]}; do
+            rcmd $ip 'consul reload'
+        done
+
+        ./bkeec status bkdata dataflowapi
+        ./bkeec status bkdata jobnaviapi
+        ./bkeec status hadoop
+
+        _bkeec register hadoop yarn
+        _bkeec register hadoop hdfs
+        _bkeec sync spark
+        _bkeec install spark
+        _bkeec initdata spark
+        _bkeec start spark
+        _bkeec sync bkdata jobnavischeduler
+        _bkeec sync bkdata jobnavirunner
+        _bkeec install bkdata jobnavischeduler
+        _bkeec install bkdata jobnavirunner
+        _bkeec start bkdata jobnavischeduler
+        _bkeec start bkdata jobnavirunner
+
+        for ip in ${BKDATA_JOBNAVISCHEDULER_IP[@]}; do
+            rcmd $ip 'consul reload'
+        done
+
+        ./bkeec status spark
+        ./bkeec status bkdata jobnavischeduler
+        ./bkeec status bkdata jobnavirunner
+
+        _bkeec initdata bkdata jobnavirunner
+
+        wait_ns_alive jobnavischeduler-default.service.consul \
+            || fail "jobnavischeduler-default.service.consul 不可用，请查看jobnavischeduler机器上的日志"
+
+        _bkeec register jobnavi
+        _bkeec register flink
+        ;;
+    bcs)
+       source ./utils.fc
+       source ./.rcmdrc
+
+       ./bkeec sync consul
+       ./bkeec sync common
+       step "安装容器管理平台需要较长时间"
+       if [ ! -f $CTRL_DIR/.init_docker_env ]; then
+           ./init_docker_env && touch $CTRL_DIR/.init_docker_env
+           ./bkeec sync common
+       fi
+       ./bkeec install consul
+       ./bkeec start consul
+       _bkeec sync mysql
+       _bkeec sync redis
+       _bkeec sync mongodb
+       _bkeec sync etcd
+       _bkeec sync zk
+       _bkeec sync iam 
+       _bkeec sync devops
+       _bkeec sync thanos
+       _bkeec sync bcs
+       _bkeec sync harbor
+
+       ./bkeec stop paas
+       ./bkeec render paas 
+       ./bkeec start paas 
+
+       ./bkeec initdata mysql
+       _bkeec install mysql04
+       _bkeec start mysql04
+       _bkeec initdata mysql04
+
+        if [ ! -z "$MYSQL04_IP1" ]; then
+            create_mysql_slave $MYSQL04_IP0 $MYSQL04_IP1
+        fi
+
+       _bkeec install mongodb01
+       _bkeec initdata mongodb01
+
+        # 安装ssl版本的etcd集群
+       emphasize "install etcd for BCS"
+       # 生成bcs的etcd证书
+       rsync -a $CTRL_DIR/{cfssl,cfssljson} /usr/local/bin/
+       $CTRL_DIR/bin/gen_etcd_certs.sh ${ETCD_BCS_IP[@]}
+       for ip in ${ETCD_BCS_IP[@]}; do
+           # 同步证书到etcd机器
+           rsync -av /etc/ssl/etcd $ip:/etc/ssl/
+           # 拷贝二进制到PATH下
+           ssh $ip "rsync -av $PKG_SRC_PATH/service/etcd/{etcd,etcdctl} /usr/local/bin/"
+       done
+        printf "%s\n" "${ETCD_BCS_IP[@]}" | xargs -P 0 -I{} ssh {} "source $CTRL_DIR/.rcmdrc; PROTOCOL=https ETCD_CLUSTER_TOKEN=etcd-cluster-token-ssl ETCD_DATA_DIR=$INSTALL_PATH/public/etcd $CTRL_DIR/bin/install_etcd.sh ${ETCD_BCS_IP[@]}"
+
+       _bkeec install zk01
+       _bkeec start zk01
+       _bkeec install redis02
+       _bkeec start redis02
+
+       _bkeec install iam
+       _bkeec initdata iam
+       _bkeec start iam
+
+       _bkeec update hosts_bcs
+       _bkeec install harbor api
+       _bkeec install harbor server
+       _bkeec install bcs
+       _bkeec install devops
+       _bkeec install thanos
+       _bkeec start harbor api
+
+       sed -i "/$HARBOR_SERVER_FQDN/d" /etc/hosts
+       echo "$HARBOR_SERVER_IP $HARBOR_SERVER_FQDN" >>/etc/hosts
+       _bkeec build harbor
+       _bkeec build bcs
+
+       _bkeec initdata harbor api
+       _bkeec initdata bcs
+       _bkeec initdata devops
+       _bkeec start thanos
+       _bkeec start devops
+       #_bkeec start bcs cc
+       #_bkeec start bcs web_console
+       #_bkeec start bcs monitor
+       #_bkeec start bcs grafana
+
+       _bkeec start bcs
+       _bkeec pack bcs_cert
+       _bkeec pack bcs_cluster
+       _bkeec initdata bcs dns-service
+       _bkeec initdata bcs ops
+
+       ./bkeec stop nginx
+       ./bkeec render nginx
+       ./bkeec start nginx
+
+       light "安装权限中心SaaS及容器管理平台SaaS"
+       _bkeec install saas-o bk_iam_app
+       _bkeec install saas-o bk_bcs_app
+       _bkeec install saas-o bk_bcs_monitor
+
+       echo ""
+       echo "现在打开社区版可以看到首页上的容器管理平台SaaS。可以在首页创建自己的项目。"
+       echo "完整的功能等待后续的安装完成"
+
+       echo
+       echo "容器管理平台后台安装已经完成, 请按照文档完成后续步骤"
+       echo
+       #_bkeec start bcs ops
+       #_bkeec start bcs storage
+       #_bkeec start bcs dns-service
+       #_bkeec start bcs health-master
+       #_bkeec start bcs health-slave
+       ;;
+    ci) 
+       source ./ci/bk_install_ci
+       ;;
+    *) usage; exit 0 ;;
+esac

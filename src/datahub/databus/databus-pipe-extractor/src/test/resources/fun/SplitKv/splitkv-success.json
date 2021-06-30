@@ -1,0 +1,13 @@
+{
+    "type": "fun",
+    "method": "splitkv",
+    "args": [",", ":"],
+    "next": {
+        "type": "assign",
+        "subtype": "assign_obj",
+        "assign": [
+            {"key": "key1", "assign_to": "varname", "type": "int" },
+            {"key": "key2", "assign_to": "varname2", "type": "string" }
+        ]
+    }
+}

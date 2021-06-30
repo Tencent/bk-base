@@ -1,0 +1,233 @@
+# vim:ft=sh
+
+clean_help () {
+    echo "usage: clean { all | module [project] } "
+
+    exit 0
+}
+
+clean () {
+    local module=$1
+    local proj=$2
+    local ip
+
+    local TARGET_IPS=( $(map_name2ip $module $proj) )
+
+    case $module in
+        all) clean_all ;;
+        *) 
+            for ip in ${TARGET_IPS[@]}; do
+                rcmd root@$ip "source ./clean.rc; clean_$module"
+            done
+            ;;
+    esac
+}
+
+backup_dir () {
+    local directory=$1
+    local backup_filename=$(basename $directory).$(date +%Y%m%d.%H%M%S).tgz
+
+    (
+        cd $(dirname ${directory}) || fail
+        log "backing up $directory to ${INSTALL_PATH%/*}/$backup_filename"
+        tar zcf $backup_filename $(dirname $directory)
+        mv $backup_filename ${INSTALL_PATH%/*}/
+    )
+}
+
+_clean_open_paas_proj () {
+    local module=open_paas
+    local proj=$1
+
+    if [ "$proj" == "paas" ]; then
+        backup_dir $INSTALL_PATH/esb/generic/apis
+        umount $INSTALL_PATH/$module/paas/media
+    fi
+
+    log "stopping process $module($proj)..."
+    stop_$module $proj
+
+    log "remove virtualenv $proj"
+    rmvirtualenv $proj
+
+    log "remove files of $module($proj)"
+    rm -rf $INSTALL_PATH/open_paas/$proj
+
+    _clean_tag_for $module $proj
+}
+
+_clean_tag_for () {
+    local module=$1
+    local proj=$2
+
+    local tag_file_rclocal=/etc/rc.d/bkrc.local
+    local tag_file_sumary=$INSTALL_PATH/.installed_sumary
+    local tag_file_installedmodule=$INSTALL_PATH/.installed_module
+    local tag_file_bkrc=/root/.bkrc
+
+    if grep -Eq "^$module $proj\b" $tag_file_installedmodule; then
+        sed -i "#^$module $prob\b#d" $tag_file_installedmodule
+    elif grep -Eq "^$module\b" $tag_file_installedmodule; then
+        sed -i "#^$module\b#d" $tag_file_installedmodule
+    fi
+
+    if grep -Eq "start $module $proj" $tag_file_rclocal; then
+        sed -i "/start $module $proj/d" $tag_file_rclocal
+    elif grep -Eq "start $module" $tag_file_rclocal; then
+        sed -i "/start $module/d" $tag_file_rclocal
+    fi
+
+    if grep -Eq "^$module $proj *$" $tag_file_sumary; then
+        sed -i "/^$module $proj */d" $tag_file_sumary
+    elif grep -Eq "^$module *$" $tag_file_sumary; then
+        sed -i "/^$module *$/d" $tag_file_sumary
+    fi
+}
+
+_clean_bkpython_if_0ref () {
+    :
+}
+
+clean_open_paas () {
+    local module=open_paas
+    local proj=$1
+    # 
+
+    load_env
+    if [ -z $proj ]; then
+        _clean_open_paas_proj paas
+        _clean_open_paas_proj login
+        _clean_open_paas_proj esb
+        _clean_open_paas_proj appengine
+        _clean_open_paas_proj console
+
+        rmvirtualenv $module
+        removecron_for $module
+
+        stop_$module # 删掉 supervisord 进程
+
+        rm -rf $INSTALL_PATH/$module
+        rm -rf $INSTALL_PATH/{public,logs}/$module
+        rm -rf $INSTALL_PATH/etc/supervisor-$module.conf
+
+        sed -i '#/paas/media#d' /etc/fstab
+        [ "$CTRL_IP" != "$LAN_IP" ] && rm -rf $PKG_SRC_PATH/$module
+
+        _clean_bkpython_if_0ref
+    else
+        _clean_open_paas_proj $proj
+    fi
+}
+
+clean_paas () {
+    clean_open_paas $@
+}
+
+clean_appo () {
+    clean_paas_agent $@
+}
+
+clean_appt () {
+    clean_paas_agent $@
+}
+
+clean_paas_agent () {
+    local module=paas_agent
+    local proj=$1
+
+    case $proj in
+        nginx) _clean_nginx_if_0ref ;;
+        docker) _clean_docker_if_0ref ;;
+        paas_agent) _clean_paas_agent ;;
+        *)
+            _clean_nginx_if_0ref
+            _clean_docker_if_0ref
+            _clean_paas_agent
+            ;;
+    esac
+}
+
+clean_job () {
+    local module=job
+    umount $INSTALL_PATH/public/$module
+    _clean_tag_for $module
+    rm -rf $INSTALL_PATH/{logs,public}/$module
+}
+
+clean_cmdb () {
+    local module=cmdb
+    _clean_tag_for $module
+    rm -rf $INSTALL_PATH/{logs,public}/$module
+}
+
+clean_bkdata () {
+    local module=bkdata
+    local proj=$1
+
+    if [ -z "$proj" ]; then
+        _clean_bkdata_proj monitor
+        _clean_bkdata_proj databus
+        _clean_bkdata_proj dataapi
+        _clean_tag_for $module monitor
+        _clean_tag_for $module databus
+        _clean_tag_for $module dataapi
+
+        rm -rf $INSTALL_PATH/$module
+        rm -rf $PKG_SRC_PATH/$module
+    else
+        _clean_tag_for bkdata $proj
+    fi
+
+}
+
+_clean_bkdata_proj () {
+    local module=bkdata
+    local proj=$1
+
+    _clean_tag_for $module $proj
+    
+    log "stopping process $module($proj)..."
+    stop_$module $proj
+
+    log "remove virtualenv $proj"
+    rmvirtualenv $proj
+
+    rm -rf $INSTALL_PATH/{logs,public}/$module/${proj}
+    rm -rf $PKG_SRC_PATH
+}
+
+clean_fta () {
+    :
+}
+
+clean_rabbitmq () {
+    :
+}
+
+clean_zk () {
+    :
+}
+
+clean_kafka () {
+    :
+}
+
+clean_es () {
+    :
+}
+
+clean_consul () {
+    :
+}
+
+clean_mysql () {
+    :
+}
+
+clean_nfs () {
+    :
+}
+
+clean_all () {
+    :
+}

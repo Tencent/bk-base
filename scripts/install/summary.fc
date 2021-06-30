@@ -1,0 +1,21 @@
+# vim:ft=sh
+# provide summary information for bksuite
+# with the following include:
+#   location, logs, pid, space reized, version, service manage
+
+get_version () {
+    local module=$1
+
+    if [ -f $PKG_SRC_PATH/$module/VERSION ]; then
+        cat $PKG_SRC_PATH/$module/VERSION
+        return 0
+    fi
+}
+
+log_size () {
+    local module=$1
+
+    if [ -d $INSTALL_PATH/logs/$module ]; then
+        (du -sh $INSTALL_PATH/logs/$module)
+    fi
+}

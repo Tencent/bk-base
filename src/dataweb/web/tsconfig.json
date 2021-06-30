@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "types": ["node"],
+    "rootDir": "./src",
+    "noEmit": true,
+    "paths": {
+      "@/*": ["src/*", "plugins/*"],
+      "tslib": ["node_modules/tslib/tslib.d.ts"]
+    },
+    "lib": ["es2016", "esnext", "dom", "dom.iterable", "scripthost"],
+    "typeRoots": ["src/*", "src/@types/*", "crypto-js"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "static/web_worker/Samplesets.labels.webwork.ts",
+    "src/common/js/QueryableWorker.js",
+    "src/extends/index.js",
+    "src/extends/packages/vueFragment/index.js"
+  ],
+  "exclude": ["node_modules", "src/assets/static/trading-view", "plugins"]
+}

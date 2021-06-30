@@ -1,0 +1,182 @@
+# vim:ft=sh
+
+set_controller () {
+   if [ ! -f $CTRL_DIR/.controller_ip ]; then
+       echo $LAN_IP >$CTRL_DIR/.controller_ip
+   fi
+}
+
+get_wanip_of () {
+    local module=$1
+    local _wan_ip0 _wan_ip1
+    local _module_ips
+
+    _module_ips=( $(map_name2ip $module) )
+
+    if [ "$AUTO_GET_WANIP" == 1 ]; then
+        _wan_ip0=$(rcmd root@${_module_ips[0]} "get_wan_ip")
+        if [ ${#_module_ips[@]} -gt 1 ]; then
+            _wan_ip1=$(rcmd root@${_module_ips[1]} "get_wan_ip")
+        fi
+
+        #eval $(echo "export ${module^^}_WAN_IP=( $_wan_ip0 $_wan_ip1 )")
+        echo $_wan_ip0 $_wan_ip1
+    fi
+}
+
+get_controller () {
+    local ip
+
+    read ip ignore <./.controller_ip
+    if [ "$ip" == "" ]; then
+        fail "get controller IP failed. please check if the ip address is a standard private ip"
+    elif [ $ip != "$LAN_IP" ]; then
+        fail "current host is not the controller"
+    fi
+}
+
+check_lanip () {
+    if [ "$LAN_IP" == "" ]; then
+        err "get LAN_IP failed. please correct rules of get_lan_ip."
+        err "all files below must be modified before redo:"
+        grep -lr "get_lan_ip " * | sed "s#^#\t\t$CTRL_IP/#"
+        exit 0
+    fi
+}
+
+check_if_is_controller () {
+    if [ -f $CTRL_DIR/.controller_ip ]; then
+        read ip ignore <$CTRL_DIR/.controller_ip
+        if [ "$ip" == "" ]; then
+            err "get controller IP failed. please check if the ip address is a standard private ip"
+        elif [ $ip != "$LAN_IP" ]; then
+            fail "current host is not the controller"
+        fi
+    fi
+}
+
+check_install_path () {
+    local command=$1
+    local default_install_path=/data/${command%c}
+
+    cd $CTRL_DIR
+    if [ -z "$INSTALL_PATH" ]; then
+        if [ ! -f ".path" ]; then
+            echo "where do you want to install blueking products."
+            read -p "enter an absolute path [$default_install_path]: " reply
+
+            if [ -z "$reply" ]; then
+                export INSTALL_PATH="$default_install_path"
+            elif [ "${reply:0:1}" != "/" ]; then
+                echo "$reply is not absolute path, please run again"
+                exit 1
+            elif [ "${reply%/*}" != "" ]; then
+                if [ -h $reply ]; then
+                    echo "install_path CAN NOT be a symbolic link"
+                    exit 1
+                elif [ -d "$reply" ]; then
+                    read -p "directory $reply exists, are you sure to install blueking suite to $reply (y/n)? " r2
+                    if [ "$r2" == "y" ]; then
+                        export INSTALL_PATH="$reply"
+                    else
+                        echo "Abort. running again to set a new location"
+                        exit 1
+                    fi
+                else
+                    mkdir -p $reply || fail "create directory $reply failed."
+                    export INSTALL_PATH="$reply"
+                fi
+            fi
+            echo "$INSTALL_PATH" >.path
+        else
+            read INSTALL_PATH ignore <".path"
+            [ -z "$INSTALL_PATH" ] && fail "INSTALL_PATH is empty"
+            export INSTALL_PATH
+        fi
+    elif [ ! -f ".path" ]; then
+        echo $INSTALL_PATH >.path
+    fi
+}
+
+check_base_var () {
+    if [ -z "$PKG_SRC_PATH" ]; then
+        export PKG_SRC_PATH=$(cd $PWD/../src; pwd)
+    elif [ ! -d "$PKG_SRC_PATH" ]; then
+        fail "$PKG_SRC_PATH does not exists."
+    fi
+
+    if [ "X$INSTALL_PATH" == "X$PKG_SRC_PATH" ]; then
+        err "target install path CAN NOT be the same with source path"
+        fail "please check you env variable: INSTALL_PATH, PKG_SRC_PATH"
+    fi
+
+    if [ "X$(readlink -sf $INSTALL_PATH)" == "X$(readlink -sf $CTRL_DIR)" ]; then
+        err "target install path CAN NOT be the same with current dir $(pwd)"
+        fail "please set a new value to INSTALL_PATH"
+    fi
+}
+
+_install_controller () {
+    set_controller
+
+    _install_py27
+
+    ./pxs -c install.config -p $INSTALL_PATH -a $LAN_IP -o || fail "parse install.config failed"
+
+    if [ ! -f /usr/bin/mysql ]; then
+        _rsync -a $PKG_SRC_PATH/service/mysql/bin/mysql* /usr/bin/
+        _rsync -a $PKG_SRC_PATH/service/mysql/include  /usr/include/mysql/
+    fi
+
+    if ! uuid >/dev/null 2>&1; then
+        _yum -y install uuid || fail "install uuid failed."
+    fi
+}
+
+_install_py27 () {
+    if [ ! -d /opt/py27 ]; then
+        _rsync -a $PKG_SRC_PATH/service/py27 /opt/
+    fi
+
+    if ! /opt/py27/bin/python -c "import yaml" 2>/dev/null; then
+        yum -y install gcc autoconf mysql-devel
+        PATH=$PKG_SRC_PATH/service/mysql/bin:$PATH \
+            /opt/py27/bin/pip install \
+            --no-index --find-links=$CTRL_DIR/pip \
+            argparse requests mysql-python pyyaml
+    fi
+}
+
+set_global_var () {
+    cat > $CTRL_DIR/.rcmdrc <<_OO_
+umask 022
+export HASTTY=1
+export LC_ALL=en_US.UTF-8
+export BK_HOME=$INSTALL_PATH
+export CONF_HOME=$INSTALL_PATH/etc
+export CERT_PATH=$INSTALL_PATH/cert
+export DATA_HOME=$INSTALL_PATH/public
+export JAVA_HOME=$INSTALL_PATH/service/java
+export PKG_SRC_PATH=$PKG_SRC_PATH
+export INSTALL_PATH=$INSTALL_PATH
+export CTRL_DIR=$CTRL_DIR
+export OBJC_INCLUDE_PATH=/opt/py27/include:\$INSTALL_PATH/service/mysql/include:\$OBJC_INCLUDE_PATH
+export LD_LIBRARY_PATH=/opt/py27/lib:\$INSTALL_PATH/service/mysql/lib:\$LD_LIBRARY_PATH
+export PATH=\$PKG_SRC_PATH/service/mysql/bin:$INSTALL_PATH/paas_agent/paas_agent/bin:\$JAVA_HOME/bin:/usr/local/bin:/usr/local/sbin:/opt/py27/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export WORKON_HOME=$INSTALL_PATH/.envs
+source \$CTRL_DIR/utils.fc
+ulimit -n 102400
+read CTRL_IP ignore <\$CTRL_DIR/.controller_ip
+export CTRL_IP
+_OO_
+
+    . $CTRL_DIR/.rcmdrc
+}
+
+gen_app_token () {
+    while read app_code app_desc; do
+        _app_token $app_code
+    done <app.list
+
+    _app_token consul
+}

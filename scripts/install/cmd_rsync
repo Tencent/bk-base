@@ -1,0 +1,6 @@
+#!/bin/bash
+source $CTRL_DIR/utils.fc
+
+opts=$(sed "s/root@$LAN_IP://" <<<"$@");
+log ">> rsync $opts";
+rsync $opts || fail "copy files to remote failed."

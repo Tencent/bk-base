@@ -1,0 +1,24 @@
+# 轻量级 python 打点工具
+# 打包，外层 metrics 文件夹新建 setup.py
+# setup.py
+
+# 安装
+pip install metrics-1.0-py2-none-any.whl
+# 卸载
+pip uninstall metrics
+
+# -*- coding: utf-8 -*-
+from setuptools import setup, find_packages
+
+'''
+打包命令: python setup.py bdist_wheel
+先安装: pip install wheel
+'''
+setup(
+    name='metrics',
+    version='1.0',
+    author='',
+    author_email='',
+    license='MIT',
+    packages=find_packages()
+)

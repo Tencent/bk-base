@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+  ~ Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+  ~
+  ~ Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+  ~
+  ~ BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+  ~
+  ~ License for BK-BASE 蓝鲸基础平台:
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  ~ documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  ~ the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+  ~ and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<configuration>
+
+<property>
+	<name>yarn.resourcemanager.ha.enabled</name>
+	<value>true</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.ha.rm-ids</name>
+	<value>rm1,rm2</value>
+</property>
+
+<!-- RM1 configs -->
+<property>
+	<name>yarn.resourcemanager.address.rm1</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE1_HOST__:23140</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.scheduler.address.rm1</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE1_HOST__:23130</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.webapp.https.address.rm1</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE1_HOST__:23189</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.webapp.address.rm1</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE1_HOST__:__HADOOP_RESOURCEMANAGER_HTTP_PORT__</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.resource-tracker.address.rm1</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE1_HOST__:23125</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.admin.address.rm1</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE1_HOST__:23141</value>
+</property>
+
+<!-- RM2 configs -->
+<property>
+	<name>yarn.resourcemanager.address.rm2</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE2_HOST__:23140</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.scheduler.address.rm2</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE2_HOST__:23130</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.webapp.https.address.rm2</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE2_HOST__:23189</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.webapp.address.rm2</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE2_HOST__:__HADOOP_RESOURCEMANAGER_HTTP_PORT__</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.resource-tracker.address.rm2</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE2_HOST__:23125</value>
+</property>
+<property>
+	<name>yarn.resourcemanager.admin.address.rm2</name>
+	<value>__HADOOP_RESOURCEMANAGER_NODE2_HOST__:23141</value>
+</property>
+<property>
+    <name>spark.shuffle.service.port</name>
+    <value>7337</value>
+</property>
+<property>
+    <name>mapreduce.shuffle.port</name>
+    <value>23080</value>
+</property>
+</configuration>
+

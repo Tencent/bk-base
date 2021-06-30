@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-26 17:41+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: api/code_check_api.py:15
+msgid "没有CodeCheck Server Addr 配置"
+msgstr "no code check server addr config"
+
+#: exceptions/base_exception.py:10
+msgid "参数异常"
+msgstr "parameter error"
+
+#: exceptions/base_exception.py:12
+msgid "代码校验异常"
+msgstr "code check exception"
+
+#: exceptions/base_exception.py:14
+msgid "预期外异常"
+msgstr "unexpected exception"
+
+#: exceptions/codecheck_execptions.py:10
+msgid "CodeCheck配置信息错误"
+msgstr "code check server addr config error"
+
+#: exceptions/codecheck_execptions.py:18
+msgid "CodeCheck代码校验错误"
+msgstr "code check error"
+
+#: serializer/serializers.py:8
+msgid "用户代码语言，java/python"
+msgstr "language of user code, java/python"
+
+#: serializer/serializers.py:9
+msgid "检查内容(base64 code for java & python)"
+msgstr "check content(base64 code for java & python)"
+
+#: serializer/serializers.py:10
+msgid "parser_group名称"
+msgstr "name of parser_group"
+
+#: serializer/serializers.py:11
+msgid "blacklist_group名称"
+msgstr "name of blacklist_group"
+
+#: serializer/serializers.py:12
+msgid "校验标记，默认为True"
+msgstr "flag for check, default to true"
+
+#: serializer/serializers.py:16 serializer/serializers.py:23
+msgid "parser group 名称"
+msgstr "name of parser_group"
+
+#: serializer/serializers.py:17
+msgid "parser相关lib库绝对路径，会递归加载该目录下所有包"
+msgstr "lib path for parser, it will load all lib's jar under the path recursively"
+
+#: serializer/serializers.py:19
+msgid "parser相关source源码绝对路径，会递归加载该目录下所有源码"
+msgstr "source path for parser, it will load all source code under the path recursively"
+
+#: serializer/serializers.py:27 serializer/serializers.py:33
+msgid "blacklist group 名称"
+msgstr "name of blacklist_group"
+
+#: serializer/serializers.py:29
+msgid "blacklist列表，以英文分号分隔"
+msgstr "name of blacklist, separated by semicolon"

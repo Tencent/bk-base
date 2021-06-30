@@ -1,0 +1,440 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-21 14:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: api/jupyterhub.py:41
+#, python-format
+msgid "创建笔记功能新用户(%s)失败，请联系管理员进行处理"
+msgstr "创建笔记功能新用户(%s)失败，请联系管理员进行处理"
+
+#: api/jupyterhub.py:66
+msgid "启动笔记服务失败，请联系管理员进行处理"
+msgstr "启动笔记服务失败，请联系管理员进行排查"
+
+#: api/jupyterhub.py:89
+msgid "创建notebook失败，请联系管理员进行处理"
+msgstr "创建notebook失败，请联系管理员进行处理"
+
+#: api/jupyterhub.py:113
+msgid "创建token失败，请联系管理员进行处理"
+msgstr "创建token失败，请联系管理员进行处理"
+
+#: api/jupyterhub.py:162
+msgid "获取笔记内容失败，请联系管理员进行处理"
+msgstr "获取笔记内容失败，请联系管理员进行处理"
+
+#: api/jupyterhub.py:180
+msgid "保存笔记内容失败，请联系管理员进行处理"
+msgstr "保存笔记内容失败，请联系管理员进行处理"
+
+#: api/jupyterhub.py:203
+msgid "启动内核服务失败，请联系管理员进行处理"
+msgstr "启动内核服务失败，请联系管理员进行处理"
+
+#: constants.py:33
+msgid "提交查询"
+msgstr "提交查询"
+
+#: constants.py:34
+msgid "连接存储"
+msgstr "连接存储"
+
+#: constants.py:35
+msgid "执行查询"
+msgstr "执行查询"
+
+#: constants.py:36
+msgid "写入缓存"
+msgstr "写入缓存"
+
+#: constants.py:253
+msgid "字符串函数"
+msgstr "字符串函数"
+
+#: constants.py:254
+msgid "数学函数"
+msgstr "数学函数"
+
+#: constants.py:255
+msgid "聚合函数"
+msgstr "聚合函数"
+
+#: constants.py:256
+msgid "时间函数"
+msgstr "时间函数"
+
+#: constants.py:268
+msgid "笔记快速入门"
+msgstr "笔记快速入门"
+
+#: constants.py:269
+msgid "MLSQL 快速入门"
+msgstr "MLSQL 快速入门"
+
+#: exceptions.py:17
+#, python-brace-format
+msgid "请求参数必须包含{param}"
+msgstr "请求参数必须包含{param}"
+
+#: exceptions.py:17
+msgid "查看相关参数是否存在"
+msgstr "查看相关参数是否存在"
+
+#: exceptions.py:18
+#, python-brace-format
+msgid "请求参数格式不正确：{param}"
+msgstr "请求参数格式不正确：{param}"
+
+#: exceptions.py:18
+msgid "检查请求参数"
+msgstr "检查请求参数"
+
+#: exceptions.py:19
+msgid "笔记服务异常，请联系管理员进行排查"
+msgstr "笔记服务异常，请联系管理员进行排查"
+
+#: exceptions.py:19
+msgid "联系管理员进行排查"
+msgstr "联系管理员进行排查"
+
+#: exceptions.py:20
+msgid "笔记任务不存在"
+msgstr "笔记任务不存在"
+
+#: exceptions.py:20
+msgid "检查笔记任务是否存在"
+msgstr "检查笔记任务是否存在"
+
+#: exceptions.py:21
+msgid "笔记用户不存在"
+msgstr "笔记用户不存在"
+
+#: exceptions.py:21
+msgid "检查笔记用户是否存在"
+msgstr "检查笔记用户是否存在"
+
+#: exceptions.py:22
+msgid "cell执行失败"
+msgstr "cell执行失败"
+
+#: exceptions.py:22
+msgid "cell执行失败，检查执行失败详情"
+msgstr "cell执行失败，检查执行失败详情"
+
+#: exceptions.py:23
+msgid "下载失败，无可下载数据"
+msgstr "下载失败，无可下载数据"
+
+#: exceptions.py:23
+msgid "查看查询任务是否有结果"
+msgstr "查看查询任务是否有结果"
+
+#: exceptions.py:24
+#, python-brace-format
+msgid "不支持关联的存储类型：{param}"
+msgstr "不支持关联的存储类型：{param}"
+
+#: exceptions.py:24
+msgid "请确认此存储类型是否支持关联"
+msgstr "请确认此存储类型是否支持关联"
+
+#: exceptions.py:25
+#, python-brace-format
+msgid "不支持的产出物类型：{param}"
+msgstr "不支持的产出物类型：{param}"
+
+#: exceptions.py:25
+msgid "请确认此产出物类型是否支持关联"
+msgstr "请确认此产出物类型是否支持关联"
+
+#: exceptions.py:26
+msgid "产出物已存在"
+msgstr "产出物已存在"
+
+#: exceptions.py:26
+msgid "不能再次关联已存在的产出物"
+msgstr "不能再次关联已存在的产出物"
+
+#: exceptions.py:27
+msgid "产出物不存在"
+msgstr "产出物不存在"
+
+#: exceptions.py:27
+msgid "不能取消关联不存在的产出物"
+msgstr "不能取消关联不存在的产出物"
+
+#: exceptions.py:28
+msgid "报告秘钥不存在"
+msgstr "报告秘钥不存在"
+
+#: exceptions.py:28
+msgid "请确认此报告秘钥是否正确"
+msgstr "请确认此报告秘钥是否正确"
+
+#: exceptions.py:30
+#, python-brace-format
+msgid "结果表创建失败：{message}"
+msgstr "结果表创建失败：{message}"
+
+#: exceptions.py:30 exceptions.py:31 exceptions.py:32 exceptions.py:33
+#: exceptions.py:34
+msgid "根据message信息做检查"
+msgstr "根据message信息做检查"
+
+#: exceptions.py:31
+#, python-brace-format
+msgid "关联存储失败：{message}"
+msgstr "关联存储失败：{message}"
+
+#: exceptions.py:32
+#, python-brace-format
+msgid "存储prepare失败：{message}"
+msgstr "存储prepare失败：{message}"
+
+#: exceptions.py:33
+#, python-brace-format
+msgid "删除存储失败：{message}"
+msgstr "删除存储失败：{message}"
+
+#: exceptions.py:34
+#, python-brace-format
+msgid "清理数据失败：{message}"
+msgstr "清理数据失败：{message}"
+
+#: exceptions.py:36
+msgid "您没有笔记编辑的权限，如需编辑笔记，请申请成为项目数据开发员"
+msgstr "您没有笔记编辑的权限，如需编辑笔记，请申请成为项目数据开发员"
+
+#: exceptions.py:36
+msgid "申请相关权限"
+msgstr "申请相关权限"
+
+#: exceptions.py:37
+#, python-brace-format
+msgid "{bk_username}"
+msgstr "{bk_username}"
+
+#: exceptions.py:37
+msgid "获取编辑权"
+msgstr "获取编辑权"
+
+#: exceptions.py:38
+msgid ""
+"《笔记功能介绍》不支持编辑，如需编辑，请使用笔记克隆功能克隆成可执行笔记"
+msgstr "《笔记功能介绍》不支持编辑，如需编辑，请使用笔记克隆功能克隆成可执行笔记"
+
+#: exceptions.py:38
+msgid "克隆笔记"
+msgstr "克隆笔记"
+
+#: favorites/views.py:131
+msgid "置顶表不存在"
+msgstr "置顶表不存在"
+
+#: notebooks/libs.py:15
+msgid "用于处理大型多维数组和矩阵"
+msgstr "用于处理大型多维数组和矩阵"
+
+#: notebooks/libs.py:16
+msgid "提供高级数据结构和各种分析工具"
+msgstr "提供高级数据结构和各种分析工具"
+
+#: notebooks/libs.py:17
+msgid "用于创建二维图表和图形的绘图库"
+msgstr "用于创建二维图表和图形的绘图库"
+
+#: notebooks/libs.py:18
+msgid "深度学习和机器学习框架"
+msgstr "深度学习和机器学习框架"
+
+#: notebooks/libs.py:19
+msgid "tensorflow的可视化工具，可视化神经网络"
+msgstr "tensorflow的可视化工具，可视化神经网络"
+
+#: notebooks/libs.py:20
+msgid "开源深度学习库"
+msgstr "开源深度学习库"
+
+#: notebooks/libs.py:21
+msgid "用于处理神经网络的高级库"
+msgstr "用于处理神经网络的高级库"
+
+#: notebooks/libs.py:22
+msgid "用于构建复杂的图形，例如：轮廓图形、三元图和3D图表"
+msgstr "用于构建复杂的图形，例如：轮廓图形、三元图和3D图表"
+
+#: notebooks/libs.py:23
+msgid "为标准机器学习和数据挖掘任务提供常用算法"
+msgstr "为标准机器学习和数据挖掘任务提供常用算法"
+
+#: notebooks/libs.py:24 notebooks/libs.py:25
+msgid "梯度提升算法库"
+msgstr "梯度提升算法库"
+
+#: notebooks/libs.py:26
+msgid "用于描述统计模型"
+msgstr "用于描述统计模型"
+
+#: notebooks/libs.py:27
+msgid "对时间序列进行特征提取的工具"
+msgstr "对时间序列进行特征提取的工具"
+
+#: notebooks/libs.py:28
+msgid "用于统计数据分析的方法"
+msgstr "用于统计数据分析的方法"
+
+#: notebooks/libs.py:29
+msgid "解决线性代数、概率论、积分计算等的工具"
+msgstr "解决线性代数、概率论、积分计算等的工具"
+
+#: notebooks/libs.py:30
+msgid "提供丰富的可视化图库"
+msgstr "提供丰富的可视化图库"
+
+#: notebooks/libs.py:31
+msgid "用于绘制关系图、流程图"
+msgstr "用于绘制关系图、流程图"
+
+#: notebooks/libs.py:32
+msgid "金融指数处理库"
+msgstr "金融指数处理库"
+
+#: notebooks/libs.py:33
+msgid "数据挖掘聚类算法"
+msgstr "数据挖掘聚类算法"
+
+#: notebooks/libs.py:34
+msgid "机器学习可视化库"
+msgstr "机器学习可视化库"
+
+#: notebooks/serializers.py:17
+msgid "项目id"
+msgstr "项目id"
+
+#: notebooks/serializers.py:18
+msgid "项目类型"
+msgstr "项目类型"
+
+#: notebooks/serializers.py:19
+msgid "鉴权信息"
+msgstr "鉴权信息"
+
+#: notebooks/serializers.py:23
+msgid "产出物类型"
+msgstr "产出物类型"
+
+#: notebooks/serializers.py:27
+msgid "报告秘钥"
+msgstr "报告秘钥"
+
+#: notebooks/utils.py:112
+msgid "此项目下已存在同名笔记任务"
+msgstr "此项目下已存在同名笔记任务"
+
+#: notebooks/utils.py:135
+msgid "当前仅支持关联一种存储"
+msgstr "当前仅支持关联一种存储"
+
+#: notebooks/utils.py:142
+msgid "clickhouse存储必须指定主键"
+msgstr "clickhouse存储必须指定主键"
+
+#: notebooks/utils.py:190
+msgid "获取存储集群信息失败"
+msgstr "获取存储集群信息失败"
+
+#: notebooks/utils.py:410
+msgid "结果表名定义不符合规范，请使用\"业务id_表名\"的形式"
+msgstr "结果表名定义不符合规范，请使用'业务id_表名'的形式"
+
+#: notebooks/views.py:625
+msgid "cells无内容"
+msgstr "cells无内容"
+
+#: notebooks/views.py:627
+msgid "cells需为列表型"
+msgstr "cells需为列表型"
+
+#: notebooks/views.py:926
+#, python-format
+msgid "克隆自%s项目"
+msgstr "克隆自%s项目"
+
+#: notebooks/views.py:927
+#, python-format
+msgid "克隆自%s"
+msgstr "克隆自%s"
+
+#: notebooks/views.py:1028
+msgid "个人生成的报告仅限自己访问，如需分享报告，请在项目下生成报告"
+msgstr "个人生成的报告仅限自己访问，如需分享报告，请在项目下生成报告"
+
+#: notebooks/views.py:1199
+#, python-format
+msgid "产出物在%s项目的'%s'笔记下生成，请到相应笔记下查看详情"
+msgstr "产出物在%s项目的'%s'笔记下生成，请到相应笔记下查看详情"
+
+#: notebooks/views.py:1471 notebooks/views.py:1509
+msgid "结果表不存在"
+msgstr "结果表不存在"
+
+#: notebooks/views.py:1473
+msgid "只支持删除queryset类型结果表"
+msgstr "只支持删除queryset类型结果表"
+
+#: notebooks/views.py:1511
+msgid "只支持queryset类型结果表的数据清理"
+msgstr "只支持queryset类型结果表的数据清理"
+
+#: projects/views.py:91
+#, python-format
+msgid "%s的探索"
+msgstr "%s的探索"
+
+#: queries/views.py:205 queries/views.py:305
+msgid "查询任务不存在"
+msgstr "查询任务不存在"
+
+#: queries/views.py:219
+msgid "查询页面只支持检索数据，数据修改等操作请在笔记下执行"
+msgstr "查询页面只支持检索数据，数据修改等操作请在笔记下执行"
+
+#: queries/views.py:226
+#, python-format
+msgid "该项目没有结果表 %s 的查询权限，请先给项目申请结果表权限"
+msgstr "该项目没有结果表 %s 的查询权限，请先给项目申请结果表权限"
+
+#: queries/views.py:500
+#, python-format
+msgid "页面最多展示%s条数据，请使用SQL进一步检索"
+msgstr "页面最多展示%s条数据，请使用SQL进一步检索"
+
+#: queries/views.py:915
+msgid "此项目下已存在同名查询任务"
+msgstr "此项目下已存在同名查询任务"
+
+#: utils.py:39
+msgid "参数错误, 当前接口调用需传入bk_username参数"
+msgstr "参数错误, 当前接口调用需传入bk_username参数"
+
+#~ msgid "启动笔记服务失败，请联系管理员进行排查"
+#~ msgstr "启动笔记服务失败，请联系管理员进行排查"
+
+#~ msgid "无法删除正式结果表"
+#~ msgstr "无法删除正式结果表"

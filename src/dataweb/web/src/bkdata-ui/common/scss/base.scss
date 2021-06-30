@@ -1,0 +1,190 @@
+/*!
+ * Tencent is pleased to support the open source community by making BK-BASE 蓝鲸基础平台 available.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ * BK-BASE 蓝鲸基础平台 is licensed under the MIT License.
+ *
+ * License for BK-BASE 蓝鲸基础平台:
+ * --------------------------------------------------------------------
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+ */
+
+@charset "utf-8";
+@import './conf.scss';
+// Reset && Base
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: $globalFontFamily;
+  outline: none;
+
+}
+
+html,
+body,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $globalFontFamily;
+  color: $fnMainColor;
+  font-size: $fnNormalSize;
+  height: 100%;
+  min-width: 1200px;
+  overflow: hidden;
+  &.over {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* 设置滚动条的样式 */
+    &::-webkit-scrollbar {
+      width: 0px;
+      background-color: #f5f5f5;
+    }
+  }
+}
+
+
+table {
+  font-size: $fnSmallSize;
+  color: $fnMainColor;
+}
+
+a {
+  color: #3a84ff;
+}
+
+.bk-data-highlight {
+  font-style: normal;
+  font-weight: bold;
+  color: #e95b5f;
+}
+
+.data-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bk-scroll-x {
+  overflow-x: scroll;
+  scrollbar-color: #a0a0a0 transparent;
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    height: 8px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #a0a0a0;
+  }
+}
+
+.bk-scroll-y {
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #dcdee5;
+  }
+}
+
+.bk-scroll-ys {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: rgba(230, 233, 234, 0.08);
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 5px;
+    border-radius: 2px;
+    background-color: #e6e9ea;
+  }
+}
+.bk-option {
+  min-width: 150px;
+  .bk-option-content {
+    width: 100%;
+    .bk-option-content-default {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-left {
+  text-align: left;
+}
+.link {
+  color: #3a84ff;
+  cursor: pointer;
+}
+
+.bk-sideslider-wrapper {
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #a0a0a0;
+  }
+}
+
+.disabled {
+  color: #c4c6cc !important;
+  cursor: not-allowed !important;
+}
+
+.label-has-desc {
+  border-bottom: 1px dashed #979ba5;
+  cursor: pointer;
+}
+
+.color-warning {
+  color: #f3b760;
+}
+
+.color-danger {
+  color: #d26a5c;
+}
+
+.color-success {
+  color: #2dcb56;
+}
+
+.bk-table-empty-block {
+  max-height: 200px;
+}
+@import './bkBase.scss';
+@import './transition.scss';
+@import './function.scss';

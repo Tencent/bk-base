@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source $HOME/.bkrc
+source $CTRL_DIR/utils.fc
+workon bkdata-metadata
+echo "now env: [$BKDATA_VERSION_TYPE] $GEOG_AREA_CODE"
+# 注册DGraph Schema
+python entry.py declare-defs
+# 初始化启动数据
+python entry.py set-init-data

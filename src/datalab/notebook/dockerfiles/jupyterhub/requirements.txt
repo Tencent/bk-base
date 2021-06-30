@@ -1,0 +1,9 @@
+jupyterhub-kubespawner==0.11.*
+kubernetes==10.0.*
+pymysql==0.9.*
+psycopg2-binary==2.8.*
+pycurl==7.43.0.*
+statsd==3.3.*
+cryptography==2.8.*
+py-spy
+mysql-connector-python==8.0.20

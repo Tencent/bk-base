@@ -1,0 +1,1917 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-30 20:58+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: datamap/dmaction.py:60
+msgid "数据集市"
+msgstr "data market"
+
+#: datamap/dmaction.py:61 datastocktake/views.py:44 datastocktake/views.py:195
+#: datastocktake/views.py:284 datastocktake/views.py:366
+#: datastocktake/views.py:407
+msgid "其他"
+msgstr "other"
+
+#: datamap/dmaction.py:67 datamap/dmaction.py:69
+msgid "ModelFlow模型"
+msgstr "batch model/stream model"
+
+#: datamap/dmaction.py:68
+msgid "实时计算"
+msgstr "stream"
+
+#: datamap/dmaction.py:70
+msgid "离线计算"
+msgstr "batch"
+
+#: datamap/dmaction.py:71
+msgid "转换"
+msgstr "Transform"
+
+#: datamap/dmaction.py:72
+msgid "清洗"
+msgstr "Clean"
+
+#: datamap/dmaction.py:73
+msgid "场景化模型"
+msgstr "model"
+
+#: datamap/dmaction.py:74
+msgid "存储类计算"
+msgstr "storage"
+
+#: datamap/dmaction.py:75
+msgid "视图"
+msgstr "view"
+
+#: datamap/dmaction.py:1598
+msgid "-其他"
+msgstr "-other"
+
+#: datamap/dmaction.py:1602
+msgid "非标准数据"
+msgstr "nonstandard data"
+
+#: datamap/dmaction.py:4818 datastocktake/views.py:181
+msgid "组件"
+msgstr "component"
+
+#: datamap/dmaction.py:4819 datastocktake/views.py:181
+msgid "设备"
+msgstr "sys_host"
+
+#: datamap/dmaction.py:4820 dataquality/models/audit.py:42
+#: dataquality/models/audit.py:215 datastocktake/views.py:181
+msgid "系统"
+msgstr "System"
+
+#: datamap/serializers.py:13 datamap/serializers.py:17
+msgid "全部"
+msgstr "all"
+
+#: datamap/serializers.py:14
+msgid "数据平台"
+msgstr "data platform"
+
+#: datamap/serializers.py:15
+msgid "TDW平台"
+msgstr "TDW platform"
+
+#: datamap/serializers.py:18
+msgid "结果数据"
+msgstr "result table"
+
+#: datamap/serializers.py:19 lifecycle/serializers.py:15
+#: lifecycle/serializers.py:26
+msgid "数据源"
+msgstr "raw data"
+
+#: datamodel/dmm/calculation_atom_manager.py:95
+#: datamodel/dmm/calculation_atom_manager.py:182
+msgid "未解析出正确的计算来源字段origin_fields"
+msgstr ""
+
+#: datamodel/dmm/calculation_atom_manager.py:324
+msgid "被指标应用/被其他模型引用的统计口径不能被删除"
+msgstr ""
+
+#: datamodel/dmm/master_table_manager.py:127
+msgid "关联模型不存在异常"
+msgstr ""
+
+#: datamodel/dmm/master_table_manager.py:134
+msgid "关联字段不存在/字段类型校验不通过异常"
+msgstr ""
+
+#: datamodel/handlers/constraint.py:112
+msgid "字段:{} {}"
+msgstr ""
+
+#: datamodel/handlers/constraint.py:157
+msgid "类型错误"
+msgstr "format error"
+
+#: datamodel/handlers/constraint.py:163
+msgid "内容错误"
+msgstr "content error"
+
+#: datamodel/handlers/tag.py:163
+msgid "删除模型标签失败"
+msgstr ""
+
+#: datamodel/handlers/tag.py:169 datamodel/handlers/tag.py:187
+msgid "修改模型标签失败"
+msgstr ""
+
+#: datamodel/models/application.py:24
+msgid "模型实例ID"
+msgstr ""
+
+#: datamodel/models/application.py:25 datamodel/models/application.py:105
+#: datamodel/models/datamodel.py:50 datamodel/models/indicator.py:17
+#: datamodel/models/indicator.py:40 datamodel/models/indicator.py:57
+#: datamodel/serializers/application_model.py:17
+#: datamodel/serializers/data_model.py:45
+#: datamodel/serializers/data_model.py:74
+msgid "项目ID"
+msgstr ""
+
+#: datamodel/models/application.py:27 datamodel/models/datamodel.py:29
+msgid "模型版本ID"
+msgstr ""
+
+#: datamodel/models/application.py:30
+msgid "外部应用的 DataFlowID"
+msgstr ""
+
+#: datamodel/models/application.py:44
+msgid "主表ID"
+msgstr ""
+
+#: datamodel/models/application.py:45
+msgid "业务Id"
+msgstr ""
+
+#: datamodel/models/application.py:48
+msgid "原Flow节点ID"
+msgstr ""
+
+#: datamodel/models/application.py:62
+msgid "模型实例自增ID"
+msgstr ""
+
+#: datamodel/models/application.py:65 datamodel/models/application.py:86
+msgid "输出字段"
+msgstr ""
+
+#: datamodel/models/application.py:68 datamodel/models/application.py:90
+#: datamodel/serializers/application_model.py:46
+msgid "输入结果表"
+msgstr ""
+
+#: datamodel/models/application.py:69 datamodel/models/application.py:91
+msgid "输入字段"
+msgstr ""
+
+#: datamodel/models/application.py:70
+#: datamodel/serializers/application_model.py:50
+msgid "应用阶段清洗规则"
+msgstr ""
+
+#: datamodel/models/application.py:83
+msgid "自增ID"
+msgstr ""
+
+#: datamodel/models/application.py:89 datamodel/models/datamodel.py:154
+msgid "关联模型ID"
+msgstr ""
+
+#: datamodel/models/application.py:104
+msgid "指标结果表ID"
+msgstr ""
+
+#: datamodel/models/application.py:106
+#: datamodel/serializers/application_model.py:19 dataquality/models/audit.py:34
+#: dataquality/models/correction.py:12 dataquality/serializers/audit.py:134
+#: dataquality/serializers/correction.py:36
+msgid "业务ID"
+msgstr ""
+
+#: datamodel/models/application.py:111
+msgid "上游结果表ID"
+msgstr ""
+
+#: datamodel/models/application.py:112
+msgid "来源节点ID"
+msgstr ""
+
+#: datamodel/models/application.py:115 datamodel/serializers/indicator.py:23
+#: datamodel/serializers/indicator.py:82 datamodel/serializers/indicator.py:104
+#: datamodel/serializers/indicator.py:131
+#: datamodel/serializers/indicator.py:263
+msgid "统计口径名称"
+msgstr ""
+
+#: datamodel/models/application.py:116
+msgid "聚合字段列表(使用逗号分割)"
+msgstr ""
+
+#: datamodel/models/application.py:117 datamodel/models/indicator.py:63
+#: datamodel/serializers/indicator.py:106
+#: datamodel/serializers/indicator.py:133
+msgid "过滤SQL"
+msgstr ""
+
+#: datamodel/models/application.py:118 datamodel/serializers/indicator.py:108
+#: datamodel/serializers/indicator.py:134
+msgid "计算类型"
+msgstr ""
+
+#: datamodel/models/application.py:119 datamodel/models/indicator.py:65
+#: datamodel/serializers/indicator.py:109
+#: datamodel/serializers/indicator.py:136
+msgid "调度内容"
+msgstr ""
+
+#: datamodel/models/base.py:12 datamodel/models/datamodel.py:33
+#: datamodel/models/datamodel.py:63 datamodel/models/datamodel.py:81
+#: datamodel/models/datamodel.py:134 datamodel/models/datamodel.py:158
+#: datamodel/models/indicator.py:25 datamodel/models/indicator.py:42
+#: datamodel/models/indicator.py:67 dataquality/models/audit.py:19
+#: dataquality/models/audit.py:45 dataquality/models/audit.py:100
+#: dataquality/models/audit.py:220 dataquality/models/audit.py:238
+#: dataquality/models/audit.py:258 dataquality/models/audit.py:276
+#: dataquality/models/audit.py:296 dataquality/models/correction.py:19
+#: dataquality/models/correction.py:38 dataquality/models/correction.py:57
+#: dataquality/models/correction.py:76 dataquality/models/metric.py:26
+#: dstan/models.py:22 dstan/models.py:24 dstan/models.py:49 dstan/models.py:51
+#: dstan/models.py:76 dstan/models.py:78 dstan/models.py:110
+#: dstan/models.py:112 dstan/models.py:138 dstan/models.py:140
+#: dstan/models.py:155 dstan/models.py:157
+msgid "创建者"
+msgstr "created_by"
+
+#: datamodel/models/base.py:13 datamodel/models/datamodel.py:34
+#: datamodel/models/datamodel.py:64 datamodel/models/datamodel.py:82
+#: datamodel/models/datamodel.py:135 datamodel/models/datamodel.py:159
+#: datamodel/models/indicator.py:26 datamodel/models/indicator.py:43
+#: datamodel/models/indicator.py:68 dataquality/models/audit.py:20
+#: dataquality/models/audit.py:46 dataquality/models/audit.py:101
+#: dataquality/models/audit.py:221 dataquality/models/audit.py:239
+#: dataquality/models/audit.py:259 dataquality/models/audit.py:277
+#: dataquality/models/audit.py:297 dataquality/models/correction.py:20
+#: dataquality/models/correction.py:39 dataquality/models/correction.py:58
+#: dataquality/models/correction.py:77 dataquality/models/metric.py:27
+#: dstan/models.py:23 dstan/models.py:25 dstan/models.py:50 dstan/models.py:52
+#: dstan/models.py:77 dstan/models.py:79 dstan/models.py:111
+#: dstan/models.py:113 dstan/models.py:139 dstan/models.py:141
+#: dstan/models.py:156 dstan/models.py:158
+msgid "创建时间"
+msgstr "created_at"
+
+#: datamodel/models/base.py:14 datamodel/models/datamodel.py:35
+#: datamodel/models/datamodel.py:65 datamodel/models/datamodel.py:83
+#: datamodel/models/datamodel.py:136 datamodel/models/datamodel.py:160
+#: datamodel/models/indicator.py:27 datamodel/models/indicator.py:44
+#: datamodel/models/indicator.py:69 dataquality/models/audit.py:21
+#: dataquality/models/audit.py:47 dataquality/models/audit.py:102
+#: dataquality/models/audit.py:222 dataquality/models/audit.py:240
+#: dataquality/models/audit.py:260 dataquality/models/audit.py:278
+#: dataquality/models/audit.py:298 dataquality/models/correction.py:21
+#: dataquality/models/correction.py:40 dataquality/models/correction.py:59
+#: dataquality/models/correction.py:78 dataquality/models/metric.py:28
+msgid "更新者"
+msgstr "updated_by"
+
+#: datamodel/models/base.py:15 datamodel/models/datamodel.py:36
+#: datamodel/models/datamodel.py:66 datamodel/models/datamodel.py:84
+#: datamodel/models/datamodel.py:137 datamodel/models/datamodel.py:161
+#: datamodel/models/indicator.py:28 datamodel/models/indicator.py:45
+#: datamodel/models/indicator.py:70 dataquality/models/audit.py:22
+#: dataquality/models/audit.py:48 dataquality/models/audit.py:103
+#: dataquality/models/audit.py:223 dataquality/models/audit.py:241
+#: dataquality/models/audit.py:261 dataquality/models/audit.py:279
+#: dataquality/models/audit.py:299 dataquality/models/correction.py:22
+#: dataquality/models/correction.py:41 dataquality/models/correction.py:60
+#: dataquality/models/correction.py:79 dataquality/models/metric.py:29
+msgid "更新时间"
+msgstr "updated_at"
+
+#: datamodel/models/datamodel.py:30 datamodel/serializers/data_model.py:194
+msgid "模型版本日志"
+msgstr ""
+
+#: datamodel/models/datamodel.py:31 datamodel/models/datamodel.py:46
+#: datamodel/models/datamodel.py:80 datamodel/models/datamodel.py:121
+#: datamodel/models/datamodel.py:152 datamodel/models/indicator.py:16
+#: datamodel/models/indicator.py:39 datamodel/models/indicator.py:56
+#: datamodel/serializers/data_model.py:70
+#: datamodel/serializers/data_model.py:155
+#: datamodel/serializers/indicator.py:18 datamodel/serializers/indicator.py:33
+#: datamodel/serializers/indicator.py:124
+msgid "模型ID"
+msgstr ""
+
+#: datamodel/models/datamodel.py:32
+msgid "模型版本内容"
+msgstr ""
+
+#: datamodel/models/datamodel.py:47 datamodel/models/indicator.py:18
+#: datamodel/models/indicator.py:41 datamodel/models/indicator.py:61
+#: datamodel/serializers/data_model.py:23
+#: datamodel/serializers/data_model.py:42
+#: datamodel/serializers/data_model.py:71
+msgid "模型名称"
+msgstr ""
+
+#: datamodel/models/datamodel.py:48 datamodel/models/indicator.py:19
+#: datamodel/serializers/data_model.py:43
+msgid "模型别名"
+msgstr ""
+
+#: datamodel/models/datamodel.py:49 datamodel/serializers/data_model.py:44
+#: datamodel/serializers/data_model.py:72
+msgid "模型类型"
+msgstr ""
+
+#: datamodel/models/datamodel.py:51 datamodel/models/indicator.py:20
+#: datamodel/serializers/data_model.py:47
+#: datamodel/serializers/data_model.py:58
+msgid "模型描述"
+msgstr ""
+
+#: datamodel/models/datamodel.py:52
+msgid "发布状态"
+msgstr ""
+
+#: datamodel/models/datamodel.py:55
+msgid "可用状态, active/disabled/conflicting"
+msgstr ""
+
+#: datamodel/models/datamodel.py:58
+msgid "主表名称"
+msgstr ""
+
+#: datamodel/models/datamodel.py:59
+msgid "主表别名"
+msgstr ""
+
+#: datamodel/models/datamodel.py:60
+msgid "步骤ID"
+msgstr ""
+
+#: datamodel/models/datamodel.py:79 datamodel/models/datamodel.py:120
+#: datamodel/models/datamodel.py:151 datamodel/models/indicator.py:38
+msgid "主键ID"
+msgstr ""
+
+#: datamodel/models/datamodel.py:94
+msgid "字段约束ID"
+msgstr ""
+
+#: datamodel/models/datamodel.py:95 datamodel/serializers/data_model.py:84
+msgid "约束类型"
+msgstr ""
+
+#: datamodel/models/datamodel.py:97 dstan/models.py:152
+msgid "约束名称"
+msgstr "constraint name"
+
+#: datamodel/models/datamodel.py:98
+msgid "约束规则"
+msgstr ""
+
+#: datamodel/models/datamodel.py:99
+msgid "约束规则校验"
+msgstr ""
+
+#: datamodel/models/datamodel.py:100
+msgid "字段约束说明"
+msgstr ""
+
+#: datamodel/models/datamodel.py:101
+msgid "是否可以编辑"
+msgstr ""
+
+#: datamodel/models/datamodel.py:102 datamodel/serializers/data_model.py:171
+#, fuzzy
+#| msgid "数据类型"
+msgid "允许的字段数据类型"
+msgstr "data type name"
+
+#: datamodel/models/datamodel.py:122 datamodel/models/datamodel.py:153
+#: datamodel/serializers/data_model.py:118 dataquality/serializers/event.py:16
+#: dataquality/serializers/summary.py:12
+msgid "字段名称"
+msgstr ""
+
+#: datamodel/models/datamodel.py:123 datamodel/serializers/data_model.py:119
+msgid "字段别名"
+msgstr ""
+
+#: datamodel/models/datamodel.py:124 datamodel/models/indicator.py:21
+#: datamodel/serializers/data_model.py:121
+#: datamodel/serializers/indicator.py:85 datamodel/serializers/indicator.py:94
+#: dstan/models.py:104 dstan/models.py:106 dstan/models.py:128
+#: dstan/models.py:130 dstan/models.py:176
+msgid "数据类型"
+msgstr "data type name"
+
+#: datamodel/models/datamodel.py:125 datamodel/serializers/data_model.py:122
+msgid "字段类型"
+msgstr ""
+
+#: datamodel/models/datamodel.py:126 datamodel/serializers/data_model.py:123
+msgid "是否主键"
+msgstr ""
+
+#: datamodel/models/datamodel.py:127 datamodel/serializers/data_model.py:124
+msgid "字段描述"
+msgstr ""
+
+#: datamodel/models/datamodel.py:128 datamodel/serializers/data_model.py:100
+msgid "字段约束"
+msgstr ""
+
+#: datamodel/models/datamodel.py:129 datamodel/serializers/data_model.py:128
+msgid "清洗规则"
+msgstr ""
+
+#: datamodel/models/datamodel.py:130 datamodel/models/indicator.py:24
+msgid "计算来源字段"
+msgstr ""
+
+#: datamodel/models/datamodel.py:131 datamodel/serializers/data_model.py:120
+msgid "字段位置"
+msgstr ""
+
+#: datamodel/models/datamodel.py:132 datamodel/serializers/data_model.py:129
+msgid "来源模型ID"
+msgstr ""
+
+#: datamodel/models/datamodel.py:133 datamodel/serializers/data_model.py:130
+msgid "来源字段"
+msgstr ""
+
+#: datamodel/models/datamodel.py:155
+msgid "关联字段名称"
+msgstr ""
+
+#: datamodel/models/datamodel.py:156
+msgid "关联方式"
+msgstr ""
+
+#: datamodel/models/dict.py:163
+msgid "时间字段"
+msgstr ""
+
+#: datamodel/models/dict.py:169
+msgid ""
+"平台内置时间字段，数据入库后将装换为可查询字段，比如 dtEventTime、"
+"dtEventTimeStamp、localtime"
+msgstr ""
+
+#: datamodel/models/indicator.py:22 datamodel/serializers/indicator.py:86
+#: datamodel/serializers/indicator.py:95
+msgid "统计方式"
+msgstr ""
+
+#: datamodel/models/indicator.py:23 datamodel/serializers/indicator.py:50
+msgid "统计SQL"
+msgstr ""
+
+#: datamodel/models/indicator.py:58 datamodel/models/indicator.py:66
+#: datamodel/serializers/indicator.py:125 dataquality/serializers/audit.py:38
+msgid "指标名称"
+msgstr ""
+
+#: datamodel/models/indicator.py:59 datamodel/serializers/indicator.py:101
+msgid "指标别名"
+msgstr ""
+
+#: datamodel/models/indicator.py:60 datamodel/serializers/indicator.py:102
+#: datamodel/serializers/indicator.py:130
+msgid "指标描述"
+msgstr ""
+
+#: datamodel/models/indicator.py:62
+msgid "聚合字段列表"
+msgstr ""
+
+#: datamodel/models/indicator.py:64
+msgid "调度类型"
+msgstr ""
+
+#: datamodel/models/indicator.py:80
+msgid "SQL 统计函数名称"
+msgstr ""
+
+#: datamodel/models/indicator.py:81
+msgid "输出字段类型"
+msgstr ""
+
+#: datamodel/models/indicator.py:82
+msgid "允许被聚合字段的数据类型"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:15
+msgid "数据模型ID"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:16
+msgid "数据模型版本ID"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:18
+msgid "当前应用数据流ID"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:20
+msgid "主表结果表ID"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:21
+msgid "模型应用所在节点ID"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:22
+msgid "字段映射"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:38
+msgid "维度关联模型ID"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:39
+msgid "维表关联输入结果表"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:40
+msgid "维表关联输入字段名"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:44
+msgid "实例模型ID"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:45
+msgid "输出字段名"
+msgstr ""
+
+#: datamodel/serializers/application_model.py:47
+msgid "输入字段名"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:18 datamodel/serializers/indicator.py:81
+#: datamodel/serializers/indicator.py:91 datamodel/serializers/indicator.py:100
+#: dataquality/serializers/correction.py:34
+#: dataquality/serializers/correction.py:60
+msgid "用户名"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:28
+msgid "标签名称"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:29
+msgid "标签别名"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:52
+#: datamodel/serializers/data_model.py:59
+msgid "标签"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:57
+msgid "数据别名"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:75
+msgid "搜索关键字"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:79
+msgid "是否展示详情"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:85
+msgid "约束内容"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:91
+msgid "约束ID错误, 请修改约束ID"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:93
+msgid "约束不是非空时，约束内容不能为空"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:99
+msgid "逻辑运算符"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:105
+msgid "字段加工类型"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:106
+msgid "字段加工逻辑"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:112
+msgid "字段清洗规则校验不通过，请修改字段清洗规则"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:126
+msgid "字段约束内容"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:135
+msgid "数据类型错误, 请修改数据类型"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:140
+msgid "字段名称是系统内部字段，请修改字段名称"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:149
+msgid "数据类型timestamp校验不通过，请修改数据类型"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:156
+msgid "主表关联字段名称"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:157
+msgid "关联表模型ID"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:158
+msgid "关联表关联字段名称"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:163
+msgid "模型主表字段列表"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:164
+msgid "模型主表关联信息"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:170
+#: datamodel/serializers/data_model.py:212
+msgid "是否显示时间字段"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:172
+msgid "字段展示的详情内容"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:177
+msgid "允许的字段数据类型错误, 请修改允许的字段数据类型"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:182
+msgid "在指定允许的字段数据类型时，不能返回时间字段"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:187
+msgid "处理表名"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:188
+msgid "指定当前需要校验的字段"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:189
+msgid "处理表可引用的表schema"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:199
+msgid "额外返回的数据类型列表"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:200
+msgid "不返回的数据类型列表"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:204
+msgid "额外返回的数据类型列表错误, 请修改额外返回的数据类型列表"
+msgstr ""
+
+#: datamodel/serializers/data_model.py:206
+msgid "不返回的数据类型列表错误, 请修改不返回的数据类型列表"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:28
+msgid "是否展示指标"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:38
+msgid "统计字段"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:39
+msgid "聚合函数"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:44
+msgid "聚合函数错误, 请修改聚合函数"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:68
+msgid "统计方式类型"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:69
+msgid "统计方式内容"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:83 datamodel/serializers/indicator.py:92
+msgid "统计口径别名"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:84 datamodel/serializers/indicator.py:93
+msgid "统计口径描述"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:105
+#: datamodel/serializers/indicator.py:132
+msgid "聚合字段"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:110
+#: datamodel/serializers/indicator.py:137
+#: datamodel/serializers/indicator.py:264
+msgid "父指标名称"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:147
+#: datamodel/serializers/indicator.py:243
+msgid "窗口长度"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:148
+msgid "窗口长度单位"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:150
+msgid "依赖策略"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:155
+msgid "是否启用失败重试"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:156
+msgid "重试次数"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:158
+msgid "重试间隔"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:164
+msgid "启用失败重试时,必传重试次数&重试间隔"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:170
+#: datamodel/serializers/indicator.py:241
+msgid "窗口类型"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:171
+#: datamodel/serializers/indicator.py:242
+msgid "统计频率"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:172
+msgid "调度单位"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:173
+msgid "高级配置"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:174
+#: datamodel/serializers/indicator.py:246
+msgid "格式化窗口长度"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:175
+#: datamodel/serializers/indicator.py:247
+msgid "格式化窗口长度单位"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:176
+#: datamodel/serializers/indicator.py:183
+msgid "依赖配置"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:177
+#: datamodel/serializers/indicator.py:190
+msgid "统一配置内容校验"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:182
+#: datamodel/serializers/indicator.py:202
+msgid "统计延迟"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:185
+#: datamodel/serializers/indicator.py:215
+#: datamodel/serializers/indicator.py:229
+msgid "延迟时间"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:186
+#: datamodel/serializers/indicator.py:216
+msgid "延迟时间单位"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:188
+#: datamodel/serializers/indicator.py:217
+msgid "数据起点"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:189
+#: datamodel/serializers/indicator.py:218
+msgid "数据终点"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:209
+msgid "离线计算固定窗口统一配置必须传窗口长度 & 窗口长度单位"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:228
+msgid "是否计算延迟数据"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:230
+msgid "延迟数据统计频率"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:235
+msgid "计算延迟数据,必传延迟时间&延迟数据统计频率"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:244
+msgid "等待时间"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:245
+msgid "是否计算延迟数据相关配置"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:252
+msgid "实时滑动窗口和累加窗口必传窗口长度"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:265
+#: datamodel/serializers/indicator.py:276
+msgid "是否展示子指标"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:266
+msgid "是否展示指标字段"
+msgstr ""
+
+#: datamodel/serializers/indicator.py:270
+msgid "获取指标列表不能同时指定统计口径名称&父指标名称"
+msgstr ""
+
+#: datamodel/serializers/validators/url_params.py:26
+msgid "路径参数{}:{}非数值"
+msgstr ""
+
+#: datamodel/views/dmm_sql_verify_views.py:89
+#, python-brace-format
+msgid "校验失败: {detail}; <br /> {sql}"
+msgstr ""
+
+#: dataquality/mixins/base_mixins.py:35
+msgid "该指标为敏感指标，暂不支持查询"
+msgstr ""
+
+#: dataquality/mixins/base_mixins.py:54
+msgid "权限不足({})"
+msgstr ""
+
+#: dataquality/models/audit.py:14 dataquality/serializers/audit.py:137
+msgid "规则模板ID"
+msgstr ""
+
+#: dataquality/models/audit.py:15
+msgid "模板名称"
+msgstr ""
+
+#: dataquality/models/audit.py:16
+msgid "模板别名"
+msgstr ""
+
+#: dataquality/models/audit.py:17
+msgid "模板配置"
+msgstr ""
+
+#: dataquality/models/audit.py:18 dataquality/models/audit.py:44
+#: dataquality/models/audit.py:219 dataquality/models/audit.py:237
+#: dataquality/models/audit.py:257 dataquality/models/audit.py:275
+#: dataquality/models/audit.py:295 dataquality/models/correction.py:18
+#: dataquality/models/correction.py:37 dataquality/models/correction.py:56
+#: dataquality/models/correction.py:75 dataquality/models/metric.py:25
+msgid "是否生效"
+msgstr ""
+
+#: dataquality/models/audit.py:23 dataquality/models/audit.py:49
+#: dataquality/models/audit.py:224 dataquality/models/audit.py:242
+#: dataquality/models/audit.py:280 dataquality/models/audit.py:300
+#: dataquality/models/correction.py:23 dataquality/models/correction.py:42
+#: dataquality/models/correction.py:61 dataquality/models/correction.py:80
+#: dataquality/models/metric.py:30 dataquality/serializers/audit.py:136
+msgid "规则描述"
+msgstr ""
+
+#: dataquality/models/audit.py:32 dataquality/models/audit.py:251
+#: dataquality/models/audit.py:270 dataquality/models/audit.py:289
+#: dataquality/models/metric.py:10
+msgid "规则ID"
+msgstr ""
+
+#: dataquality/models/audit.py:33 dataquality/models/correction.py:11
+#: dataquality/serializers/audit.py:133 dataquality/serializers/base.py:10
+#: dataquality/serializers/correction.py:35
+#: dataquality/serializers/correction.py:75
+#: dataquality/serializers/correction.py:90
+#: dataquality/serializers/correction.py:91
+#: dataquality/serializers/correction.py:106
+msgid "数据集ID"
+msgstr ""
+
+#: dataquality/models/audit.py:35 dataquality/serializers/audit.py:135
+msgid "规则名称"
+msgstr ""
+
+#: dataquality/models/audit.py:37 dataquality/serializers/audit.py:138
+msgid "规则配置"
+msgstr ""
+
+#: dataquality/models/audit.py:38 dataquality/serializers/audit.py:139
+msgid "规则配置别名"
+msgstr ""
+
+#: dataquality/models/audit.py:39 dataquality/models/correction.py:17
+msgid "规则生成类型"
+msgstr ""
+
+#: dataquality/models/audit.py:40 dataquality/models/audit.py:213
+msgid "用户"
+msgstr ""
+
+#: dataquality/models/audit.py:41 dataquality/models/audit.py:214
+msgid "管理员"
+msgstr ""
+
+#: dataquality/models/audit.py:93
+msgid "规则任务ID"
+msgstr ""
+
+#: dataquality/models/audit.py:94 dataquality/serializers/profiling.py:10
+msgid "结果表ID"
+msgstr ""
+
+#: dataquality/models/audit.py:96
+msgid "审核任务配置"
+msgstr ""
+
+#: dataquality/models/audit.py:97
+msgid "审核任务配置别名"
+msgstr ""
+
+#: dataquality/models/audit.py:98
+msgid "运行时配置"
+msgstr ""
+
+#: dataquality/models/audit.py:99
+msgid "任务状态"
+msgstr ""
+
+#: dataquality/models/audit.py:198 dataquality/serializers/audit.py:39
+msgid "事件ID"
+msgstr ""
+
+#: dataquality/models/audit.py:199
+msgid "事件英文名"
+msgstr ""
+
+#: dataquality/models/audit.py:200 dataquality/serializers/audit.py:141
+msgid "事件别名"
+msgstr ""
+
+#: dataquality/models/audit.py:201
+msgid "事件时效性(秒)"
+msgstr ""
+
+#: dataquality/models/audit.py:204 dataquality/serializers/audit.py:143
+msgid "事件类型"
+msgstr ""
+
+#: dataquality/models/audit.py:205 dataquality/serializers/audit.py:144
+msgid "事件子类型"
+msgstr ""
+
+#: dataquality/models/audit.py:206 dataquality/serializers/audit.py:145
+msgid "事件极性"
+msgstr ""
+
+#: dataquality/models/audit.py:211
+msgid "事件信息模板"
+msgstr ""
+
+#: dataquality/models/audit.py:212
+msgid "事件生成类型"
+msgstr ""
+
+#: dataquality/models/audit.py:217
+msgid "事件敏感度"
+msgstr ""
+
+#: dataquality/models/audit.py:233
+msgid "模板变量ID"
+msgstr ""
+
+#: dataquality/models/audit.py:234
+msgid "模板变量名"
+msgstr ""
+
+#: dataquality/models/audit.py:235
+msgid "模板变量中文名"
+msgstr ""
+
+#: dataquality/models/audit.py:236
+msgid "模板变量示例"
+msgstr ""
+
+#: dataquality/models/audit.py:254
+msgid "通知方式"
+msgstr ""
+
+#: dataquality/models/audit.py:255
+msgid "接收人"
+msgstr ""
+
+#: dataquality/models/audit.py:256 dataquality/serializers/audit.py:151
+msgid "收敛配置"
+msgstr ""
+
+#: dataquality/models/audit.py:271
+msgid "事件类型名称"
+msgstr ""
+
+#: dataquality/models/audit.py:272
+msgid "事件类型中文名"
+msgstr ""
+
+#: dataquality/models/audit.py:273
+msgid "分类下序号"
+msgstr ""
+
+#: dataquality/models/audit.py:274
+msgid "父事件分类名称"
+msgstr ""
+
+#: dataquality/models/audit.py:290
+msgid "质量审核函数名"
+msgstr ""
+
+#: dataquality/models/audit.py:291
+msgid "质量审核函数别名"
+msgstr ""
+
+#: dataquality/models/audit.py:292
+msgid "质量审核函数类型"
+msgstr ""
+
+#: dataquality/models/audit.py:293
+msgid "质量审核函数配置"
+msgstr ""
+
+#: dataquality/models/audit.py:294
+msgid "质量审核函数执行逻辑"
+msgstr ""
+
+#: dataquality/models/correction.py:10 dataquality/models/correction.py:51
+#: dataquality/models/correction.py:70
+msgid "关联ID"
+msgstr ""
+
+#: dataquality/models/correction.py:13 dataquality/serializers/correction.py:37
+msgid "数据流ID"
+msgstr ""
+
+#: dataquality/models/correction.py:14
+msgid "节点ID"
+msgstr ""
+
+#: dataquality/models/correction.py:15 dataquality/serializers/correction.py:39
+#: dataquality/serializers/correction.py:61
+#: dataquality/serializers/correction.py:76
+#: dataquality/serializers/correction.py:92
+msgid "原始SQL"
+msgstr ""
+
+#: dataquality/models/correction.py:16
+msgid "修正SQL"
+msgstr ""
+
+#: dataquality/models/correction.py:32 dataquality/serializers/correction.py:20
+msgid "修正配置项ID"
+msgstr ""
+
+#: dataquality/models/correction.py:33 dataquality/serializers/correction.py:21
+msgid "数据集字段"
+msgstr ""
+
+#: dataquality/models/correction.py:35
+msgid "修正配置内容"
+msgstr ""
+
+#: dataquality/models/correction.py:36 dataquality/serializers/correction.py:24
+msgid "修正配置别名"
+msgstr ""
+
+#: dataquality/models/correction.py:52
+msgid "判断模板名称"
+msgstr ""
+
+#: dataquality/models/correction.py:53
+msgid "判断模板别名"
+msgstr ""
+
+#: dataquality/models/correction.py:54
+msgid "判断模板类型"
+msgstr ""
+
+#: dataquality/models/correction.py:55
+msgid "判断模板配置"
+msgstr ""
+
+#: dataquality/models/correction.py:71
+msgid "修正处理模板名称"
+msgstr ""
+
+#: dataquality/models/correction.py:72
+msgid "修正处理模板别名"
+msgstr ""
+
+#: dataquality/models/correction.py:73
+msgid "修正处理模板类型"
+msgstr ""
+
+#: dataquality/models/correction.py:74
+msgid "修正处理模板配置"
+msgstr ""
+
+#: dataquality/models/metric.py:11
+msgid "质量指标名"
+msgstr ""
+
+#: dataquality/models/metric.py:12
+msgid "质量指标别名"
+msgstr ""
+
+#: dataquality/models/metric.py:13
+msgid "质量指标类型"
+msgstr ""
+
+#: dataquality/models/metric.py:14
+#, fuzzy
+#| msgid "数据源"
+msgid "数据流"
+msgstr "raw data"
+
+#: dataquality/models/metric.py:15
+msgid "数据剖析"
+msgstr ""
+
+#: dataquality/models/metric.py:17
+msgid "质量指标单位"
+msgstr ""
+
+#: dataquality/models/metric.py:18
+msgid "质量指标敏感度"
+msgstr ""
+
+#: dataquality/models/metric.py:19
+msgid "质量指标来源"
+msgstr ""
+
+#: dataquality/models/metric.py:20
+#, fuzzy
+#| msgid "数据源"
+msgid "元数据"
+msgstr "raw data"
+
+#: dataquality/models/metric.py:21
+msgid "时序数据库"
+msgstr ""
+
+#: dataquality/models/metric.py:22
+msgid "数据查询"
+msgstr ""
+
+#: dataquality/models/metric.py:24
+msgid "质量指标来源配置"
+msgstr ""
+
+#: dataquality/serializers/audit.py:23
+msgid "定时器类型"
+msgstr ""
+
+#: dataquality/serializers/audit.py:24
+msgid "Crontab调度配置"
+msgstr ""
+
+#: dataquality/serializers/audit.py:25
+msgid "固定时间触发配置"
+msgstr ""
+
+#: dataquality/serializers/audit.py:26
+msgid "一次性执行"
+msgstr ""
+
+#: dataquality/serializers/audit.py:28
+msgid "定时器值"
+msgstr ""
+
+#: dataquality/serializers/audit.py:32
+msgid "输入参数类型"
+msgstr ""
+
+#: dataquality/serializers/audit.py:33
+msgid "输入参数名称"
+msgstr ""
+
+#: dataquality/serializers/audit.py:37
+msgid "参数类型"
+msgstr ""
+
+#: dataquality/serializers/audit.py:40
+msgid "常数类型"
+msgstr ""
+
+#: dataquality/serializers/audit.py:41
+msgid "常数值"
+msgstr ""
+
+#: dataquality/serializers/audit.py:42
+msgid "子操作"
+msgstr ""
+
+#: dataquality/serializers/audit.py:43
+msgid "表达式"
+msgstr ""
+
+#: dataquality/serializers/audit.py:49
+msgid "非法参数类型: {}"
+msgstr ""
+
+#: dataquality/serializers/audit.py:53
+msgid "指标类型参数需要提供有效的\"指标名称(metric_name)\""
+msgstr ""
+
+#: dataquality/serializers/audit.py:56
+msgid "常数类型参数需要提供有效的\"常数类型(constant_type)\""
+msgstr ""
+
+#: dataquality/serializers/audit.py:58
+msgid "非法的常数类型: {}"
+msgstr ""
+
+#: dataquality/serializers/audit.py:62
+msgid "常数类型参数需要提供有效的\"常数值(constant_value)\""
+msgstr ""
+
+#: dataquality/serializers/audit.py:65
+msgid "事件类型参数需要提供有效的\"事件ID(event_id)\""
+msgstr ""
+
+#: dataquality/serializers/audit.py:68
+msgid "操作类型参数需要提供有效的\"操作逻辑(function)\""
+msgstr ""
+
+#: dataquality/serializers/audit.py:72
+msgid "表达式类型参数需要提供有效的\"表达式(expression)\""
+msgstr ""
+
+#: dataquality/serializers/audit.py:78
+msgid "规则操作类型"
+msgstr ""
+
+#: dataquality/serializers/audit.py:79
+msgid "规则操作名称"
+msgstr ""
+
+#: dataquality/serializers/audit.py:80
+msgid "规则操作参数"
+msgstr ""
+
+#: dataquality/serializers/audit.py:86
+msgid "非法操作类型: {}"
+msgstr ""
+
+#: dataquality/serializers/audit.py:92
+msgid "输出事件ID"
+msgstr ""
+
+#: dataquality/serializers/audit.py:93
+msgid "输出事件名称"
+msgstr ""
+
+#: dataquality/serializers/audit.py:94
+msgid "输出事件中文名"
+msgstr ""
+
+#: dataquality/serializers/audit.py:95
+msgid "输出事件类型"
+msgstr ""
+
+#: dataquality/serializers/audit.py:96
+msgid "输出事件子类型"
+msgstr ""
+
+#: dataquality/serializers/audit.py:97
+msgid "事件时效(秒)"
+msgstr ""
+
+#: dataquality/serializers/audit.py:98
+msgid "事件标签"
+msgstr ""
+
+#: dataquality/serializers/audit.py:102
+msgid "规则输入配置"
+msgstr ""
+
+#: dataquality/serializers/audit.py:103
+msgid "规则操作配置"
+msgstr ""
+
+#: dataquality/serializers/audit.py:104
+msgid "规则输出配置"
+msgstr ""
+
+#: dataquality/serializers/audit.py:116
+msgid "触发时间检测范围"
+msgstr ""
+
+#: dataquality/serializers/audit.py:117
+msgid "触发次数阈值"
+msgstr ""
+
+#: dataquality/serializers/audit.py:118
+msgid "告警屏蔽时间"
+msgstr ""
+
+#: dataquality/serializers/audit.py:122
+msgid "触发周期必须是1~10080的正整数(分钟)"
+msgstr ""
+
+#: dataquality/serializers/audit.py:125
+msgid "触发次数必须是1~10000的正整数"
+msgstr ""
+
+#: dataquality/serializers/audit.py:128
+msgid "告警屏蔽时间必须是1~10080的正整数(分钟)"
+msgstr ""
+
+#: dataquality/serializers/audit.py:140
+msgid "事件名称"
+msgstr ""
+
+#: dataquality/serializers/audit.py:142
+msgid "事件描述"
+msgstr ""
+
+#: dataquality/serializers/audit.py:146
+msgid "事件时效性"
+msgstr ""
+
+#: dataquality/serializers/audit.py:147
+msgid "敏感度"
+msgstr ""
+
+#: dataquality/serializers/audit.py:148
+msgid "事件详情模板"
+msgstr ""
+
+#: dataquality/serializers/audit.py:149
+msgid "事件通知方式"
+msgstr ""
+
+#: dataquality/serializers/audit.py:150
+msgid "事件接收人"
+msgstr ""
+
+#: dataquality/serializers/audit.py:195 dataquality/serializers/event.py:22
+#: lifecycle/serializers.py:22
+msgid "开始时间"
+msgstr "start time"
+
+#: dataquality/serializers/audit.py:196 dataquality/serializers/event.py:23
+#: lifecycle/serializers.py:23
+msgid "结束时间"
+msgstr "end time"
+
+#: dataquality/serializers/correction.py:22
+msgid "修正配置"
+msgstr ""
+
+#: dataquality/serializers/correction.py:26
+#: dataquality/serializers/correction.py:43 dstan/models.py:199
+msgid "描述"
+msgstr "description"
+
+#: dataquality/serializers/correction.py:38
+msgid "数据流节点ID"
+msgstr ""
+
+#: dataquality/serializers/correction.py:40
+#: dataquality/serializers/correction.py:62
+#: dataquality/serializers/correction.py:77
+#: dataquality/serializers/correction.py:93
+msgid "修正配置列表"
+msgstr ""
+
+#: dataquality/serializers/correction.py:41
+msgid "生成类型"
+msgstr ""
+
+#: dataquality/serializers/correction.py:50
+#: dataquality/serializers/correction.py:69
+#: dataquality/serializers/correction.py:84
+#: dataquality/serializers/correction.py:100
+msgid "修正配置不能为空"
+msgstr ""
+
+#: dataquality/serializers/event.py:17 dataquality/serializers/summary.py:13
+msgid "是否获取当前值"
+msgstr ""
+
+#: dataquality/serializers/event.py:18 dataquality/serializers/summary.py:14
+msgid "是否获取全量"
+msgstr ""
+
+#: dataquality/serializers/profiling.py:14
+msgid "剖析请求ID"
+msgstr ""
+
+#: dataquality/serializers/sampling.py:10
+msgid "数据热度"
+msgstr ""
+
+#: dataquality/serializers/sampling.py:11
+msgid "热度顺序取值比例"
+msgstr ""
+
+#: dataquality/serializers/sampling.py:12
+msgid "最近有数据时间(秒)"
+msgstr ""
+
+#: datastocktake/views.py:428
+msgid "ModelFlow模型(batch)"
+msgstr "ModelFlow(batch)"
+
+#: datastocktake/views.py:429
+msgid "ModelFlow模型(stream)"
+msgstr "ModelFlow(batch)"
+
+#: datastocktake/views.py:552
+msgid "其他应用"
+msgstr "other app"
+
+#: dstan/exceptions.py:11
+msgid "数据标准化通用错误"
+msgstr "data standardization common error"
+
+#: dstan/exceptions.py:16
+#, python-brace-format
+msgid "出现非法参数，{k}: {v}"
+msgstr "invalid params，{k}: {v}"
+
+#: dstan/exceptions.py:21
+#, python-brace-format
+msgid "对象不存在，{object_id}"
+msgstr "object does not exist，{object_id}"
+
+#: dstan/exceptions.py:26
+#, python-brace-format
+msgid "元数据不符合预期，{message}"
+msgstr "meta data does not meet exceptions，{message}"
+
+#: dstan/models.py:17 dstan/models.py:194
+msgid "标准id"
+msgstr "standard_id"
+
+#: dstan/models.py:18
+msgid "标准名称"
+msgstr "standard_name"
+
+#: dstan/models.py:19 dstan/models.py:180
+msgid "标准描述"
+msgstr "standard description"
+
+#: dstan/models.py:20 dstan/models.py:69
+msgid "所属分类"
+msgstr "category"
+
+#: dstan/models.py:21 dstan/models.py:75 dstan/models.py:109
+#: dstan/models.py:137 dstan/models.py:154
+msgid "是否有效"
+msgstr "active"
+
+#: dstan/models.py:43
+msgid "版本id"
+msgstr "version id"
+
+#: dstan/models.py:44
+msgid "关联的dm_standard_config表id"
+msgstr "related standard id"
+
+#: dstan/models.py:45
+msgid "标准版本号,例子:v1.0,v2.0..."
+msgstr "standard version"
+
+#: dstan/models.py:46
+msgid "版本描述"
+msgstr "version description"
+
+#: dstan/models.py:48
+msgid "版本状态"
+msgstr "version status"
+
+#: dstan/models.py:62
+msgid "标准内容id"
+msgstr "standard content id"
+
+#: dstan/models.py:63
+msgid "关联的dm_standard_version_config表id"
+msgstr "related standard_version_id"
+
+#: dstan/models.py:64
+msgid "标准内容名称"
+msgstr "standard content name"
+
+#: dstan/models.py:66
+msgid "约束条件,格式例子:[1,2]"
+msgstr "constraint conditions"
+
+#: dstan/models.py:67 dstan/models.py:101 dstan/models.py:105
+#: dstan/models.py:125 dstan/models.py:129
+msgid "来源记录id"
+msgstr "source id"
+
+#: dstan/models.py:68
+msgid "标准模板sql"
+msgstr "standard sql"
+
+#: dstan/models.py:70
+msgid "标准内容类型[detaildata/indicator]"
+msgstr "standard content type"
+
+#: dstan/models.py:71
+msgid "标准内容描述"
+msgstr "stardard content description"
+
+#: dstan/models.py:73
+msgid "窗口类型,以秒为单位,json表达定义"
+msgstr "window type"
+
+#: dstan/models.py:74
+msgid "过滤条件"
+msgstr "filter condition"
+
+#: dstan/models.py:100 dstan/models.py:124
+msgid "关联的dm_standard_content_config的id"
+msgstr "related standard_content_id"
+
+#: dstan/models.py:102 dstan/models.py:103 dstan/models.py:126
+#: dstan/models.py:127
+msgid "字段英文名"
+msgstr "field English name"
+
+#: dstan/models.py:107 dstan/models.py:136
+msgid "备注"
+msgstr "remarks"
+
+#: dstan/models.py:108
+msgid "字段在数据集中的顺序"
+msgstr "the sequence in dataset"
+
+#: dstan/models.py:131
+msgid "是否维度:0:否;1:是;"
+msgstr "is metric"
+
+#: dstan/models.py:133
+msgid "可加性"
+msgstr "additivity"
+
+#: dstan/models.py:134
+msgid "关联的值约束配置表id"
+msgstr "related value constraint id"
+
+#: dstan/models.py:135
+msgid "计算方式id"
+msgstr "compute model id"
+
+#: dstan/models.py:153
+msgid "约束条件"
+msgstr "constraint condition"
+
+#: dstan/models.py:177
+msgid "数据类型名称"
+msgstr "data type name"
+
+#: dstan/models.py:179
+msgid "类型"
+msgstr "type"
+
+#: dstan/models.py:195
+msgid "单位英文名"
+msgstr "unit English name"
+
+#: dstan/models.py:196
+msgid "单位中文名"
+msgstr "unit alias"
+
+#: dstan/models.py:197
+msgid "单位类目英文名"
+msgstr "category name"
+
+#: dstan/models.py:198
+msgid "单位类目中文名"
+msgstr "category alias"
+
+#: dstan/views.py:38
+msgid "值范围"
+msgstr "value range"
+
+#: dstan/views.py:39
+msgid "值枚举"
+msgstr "value enumeration"
+
+#: dstan/views.py:40
+msgid "包含"
+msgstr "include"
+
+#: dstan/views.py:41
+msgid "不包含"
+msgstr "exclude"
+
+#: dstan/views.py:42
+msgid "开头是"
+msgstr "start with"
+
+#: dstan/views.py:43
+msgid "结尾是"
+msgstr "end with"
+
+#: dstan/views.py:44
+msgid "正则表达式"
+msgstr "regex"
+
+#: dstan/views.py:48
+msgid "无窗口"
+msgstr "no window"
+
+#: dstan/views.py:48
+msgid "滚动窗口"
+msgstr "scroll"
+
+#: dstan/views.py:48
+msgid "滑动窗口"
+msgstr "slide"
+
+#: dstan/views.py:48
+msgid "累加窗口"
+msgstr "accumulate"
+
+#: exceptions.py:55
+msgid "规则不存在异常"
+msgstr ""
+
+#: exceptions.py:60
+msgid "数据质量事件不存在"
+msgstr ""
+
+#: exceptions.py:65
+msgid "无法找到规则关联的事件"
+msgstr ""
+
+#: exceptions.py:70
+msgid "启动审核任务失败"
+msgstr ""
+
+#: exceptions.py:75
+msgid "停止审核任务失败"
+msgstr ""
+
+#: exceptions.py:80
+msgid "审核任务已经启动"
+msgstr ""
+
+#: exceptions.py:85
+msgid "审核任务已经停止"
+msgstr ""
+
+#: exceptions.py:90
+msgid "运行中的审核任务不能修改或删除"
+msgstr ""
+
+#: exceptions.py:95
+msgid "修正配置不存在"
+msgstr ""
+
+#: exceptions.py:100
+msgid "获取调试样例数据异常"
+msgstr ""
+
+#: exceptions.py:105
+#, python-brace-format
+msgid "Session server({session_key})不存在"
+msgstr ""
+
+#: exceptions.py:110
+msgid "Consume设置offset超时"
+msgstr ""
+
+#: exceptions.py:115
+msgid "数据模型不存在异常"
+msgstr "Data model does not exist."
+
+#: exceptions.py:120
+msgid "数据模型打标签失败"
+msgstr "Tag data model failed"
+
+#: exceptions.py:125
+msgid "删除给数据模型打的标签失败"
+msgstr "Delete tags of data model failed"
+
+#: exceptions.py:130
+msgid "修改给数据模型打的标签失败"
+msgstr "Change tags of data model failed."
+
+#: exceptions.py:135
+msgid "模型置顶失败"
+msgstr "Data model sticky on top failed."
+
+#: exceptions.py:140
+msgid "模型取消置顶失败"
+msgstr "Data model cancel top failed."
+
+#: exceptions.py:145
+msgid "模型尚未置顶"
+msgstr "Data model has not been sticky on top."
+
+#: exceptions.py:150
+msgid "模型已经置顶"
+msgstr "Data model has been sticky on top."
+
+#: exceptions.py:155
+msgid "模型已经被删除"
+msgstr "Model can't be deleted."
+
+#: exceptions.py:160
+msgid "数据模型名称已存在，请修改数据模型名称"
+msgstr "Data model name has been existed, please modify data model name."
+
+#: exceptions.py:165
+msgid "维度表不能有度量"
+msgstr "Dimension table can't have measures."
+
+#: exceptions.py:170
+msgid "维度表没有主键错误"
+msgstr "Dimension table doesn't have primary key."
+
+#: exceptions.py:175
+#, python-brace-format
+msgid "主表字段约束格式错误:{format_error_type}"
+msgstr "Field constraint of master table format error:{format_error_type}."
+
+#: exceptions.py:180
+#, python-brace-format
+msgid "SQL校验不通过:{error_info}"
+msgstr "SQL validation failed:{error_info}."
+
+#: exceptions.py:185
+#, python-brace-format
+msgid "关联字段:{field_name}非主表字段"
+msgstr "Related field:{field_name} is not field of master table."
+
+#: exceptions.py:190
+msgid "字段不存在异常"
+msgstr "Field doesn't exist."
+
+#: exceptions.py:195
+#, python-brace-format
+msgid "设置cache [{cache_key}] 异常: {error}"
+msgstr ""
+
+#: exceptions.py:200
+msgid "统计口径不存在异常"
+msgstr "Calculation atom doesn't exist."
+
+#: exceptions.py:205
+msgid "统计口径名称已存在，请修改统计口径名称"
+msgstr "Calculation atom name has been existed, please modify calculation atom name"
+
+#: exceptions.py:210
+msgid "指标不存在异常"
+msgstr "Indicator doesn't exist."
+
+#: exceptions.py:215
+msgid "统计口径不能被删除异常"
+msgstr "Calculation atom can not be deleted."
+
+#: exceptions.py:220
+msgid "聚合字段不是主表维度字段异常"
+msgstr "Dimension field is not dimension field of master table."
+
+#: exceptions.py:225
+msgid "不能引用当前模型下创建 & 已经引用 & 加工字段不在主表中的统计口径"
+msgstr "Can not quote calculation atom where is created, quoted or origin fields is not in current model"
+
+#: exceptions.py:230
+#, python-brace-format
+msgid "别名设置错误, 正确别名应为 {alias}"
+msgstr ""
+
+#: exceptions.py:235
+msgid "当前模型下聚合逻辑已经存在"
+msgstr "The aggregation formula has been already existed."
+
+#: exceptions.py:240
+#, python-brace-format
+msgid "模型标签数超过最大标签数量限制:{max_tag_num}"
+msgstr "The number of model tags is larger than max_tag_num :{max_tag_num}"
+
+#: exceptions.py:245
+msgid "指标统计口径和父指标统计口径不一致"
+msgstr "The calculation atom of sub indicator is not same as parent indicator's."
+
+#: exceptions.py:250
+#, python-brace-format
+msgid "模型发布内容校验不通过:{error_info}"
+msgstr "Model release validation failed:{error_info}"
+
+#: exceptions.py:255
+#, python-brace-format
+msgid "指标聚合字段不是父指标维度字段子集异常:{error_info}"
+msgstr "Aggregation fields of sub indicator is not subset of parent indicator's.:{error_info}"
+
+#: exceptions.py:260
+msgid "当前没有变更内容，无需重复发布"
+msgstr "There is no change content, don't release again."
+
+#: lifecycle/metrics/data_trace.py:58
+msgid "数据创建"
+msgstr ""
+
+#: lifecycle/serializers.py:14 lifecycle/serializers.py:25
+msgid "结果表"
+msgstr "result_table"
+
+#: lifecycle/serializers.py:16
+msgid "tdw表"
+msgstr ""
+
+#: lifecycle/serializers.py:21
+msgid "频率"
+msgstr "frequency"
+
+#: lifecycle/views.py:32
+msgid "今日暂未统计"
+msgstr ""
+
+#: lifecycle/views.py:884
+msgid "数据迁移"
+msgstr ""
+
+#: lifecycle/views.py:892
+#, fuzzy
+#| msgid "数据标准化通用错误"
+msgid "数据标准化"
+msgstr "data standardization common error"

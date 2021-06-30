@@ -1,0 +1,32 @@
+FilterExpression:
+    BoolExpression|ConditionExpression
+;
+
+BoolExpression: expression=Or;
+Or: op=And ('or' op=And)*;
+And: op=Operand ('and' op=Operand)*;
+Operand: ConditionExpression;
+
+ConditionExpression:
+    BoolConditionExpression|InConditionExpression
+;
+
+Value:
+    STRING | INT | FLOAT | BOOL | "null"
+;
+
+Array:
+    "[" values*=Value[','] "]"
+;
+
+InConditionExpression:
+    key=/\w+\s/ 'in' value=Array
+;
+
+BoolConditionExpression:
+    key=/\w+/ symbol=BoolCondition value=Value
+;
+
+BoolCondition:
+    '>='|'<='|'='|'>'|'<'|'*='
+;

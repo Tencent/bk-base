@@ -1,0 +1,30 @@
+[
+    {
+        "calculation_atom_name": "sum_metric1",
+        "calculation_atom_alias": "汇总字段1",
+        "calculation_formula": "sum(metric1)",
+        "description": "test",
+        "field_type": "int",
+        "calculation_content": {
+            "option": "TABLE",
+            "content": {
+                "calculation_field": "metric1",
+                "calculation_function": "sum"
+            }
+        }
+    },
+    {
+        "calculation_atom_name": "country_count",
+        "calculation_atom_alias": "国家数量",
+        "calculation_formula": "count(distinct country)",
+        "description": "test",
+        "field_type": "int",
+        "calculation_content": {
+            "option": "TABLE",
+            "content": {
+                "calculation_field": "country",
+                "calculation_function": "count_distinct"
+            }
+        }
+    }
+]

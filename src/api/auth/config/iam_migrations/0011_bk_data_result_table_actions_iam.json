@@ -1,0 +1,154 @@
+{
+    "system_id": "bk_bkdata",
+    "operations": [
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "result_table-query_data",
+                "name": "结果数据查询",
+                "name_en": "ResultTable DataQuery",
+                "description": "结果数据查询",
+                "description_en": "ResultTable DataQuery",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "result_table",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-result_table"
+                            },
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-result_table"
+                            },
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "raw_data-result_table"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "result_table-retrieve",
+                "name": "结果数据查看",
+                "name_en": "ResultTable View",
+                "description": "结果数据查看",
+                "description_en": "ResultTable View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "result_table",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-result_table"
+                            },
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-result_table"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "result_table-retrieve_sens_info",
+                "name": "结果数据敏感信息查看",
+                "name_en": "ResultTable SensitiveInfomation View",
+                "description": "结果数据敏感信息查看",
+                "description_en": "ResultTable SensitiveInfomation View",
+                "type": "view",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "result_table",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-result_table"
+                            },
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-result_table"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "result_table-update_data",
+                "name": "结果数据更新",
+                "name_en": "Result Table Update Data",
+                "description": "结果数据更新",
+                "description_en": "Result Table Update Data",
+                "type": "edit",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "result_table",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-result_table"
+                            },
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-result_table"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        },
+        {
+            "operation": "upsert_action",
+            "data": {
+                "id": "result_table-delete_data",
+                "name": "结果数据删除",
+                "name_en": "ResultTable DataDelete",
+                "description": "结果数据删除",
+                "description_en": "ResultTable DataDelete",
+                "type": "delete",
+                "related_resource_types": [
+                    {
+                        "system_id": "bk_bkdata",
+                        "id": "result_table",
+                        "related_instance_selections": [
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "project-result_table"
+                            },
+                            {
+                                "system_id": "bk_bkdata",
+                                "id": "biz-result_table"
+                            }
+                        ],
+                        "selection_mode": "all"
+                    }
+                ],
+                "related_actions": []
+            }
+        }
+    ]
+}

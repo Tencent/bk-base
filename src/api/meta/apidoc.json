@@ -1,0 +1,12 @@
+{
+  "name": "apidoc-metaapi",
+  "version": "0.3.0",
+  "description": "bkdata metaapi webdoc",
+  "title": "bkdata metaapi webdoc",
+  "url" : "",
+  "sampleUrl": "",
+  "template": {
+      "withCompare": true,
+      "withGenerator": true
+  }
+}

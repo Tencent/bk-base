@@ -1,0 +1,37 @@
+[
+    {
+        "cluster_type": "mysql",
+        "storage_scenario_alias": "关系型数据库",
+        "storage_scenario_name": "RDBMS"
+    },
+    {
+        "cluster_type": "es",
+        "storage_scenario_alias": "分析型数据库",
+        "storage_scenario_name": "OLAP"
+    },
+        {
+        "cluster_type": "clickhouse",
+        "storage_scenario_alias": "分析型数据库",
+        "storage_scenario_name": "OLAP"
+    },
+        {
+        "cluster_type": "druid",
+        "storage_scenario_alias": "分析型数据库",
+        "storage_scenario_name": "OLAP"
+    },
+        {
+        "cluster_type": "ignite",
+        "storage_scenario_alias": "分布式缓存",
+        "storage_scenario_name": "DISTRIBUTED CACHE"
+    },
+    {
+        "cluster_type": "es",
+        "storage_scenario_alias": "日志检索",
+        "storage_scenario_name": "SEARCH"
+    },
+    {
+        "cluster_type": "queue",
+        "storage_scenario_alias": "消息队列",
+        "storage_scenario_name": "MQ"
+    }
+]

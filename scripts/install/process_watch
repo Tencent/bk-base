@@ -1,0 +1,17 @@
+#!/bin/bash
+
+usage () {
+    echo "usage: ${0##*/} MODULE"
+    exit 0
+}
+
+[ -z "$1" ] && usage
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+cd ${BASH_SOURCE%/*} 2>/dev/null
+source ./watch.rc
+
+log "$0" >/dev/null
+module=$1
+shift 1
+watch_$module "$@"

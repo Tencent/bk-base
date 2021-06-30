@@ -1,0 +1,40 @@
+plans:
+  - task_code: dataquality_sampling_consume_datasets
+    task_name: 采样数据集数据
+    task_category: dataquality
+    task_loader: import
+    task_entry: dataquality.main.sampling_consume_datasets
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dataquality_adhoc_profiling_session_manager
+    task_name: 即席剖析Session管理
+    task_category: dataquality
+    task_loader: import
+    task_entry: dataquality.main.start_data_profiling_adhoc_session
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dataquality_correct_debug_session_manager
+    task_name: 修正调试Session管理
+    task_category: dataquality
+    task_loader: import
+    task_entry: dataquality.main.start_data_correct_debug_session
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dataquality_notify_event
+    task_name: 质量事件通知
+    task_category: dataquality
+    task_loader: import
+    task_entry: dataquality.main.notify_data_quality_event
+    task_status: 'on'
+    work_type: long
+
+  - task_code: dataquality_audit_rule
+    task_name: 质量审核
+    task_category: dataquality
+    task_loader: import
+    task_entry: dataquality.main.audit_rules
+    task_status: 'on'
+    work_type: long

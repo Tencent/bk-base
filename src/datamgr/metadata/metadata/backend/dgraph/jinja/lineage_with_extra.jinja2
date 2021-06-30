@@ -1,0 +1,31 @@
+
+{%macro extra_retrieve(retrieve_args) %}
+    {% for key,value in retrieve_args.items() recursive %}
+    {%if loop.first  %}
+        {
+    {% endif%}
+        {{ key }}
+        {% if is_dict(value)  %}
+            {{ loop(value.items()) }}
+        {%  endif  %}
+    {%if loop.last  %}
+        }
+    {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{
+    target(func: eq({{ dgraph_entity_id_field }}, "{{ dgraph_entity_id }}")) @recurse(depth: {{ depth }}) {
+        nodes as uid
+        AccessRawData.id
+        DataProcessing.processing_id
+        ResultTable.result_table_id
+        ResultTable.generate_type
+        DataProcessing.generate_type
+        {{ relation }}: {{ relation_predicate }}
+    }
+
+    DataProcessing(func: uid(nodes)) @filter(has(DataProcessing.typed))  {{ extra_retrieve(DataProcessing) }}
+    ResultTable(func: uid(nodes)) @filter(has(ResultTable.typed))  {{ extra_retrieve(ResultTable) }}
+    AccessRawData(func: uid(nodes)) @filter(has(AccessRawData.typed))  {{ extra_retrieve(AccessRawData) }}
+}
