@@ -246,7 +246,7 @@ INSERT INTO auth_role_config(role_id, role_name, object_class, created_by, updat
   ('result_table.viewer', '数据观察员', 'result_table', 'admin', 'admin');
 
 INSERT INTO auth_object_config(object_class, object_name, has_object, scope_id_key, scope_name_key, user_mode, created_by, updated_by) values
-  ('bkdata', '蓝鲸数据平台', 0, '*', '*', 0, 'admin', 'admin'),
+  ('bkdata', '蓝鲸基础计算平台', 0, '*', '*', 0, 'admin', 'admin'),
   ('biz', '业务', 1, 'bk_biz_id', 'bk_biz_name', 1, 'admin', 'admin'),
   ('project', '项目', 1, 'project_id', 'project_name', 1, 'admin', 'admin'),
   ('flow', '任务', 1, 'flow_id', 'flow_name', 0, 'admin', 'admin'),

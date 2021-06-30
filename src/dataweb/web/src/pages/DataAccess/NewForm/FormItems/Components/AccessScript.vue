@@ -26,7 +26,7 @@
   <div class="access-script">
     <span v-if="!isReadonly"
       class="bk-item-des">
-      {{ $t('蓝鲸数据平台会将脚本下发到指定的服务器_并托管执行该脚本') }}
+      {{ $t('蓝鲸基础计算平台会将脚本下发到指定的服务器_并托管执行该脚本') }}
     </span>
     <Container>
       <template v-for="(item, index) in params.scope">

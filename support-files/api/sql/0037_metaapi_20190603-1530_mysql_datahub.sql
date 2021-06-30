@@ -26,7 +26,7 @@ set NAMES utf8;
 
 use bkdata_basic;
 
-INSERT INTO content_language_config (content_value, language, content_key, description) VALUES ('bkdata','en','蓝鲸数据平台','');
+INSERT INTO content_language_config (content_value, language, content_key, description) VALUES ('bkdata','en','蓝鲸基础计算平台','');
 INSERT INTO content_language_config (content_value, language, content_key, description) VALUES ('default group','en','默认集群组','');
 INSERT INTO content_language_config (content_value, language, content_key, description) VALUES ('double','en','浮点型','');
 INSERT INTO content_language_config (content_value, language, content_key, description) VALUES ('int','en','整型','');

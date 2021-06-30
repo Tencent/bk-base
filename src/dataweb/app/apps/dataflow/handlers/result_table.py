@@ -937,7 +937,7 @@ class ResultTable(APIModel):
     def platform(self):
         """
         结果表所属平台
-        bkdata=蓝鲸数据平台
+        bkdata=蓝鲸基础计算平台
         tdw=TDW
         """
         return self.data.get("platform", "bkdata")

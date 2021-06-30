@@ -41,7 +41,7 @@ class BizSet(APIViewSet):
             [
                 {
                     "biz_id": 111,
-                    "biz_name": "蓝鲸数据平台"
+                    "biz_name": "蓝鲸基础计算平台"
                 },
                 {
                     "biz_id": 222,
@@ -161,7 +161,7 @@ class BizSet(APIViewSet):
             [
                 {
                     "bk_biz_id": 111,
-                    "bk_biz_name": "蓝鲸数据平台"
+                    "bk_biz_name": "蓝鲸基础计算平台"
                 },
                 {
                     "bk_biz_id": 222,

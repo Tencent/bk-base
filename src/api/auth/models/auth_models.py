@@ -361,7 +361,7 @@ class AuthDataToken(models.Model):
               'scope_object_class': 'biz',
               'scope_name_key': 'bk_biz_name',
               'scope_display': {
-                'bk_biz_name': '蓝鲸数据平台对内版'
+                'bk_biz_name': '蓝鲸基础计算平台'
               },
               'scope': {
                 'bk_biz_id': '591'

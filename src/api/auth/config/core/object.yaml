@@ -1,6 +1,6 @@
 objects:
   - object_class: bkdata
-    object_name: 蓝鲸数据平台
+    object_name: 蓝鲸基础计算平台
     object_name_en: DataSystem
     has_object: False
     scope_id_key: "*"

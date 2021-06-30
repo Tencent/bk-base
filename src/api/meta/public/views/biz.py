@@ -46,7 +46,7 @@ class BizViewSet(RPCViewSet):
                 "data": {
                     "bk_biz_id": "591",
                     "maintainers": "maintainer1;maintainer2",
-                    "bk_biz_name": "蓝鲸数据平台对内版",
+                    "bk_biz_name": "蓝鲸基础计算平台",
                     "description": "some description"
                 },
                 "result": true

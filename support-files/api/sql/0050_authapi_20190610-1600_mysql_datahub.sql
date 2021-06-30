@@ -52,7 +52,7 @@ INSERT INTO content_language_config(content_key, language, content_value, active
  ('数据清洗员', 'en', 'DataCleaner', 1, 'auth'),
  ('数据观察员', 'en', 'DataViewer', 1, 'auth'),
  ('任务开发员', 'en', 'FlowDeveloper', 1, 'auth'),
- ('蓝鲸数据平台', 'en', 'BlueKing Data System', 1, 'auth'),
+ ('蓝鲸基础计算平台', 'en', 'BlueKing Data System', 1, 'auth'),
  ('业务', 'en', 'Business', 1, 'auth'),
  ('项目', 'en', 'Project', 1, 'auth'),
  ('任务', 'en', 'Task', 1, 'auth'),

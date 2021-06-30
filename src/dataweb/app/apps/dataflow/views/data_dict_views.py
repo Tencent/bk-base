@@ -657,7 +657,7 @@ class LineageListViewSet(APIViewSet):
                         "count_freq_unit":"s",
                         "alias":"直接清洗",
                         "project_id":4,
-                        "bk_biz_name":"蓝鲸数据平台对内版",
+                        "bk_biz_name":"蓝鲸基础计算平台",
                         "id":"result_table_591_xxxx1115",
                         "name":"591_xxxx1115"
                     },

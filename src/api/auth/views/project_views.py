@@ -273,7 +273,7 @@ class ProjectViewSet(APIViewSet):
                 processing: 1,
                 succeeded: 0
               },
-              bk_biz_name: "蓝鲸数据平台对内版",
+              bk_biz_name: "蓝鲸基础计算平台",
               description: "枫叶对内版本的配置管理"
             }
         ]

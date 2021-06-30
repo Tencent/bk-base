@@ -219,7 +219,7 @@ INSERT INTO auth_role_config(role_id, role_name, object_class, created_by, updat
  ('result_table.viewer', '数据观察员', 'result_table', 'admin', 'admin');
 
 INSERT INTO auth_object_config(object_class, object_name, has_object, scope_id_key, scope_name_key, user_mode, created_by, updated_by) values
- ('bkdata', '蓝鲸数据平台', 0, '*', '*', 0, 'admin', 'admin'),
+ ('bkdata', '蓝鲸基础计算平台', 0, '*', '*', 0, 'admin', 'admin'),
  ('biz', '业务', 1, 'bk_biz_id', 'bk_biz_name', 1, 'admin', 'admin'),
  ('project', '项目', 1, 'project_id', 'project_name', 1, 'admin', 'admin'),
  ('flow', '任务', 1, 'flow_id', 'flow_name', 0, 'admin', 'admin'),
@@ -475,7 +475,7 @@ INSERT INTO content_language_config(content_key, language, content_value, active
  ('数据清洗员', 'en', 'DataCleaner', 1, 'auth'),
  ('数据观察员', 'en', 'DataViewer', 1, 'auth'),
  ('任务开发员', 'en', 'FlowDeveloper', 1, 'auth'),
- ('蓝鲸数据平台', 'en', 'BlueKing Data System', 1, 'auth'),
+ ('蓝鲸基础计算平台', 'en', 'BlueKing Data System', 1, 'auth'),
  ('业务', 'en', 'Business', 1, 'auth'),
  ('项目', 'en', 'Project', 1, 'auth'),
  ('任务', 'en', 'Task', 1, 'auth'),

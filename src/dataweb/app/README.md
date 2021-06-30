@@ -1,6 +1,6 @@
 # BK_DATAWEB
 
-蓝鲸数据平台WEB端，项目采用前后端分离的方式开发，前端使用 VUE 框架，后端使用 DJANGO+DRF 提供 API
+蓝鲸基础计算平台WEB端，项目采用前后端分离的方式开发，前端使用 VUE 框架，后端使用 DJANGO+DRF 提供 API
 
 ## 代码规范
 

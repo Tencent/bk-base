@@ -533,4 +533,4 @@ INSERT INTO `job_status_config` (`status_id`, `status_name`, `status_alias`, `ac
 INSERT INTO `job_status_config` (`status_id`, `status_name`, `status_alias`, `active`, `description`) VALUES ('succeeded', 'succeeded', '已成功', 1, '');
 
 -- 归属配置初始化
-INSERT INTO `belongs_to_config` (`belongs_id`, `belongs_name`, `belongs_alias`, `active`, `description`) VALUES ('bkdata', 'bkdata', '蓝鲸数据平台', 1, '');
+INSERT INTO `belongs_to_config` (`belongs_id`, `belongs_name`, `belongs_alias`, `active`, `description`) VALUES ('bkdata', 'bkdata', '蓝鲸基础计算平台', 1, '');

@@ -93,7 +93,7 @@ class ToolsViewSet(APIViewSet):
             [
                 {
                     "app_code": "data",
-                    "app_name": "蓝鲸数据平台"
+                    "app_name": "蓝鲸基础计算平台"
                 },
                 {
                     "app_code": "log_search",
